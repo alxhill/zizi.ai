@@ -10,10 +10,11 @@ class ZiziPlayer extends React.Component {
     this.state = {
       isLoaded: false,
       playing: false,
-      act: "roses",
       zoom: false,
       pose: false,
       currentTime: 0,
+      act: "roses",
+      performer: "me",
     };
   }
 
@@ -37,8 +38,20 @@ class ZiziPlayer extends React.Component {
         />
         {buttons}
         <DragPlayer
+          className="primary-player"
+          act={this.state.act}
+          performer={this.state.performer}
           playing={this.state.playing}
           currentTime={this.state.currentTime}
+          shadow={false}
+        />
+        <DragPlayer
+          className="shadow-player"
+          act={this.state.act}
+          performer={this.state.performer}
+          playing={this.state.playing}
+          currentTime={this.state.currentTime}
+          shadow={true}
         />
       </div>
     );

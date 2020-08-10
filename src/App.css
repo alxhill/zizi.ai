@@ -21,7 +21,7 @@ body {
   z-index: -3;
 }
 
-.drag-player .primary-player {
+.primary-player {
   position: absolute;
   max-width: 100%;
   max-height: 100%;
@@ -34,7 +34,7 @@ body {
   z-index: -1;
 }
 
-.drag-player .shadow-player {
+.shadow-player {
   position: absolute;
   max-width: 100%;
   max-height: 100%;
@@ -43,7 +43,6 @@ body {
   transform: translate(-40%, -45%);
   user-select: none;
 
-  filter: opacity(70%);
   mix-blend-mode: multiply;
   z-index: -2;
 }

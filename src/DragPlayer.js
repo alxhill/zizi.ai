@@ -6,72 +6,49 @@ class DragPlayer extends React.Component {
     pose: false,
     act: "roses",
     performer: "me",
-    video: {
-      autoPlay: false,
-      loop: false,
-      playsInline: true,
-      muted: true,
-    },
+    shadow: false,
     playing: false,
   };
 
   constructor(props) {
     super(props);
-    this.primaryVideo = React.createRef();
+    this.dragVideo = React.createRef();
   }
 
   render() {
-    let { autoPlay, loop, playsInline, muted } = this.props.video;
     return (
-      <div className="drag-player">
-        <video
-          className="primary-player"
-          autoPlay={autoPlay}
-          loop={loop}
-          playsInline={playsInline}
-          muted={muted}
-          ref={this.primaryVideo}
-        >
-          <source src={this.renderUrl()} type="video/mp4" />
-        </video>
-        {/* <video className="shadowPlayer"
-        autoPlay={autoPlay}
-        loop={loop}
-        playsInline={playsInline}
-        muted={muted}
-        ref={this.shadowVideo}>
-          
-        </video> */}
-      </div>
+      <video
+        className={this.props.className}
+        playsInline={true}
+        muted={true}
+        ref={this.dragVideo}
+      >
+        <source
+          src={this.props.shadow ? this.renderShadowUrl() : this.renderUrl()}
+          type="video/mp4"
+        />
+      </video>
     );
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.playing && !this.props.playing) {
-      this.primaryVideo.current.pause();
+      this.dragVideo.current.pause();
     } else if (!prevProps.playing && this.props.playing) {
-      this.primaryVideo.current.play();
+      this.dragVideo.current.play();
     }
 
     if (this.props.playing) {
       this.sync(this.props.currentTime);
     }
 
-    window.primaryVideo = this.primaryVideo;
-  }
-
-  play() {
-    console.log("play!");
-  }
-
-  pause() {
-    console.log("pause!");
+    window.dragVideo = this.dragVideo;
   }
 
   sync(newTime) {
-    if (Math.abs(newTime - this.primaryVideo.current.currentTime) > 0.1) {
-      console.log("UPDATING TIME", this.primaryVideo.current.currentTime, newTime);
-      this.primaryVideo.current.currentTime = newTime;
+    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.1) {
+      console.log("UPDATING TIME", this.dragVideo.current.currentTime, newTime);
+      this.dragVideo.current.currentTime = newTime;
     }
   }
 
