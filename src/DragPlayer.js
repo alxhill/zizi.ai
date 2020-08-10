@@ -43,6 +43,12 @@ class DragPlayer extends React.Component {
     } else if (!prevProps.playing && this.props.playing) {
       this.primaryVideo.current.play()
     }
+    
+    if (this.props.playing) {
+      this.sync(this.props.currentTime)
+    }
+    
+    window.primaryVideo = this.primaryVideo
   }
 
   play() {
@@ -53,8 +59,11 @@ class DragPlayer extends React.Component {
     console.log('pause!')
   }
 
-  seekTo(time) {
-    console.log(time)
+  sync(newTime) {
+    if (Math.abs(newTime - this.primaryVideo.currentTime) > 0.1) {
+        console.log("UPDATING TIME", this.primaryVideo.currentTime, newTime)
+        this.primaryVideo.currentTime = newTime
+    }
   }
 
   renderUrl() {

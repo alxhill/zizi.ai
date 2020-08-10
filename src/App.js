@@ -1,5 +1,5 @@
 import React from "react";
-import ControlledYoutube from "./Youtube";
+import ZiziPlayer from "./ZiziPlayer";
 import "./App.css";
 
 function click() {
@@ -9,7 +9,7 @@ function click() {
 function App() {
   return (
     <div className="App">
-      <ControlledYoutube />
+      <ZiziPlayer />
     </div>
   );
 }
