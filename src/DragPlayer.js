@@ -47,6 +47,7 @@ class DragPlayer extends React.Component {
 
     if (this.renderUrl(prevProps) != this.renderUrl(this.props)) {
       player.load();
+      player.currentTime = this.props.currentTime
     }
   }
 
