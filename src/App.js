@@ -1,18 +1,15 @@
-import React from 'react';
-import ControlledYoutube from './Youtube'
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ControlledYoutube from "./Youtube";
+import "./App.css";
+
+function click() {
+  console.log("click");
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <ControlledYoutube/>
-      </header>
+      <ControlledYoutube />
     </div>
   );
 }

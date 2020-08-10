@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.buttons svg {
+  margin: 10px;
+  font-size: 35px;
+}
