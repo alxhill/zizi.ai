@@ -1,5 +1,5 @@
 import React from "react";
-import { Play, Pause } from "./Buttons";
+import { Play, Pause, ZoomIn, ZoomOut, Show, Hide } from "./Buttons";
 import DragPlayer from "./DragPlayer";
 import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
 import Curtain from "./Curtain";
@@ -19,8 +19,8 @@ class ZiziPlayer extends React.Component {
   }
 
   render() {
-    let buttons = !this.state.isLoaded || (
-      <div className="buttons">
+    let playerButtons = !this.state.isLoaded || (
+      <div className="player-buttons">
         <Play onClick={this.play} />
         <Pause onClick={this.pause} />
       </div>
@@ -36,13 +36,25 @@ class ZiziPlayer extends React.Component {
           hideTimer={false}
           adjustedTimerEvent={this.onTimerEvent}
         />
-        {buttons}
+        <div className="button-group">
+        {playerButtons}
+          <div className="zoom-buttons">
+            <ZoomIn onClick={this.zoomIn}/>
+            <ZoomOut onClick={this.zoomOut}/>
+          </div>
+          <div className="pose-buttons">
+            <Show onClick={this.disablePose}/>
+            <Hide onClick={this.enablePose}/>
+          </div>
+        </div>
         <DragPlayer
           className="primary-player"
           act={this.state.act}
           performer={this.state.performer}
           playing={this.state.playing}
           currentTime={this.state.currentTime}
+          zoom={this.state.zoom}
+          pose={this.state.pose}
           shadow={false}
         />
         <DragPlayer
@@ -51,6 +63,8 @@ class ZiziPlayer extends React.Component {
           performer={this.state.performer}
           playing={this.state.playing}
           currentTime={this.state.currentTime}
+          zoom={this.state.zoom}
+          pose={this.state.pose}
           shadow={true}
         />
       </div>
@@ -78,6 +92,22 @@ class ZiziPlayer extends React.Component {
   onTimerEvent = (currentTime) => {
     this.setState({ currentTime: currentTime });
   };
+
+  zoomIn = () => {
+    this.setState({zoom: true})
+  }
+
+  zoomOut = () => {
+    this.setState({zoom: false})
+  }
+
+  enablePose = () => {
+    this.setState({pose: true})
+  }
+
+  disablePose = () => {
+    this.setState({pose: false})
+  }
 }
 
 export default ZiziPlayer;

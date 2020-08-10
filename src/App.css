@@ -46,3 +46,8 @@ body {
   mix-blend-mode: multiply;
   z-index: -2;
 }
+
+.button-group {
+  line-height: 2;
+  font-size: 3vw;
+}

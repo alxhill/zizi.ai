@@ -18,31 +18,36 @@ class DragPlayer extends React.Component {
   render() {
     return (
       <video
+        autoPlay={this.props.playing}
         className={this.props.className}
         playsInline={true}
         muted={true}
         ref={this.dragVideo}
       >
-        <source
-          src={this.props.shadow ? this.renderShadowUrl() : this.renderUrl()}
-          type="video/mp4"
-        />
+        <source src={this.renderUrl(this.props)} type="video/mp4" />
       </video>
     );
   }
 
+  componentDidMount() {
+    this.dragVideo.current.currentTime = this.props.currentTime
+  }
+
   componentDidUpdate(prevProps) {
+    let player = this.dragVideo.current;
     if (prevProps.playing && !this.props.playing) {
-      this.dragVideo.current.pause();
+      player.pause();
     } else if (!prevProps.playing && this.props.playing) {
-      this.dragVideo.current.play();
+      player.play();
     }
 
     if (this.props.playing) {
       this.sync(this.props.currentTime);
     }
 
-    window.dragVideo = this.dragVideo;
+    if (this.renderUrl(prevProps) != this.renderUrl(this.props)) {
+      player.load();
+    }
   }
 
   sync(newTime) {
@@ -52,17 +57,21 @@ class DragPlayer extends React.Component {
     }
   }
 
-  renderUrl() {
-    let zoomString = this.props.zoom ? "close" : "full";
-    let ziziString = this.props.pose ? "pose" : this.props.performer;
-
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${this.props.act}-${ziziString}-${zoomString}.mp4`;
+  renderUrl(props) {
+    return props.shadow
+      ? this.renderShadowUrl(props)
+      : this.renderActUrl(props);
   }
 
-  // not yet used
-  renderShadowUrl() {
-    let zoomString = this.props.zoom ? "close" : "full";
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${this.props.act}-shadow-${zoomString}.mp4`;
+  renderActUrl(props) {
+    let zoomString = props.zoom ? "close" : "full";
+    let ziziString = props.pose ? "pose" : props.performer;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${props.act}-${ziziString}-${zoomString}.mp4`;
+  }
+
+  renderShadowUrl(props) {
+    let zoomString = props.zoom ? "close" : "full";
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${props.act}-shadow-${zoomString}.mp4`;
   }
 }
 
