@@ -4,7 +4,6 @@ import YouTube from "react-youtube";
 export default class HiddenYoutubePlayer extends React.Component {
   static defaultProps = {
     playing: false,
-    startTime: 0,
     hideTimer: true,
     onReady: () => {},
     adjustedTimerEvent: () => {}
@@ -59,6 +58,8 @@ export default class HiddenYoutubePlayer extends React.Component {
 
   youtubeReady = (event) => {
     this.player = event.target;
+    this.player.seekTo(this.actVideoMetadata[this.props.act].startTime)
+    this.player.pauseVideo()
     this.props.onReady();
   };
 
@@ -71,7 +72,7 @@ export default class HiddenYoutubePlayer extends React.Component {
       this.player.playVideo();
     }
 
-    this.timerIntervalID = setInterval(this.updateTimer, 50);
+    this.timerIntervalID = setInterval(this.updateTimer, 100);
   }
 
   pause() {
