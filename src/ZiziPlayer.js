@@ -34,7 +34,7 @@ class ZiziPlayer extends React.Component {
         {buttons}
         <DragPlayer
           playing={this.state.playing}
-          currenTime={this.state.currentTime}
+          currentTime={this.state.currentTime}
         />
       </div>
     );

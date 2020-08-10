@@ -12,12 +12,12 @@ class DragPlayer extends React.Component {
       playsInline: true,
       muted: true,
     },
-    playing: false
+    playing: false,
   };
 
   constructor(props) {
-    super(props)
-    this.primaryVideo = React.createRef()
+    super(props);
+    this.primaryVideo = React.createRef();
   }
 
   render() {
@@ -39,30 +39,31 @@ class DragPlayer extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.playing && !this.props.playing) {
-      this.primaryVideo.current.pause()
+      this.primaryVideo.current.pause();
     } else if (!prevProps.playing && this.props.playing) {
-      this.primaryVideo.current.play()
+      this.primaryVideo.current.play();
     }
-    
+
     if (this.props.playing) {
-      this.sync(this.props.currentTime)
+      this.sync(this.props.currentTime);
     }
-    
-    window.primaryVideo = this.primaryVideo
+
+    window.primaryVideo = this.primaryVideo;
   }
 
   play() {
-    console.log('play!')
+    console.log("play!");
   }
 
   pause() {
-    console.log('pause!')
+    console.log("pause!");
   }
 
   sync(newTime) {
-    if (Math.abs(newTime - this.primaryVideo.currentTime) > 0.1) {
-        console.log("UPDATING TIME", this.primaryVideo.currentTime, newTime)
-        this.primaryVideo.currentTime = newTime
+    // console.log(newTime, this.primaryVideo.current.currentTime);
+    if (Math.abs(newTime - this.primaryVideo.current.currentTime) > 0.1) {
+      console.log("UPDATING TIME", this.primaryVideo.current.currentTime, newTime);
+      this.primaryVideo.current.currentTime = newTime;
     }
   }
 
@@ -73,9 +74,10 @@ class DragPlayer extends React.Component {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${this.props.act}-${ziziString}-${zoomString}.mp4`;
   }
 
+  // not yet used
   renderShadowUrl() {
     let zoomString = this.props.zoom ? "close" : "full";
-    let URL2 = `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${this.props.act}-shadow-${zoomString}.mp4`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${this.props.act}-shadow-${zoomString}.mp4`;
   }
 }
 

@@ -13,7 +13,7 @@ export default class HiddenYoutubePlayer extends React.Component {
   actVideoMetadata = {
     roses: {
       id: "0F28IYnEqKY",
-      startTime: 7.3,
+      startTime: 6.18,
     },
   };
 
