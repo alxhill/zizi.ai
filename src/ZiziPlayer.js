@@ -1,5 +1,5 @@
 import React from "react";
-import { Play, Pause, ZoomIn, ZoomOut, Show, Hide } from "./Buttons";
+import { Play, Pause, ZoomIn, ZoomOut, Show, Hide, PrevAct, NextAct } from "./Buttons";
 import DragPlayer from "./DragPlayer";
 import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
 import Curtain from "./Curtain";
@@ -45,6 +45,10 @@ class ZiziPlayer extends React.Component {
           <div className="pose-buttons">
             <Show onClick={this.disablePose}/>
             <Hide onClick={this.enablePose}/>
+          </div>
+          <div className="act-buttons">
+            <PrevAct onClick={this.prevAct}/>
+            <NextAct onClick={this.nextAct}/>
           </div>
         </div>
         <DragPlayer

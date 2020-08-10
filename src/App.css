@@ -51,3 +51,30 @@ body {
   line-height: 2;
   font-size: 3vw;
 }
+
+
+
+
+/* unvisited link */
+a:link {
+  color: #d98b6f;
+}
+
+/* visited link */
+a:visited {
+  color: #edb49f;
+}
+
+/* mouse over link */
+a:hover {
+  color: #d63a00;
+}
+
+/* selected link */
+a:active {
+  color: #fff;
+}
+
+a:disabled {
+  color: #555;
+}
