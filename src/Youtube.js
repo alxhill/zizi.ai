@@ -10,7 +10,7 @@ class ControlledYoutube extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isLoaded: false };
+    this.state = { isLoaded: false, playing: false };
   }
 
   render() {
@@ -25,8 +25,13 @@ class ControlledYoutube extends React.Component {
       display: "none",
     };
 
-    var hiddenYtPlayer = (<div style={style}>
-      <YouTube videoId="0F28IYnEqKY" opts={playerOpts} onReady={this.onReady} />
+    var hiddenYtPlayer = (
+      <div style={style}>
+        <YouTube
+          videoId="0F28IYnEqKY"
+          opts={playerOpts}
+          onReady={this.youtubeReady}
+        />
       </div>
     );
 
@@ -45,12 +50,12 @@ class ControlledYoutube extends React.Component {
       <div>
         {hiddenYtPlayer}
         {buttons}
-        <DragPlayer/>
+        <DragPlayer playing={this.state.playing}/>
       </div>
     );
   }
 
-  onReady = (event) => {
+  youtubeReady = (event) => {
     this.setState({ isLoaded: true, timer: "0" });
     this.playerElement = event.target;
     this.timerID = setInterval(() => {
@@ -68,6 +73,8 @@ class ControlledYoutube extends React.Component {
     } else {
       this.playerElement.playVideo();
     }
+
+    this.setState({playing: true})
   };
 
   pause = () => {
@@ -76,6 +83,7 @@ class ControlledYoutube extends React.Component {
     }
 
     this.playerElement.pauseVideo();
+    this.setState({playing: false})
   };
 }
 
