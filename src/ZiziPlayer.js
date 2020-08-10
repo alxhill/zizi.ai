@@ -2,6 +2,7 @@ import React from "react";
 import { Play, Pause } from "./Buttons";
 import DragPlayer from "./DragPlayer";
 import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
+import Curtain from "./Curtain";
 
 class ZiziPlayer extends React.Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class ZiziPlayer extends React.Component {
       isLoaded: false,
       playing: false,
       act: "roses",
+      zoom: false,
+      pose: false,
       currentTime: 0,
     };
   }
@@ -24,6 +27,7 @@ class ZiziPlayer extends React.Component {
 
     return (
       <div>
+        <Curtain zoom={this.props.zoom}/>
         <HiddenYoutubePlayer
           act={this.state.act}
           onReady={this.youtubeReady}

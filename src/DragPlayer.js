@@ -25,6 +25,7 @@ class DragPlayer extends React.Component {
     return (
       <div className="drag-player">
         <video
+          className="primary-player"
           autoPlay={autoPlay}
           loop={loop}
           playsInline={playsInline}
@@ -33,6 +34,14 @@ class DragPlayer extends React.Component {
         >
           <source src={this.renderUrl()} type="video/mp4" />
         </video>
+        {/* <video className="shadowPlayer"
+        autoPlay={autoPlay}
+        loop={loop}
+        playsInline={playsInline}
+        muted={muted}
+        ref={this.shadowVideo}>
+          
+        </video> */}
       </div>
     );
   }
@@ -60,7 +69,6 @@ class DragPlayer extends React.Component {
   }
 
   sync(newTime) {
-    // console.log(newTime, this.primaryVideo.current.currentTime);
     if (Math.abs(newTime - this.primaryVideo.current.currentTime) > 0.1) {
       console.log("UPDATING TIME", this.primaryVideo.current.currentTime, newTime);
       this.primaryVideo.current.currentTime = newTime;
