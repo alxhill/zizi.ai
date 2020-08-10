@@ -1,5 +1,5 @@
 import React from 'react';
-import Youtube from './Youtube'
+import ControlledYoutube from './Youtube'
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,7 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {Youtube()}
+        <ControlledYoutube/>
       </header>
     </div>
   );
