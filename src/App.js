@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="zizi">
-      <h1>Zizi - a virtual show <span style={{color: "#777"}}>| August prototype</span></h1>
+      <h1>Zizi - A Virtual Show</h1>
       <ZiziPlayer />
     </div>
   );

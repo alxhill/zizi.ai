@@ -39,12 +39,12 @@ class ZiziPlayer extends React.Component {
         <div className="button-group">
         {playerButtons}
           <div className="zoom-buttons">
-            <ZoomIn onClick={this.zoomIn}/>
             <ZoomOut onClick={this.zoomOut}/>
+            <ZoomIn onClick={this.zoomIn}/>
           </div>
           <div className="pose-buttons">
-            <Show onClick={this.disablePose}/>
             <Hide onClick={this.enablePose}/>
+            <Show onClick={this.disablePose}/>
           </div>
           <div className="act-buttons">
             <PrevAct onClick={this.prevAct}/>
