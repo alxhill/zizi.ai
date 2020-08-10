@@ -1,6 +1,7 @@
 import React from "react";
 import YouTube from "react-youtube";
 import { Play, Pause } from "./Buttons";
+import DragPlayer from "./DragPlayer";
 
 class ControlledYoutube extends React.Component {
   static defaultProps = {
@@ -24,15 +25,16 @@ class ControlledYoutube extends React.Component {
       display: "none",
     };
 
-    var yt = (
+    var hiddenYtPlayer = (<div style={style}>
       <YouTube videoId="0F28IYnEqKY" opts={playerOpts} onReady={this.onReady} />
+      </div>
     );
 
     var buttons = null;
     if (this.state.isLoaded) {
       buttons = (
         <div className="buttons">
-          <div className="timer">{this.state.timer}</div>
+          <span className="timer">{this.state.timer}</span>
           <Play onClick={this.play} />
           <Pause onClick={this.pause} />
         </div>
@@ -41,8 +43,9 @@ class ControlledYoutube extends React.Component {
 
     return (
       <div>
-        <div style={style}>{yt}</div>
+        {hiddenYtPlayer}
         {buttons}
+        <DragPlayer/>
       </div>
     );
   }
