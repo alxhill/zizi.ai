@@ -24,7 +24,7 @@ export default class ZiziSidebar extends React.Component {
   render() {
     return (
       <div className="zizi-sidebar">
-        {this.renderMainbar()}
+        {!this.state.fullSize || this.renderMainbar()}
         {this.renderMinibar()}
       </div>
     );
@@ -37,9 +37,13 @@ export default class ZiziSidebar extends React.Component {
       <ZoomIn onClick={this.props.onZoomIn} />
     );
 
+    let hideShow = this.state.fullSize ?
+    (<Close onClick={this.hideMain}/>) :
+    (<Menu onClick={this.showMain}/>)
+
     return (
       <div className="mini-sidebar">
-        <Close onClick={this.hideMain} />
+        {hideShow}
         <div className="centered-buttons">
           {zoomInOut}
           <NextPerformer onClick={this.props.onNextPerformer} />
@@ -59,18 +63,35 @@ export default class ZiziSidebar extends React.Component {
 
     return (
       <div className="main-sidebar">
-        <img src="img/title.png" />
-        <div className="player-controls">
-          {playPause}
-          <Back10 />
-          <Forward10 />
-          <SkipToNextTrack />
+        <img src="img/title.png" id="main-bar-logo" />
+        <div className="main-bar-content-wrapper">
+          <div className="player-controls">
+            {playPause}
+            <Back10 />
+            <Forward10 />
+            <SkipToNextTrack />
+          </div>
+          <div className="now-playing">
+            <p>"Five Years" by David Bowie</p>
+            <sub>Original performance by Ruby Wednesday</sub>
+            <sub>Deepfake trained on Lilly Snatchdragon</sub>
+          </div>
+          <div className="performers-picker">
+            <a className="sidebar-large-button">Performers</a>
+          </div>
+          <div className="about-button">
+            <a className="sidebar-large-button">About</a>
+          </div>
         </div>
       </div>
     );
   }
 
   hideMain = () => {
-    console.log("hiding main bar");
+    this.setState({fullSize: false})
   };
+
+  showMain = () => {
+      this.setState({fullSize: true})
+  }
 }
