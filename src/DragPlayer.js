@@ -30,7 +30,7 @@ class DragPlayer extends React.Component {
   }
 
   componentDidMount() {
-    this.dragVideo.current.currentTime = this.props.currentTime
+    this.dragVideo.current.currentTime = this.props.currentTime;
   }
 
   componentDidUpdate(prevProps) {
@@ -47,7 +47,7 @@ class DragPlayer extends React.Component {
 
     if (this.renderUrl(prevProps) != this.renderUrl(this.props)) {
       player.load();
-      player.currentTime = this.props.currentTime
+      player.currentTime = this.props.currentTime;
     }
   }
 

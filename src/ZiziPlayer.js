@@ -28,7 +28,7 @@ class ZiziPlayer extends React.Component {
 
     return (
       <div>
-        <Curtain zoom={this.props.zoom}/>
+        <Curtain zoom={this.state.zoom}/>
         <HiddenYoutubePlayer
           act={this.state.act}
           onReady={this.youtubeReady}
