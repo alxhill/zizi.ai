@@ -41,6 +41,8 @@ export default class ZiziPlayer extends React.Component {
         />
         <ZiziSidebar
           isLoaded={this.state.isLoaded}
+          playing={this.state.playing}
+          zoom={this.state.zoom}
           onPlay={this.play}
           onPause={this.pause}
           onZoomOut={this.zoomOut}
