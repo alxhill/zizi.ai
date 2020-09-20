@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 body {
   background-color: black;
@@ -21,7 +21,7 @@ h1 {
   left: 0;
   height: 100%;
   display: flex;
-  background-color: #2E010F;
+  background-color: #2e010f;
   color: #ff9c84;
 }
 
@@ -29,8 +29,16 @@ h1 {
   color: #b22d3f;
 }
 
-.zizi-sidebar .mini-sidebar {
-  box-shadow: 0px 0px 41px 24px rgba(28,0,8,1);
+#main-bar-logo {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.mini-sidebar {
+  box-shadow: 0px 0px 41px 24px rgba(28, 0, 8, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,16 +46,20 @@ h1 {
   background-color: #380011;
 }
 
-.zizi-sidebar .mini-sidebar .centered-buttons {
+.mini-sidebar .zizi-icon {
+  font-size: 2.1rem;
+}
+
+.mini-sidebar .centered-buttons {
   display: flex;
   flex-direction: column;
 }
 
-.zizi-sidebar .mini-sidebar .centered-buttons > a {
+.mini-sidebar .centered-buttons > a {
   padding: 20px 0 20px 0;
 }
 
-.zizi-sidebar .main-sidebar {
+.main-sidebar {
   width: 27rem;
   text-align: center;
   display: flex;
@@ -56,9 +68,46 @@ h1 {
   justify-content: space-between;
 }
 
-.zizi-sidebar .main-bar-content {
+.main-sidebar .zizi-icon {
+  font-size: 2rem;
+}
+
+.main-sidebar a.inline-link {
+  text-decoration: none;
+  color: #ffbcaf;
+}
+
+.main-bar-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  flex-basis: 35rem;
+}
+
+.main-bar-content .player-controls a {
+  margin: 0 1rem 0 1rem;
+}
+
+.main-bar-content div:after {
+  content: "";
+  width: 50%;
+  height: 1px;
+  background-color: grey;
+  display: block;
+  margin: 25%;
+}
+
+.main-sidebar sub {
+  display: block;
+}
+
+.main-sidebar .now-playing p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.zizi-sidebar .main-bar-content .sidebar-large-button {
+  font-size: 2rem;
 }
 
 .curtain {

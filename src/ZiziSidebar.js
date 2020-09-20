@@ -63,7 +63,7 @@ export default class ZiziSidebar extends React.Component {
 
     return (
       <div className="main-sidebar">
-        <img src="img/title.png" id="main-bar-logo" />
+        <img src="img/title.png" id="main-bar-logo" draggable="false"/>
         <div className="main-bar-content">
           <div className="player-controls">
             {playPause}
@@ -73,20 +73,20 @@ export default class ZiziSidebar extends React.Component {
           </div>
           <div className="now-playing">
             <p>"Five Years" by David Bowie</p>
-            <sub>Original performance by Ruby Wednesday</sub>
-            <sub>Deepfake trained on Lilly Snatchdragon</sub>
+            <sub>Original performance by <a className="inline-link" href="#strats">Ruby Wednesday</a></sub>
+            <sub>Deepfake trained on <a className="inline-link" href="#dstir">Lilly Snatchdragon</a></sub>
           </div>
           <div className="performers-picker">
-            <a className="sidebar-large-button">Performers</a>
+            <a className="sidebar-large-button">PERFORMERS</a>
           </div>
           <div className="about-button">
-            <a className="sidebar-large-button">About</a>
+            <a className="sidebar-large-button">ABOUT</a>
           </div>
         </div>
         <div className="copyright">
-            <p>The Zizi Project</p>
-            <p><a href="https://jakeelwes.com">Jake Elwes</a> 2020</p>
-            <p>Part of <a href="https://newsreal.cc">newsreal.cc</a></p>
+            <sub>The Zizi Project</sub>
+            <sub><a className="inline-link" href="https://jakeelwes.com">Jake Elwes</a> 2020</sub>
+            <sub>Part of <a className="inline-link" href="https://newsreal.cc">newsreal.cc</a></sub>
         </div>
       </div>
     );
