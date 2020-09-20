@@ -1,10 +1,20 @@
 import React from "react";
-import { Play, Pause, ZoomIn, ZoomOut, Show, Hide, PrevAct, NextAct } from "./Buttons";
+import {
+  Play,
+  Pause,
+  ZoomIn,
+  ZoomOut,
+  Show,
+  Hide,
+  PrevAct,
+  NextAct,
+} from "./Buttons";
 import DragPlayer from "./DragPlayer";
 import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
 import Curtain from "./Curtain";
+import ZiziSidebar from "./ZiziSidebar";
 
-class ZiziPlayer extends React.Component {
+export default class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,16 +29,9 @@ class ZiziPlayer extends React.Component {
   }
 
   render() {
-    let playerButtons = !this.state.isLoaded || (
-      <div className="player-buttons">
-        <Play onClick={this.play} />
-        <Pause onClick={this.pause} />
-      </div>
-    );
-
     return (
       <div>
-        <Curtain zoom={this.state.zoom}/>
+        <Curtain zoom={this.state.zoom} />
         <HiddenYoutubePlayer
           act={this.state.act}
           onReady={this.youtubeReady}
@@ -36,21 +39,15 @@ class ZiziPlayer extends React.Component {
           hideTimer={false}
           adjustedTimerEvent={this.onTimerEvent}
         />
-        <div className="button-group">
-        {playerButtons}
-          <div className="zoom-buttons">
-            <ZoomOut onClick={this.zoomOut}/>
-            <ZoomIn onClick={this.zoomIn}/>
-          </div>
-          <div className="pose-buttons">
-            <Hide onClick={this.enablePose}/>
-            <Show onClick={this.disablePose}/>
-          </div>
-          <div className="act-buttons">
-            <PrevAct onClick={this.prevAct}/>
-            <NextAct onClick={this.nextAct}/>
-          </div>
-        </div>
+        <ZiziSidebar
+          isLoaded={this.state.isLoaded}
+          onPlay={this.play}
+          onPause={this.pause}
+          onZoomOut={this.zoomOut}
+          onZoomIn={this.zoomIn}
+          onEnablePose={this.enablePose}
+          onDisablePose={this.disablePose}
+        />
         <DragPlayer
           className="primary-player"
           act={this.state.act}
@@ -98,20 +95,18 @@ class ZiziPlayer extends React.Component {
   };
 
   zoomIn = () => {
-    this.setState({zoom: true})
-  }
+    this.setState({ zoom: true });
+  };
 
   zoomOut = () => {
-    this.setState({zoom: false})
-  }
+    this.setState({ zoom: false });
+  };
 
   enablePose = () => {
-    this.setState({pose: true})
-  }
+    this.setState({ pose: true });
+  };
 
   disablePose = () => {
-    this.setState({pose: false})
-  }
+    this.setState({ pose: false });
+  };
 }
-
-export default ZiziPlayer;

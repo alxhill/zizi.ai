@@ -5,7 +5,6 @@ import "./App.css";
 function App() {
   return (
     <div className="zizi">
-      <h1>Zizi - A Virtual Show</h1>
       <ZiziPlayer />
     </div>
   );
