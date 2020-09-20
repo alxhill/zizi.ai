@@ -17,7 +17,7 @@ export default class ZiziSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullSize: false,
+      fullSize: true,
     };
   }
 
@@ -64,7 +64,7 @@ export default class ZiziSidebar extends React.Component {
     return (
       <div className="main-sidebar">
         <img src="img/title.png" id="main-bar-logo" />
-        <div className="main-bar-content-wrapper">
+        <div className="main-bar-content">
           <div className="player-controls">
             {playPause}
             <Back10 />
@@ -82,6 +82,11 @@ export default class ZiziSidebar extends React.Component {
           <div className="about-button">
             <a className="sidebar-large-button">About</a>
           </div>
+        </div>
+        <div className="copyright">
+            <p>The Zizi Project</p>
+            <p><a href="https://jakeelwes.com">Jake Elwes</a> 2020</p>
+            <p>Part of <a href="https://newsreal.cc">newsreal.cc</a></p>
         </div>
       </div>
     );

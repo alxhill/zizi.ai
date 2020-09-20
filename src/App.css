@@ -49,10 +49,16 @@ h1 {
 
 .zizi-sidebar .main-sidebar {
   width: 27rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zizi-sidebar .main-bar-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center
 }
 
 .curtain {
