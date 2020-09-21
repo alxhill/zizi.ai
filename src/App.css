@@ -110,6 +110,37 @@ h1 {
   font-size: 2rem;
 }
 
+/* attempt at animation for the sidebar */
+@keyframes sidebar-close {
+  from {
+    left: 0;
+  }
+  to {
+    left: -27rem;
+  }
+}
+
+@keyframes sidebar-open {
+  from {
+    left: -27rem;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.zizi-sidebar.closed {
+  animation-duration: 1s;
+  animation-name: sidebar-close;
+  left: -27rem;
+}
+
+.zizi-sidebar.open {
+  animation-duration: 1s;
+  animation-name: sidebar-open;
+  left: 0;
+}
+
 .curtain {
   position: absolute;
   max-width: 150%;

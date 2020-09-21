@@ -22,9 +22,10 @@ export default class ZiziSidebar extends React.Component {
   }
 
   render() {
+      let openCloseClassName = this.state.fullSize ? "open" : "closed";
     return (
-      <div className="zizi-sidebar">
-        {!this.state.fullSize || this.renderMainbar()}
+      <div className={"zizi-sidebar " + openCloseClassName}>
+        {this.renderMainbar()}
         {this.renderMinibar()}
       </div>
     );
