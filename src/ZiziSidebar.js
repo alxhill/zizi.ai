@@ -4,8 +4,9 @@ import {
   Pause,
   ZoomIn,
   ZoomOut,
-  PrevPerformer,
-  NextPerformer,
+  // PrevPerformer,
+  // NextPerformer,
+  NewPerformer,
   Close,
   Menu,
   Forward10,
@@ -47,8 +48,8 @@ export default class ZiziSidebar extends React.Component {
         {hideShow}
         <div className="centered-buttons">
           {zoomInOut}
-          <NextPerformer onClick={this.props.onNextPerformer} />
-          <PrevPerformer onClick={this.props.onPrevPerformer} />
+          <NewPerformer onClick={this.props.onNewPerformer} />
+          {/* <PrevPerformer onClick={this.props.onPrevPerformer} /> */}
         </div>
         <div className="dummy-spacing-div" />
       </div>
