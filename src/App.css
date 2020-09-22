@@ -1,16 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
+
+@font-face {
+  font-family: 'market_decoregular';
+  src: url('font/market_deco-webfont.woff2') format('woff2'),
+  url('font/market_deco-webfont.woff') format('woff'),
+  url('font/market_deco.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   background-color: black;
   color: white;
-  font-family: "Lato", sans-serif;
+  font-family: 'market_decoregular', sans-serif;
   z-index: 1;
   margin: 20px;
   overflow: hidden;
 }
 
 h1 {
-  font-family: "Notable", sans-serif;
+  font-family: 'market_decoregular', sans-serif;
   padding-bottom: 15px;
   text-transform: uppercase;
   font-size: 18px;
@@ -77,6 +88,10 @@ h1 {
   text-decoration: none;
   color: #ffbcaf;
 }
+.main-sidebar a.inline-link:hover {
+  text-decoration: none;
+  color: #d63a00;
+}
 
 .main-bar-content {
   display: flex;
@@ -93,7 +108,7 @@ h1 {
   content: "";
   width: 50%;
   height: 1px;
-  background-color: grey;
+  background-color:  #ffbcaf;
   display: block;
   margin: 25%;
 }
@@ -149,7 +164,7 @@ h1 {
   left: 50%;
   top: 50%;
   user-select: none;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
   z-index: -3;
 }
 
@@ -172,7 +187,7 @@ h1 {
   max-height: 100%;
   left: 50%;
   top: 50%;
-  transform: translate(-40%, -45%);
+  transform: translate(-50%, -50%);
   user-select: none;
 
   mix-blend-mode: multiply;

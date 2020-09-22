@@ -5,12 +5,13 @@ import {
   ZoomInRounded,
   ZoomOutRounded,
   SkipNextRounded,
-  ArrowBackIosRounded,
-  ArrowForwardIosRounded,
+  // ArrowBackIosRounded,
+  // ArrowForwardIosRounded,
   CloseRounded,
   Forward10Rounded,
   Replay10Rounded,
   MenuRounded,
+  PeopleOutlineRounded,
 } from "@material-ui/icons";
 
 function Play(props) {
@@ -45,18 +46,26 @@ function ZoomIn(props) {
   );
 }
 
-function PrevPerformer(props) {
-  return (
-    <a className="zizi-icon">
-      <ArrowBackIosRounded fontSize="inherit" onClick={props.onClick} />
-    </a>
-  );
-}
+// function PrevPerformer(props) {
+//   return (
+//     <a className="zizi-icon">
+//       <ArrowBackIosRounded fontSize="inherit" onClick={props.onClick} />
+//     </a>
+//   );
+// }
 
-function NextPerformer(props) {
+// function NextPerformer(props) {
+//   return (
+//     <a className="zizi-icon">
+//       <ArrowForwardIosRounded fontSize="inherit" onClick={props.onClick} />
+//     </a>
+//   );
+// }
+
+function NewPerformer(props) {
   return (
     <a className="zizi-icon">
-      <ArrowForwardIosRounded fontSize="inherit" onClick={props.onClick} />
+      <PeopleOutlineRounded fontSize="inherit" onClick={props.onClick} />
     </a>
   );
 }
@@ -106,8 +115,9 @@ export {
   Pause,
   ZoomIn,
   ZoomOut,
-  PrevPerformer,
-  NextPerformer,
+  // PrevPerformer,
+  // NextPerformer,
+  NewPerformer,
   Close,
   Menu,
   Forward10,
