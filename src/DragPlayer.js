@@ -4,11 +4,27 @@ class DragPlayer extends React.Component {
   static defaultProps = {
     zoom: false,
     pose: false,
-    act: "roses",
-    performer: "me",
+    act: "glass",
+    performer: "lilly",
     shadow: false,
     playing: false,
   };
+
+// acts _______________
+// fiveyears
+// freedom
+// glass
+// iam
+// mighty
+// mylife
+// nancy
+
+// performers (generated so far - amalgam and mathatma are only "-full")____________
+// amalgam
+// bolly
+// lilly
+// mahatma
+
 
   constructor(props) {
     super(props);
@@ -67,12 +83,12 @@ class DragPlayer extends React.Component {
   renderActUrl(props) {
     let zoomString = props.zoom ? "close" : "full";
     let ziziString = props.pose ? "pose" : props.performer;
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${props.act}-${ziziString}-${zoomString}.mp4`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.act}-${ziziString}-${zoomString}.mp4`;
   }
 
   renderShadowUrl(props) {
     let zoomString = props.zoom ? "close" : "full";
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/development/${props.act}-shadow-${zoomString}.mp4`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.act}-shadow-${zoomString}.mp4`;
   }
 }
 
