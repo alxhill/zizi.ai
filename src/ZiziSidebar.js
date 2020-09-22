@@ -19,6 +19,7 @@ export default class ZiziSidebar extends React.Component {
     super(props);
     this.state = {
       fullSize: true,
+      secondaryBar: "none"
     };
   }
 
@@ -28,20 +29,19 @@ export default class ZiziSidebar extends React.Component {
       <div className={"zizi-sidebar " + openCloseClassName}>
         {this.renderMainbar()}
         {this.renderMinibar()}
+        {this.state.secondaryBar === "none" || this.renderSecondaryBar()}
       </div>
     );
   }
 
   renderMinibar() {
-    let zoomInOut = this.props.zoom ? (
-      <ZoomOut onClick={this.props.onZoomOut} />
-    ) : (
-      <ZoomIn onClick={this.props.onZoomIn} />
-    );
+    let zoomInOut = this.props.zoom ? 
+      (<ZoomOut onClick={this.props.onZoomOut} />) :
+      (<ZoomIn onClick={this.props.onZoomIn} />);
 
     let hideShow = this.state.fullSize ?
-    (<Close onClick={this.hideMain}/>) :
-    (<Menu onClick={this.showMain}/>)
+      (<Close onClick={this.hideMain}/>) :
+      (<Menu onClick={this.showMain}/>)
 
     return (
       <div className="mini-sidebar">
@@ -49,7 +49,7 @@ export default class ZiziSidebar extends React.Component {
         <div className="centered-buttons">
           {zoomInOut}
           <NewPerformer onClick={this.props.onNewPerformer} />
-          {/* <PrevPerformer onClick={this.props.onPrevPerformer} /> */}
+          <Play onClick={this.showAct} />
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -65,7 +65,7 @@ export default class ZiziSidebar extends React.Component {
 
     return (
       <div className="main-sidebar">
-        <img src="img/title.png" id="main-bar-logo" draggable="false"/>
+        <img src="img/title.png" id="main-bar-logo" alt="The Zizi Show" draggable="false"/>
         <div className="main-bar-content">
           <div className="player-controls">
             {playPause}
@@ -79,10 +79,10 @@ export default class ZiziSidebar extends React.Component {
             <sub>Deepfake trained on <a className="inline-link" href="#dstir">Lilly Snatchdragon</a></sub>
           </div>
           <div className="performers-picker">
-            <a className="sidebar-large-button">PERFORMERS</a>
+            <a onClick={this.showPerformers} className="sidebar-large-button">PERFORMERS</a>
           </div>
           <div className="about-button">
-            <a className="sidebar-large-button">ABOUT</a>
+            <a onClick={this.showAbout} className="sidebar-large-button">ABOUT</a>
           </div>
         </div>
         <div className="copyright">
@@ -94,11 +94,36 @@ export default class ZiziSidebar extends React.Component {
     );
   }
 
+  renderSecondaryBar() {
+    return (
+      <div className="secondary-sidebar">
+        <Close onClick={this.hideSecondaryBar} />
+        <img src="img/about.png" class="secondary-header" draggable="false"/>
+      </div>
+    )
+  }
+
   hideMain = () => {
     this.setState({fullSize: false})
   };
 
   showMain = () => {
       this.setState({fullSize: true})
+  }
+
+  showPerformers = () => {
+    this.setState({secondaryBar: "performers"})
+  }
+
+  showAbout = () => {
+    this.setState({secondaryBar: "about"})
+  }
+
+  showAbout = () => {
+    this.setState({secondaryBar: "act"})
+  }
+
+  hideSecondaryBar = () => {
+      this.setState({secondaryBar: "none"})
   }
 }
