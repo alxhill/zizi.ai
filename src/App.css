@@ -1,15 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
+
+@font-face {
+  font-family: 'market_decoregular';
+  src: url('font/market_deco-webfont.woff2') format('woff2'),
+  url('font/market_deco-webfont.woff') format('woff'),
+  url('font/market_deco.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   background-color: black;
   color: white;
-  font-family: "Lato", sans-serif;
+  font-family: 'market_decoregular', sans-serif;
   z-index: 1;
   margin: 20px;
 }
 
 h1 {
-  font-family: "Notable", sans-serif;
+  font-family: 'market_decoregular', sans-serif;
   padding-bottom: 15px;
   text-transform: uppercase;
   font-size: 18px;
@@ -75,6 +86,10 @@ h1 {
 .main-sidebar a.inline-link {
   text-decoration: none;
   color: #ffbcaf;
+}
+.main-sidebar a.inline-link:hover {
+  text-decoration: none;
+  color: #d63a00;
 }
 
 .main-bar-content {
