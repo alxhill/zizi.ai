@@ -1,14 +1,4 @@
 import React from "react";
-import {
-  Play,
-  Pause,
-  ZoomIn,
-  ZoomOut,
-  Show,
-  Hide,
-  PrevAct,
-  NextAct,
-} from "./Buttons";
 import DragPlayer from "./DragPlayer";
 import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
 import Curtain from "./Curtain";

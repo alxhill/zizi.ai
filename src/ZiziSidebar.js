@@ -19,17 +19,19 @@ export default class ZiziSidebar extends React.Component {
     super(props);
     this.state = {
       fullSize: true,
+      showSecondaryBar: false,
       secondaryBar: "none"
     };
   }
 
   render() {
       let openCloseClassName = this.state.fullSize ? "open" : "closed";
-    return (
+    return (<div>
       <div className={"zizi-sidebar " + openCloseClassName}>
         {this.renderMainbar()}
         {this.renderMinibar()}
-        {this.state.secondaryBar === "none" || this.renderSecondaryBar()}
+      </div>
+      {this.renderSecondaryBar()}
       </div>
     );
   }
@@ -49,7 +51,7 @@ export default class ZiziSidebar extends React.Component {
         <div className="centered-buttons">
           {zoomInOut}
           <NewPerformer onClick={this.props.onNewPerformer} />
-          <Play onClick={this.showAct} />
+          <Play onClick={this.showActs} />
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -95,10 +97,15 @@ export default class ZiziSidebar extends React.Component {
   }
 
   renderSecondaryBar() {
+    let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
-      <div className="secondary-sidebar">
-        <Close onClick={this.hideSecondaryBar} />
-        <img src="img/about.png" class="secondary-header" draggable="false"/>
+      <div className={"secondary-sidebar " + secondaryBarOpenClose}>
+        <div className="close-sidebar">
+          <Close onClick={this.hideSecondaryBar} />
+        </div>
+        <div className="content-sidebar">
+        <img src="img/about.png" className="secondary-header" draggable="false"/>
+        </div>
       </div>
     )
   }
@@ -119,11 +126,11 @@ export default class ZiziSidebar extends React.Component {
     this.setState({secondaryBar: "about"})
   }
 
-  showAbout = () => {
+  showActs = () => {
     this.setState({secondaryBar: "act"})
   }
 
   hideSecondaryBar = () => {
-      this.setState({secondaryBar: "none"})
+      this.setState({secondaryBar: "none", showSecondaryBar: false})
   }
 }
