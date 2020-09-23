@@ -4,8 +4,6 @@ import {
   Pause,
   ZoomIn,
   ZoomOut,
-  // PrevPerformer,
-  // NextPerformer,
   NewPerformer,
   Close,
   Menu,
@@ -46,7 +44,7 @@ export default class ZiziSidebar extends React.Component {
       (<Menu onClick={this.showMain}/>)
 
     return (
-      <div className="mini-sidebar">
+      <div className="mini-sidebar button-sidebar">
         {hideShow}
         <div className="centered-buttons">
           {zoomInOut}
@@ -100,7 +98,7 @@ export default class ZiziSidebar extends React.Component {
     let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
       <div className={"secondary-sidebar " + secondaryBarOpenClose}>
-        <div className="close-sidebar">
+        <div className="close-sidebar button-sidebar">
           <Close onClick={this.hideSecondaryBar} />
         </div>
         <div className="content-sidebar">
@@ -119,15 +117,15 @@ export default class ZiziSidebar extends React.Component {
   }
 
   showPerformers = () => {
-    this.setState({secondaryBar: "performers"})
+    this.setState({secondaryBar: "performers", showSecondaryBar: true})
   }
 
   showAbout = () => {
-    this.setState({secondaryBar: "about"})
+    this.setState({secondaryBar: "about", showSecondaryBar: true})
   }
 
   showActs = () => {
-    this.setState({secondaryBar: "act"})
+    this.setState({secondaryBar: "act", showSecondaryBar: true})
   }
 
   hideSecondaryBar = () => {
