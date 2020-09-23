@@ -5,7 +5,10 @@ import {
   Pause,
   ZoomIn,
   ZoomOut,
+<<<<<<< HEAD
   ShowPerformers,
+=======
+>>>>>>> 4f5ccce227c4e580de536f874922083eafd9c6a7
   NewPerformer,
   Close,
   Menu,
@@ -47,6 +50,7 @@ export default class ZiziSidebar extends React.Component {
       (<Menu onClick={this.showMain}/>)
     
     return (
+<<<<<<< HEAD
       <div className="mini-sidebar">
         <div className="top-buttons">
           {hideShow}
@@ -54,6 +58,10 @@ export default class ZiziSidebar extends React.Component {
           {/* Temporary Acts Access Button - For Dev */}
           <ShowActs onClick={this.showActs} />
         </div>
+=======
+      <div className="mini-sidebar button-sidebar">
+        {hideShow}
+>>>>>>> 4f5ccce227c4e580de536f874922083eafd9c6a7
         <div className="centered-buttons">
           {zoomInOut}
           <SkipToNextTrack />
@@ -104,14 +112,35 @@ export default class ZiziSidebar extends React.Component {
     let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
       <div className={"secondary-sidebar " + secondaryBarOpenClose}>
-        <div className="close-sidebar">
+        <div className="close-sidebar button-sidebar">
           <Close onClick={this.hideSecondaryBar} />
         </div>
-        <div className="content-sidebar">
-        <img src="img/about.png" className="secondary-header" draggable="false"/>
+       <div clasName="content-sidebar">
+        {this.renderSecondaryBarContent()}
         </div>
       </div>
     )
+  }
+
+  renderSecondaryBarContent() {
+    switch (this.state.secondaryBar) {
+      case "about":
+        return <div>
+          <img src="img/about.png" className="secondary-header"/>
+        </div>
+      case "performers":
+        return <div>
+          <img src="img/performers.png" className="secondary-header" />
+        </div>
+      case "acts":
+        return <div>
+          <img src="img/pick.png" className="secondary-header" />
+        </div>
+      default:
+      case "none": 
+        return <div></div>
+    }
+
   }
 
   hideMain = () => {
@@ -123,18 +152,18 @@ export default class ZiziSidebar extends React.Component {
   }
 
   showPerformers = () => {
-    this.setState({secondaryBar: "performers"})
+    this.setState({secondaryBar: "performers", showSecondaryBar: true})
   }
 
   showAbout = () => {
-    this.setState({secondaryBar: "about"})
+    this.setState({secondaryBar: "about", showSecondaryBar: true})
   }
 
   showActs = () => {
-    this.setState({secondaryBar: "act"})
+    this.setState({secondaryBar: "acts", showSecondaryBar: true})
   }
 
   hideSecondaryBar = () => {
-      this.setState({secondaryBar: "none", showSecondaryBar: false})
+      this.setState({showSecondaryBar: false})
   }
 }
