@@ -5,13 +5,15 @@ import {
   ZoomInRounded,
   ZoomOutRounded,
   SkipNextRounded,
-  // ArrowBackIosRounded,
-  // ArrowForwardIosRounded,
   CloseRounded,
   Forward10Rounded,
   Replay10Rounded,
   MenuRounded,
-  PeopleOutlineRounded,
+  PersonAddRounded,
+  GroupTwoTone,
+  FullscreenRounded,
+  ListRounded
+  // Wanted 'GroupsTwoTone' not 'GroupTwoTone' but not found? https://material.io/resources/icons/?search=groups&style=twotone
 } from "@material-ui/icons";
 
 function Play(props) {
@@ -25,7 +27,7 @@ function Play(props) {
 function Pause(props) {
   return (
     <a className="zizi-icon">
-      <PauseRounded fontSize="inherit" onClick={props.onClick} />
+      <PauseRounded font Size="inherit" onClick={props.onClick} />
     </a>
   );
 }
@@ -46,26 +48,36 @@ function ZoomIn(props) {
   );
 }
 
-// function PrevPerformer(props) {
-//   return (
-//     <a className="zizi-icon">
-//       <ArrowBackIosRounded fontSize="inherit" onClick={props.onClick} />
-//     </a>
-//   );
-// }
-
-// function NextPerformer(props) {
-//   return (
-//     <a className="zizi-icon">
-//       <ArrowForwardIosRounded fontSize="inherit" onClick={props.onClick} />
-//     </a>
-//   );
-// }
+function ShowPerformers(props) {
+  return (
+    <a className="zizi-icon">
+      <GroupTwoTone fontSize="inherit" onClick={props.onClick} />
+    </a>
+  );
+}
 
 function NewPerformer(props) {
   return (
     <a className="zizi-icon">
-      <PeopleOutlineRounded fontSize="inherit" onClick={props.onClick} />
+      <PersonAddRounded fontSize="inherit" onClick={props.onClick} />
+    </a>
+  );
+}
+
+
+function Fullscreen(props) {
+  return (
+    <a className="zizi-icon">
+      <FullscreenRounded fontSize="inherit" onClick={props.onClick} />
+    </a>
+  );
+}
+
+
+function ShowActs(props) {
+  return (
+    <a className="zizi-icon">
+      <ListRounded fontSize="inherit" onClick={props.onClick} />
     </a>
   );
 }
@@ -115,12 +127,13 @@ export {
   Pause,
   ZoomIn,
   ZoomOut,
-  // PrevPerformer,
-  // NextPerformer,
+  ShowPerformers,
   NewPerformer,
   Close,
   Menu,
   Forward10,
   Back10,
   SkipToNextTrack,
+  ShowActs,
+  Fullscreen,
 };

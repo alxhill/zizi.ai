@@ -1,17 +1,18 @@
+import { Fullscreen } from "@material-ui/icons";
 import React from "react";
 import {
   Play,
   Pause,
   ZoomIn,
   ZoomOut,
-  // PrevPerformer,
-  // NextPerformer,
+  ShowPerformers,
   NewPerformer,
   Close,
   Menu,
   Forward10,
   Back10,
   SkipToNextTrack,
+  ShowActs,
 } from "./Buttons";
 
 export default class ZiziSidebar extends React.Component {
@@ -44,14 +45,20 @@ export default class ZiziSidebar extends React.Component {
     let hideShow = this.state.fullSize ?
       (<Close onClick={this.hideMain}/>) :
       (<Menu onClick={this.showMain}/>)
-
+    
     return (
       <div className="mini-sidebar">
-        {hideShow}
+        <div className="top-buttons">
+          {hideShow}
+          <br></br>
+          {/* Temporary Acts Access Button - For Dev */}
+          <ShowActs onClick={this.showActs} />
+        </div>
         <div className="centered-buttons">
           {zoomInOut}
+          <SkipToNextTrack />
+          <ShowPerformers onClick={this.props.showPerformers} />
           <NewPerformer onClick={this.props.onNewPerformer} />
-          <Play onClick={this.showActs} />
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -73,15 +80,12 @@ export default class ZiziSidebar extends React.Component {
             {playPause}
             <Back10 />
             <Forward10 />
-            <SkipToNextTrack />
+            <Fullscreen />
           </div>
           <div className="now-playing">
             <p>"Raise Your Glass" by P!nk</p>
             <sub>Original performance by <a className="inline-link" href="#strats">Ruby Wednesday</a></sub>
             <sub>Deepfake trained on <a className="inline-link" href="#dstir">Lilly Snatchdragon</a></sub>
-          </div>
-          <div className="performers-picker">
-            <a onClick={this.showPerformers} className="sidebar-large-button">PERFORMERS</a>
           </div>
           <div className="about-button">
             <a onClick={this.showAbout} className="sidebar-large-button">ABOUT</a>
