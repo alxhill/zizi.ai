@@ -101,11 +101,32 @@ export default class ZiziSidebar extends React.Component {
         <div className="close-sidebar button-sidebar">
           <Close onClick={this.hideSecondaryBar} />
         </div>
-        <div className="content-sidebar">
-        <img src="img/about.png" className="secondary-header" draggable="false"/>
+       <div clasName="content-sidebar">
+        {this.renderSecondaryBarContent()}
         </div>
       </div>
     )
+  }
+
+  renderSecondaryBarContent() {
+    switch (this.state.secondaryBar) {
+      case "about":
+        return <div>
+          <img src="img/about.png" className="secondary-header"/>
+        </div>
+      case "performers":
+        return <div>
+          <img src="img/performers.png" className="secondary-header" />
+        </div>
+      case "acts":
+        return <div>
+          <img src="img/pick.png" className="secondary-header" />
+        </div>
+      default:
+      case "none": 
+        return <div></div>
+    }
+
   }
 
   hideMain = () => {
@@ -125,10 +146,10 @@ export default class ZiziSidebar extends React.Component {
   }
 
   showActs = () => {
-    this.setState({secondaryBar: "act", showSecondaryBar: true})
+    this.setState({secondaryBar: "acts", showSecondaryBar: true})
   }
 
   hideSecondaryBar = () => {
-      this.setState({secondaryBar: "none", showSecondaryBar: false})
+      this.setState({showSecondaryBar: false})
   }
 }
