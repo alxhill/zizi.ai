@@ -32,7 +32,7 @@ export default class ZiziSidebar extends React.Component {
         {this.renderMainbar()}
         {this.renderMinibar()}
       </div>
-      {this.renderSecondaryBar()}
+      {/* {this.renderSecondaryBar()} */}
       </div>
     );
   }

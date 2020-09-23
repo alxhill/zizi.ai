@@ -29,6 +29,9 @@ export default class ZiziPlayer extends React.Component {
           hideTimer={false}
           adjustedTimerEvent={this.onTimerEvent}
         />
+        <feather-mask 
+          class="feather-mask"
+        />
         <ZiziSidebar
           isLoaded={this.state.isLoaded}
           playing={this.state.playing}
