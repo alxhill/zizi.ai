@@ -1,4 +1,3 @@
-import { Fullscreen } from "@material-ui/icons";
 import React from "react";
 import {
   Play,
@@ -13,6 +12,7 @@ import {
   Back10,
   SkipToNextTrack,
   ShowActs,
+  Captions,
 } from "./Buttons";
 
 export default class ZiziSidebar extends React.Component {
@@ -80,7 +80,7 @@ export default class ZiziSidebar extends React.Component {
             {playPause}
             <Back10 />
             <Forward10 />
-            <Fullscreen />
+            <Captions />
           </div>
           <div className="now-playing">
             <p>"Raise Your Glass" by P!nk</p>

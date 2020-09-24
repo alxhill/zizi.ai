@@ -177,9 +177,13 @@ h1 {
   transform: translate(-50%, -50%);
   user-select: none;
 
+
+
   z-index: 0;
 
   box-shadow: 150px 0px 100px -50px black inset, -150px 0px 100px -50px black inset;
+  mix-blend-mode: add;
+
 }
 
 .primary-player {

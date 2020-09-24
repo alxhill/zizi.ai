@@ -4,13 +4,14 @@ class DragPlayer extends React.Component {
   static defaultProps = {
     zoom: false,
     pose: false,
-    act: "glass",
+    act: "mylife",
     performer: "lilly",
     shadow: false,
     playing: false,
   };
 
-// acts _______________
+// acts 
+
 // fiveyears
 // freedom
 // glass
@@ -19,11 +20,12 @@ class DragPlayer extends React.Component {
 // mylife
 // nancy
 
-// performers (generated so far - amalgam and mathatma are only "-full")____________
-// amalgam
+// performers (so far - more to come)
+
+// amalgam (only "full")
 // bolly
 // lilly
-// mahatma
+// mahatma (only "full")
 
 
   constructor(props) {

@@ -10,38 +10,35 @@ export default class HiddenYoutubePlayer extends React.Component {
   };
 
   actVideoMetadata = {
+    fiveyears: {
+      id: "IWm03wYBTbM",
+      startTime: 0.00,
+    },
+    freedom: {
+      id: "0-zqlgyUkd0",
+      startTime: 0.00,
+    },
+    iam: {
+      id: "AsxB259zyLc",
+      startTime: -5.00,
+    },
     glass: {
       id: "XjVNlG5cZyQ",
       startTime: 0.00,
     },
+    nancy: {
+      id: "RbCvjxjGiKE",
+      startTime: 0.00,
+    },
+    mighty: {
+      id: "Ifr13Upytb4",
+      startTime: 0.00,
+    },
+    mylife: {
+      id: "9NyxQYPk1RY",
+      startTime: 0.00,
+    },
   };
-
-
-// ID's to switch between
-// "IWm03wYBTbM"
-// "0-zqlgyUkd0"
-// "AsxB259zyLc"
-// "XjVNlG5cZyQ"
-// "RbCvjxjGiKE"
-// "Ifr13Upytb4"
-// "9NyxQYPk1RY"
-
-
-// ID's to switch between (with names)
-// // Five years - David Bowie
-// "IWm03wYBTbM"
-// // Freedom 90' - George Michael
-// "0-zqlgyUkd0"
-// // I Am What I Am - La Cage aux Folles (2010 Broadway revival)
-// "AsxB259zyLc"
-// // Raise Your Glass - P!nk
-// "XjVNlG5cZyQ"
-// // Nancy Boy - Placebo
-// "RbCvjxjGiKE"
-// // You Make Me Feel (Mighty Real) - Sylvester
-// "Ifr13Upytb4"
-// // This Is My Life (La Vita) - Shirley Bassey
-// "9NyxQYPk1RY"
 
   constructor(props) {
     super(props);

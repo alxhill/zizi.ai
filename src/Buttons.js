@@ -12,7 +12,8 @@ import {
   PersonAddRounded,
   GroupTwoTone,
   FullscreenRounded,
-  ListRounded
+  ListRounded,
+  ClosedCaptionRounded
   // Wanted 'GroupsTwoTone' not 'GroupTwoTone' but not found? https://material.io/resources/icons/?search=groups&style=twotone
 } from "@material-ui/icons";
 
@@ -53,6 +54,7 @@ function ShowPerformers(props) {
     <a className="zizi-icon">
       <GroupTwoTone fontSize="inherit" onClick={props.onClick} />
     </a>
+    // Use public/icons/groups-black-18dp.svg
   );
 }
 
@@ -65,10 +67,10 @@ function NewPerformer(props) {
 }
 
 
-function Fullscreen(props) {
+function Captions(props) {
   return (
     <a className="zizi-icon">
-      <FullscreenRounded fontSize="inherit" onClick={props.onClick} />
+      <ClosedCaptionRounded fontSize="inherit" onClick={props.onClick} />
     </a>
   );
 }
@@ -135,5 +137,5 @@ export {
   Back10,
   SkipToNextTrack,
   ShowActs,
-  Fullscreen,
+  Captions,
 };
