@@ -54,18 +54,13 @@ h1 {
   user-select: none;
 }
 
-<<<<<<< HEAD
-.mini-sidebar {
-  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
-=======
 .button-sidebar {
-  box-shadow: 0px 0px 41px 24px rgba(28, 0, 8, 1);
+  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
   background-color: #380011;
   padding: 15px;
 }
 
 .mini-sidebar {
->>>>>>> 4f5ccce227c4e580de536f874922083eafd9c6a7
   display: flex;
   flex-direction: column;
   justify-content: space-between;

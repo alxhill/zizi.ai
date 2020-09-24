@@ -5,10 +5,7 @@ import {
   Pause,
   ZoomIn,
   ZoomOut,
-<<<<<<< HEAD
   ShowPerformers,
-=======
->>>>>>> 4f5ccce227c4e580de536f874922083eafd9c6a7
   NewPerformer,
   Close,
   Menu,
@@ -35,7 +32,7 @@ export default class ZiziSidebar extends React.Component {
         {this.renderMainbar()}
         {this.renderMinibar()}
       </div>
-      {/* {this.renderSecondaryBar()} */}
+      {this.renderSecondaryBar()}
       </div>
     );
   }
@@ -50,22 +47,17 @@ export default class ZiziSidebar extends React.Component {
       (<Menu onClick={this.showMain}/>)
     
     return (
-<<<<<<< HEAD
-      <div className="mini-sidebar">
+      <div className="mini-sidebar button-sidebar">
         <div className="top-buttons">
           {hideShow}
           <br></br>
           {/* Temporary Acts Access Button - For Dev */}
           <ShowActs onClick={this.showActs} />
         </div>
-=======
-      <div className="mini-sidebar button-sidebar">
-        {hideShow}
->>>>>>> 4f5ccce227c4e580de536f874922083eafd9c6a7
         <div className="centered-buttons">
           {zoomInOut}
           <SkipToNextTrack />
-          <ShowPerformers onClick={this.props.showPerformers} />
+          <ShowPerformers onClick={this.showPerformers} />
           <NewPerformer onClick={this.props.onNewPerformer} />
         </div>
         <div className="dummy-spacing-div" />
