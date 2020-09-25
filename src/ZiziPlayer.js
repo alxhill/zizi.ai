@@ -13,24 +13,39 @@ export default class ZiziPlayer extends React.Component {
       zoom: false,
       pose: false,
       currentTime: 0,
-      act: "fiveyears",
+      act: "freedom",
       performer: "lilly",
     };
   }
 
+  // acts 
+
+// fiveyears
+// freedom
+// glass
+// iam
+// mighty
+// mylife
+// nancy
+
+// performers (so far - more to come)
+
+// amalgam (only "full")
+// bolly
+// lilly
+// mahatma (only "full")
+
+
+
   render() {
     return (
       <div>
-        <Curtain zoom={this.state.zoom} />
         <HiddenYoutubePlayer
           act={this.state.act}
           onReady={this.youtubeReady}
           playing={this.state.playing}
           hideTimer={false}
           adjustedTimerEvent={this.onTimerEvent}
-        />
-        <feather-mask 
-          class="feather-mask"
         />
         <ZiziSidebar
           isLoaded={this.state.isLoaded}
@@ -43,6 +58,18 @@ export default class ZiziPlayer extends React.Component {
           onEnablePose={this.enablePose}
           onDisablePose={this.disablePose}
         />
+
+        {/* If full */}
+        <img src="img/curtain-sides.png" className="curtain-side" draggable={false} />
+
+        {/* If Close */}
+        <feather-mask 
+          class="feather-mask"
+          // set a size?
+        />
+
+
+        <Curtain zoom={this.state.zoom} />
         <DragPlayer
           className="primary-player"
           act={this.state.act}
