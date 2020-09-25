@@ -59,17 +59,8 @@ export default class ZiziPlayer extends React.Component {
           onDisablePose={this.disablePose}
         />
 
-        {/* If full */}
-        <img src="img/curtain-sides.png" className="curtain-side" draggable={false} />
-
-        {/* If Close */}
-        <feather-mask 
-          class="feather-mask"
-          // set a size?
-        />
-
-
-        <Curtain zoom={this.state.zoom} />
+        <Curtain zoom={this.state.zoom} type="side" />
+        <Curtain zoom={this.state.zoom} type="bg" />
         <DragPlayer
           className="primary-player"
           act={this.state.act}
