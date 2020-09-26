@@ -15,38 +15,7 @@ export default class HiddenYoutubePlayer extends React.Component {
     playing: false,
     hideTimer: true,
     onReady: () => {},
-    adjustedTimerEvent: () => {}
-  };
-
-  actVideoMetadata = {
-    fiveyears: {
-      id: "IWm03wYBTbM",
-      startTime: 0.00,
-    },
-    freedom: {
-      id: "0-zqlgyUkd0",
-      startTime: 0.00,
-    },
-    iam: {
-      id: "AsxB259zyLc",
-      startTime: -5.00,
-    },
-    glass: {
-      id: "XjVNlG5cZyQ",
-      startTime: 0.00,
-    },
-    nancy: {
-      id: "PBxuq_eWW94",
-      startTime: 0.00,
-    },
-    mighty: {
-      id: "Ifr13Upytb4",
-      startTime: 0.00,
-    },
-    mylife: {
-      id: "9NyxQYPk1RY",
-      startTime: 0.00,
-    },
+    adjustedTimerEvent: () => {},
   };
 
   constructor(props) {
@@ -77,7 +46,7 @@ export default class HiddenYoutubePlayer extends React.Component {
       <div>
         <div style={{ display: "none" }}>
           <YouTube
-            videoId={this.actVideoMetadata[this.props.act].id}
+            videoId={this.props.act.youtube.id}
             opts={playerOpts}
             onReady={this.youtubeReady}
           />
@@ -91,13 +60,13 @@ export default class HiddenYoutubePlayer extends React.Component {
 
   youtubeReady = (event) => {
     this.player = event.target;
-    this.player.seekTo(this.actVideoMetadata[this.props.act].startTime)
+    this.player.seekTo(this.props.act.youtube.startTime)
     this.player.pauseVideo()
     this.props.onReady();
   };
 
   play() {
-    let { startTime } = this.actVideoMetadata[this.props.act];
+    let { startTime } = this.props.act.youtube;
 
     if (this.player.getCurrentTime() < startTime) {
       this.player.seekTo(startTime);
@@ -114,7 +83,7 @@ export default class HiddenYoutubePlayer extends React.Component {
   }
 
   updateTimer = () => {
-    let { startTime } = this.actVideoMetadata[this.props.act];
+    let { startTime } = this.props.act.youtube;
     let playerTime = this.player.getCurrentTime();
 
     this.setState({ timer: playerTime.toFixed(2) });

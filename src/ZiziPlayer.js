@@ -13,8 +13,8 @@ export default class ZiziPlayer extends React.Component {
       zoom: false,
       pose: false,
       currentTime: 0,
-      act: "glass",
-      performer: "amalgam",
+      act: this.props.showData.songs["iam"],
+      performer: this.props.showData.performers["amalgam"],
     };
   }
 
