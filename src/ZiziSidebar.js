@@ -62,7 +62,7 @@ export default class ZiziSidebar extends React.Component {
           {zoomInOut}
           <SkipToNextTrack />
           <ShowPerformers onClick={this.showPerformers} />
-          <NewPerformer onClick={this.props.onNewPerformer} />
+          <NewPerformer onClick={() => this.props.changePerformer()}/>
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -134,78 +134,56 @@ export default class ZiziSidebar extends React.Component {
         return <div>
           <img src="img/performers.png" className="secondary-header" />
 
-          <a onClick={() => this.props.changePerformer("amalgam")}><img src="img/performers/amalgam.jpg" height="150px"></img></a>
-          <p>Zizi: Amalgam <br/><a href="#amalgam">More Info</a></p>
-
-          <a onClick={() => this.props.changePerformer("bolly")}><img src="img/performers/bolly.jpg" height="150px"></img></a>
-          <p>Bolly-Illusion <br/><a href="#bolly">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Cara Melle <br/><a href="#cara">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Chiyo <br/><a href="#chiyo">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Dakota <br/><a href="#dakota">More Info</a></p>
-
-          <img src="img/performers/lilly.jpg" height="150px"></img>
-          <p>Lilly Snatchdragon <br/><a href="#lilly">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Luke Slyka <br/><a href="#luke">More Info</a></p>
-
-          <img src="img/performers/mahatma.jpg" height="150px"></img>
-          <p>Mahatma Khandi <br/><a href="#mahatma">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Mark Anthony <br/><a href="#mark">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Me <br/><a href="#me">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Oedipussi Rex <br/><a href="#pussi">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Ruby Wednesday <br/><a href="#ruby">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Sister Sister <br/><a href="#sister">More Info</a></p>
-
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
-          <p>Tete Bang <br/><a href="#tete">More Info</a></p>
+          <a onClick={() => this.props.changePerformer("amalgam")}>
+          <img src="img/performers/amalgam.jpg" height="80px"></img>
+          <p>Zizi: Amalgam</p></a><br/>
+          <p><a href="#amalgam">More Info</a></p>
           
+          <a onClick={() => this.props.changePerformer("bolly")}>
+          <img src="img/performers/bolly.jpg" height="80px"></img>
+          <p>Bolly Illusion</p></a><br/>
+          <p><a href="#amalgam">More Info</a></p>
+
+          <a onClick={() => this.props.changePerformer("lilly")}>
+          <img src="img/performers/Lilly.jpg" height="80px"></img>
+          <p>Lilly</p></a><br/>
+          <p><a href="#amalgam">More Info</a></p>
+
+          <a onClick={() => this.props.changePerformer("mahatma")}>
+          <img src="img/performers/mahatma.jpg" height="80px"></img>
+          <p>Mahatma</p></a><br/>
+          <p><a href="#amalgam">More Info</a></p>
+
         </div>
       case "acts":
         return <div>
           <img src="img/pick.png" className="secondary-header" />
 
-          <a href="#fiveyears">
+          <a href="#fiveyears" onClick={() => this.props.changeSong("fiveyears")}>
             <p>Five Years | David Bowie<br />
             Performed by <a href="#ruby">Ruby Wednesday</a></p>
           </a>
-          <a href="#freedom">
+          <a href="#freedom" onClick={() => this.props.changeSong("freedom")}>
             <p>Freedom! ’90 | George Michael<br />
             Performed by <a href="#mark">Mark Anthony</a></p>
           </a>
-          <a href="#iam">
+          <a href="#iam" onClick={() => this.props.changeSong("iam")}>
             <p>I Am What I Am | La Cage aux Folles<br />
             Performed by <a href="#me">Me</a></p>
           </a>
-          <a href="#glass">
+          <a href="#glass" onClick={() => this.props.changeSong("glass")}>
             <p>Raise Your Glass | P!nk<br />
             Performed by <a href="#lilly">Lilly Snatchdragon</a></p>
           </a>
-                    <a href="#nancy">
+          <a href="#nancy" onClick={() => this.props.changeSong("nancy")}>
             <p>Nancy Boy | Placebo<br />
             Performed by <a href="#ruby">Ruby Wednesday</a></p>
           </a>
-          <a href="#mighty">
+          <a href="#mighty" onClick={() => this.props.changeSong("mighty")}>
             <p>You Make Me Feel | Sylvester<br />
             Performed by <a href="#chiyo">Chiyo</a></p>
           </a>
-          <a href="#mylife">
+          <a href="#mylife" onClick={() => this.props.changeSong("mylife")}>
             <p>This Is My Life | Shirley Bassey<br />
             Performed by <a href="#me">Me</a></p>
           </a>

@@ -110,10 +110,19 @@ export default class ZiziPlayer extends React.Component {
   changeSong = (songName) => {
     this.setState({
       song: this.props.showData.songs[songName]
+      // start: this.props.showData.youtube.startTime[0.0]
     })
   }
 
   changePerformer = (performerName) => {
+    this.setState({
+      performer: this.props.showData.performers[performerName]
+    })
+  }
+
+  newPerformer = () => {
+    // let performerName = this.props.showData.performers.find(key => n[key] === Math.random() * 14);
+    let performerName = "amalgam";
     this.setState({
       performer: this.props.showData.performers[performerName]
     })
