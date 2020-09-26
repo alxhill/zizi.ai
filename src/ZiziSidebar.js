@@ -19,7 +19,7 @@ export default class ZiziSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullSize: true,
+      fullSize: false,
       showSecondaryBar: false,
       secondaryBar: "none"
     };
@@ -50,9 +50,13 @@ export default class ZiziSidebar extends React.Component {
       <div className="mini-sidebar button-sidebar">
         <div className="top-buttons">
           {hideShow}
+
+          {/* Temporary ACTS & PLAY Button - For Dev */}
           <br></br>
-          {/* Temporary Acts Access Button - For Dev */}
           <ShowActs onClick={this.showActs} />
+          <br></br>
+          <Play onClick={this.props.onPlay} />
+
         </div>
         <div className="centered-buttons">
           {zoomInOut}
@@ -119,14 +123,94 @@ export default class ZiziSidebar extends React.Component {
       case "about":
         return <div>
           <img src="img/about.png" className="secondary-header"/>
-        </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in est augue. Suspendisse potenti. Proin nisl tellus, placerat nec neque ut, tempus mollis augue.</p>
+          <iframe width="80%" src="https://www.youtube.com/embed/QOK97wutH-s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Mauris vulputate, magna vel pellentesque fermentum, neque mauris lobortis enim, non posuere enim lectus non quam. Vestibulum sagittis sem nulla, at sodales dolor auctor rutrum. Fusce lacinia efficitur erat, non bibendum mi pellentesque cursus. Aliquam justo neque, condimentum vitae pharetra non, congue ut ex. Donec iaculis vitae ante id condimentum.<br />Nulla viverra id neque sit amet convallis. Cras venenatis purus odio, a vehicula velit hendrerit ac. Mauris vulputate mattis vulputate. Aliquam lacinia magna sed tempor dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a elit in felis vehicula accumsan.</p>
+      <iframe width="80%" src="https://www.youtube.com/embed/vtpVr5KVvnk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div>
+
+
+
       case "performers":
         return <div>
           <img src="img/performers.png" className="secondary-header" />
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Zizi: Amalgam <br/><a href="#amalgam">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Bolly-Illusion <br/><a href="#bolly">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Cara Melle <br/><a href="#cara">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Chiyo <br/><a href="#chiyo">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Dakota <br/><a href="#dakota">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Lilly Snatchdragon <br/><a href="#lilly">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Luke Slyka <br/><a href="#luke">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Mahatma Khandi <br/><a href="#mahatma">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Mark Anthony <br/><a href="#mark">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Me <br/><a href="#me">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Oedipussi Rex <br/><a href="#pussi">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Ruby Wednesday <br/><a href="#ruby">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Sister Sister <br/><a href="#sister">More Info</a></p>
+
+          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <p>Tete Bang <br/><a href="#tete">More Info</a></p>
+          
         </div>
       case "acts":
         return <div>
           <img src="img/pick.png" className="secondary-header" />
+
+          <a href="#fiveyears">
+            <p>Five Years | David Bowie<br />
+            Performed by <a href="#ruby">Ruby Wednesday</a></p>
+          </a>
+          <a href="#iam">
+            <p>I Am What I Am | La Cage aux Folles<br />
+            Performed by <a href="#me">Me</a></p>
+          </a>
+          <a href="#mighty">
+            <p>You Make Me Feel | Sylvester<br />
+            Performed by <a href="#chiyo">Chiyo</a></p>
+          </a>
+          <a href="#freedom">
+            <p>Freedom! ’90 | George Michael<br />
+            Performed by <a href="#mark">Mark Anthony</a></p>
+          </a>
+          <a href="#glass">
+            <p>Raise Your Glass | P!nk<br />
+            Performed by <a href="#lilly">Lilly Snatchdragon</a></p>
+          </a>
+          <a href="#mylife">
+            <p>This Is My Life | Shirley Bassey<br />
+            Performed by <a href="#me">Me</a></p>
+          </a>
+          <a href="#nancy">
+            <p>Nancy Boy | Placebo<br />
+            Performed by <a href="#ruby">Ruby Wednesday</a></p>
+          </a>
+
         </div>
       default:
       case "none": 
