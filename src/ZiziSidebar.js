@@ -186,30 +186,31 @@ export default class ZiziSidebar extends React.Component {
             <p>Five Years | David Bowie<br />
             Performed by <a href="#ruby">Ruby Wednesday</a></p>
           </a>
-          <a href="#iam">
-            <p>I Am What I Am | La Cage aux Folles<br />
-            Performed by <a href="#me">Me</a></p>
-          </a>
-          <a href="#mighty">
-            <p>You Make Me Feel | Sylvester<br />
-            Performed by <a href="#chiyo">Chiyo</a></p>
-          </a>
           <a href="#freedom">
             <p>Freedom! ’90 | George Michael<br />
             Performed by <a href="#mark">Mark Anthony</a></p>
+          </a>
+          <a href="#iam">
+            <p>I Am What I Am | La Cage aux Folles<br />
+            Performed by <a href="#me">Me</a></p>
           </a>
           <a href="#glass">
             <p>Raise Your Glass | P!nk<br />
             Performed by <a href="#lilly">Lilly Snatchdragon</a></p>
           </a>
+                    <a href="#nancy">
+            <p>Nancy Boy | Placebo<br />
+            Performed by <a href="#ruby">Ruby Wednesday</a></p>
+          </a>
+          <a href="#mighty">
+            <p>You Make Me Feel | Sylvester<br />
+            Performed by <a href="#chiyo">Chiyo</a></p>
+          </a>
           <a href="#mylife">
             <p>This Is My Life | Shirley Bassey<br />
             Performed by <a href="#me">Me</a></p>
           </a>
-          <a href="#nancy">
-            <p>Nancy Boy | Placebo<br />
-            Performed by <a href="#ruby">Ruby Wednesday</a></p>
-          </a>
+
 
         </div>
       default:
