@@ -18,25 +18,6 @@ export default class ZiziPlayer extends React.Component {
     };
   }
 
-  // acts 
-
-// fiveyears
-// freedom
-// glass
-// iam
-// mighty
-// mylife
-// nancy
-
-// performers (so far - more to come)
-
-// amalgam (only "full")
-// bolly
-// lilly
-// mahatma (only "full")
-
-
-
   render() {
     return (
       <div>

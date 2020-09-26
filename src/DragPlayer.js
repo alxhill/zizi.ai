@@ -10,7 +10,6 @@ class DragPlayer extends React.Component {
     playing: false,
   };
 
-
   constructor(props) {
     super(props);
     this.dragVideo = React.createRef();
