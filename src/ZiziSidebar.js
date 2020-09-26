@@ -138,7 +138,7 @@ export default class ZiziSidebar extends React.Component {
           <img src="img/performers/amalgam.jpg" height="150px"></img>
           <p>Zizi: Amalgam <br/><a href="#amalgam">More Info</a></p>
 
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <img src="img/performers/bolly.jpg" height="150px"></img>
           <p>Bolly-Illusion <br/><a href="#bolly">More Info</a></p>
 
           <img src="img/performers/amalgam.jpg" height="150px"></img>
@@ -150,13 +150,13 @@ export default class ZiziSidebar extends React.Component {
           <img src="img/performers/amalgam.jpg" height="150px"></img>
           <p>Dakota <br/><a href="#dakota">More Info</a></p>
 
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <img src="img/performers/lilly.jpg" height="150px"></img>
           <p>Lilly Snatchdragon <br/><a href="#lilly">More Info</a></p>
 
           <img src="img/performers/amalgam.jpg" height="150px"></img>
           <p>Luke Slyka <br/><a href="#luke">More Info</a></p>
 
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <img src="img/performers/mahatma.jpg" height="150px"></img>
           <p>Mahatma Khandi <br/><a href="#mahatma">More Info</a></p>
 
           <img src="img/performers/amalgam.jpg" height="150px"></img>
