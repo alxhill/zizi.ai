@@ -130,15 +130,14 @@ export default class ZiziSidebar extends React.Component {
        </div>
 
 
-
       case "performers":
         return <div>
           <img src="img/performers.png" className="secondary-header" />
 
-          <img src="img/performers/amalgam.jpg" height="150px"></img>
+          <a onClick={() => this.props.changePerformer("amalgam")}><img src="img/performers/amalgam.jpg" height="150px"></img></a>
           <p>Zizi: Amalgam <br/><a href="#amalgam">More Info</a></p>
 
-          <img src="img/performers/bolly.jpg" height="150px"></img>
+          <a onClick={() => this.props.changePerformer("bolly")}><img src="img/performers/bolly.jpg" height="150px"></img></a>
           <p>Bolly-Illusion <br/><a href="#bolly">More Info</a></p>
 
           <img src="img/performers/amalgam.jpg" height="150px"></img>

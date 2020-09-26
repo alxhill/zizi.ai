@@ -1,9 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
 
-
-
-
 // In my old one (working with iphone) - it generates this: (have to press play button twice..)
 // <iframe id="player" style="display: none" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="390" src="https://www.youtube.com/embed/0F28IYnEqKY?autoplay=1&amp;autohide=1&amp;playsinline=1&amp;enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A8000&amp;widgetid=1"></iframe>
 // This one generates this:
@@ -46,7 +43,7 @@ export default class HiddenYoutubePlayer extends React.Component {
       <div>
         <div style={{ display: "none" }}>
           <YouTube
-            videoId={this.props.act.youtube.id}
+            videoId={this.props.song.youtube.id}
             opts={playerOpts}
             onReady={this.youtubeReady}
           />
@@ -60,13 +57,13 @@ export default class HiddenYoutubePlayer extends React.Component {
 
   youtubeReady = (event) => {
     this.player = event.target;
-    this.player.seekTo(this.props.act.youtube.startTime)
+    this.player.seekTo(this.props.song.youtube.startTime)
     this.player.pauseVideo()
     this.props.onReady();
   };
 
   play() {
-    let { startTime } = this.props.act.youtube;
+    let { startTime } = this.props.song.youtube;
 
     if (this.player.getCurrentTime() < startTime) {
       this.player.seekTo(startTime);
@@ -83,7 +80,7 @@ export default class HiddenYoutubePlayer extends React.Component {
   }
 
   updateTimer = () => {
-    let { startTime } = this.props.act.youtube;
+    let { startTime } = this.props.song.youtube;
     let playerTime = this.player.getCurrentTime();
 
     this.setState({ timer: playerTime.toFixed(2) });

@@ -13,7 +13,7 @@ export default class ZiziPlayer extends React.Component {
       zoom: false,
       pose: false,
       currentTime: 0,
-      act: this.props.showData.songs["iam"],
+      song: this.props.showData.songs["iam"],
       performer: this.props.showData.performers["amalgam"],
     };
   }
@@ -22,13 +22,14 @@ export default class ZiziPlayer extends React.Component {
     return (
       <div>
         <HiddenYoutubePlayer
-          act={this.state.act}
+          song={this.state.song}
           onReady={this.youtubeReady}
           playing={this.state.playing}
           hideTimer={false}
           adjustedTimerEvent={this.onTimerEvent}
         />
         <ZiziSidebar
+          showData={this.props.howData}
           isLoaded={this.state.isLoaded}
           playing={this.state.playing}
           zoom={this.state.zoom}
@@ -38,13 +39,15 @@ export default class ZiziPlayer extends React.Component {
           onZoomIn={this.zoomIn}
           onEnablePose={this.enablePose}
           onDisablePose={this.disablePose}
+          changeSong={this.changeSong}
+          changePerformer={this.changePerformer}
         />
 
         <Curtain zoom={this.state.zoom} type="side" />
         <Curtain zoom={this.state.zoom} type="bg" />
         <DragPlayer
           className="primary-player"
-          act={this.state.act}
+          song={this.state.song}
           performer={this.state.performer}
           playing={this.state.playing}
           currentTime={this.state.currentTime}
@@ -54,7 +57,7 @@ export default class ZiziPlayer extends React.Component {
         />
         <DragPlayer
           className="shadow-player"
-          act={this.state.act}
+          song={this.state.song}
           performer={this.state.performer}
           playing={this.state.playing}
           currentTime={this.state.currentTime}
@@ -103,4 +106,16 @@ export default class ZiziPlayer extends React.Component {
   disablePose = () => {
     this.setState({ pose: false });
   };
+
+  changeSong = (songName) => {
+    this.setState({
+      song: this.props.showData.songs[songName]
+    })
+  }
+
+  changePerformer = (performerName) => {
+    this.setState({
+      performer: this.props.showData.performers[performerName]
+    })
+  }
 }
