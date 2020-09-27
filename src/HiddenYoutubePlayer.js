@@ -71,7 +71,7 @@ export default class HiddenYoutubePlayer extends React.Component {
       this.player.playVideo();
     }
 
-    this.timerIntervalID = setInterval(this.updateTimer, 100);
+    this.timerIntervalID = setInterval(this.updateTimer, 1000);
   }
 
   pause() {

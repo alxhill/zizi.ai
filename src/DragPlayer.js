@@ -1,4 +1,5 @@
 import React from "react";
+import Hls from "hls.js";
 
 class DragPlayer extends React.Component {
   static defaultProps = {
@@ -22,13 +23,14 @@ class DragPlayer extends React.Component {
         muted={true}
         ref={this.dragVideo}
       >
-        <source src={this.renderUrl(this.props)} type="video/mp4" />
+        <source src={this.renderUrl(this.props)} />
       </video>
     );
   }
 
   componentDidMount() {
     this.dragVideo.current.currentTime = this.props.currentTime;
+    this.handleHls()
   }
 
   componentDidUpdate(prevProps) {
@@ -43,14 +45,15 @@ class DragPlayer extends React.Component {
       this.sync(this.props.currentTime);
     }
 
-    if (this.renderUrl(prevProps) != this.renderUrl(this.props)) {
+    if (this.renderUrl(prevProps) !== this.renderUrl(this.props)) {
       player.load();
       player.currentTime = this.props.currentTime;
+      this.handleHls()
     }
   }
 
   sync(newTime) {
-    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.1) {
+    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.4) {
       console.log("UPDATING TIME", this.dragVideo.current.currentTime, newTime);
       this.dragVideo.current.currentTime = newTime;
     }
@@ -65,12 +68,23 @@ class DragPlayer extends React.Component {
   renderActUrl(props) {
     let zoomString = props.zoom ? "close" : "full";
     let ziziString = props.pose ? "pose" : props.performer.id;
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-${ziziString}-${zoomString}.mp4`;
+    // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-${ziziString}-${zoomString}.mp4`;
+    // return "http://d24pwke39s76sq.cloudfront.net/fiveyears-amalgam-full.m3u8"
+    // return "http://d24pwke39s76sq.cloudfront.net/fiveyears-bolly-close.m3u8"
+    return "https://s3-eu-west-1.amazonaws.com/zizi.ai/streaming/fiveyears-bolly-close.m3u8"
   }
 
   renderShadowUrl(props) {
     let zoomString = props.zoom ? "close" : "full";
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-shadow-${zoomString}.mp4`;
+  }
+
+  handleHls() {
+    if (Hls.isSupported() && !this.dragVideo.current.canPlayType('application/vnd.apple.mpegurl')) {
+      var hls = new Hls();
+      hls.loadSource(this.renderUrl(this.props));
+      hls.attachMedia(this.dragVideo.current);
+    }
   }
 }
 
