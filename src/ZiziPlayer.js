@@ -2,7 +2,7 @@ import React from "react";
 import DragPlayer from "./DragPlayer";
 import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
 import Curtain from "./Curtain";
-import ZiziSidebar from "./ZiziSidebar";
+import ZiziSidebar from "./sidebar/ZiziSidebar";
 
 export default class ZiziPlayer extends React.Component {
   constructor(props) {
