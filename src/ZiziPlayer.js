@@ -29,7 +29,7 @@ export default class ZiziPlayer extends React.Component {
           adjustedTimerEvent={this.onTimerEvent}
         />
         <ZiziSidebar
-          showData={this.props.howData}
+          showData={this.props.showData}
           isLoaded={this.state.isLoaded}
           playing={this.state.playing}
           zoom={this.state.zoom}
