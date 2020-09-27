@@ -24,7 +24,7 @@ function Play(props) {
 function Pause(props) {
   return (
     <a className="zizi-icon">
-      <PauseRounded font Size="inherit" onClick={props.onClick} />
+      <PauseRounded fontSize="inherit" onClick={props.onClick} />
     </a>
   );
 }
@@ -49,7 +49,7 @@ function ShowPerformers(props) {
   return (
     <a className="zizi-icon" fontSize="inherit" onClick={props.onClick}>
       <svg
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
         focusable="false"
         viewBox="0 0 24 24"
         aria-hidden="true"
@@ -64,7 +64,7 @@ function NewPerformer(props) {
   return (
     <a className="zizi-icon" fontSize="inherit" onClick={props.onClick}>
       <svg
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
         focusable="false"
         viewBox="0 0 24 24"
         aria-hidden="true"
