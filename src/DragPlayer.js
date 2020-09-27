@@ -69,14 +69,13 @@ class DragPlayer extends React.Component {
     let zoomString = props.zoom ? "close" : "full";
     let ziziString = props.pose ? "pose" : props.performer.id;
     // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-${ziziString}-${zoomString}.mp4`;
-    // return "http://d24pwke39s76sq.cloudfront.net/fiveyears-amalgam-full.m3u8"
-    // return "http://d24pwke39s76sq.cloudfront.net/fiveyears-bolly-close.m3u8"
-    return "https://s3-eu-west-1.amazonaws.com/zizi.ai/streaming/fiveyears-bolly-close.m3u8"
+    return `http://d24pwke39s76sq.cloudfront.net/${props.song.id}-${ziziString}-${zoomString}.m3u8`
   }
 
   renderShadowUrl(props) {
     let zoomString = props.zoom ? "close" : "full";
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-shadow-${zoomString}.mp4`;
+    // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-shadow-${zoomString}.mp4`;
+    return `http://d24pwke39s76sq.cloudfront.net/${props.song.id}-shadow-${zoomString}.m3u8`
   }
 
   handleHls() {
