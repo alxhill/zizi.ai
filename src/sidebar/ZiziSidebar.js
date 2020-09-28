@@ -111,7 +111,8 @@ export default class ZiziSidebar extends React.Component {
     let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
       <div className={"secondary-sidebar " + secondaryBarOpenClose}>
-        <div className="close-sidebar button-sidebar">
+        <div className="close-sidebar button-sidebar2"/>
+        <div className="close-button2">
           <Close onClick={this.hideSecondaryBar} />
         </div>
        <div className="content-sidebar">
@@ -130,7 +131,7 @@ export default class ZiziSidebar extends React.Component {
         return <Performers changePerformer={this.props.changePerformer} performers={this.props.showData.performers} />
 
       case "songs":
-        return <Songs changeSong={this.props.changeSong} songs={this.props.songs} />
+        return <Songs changeSong={this.props.changeSong} songs={this.props.showData.songs} />
 
       default:
       case "none": 

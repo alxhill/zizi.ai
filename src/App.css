@@ -68,6 +68,7 @@ h1 {
   font-size: 2.1rem;
 }
 
+
 .mini-sidebar .centered-buttons {
   display: flex;
   flex-direction: column;
@@ -77,6 +78,24 @@ h1 {
   padding: 20px 0 20px 0;
 }
 
+
+.button-sidebar2 {
+  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
+  background-color: #380011;
+  width: 70px;
+  font-size: 2.1rem;
+  z-index: 1;
+}
+
+.close-button2 {
+  font-size: 2.1rem;
+  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
+  background-color: #380011;
+  padding: 15px;
+  width: 30px;
+  height: 30px;
+}
+
 .main-sidebar {
   width: 27rem;
   text-align: center;
@@ -84,6 +103,7 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  overflow: scroll;
 }
 
 .main-sidebar .zizi-icon {
@@ -117,6 +137,10 @@ h1 {
   background-color: #ffbcaf;
   display: block;
   margin: 25%;
+}
+
+.copyright{
+  margin-bottom: 5rem;
 }
 
 .main-sidebar sub {
@@ -162,14 +186,32 @@ h1 {
   justify-content: space-around;
 }
 
-.songs-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
 .secondary-sidebar .performer img {
   height: 10rem;
+}
+
+.secondary-sidebar .song img {
+  height: 4rem;
+  float: left;
+  margin-left: 10px;
+}
+
+.secondary-sidebar .song {
+  height: 5rem;
+  float: left;
+  text-align: left;
+  font-size: 15px;
+  background-color: #380011;
+  margin-left: 10px;
+}
+
+.secondary-sidebar .about {
+  font-family: 'Lato';
+  height: 5rem;
+  float: left;
+  text-align: left;
+  font-size: 15px;
+  margin-left: 10px;
 }
 
 .curtain-bg {
