@@ -130,7 +130,7 @@ export default class ZiziSidebar extends React.Component {
         return <Performers changePerformer={this.props.changePerformer} performers={this.props.showData.performers} />
 
       case "songs":
-        return <Songs changeSong={this.props.changeSong} songs={this.props.showData.songs} />
+        return <Songs changeSong={this.props.changeSong} songs={this.props.songs} />
 
       default:
       case "none": 
