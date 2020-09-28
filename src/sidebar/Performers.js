@@ -9,7 +9,12 @@ export default class Performers extends React.PureComponent {
       );
     }
 
-    return <div className="performers-list">{renderedPerformers}</div>;
+    return (
+        <div>
+        <img src="img/performers.png" className="secondary-header"/>
+        <div className="performers-list">{renderedPerformers}</div>
+    </div>
+    );
   }
 
   renderPerformer(performer) {

@@ -1,27 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-
 @font-face {
-  font-family: 'market_decoregular';
-  src: url('font/market_deco-webfont.woff2') format('woff2'),
-  url('font/market_deco-webfont.woff') format('woff'),
-  url('font/market_deco.ttf') format('ttf');
+  font-family: "market_decoregular";
+  src: url("font/market_deco-webfont.woff2") format("woff2"),
+    url("font/market_deco-webfont.woff") format("woff"),
+    url("font/market_deco.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
-
 }
 
 body {
   background-color: black;
   color: white;
-  font-family: 'market_decoregular', sans-serif;
+  font-family: "market_decoregular", sans-serif;
   z-index: 1;
   margin: 20px;
   overflow: hidden;
 }
 
 h1 {
-  font-family: 'market_decoregular', sans-serif;
+  font-family: "market_decoregular", sans-serif;
   padding-bottom: 15px;
   text-transform: uppercase;
   font-size: 18px;
@@ -116,7 +114,7 @@ h1 {
   content: "";
   width: 50%;
   height: 1px;
-  background-color:  #ffbcaf;
+  background-color: #ffbcaf;
   display: block;
   margin: 25%;
 }
@@ -154,6 +152,19 @@ h1 {
   right: -27rem;
 }
 
+.secondary-sidebar .content-sidebar {
+  overflow: scroll;
+}
+
+.performers-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.secondary-sidebar .performer img {
+  height: 10rem;
+}
 
 .curtain-bg {
   position: absolute;
@@ -187,8 +198,8 @@ h1 {
   transform: translate(-50%, -50%);
   user-select: none;
   z-index: -1;
-  box-shadow: 150px 0px 100px -50px black inset, -150px 0px 100px -50px black inset;
-
+  box-shadow: 150px 0px 100px -50px black inset,
+    -150px 0px 100px -50px black inset;
 }
 
 .primary-player {
