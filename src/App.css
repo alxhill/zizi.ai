@@ -162,6 +162,12 @@ h1 {
   justify-content: space-around;
 }
 
+.songs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .secondary-sidebar .performer img {
   height: 10rem;
 }

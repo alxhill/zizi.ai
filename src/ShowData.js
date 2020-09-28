@@ -1,4 +1,4 @@
-let songData = {
+let songs = {
   fiveyears: {
     id: "fiveyears",
     name: "Five Years",
@@ -173,6 +173,6 @@ let performers = {
 };
 
 export default {
-  songs: songData,
+  songs: songs,
   performers: performers,
 };
