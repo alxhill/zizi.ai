@@ -66,6 +66,7 @@ class DragPlayer extends React.Component {
   }
 
   renderActUrl(props) {
+    console.log("props", props)
     let zoomString = props.zoom ? "close" : "full";
     let ziziString = props.pose ? "pose" : props.performer.id;
     // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-${ziziString}-${zoomString}.mp4`;

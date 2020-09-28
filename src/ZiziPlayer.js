@@ -115,6 +115,7 @@ export default class ZiziPlayer extends React.Component {
   }
 
   changePerformer = (performerName) => {
+    console.log(performerName, this.props.showData.performers)
     this.setState({
       performer: this.props.showData.performers[performerName]
     })
