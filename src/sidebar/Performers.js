@@ -15,7 +15,7 @@ export default class Performers extends React.PureComponent {
   renderPerformer(performer) {
     return (
       <div className="performer" key={performer.id}>
-        <a onClick={this.props.changePerformer.bind(null, performer.id)}>
+        <a onClick={() => this.props.changePerformer(performer.id)}>
           <img src={`img/performers/${performer.id}.jpg`} />
           <p>{performer.name}</p>
         </a>
