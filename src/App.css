@@ -241,11 +241,11 @@ h1 {
 
 .curtain-bg {
   position: absolute;
-  height: 140%;
+  height: 100%;
   left: 50%;
   top: 50%;
   user-select: none;
-  transform: translate(-50%, -54%);
+  transform: translate(-50%, -50%);
   z-index: -4;
 }
 
