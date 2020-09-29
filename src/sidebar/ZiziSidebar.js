@@ -111,9 +111,10 @@ export default class ZiziSidebar extends React.Component {
     let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
       <div className={"secondary-sidebar " + secondaryBarOpenClose}>
-        <div className="close-sidebar button-sidebar2"/>
+        <div className="close-sidebar-left">
         <div className="close-button2">
           <Close onClick={this.hideSecondaryBar} />
+        </div>
         </div>
        <div className="content-sidebar">
         {this.renderSecondaryBarContent()}

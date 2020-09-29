@@ -79,21 +79,22 @@ h1 {
 }
 
 
-.button-sidebar2 {
+.close-sidebar-left {
   box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
   background-color: #380011;
-  width: 70px;
+  width: 15px;
   font-size: 2.1rem;
   z-index: 1;
 }
 
+
 .close-button2 {
   font-size: 2.1rem;
-  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
   background-color: #380011;
   padding: 15px;
   width: 30px;
   height: 30px;
+  display: inline-flex;
 }
 
 .main-sidebar {
@@ -178,13 +179,28 @@ h1 {
 
 .secondary-sidebar .content-sidebar {
   overflow: scroll;
+  padding-top: 40px;
 }
 
 .performers-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  line-height: 0.2rem;
 }
+
+.performers-list .performer {
+  padding-bottom: 0.8rem;
+}
+
+.secondary-header {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  text-align: center;
+}
+
 
 .secondary-sidebar .performer img {
   height: 10rem;
@@ -193,16 +209,25 @@ h1 {
 .secondary-sidebar .song img {
   height: 4rem;
   float: left;
-  margin-left: 10px;
 }
 
 .secondary-sidebar .song {
-  height: 5rem;
-  float: left;
+  height: 4rem;
+  width: 100%;
   text-align: left;
-  font-size: 15px;
+  padding-bottom: 1rem;
+}
+.secondary-sidebar .song p {
+  height: 4rem;
+  font-size: 0.85rem;
+  /* width: 200px; */
+  /* padding-left: 10px; */
+  display: table-cell;
+  vertical-align: middle;
   background-color: #380011;
-  margin-left: 10px;
+}
+.secondary-sidebar .song w {
+  color: #fff;
 }
 
 .secondary-sidebar .about {

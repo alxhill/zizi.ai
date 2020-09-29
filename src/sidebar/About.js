@@ -3,7 +3,7 @@ import React from "react";
 export default class About extends React.PureComponent {
     render() {
         return <div className="about">
-            <img src="img/about.png" className="secondary-header" />
+            <img src="img/about.png" className="secondary-header" draggable="false" />
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in est augue. Suspendisse potenti. Proin nisl tellus, placerat nec neque ut, tempus mollis augue.</p>
 
@@ -15,7 +15,7 @@ export default class About extends React.PureComponent {
 
             <p>Credits:<br />
             Jake Elwes - Artist<br />
-            Alexander Hill - Web Development<br />
+            Alexander Hill - Web tech &amp; development<br />
             Toby Elwes - Camera<br />
             Me - Performance Director
             </p>

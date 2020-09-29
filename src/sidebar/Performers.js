@@ -11,7 +11,7 @@ export default class Performers extends React.PureComponent {
 
     return (
         <div>
-        <img src="img/performers.png" className="secondary-header"/>
+        <img src="img/performers.png" className="secondary-header" draggable="false"/>
         <div className="performers-list">{renderedPerformers}</div>
     </div>
     );
@@ -21,10 +21,10 @@ export default class Performers extends React.PureComponent {
     return (
       <div className="performer" key={performer.id}>
         <a onClick={() => this.props.changePerformer(performer.id)}>
-          <img src={`img/performers/${performer.id}.jpg`} />
+          <img src={`img/performers/PickerImage/${performer.id}.jpg`} />
           <p>{performer.name}</p>
         </a>
-        <p><a href="#">More Info</a></p>
+        <small><p><a href="#">More Info</a></p></small>
       </div>
     );
   }

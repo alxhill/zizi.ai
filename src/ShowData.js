@@ -42,7 +42,7 @@ let songs = {
   nancy: {
     id: "nancy",
     name: "Nancy Boy",
-    artist: "Ruby Wednesday",
+    artist: "Placebo",
     performer: "ruby",
     youtube: {
       id: "PBxuq_eWW94",
@@ -52,7 +52,7 @@ let songs = {
   mighty: {
     id: "mighty",
     name: "You Make Me Feel",
-    artist: "Chiyo",
+    artist: "Sylvester",
     performer: "chiyo",
     youtube: {
       id: "Ifr13Upytb4",

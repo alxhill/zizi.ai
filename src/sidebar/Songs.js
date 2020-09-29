@@ -11,7 +11,7 @@ export default class Songs extends React.PureComponent {
 
     return (
       <div>
-        <img src="img/pick.png" className="secondary-header" />
+        <img src="img/pick.png" className="secondary-header" draggable="false" />
         <div className="songs-list">{renderedSongs}</div>
       </div>
     );
@@ -21,13 +21,13 @@ export default class Songs extends React.PureComponent {
     return (
       <div className="song" key={songs.id}>
         <a onClick={() => this.props.changeSong(songs.id)}>
-          <p>
             <img src={`img/album_covers/${songs.id}.jpg`} />
-            {songs.name} | {songs.artist} <br />
-            Movement originally trained on <a>{songs.perfomer}</a>
+            <p>
+            <w>{songs.name}</w> | {songs.artist} <br />
+            <small>Movement originally trained on <a>{songs.performer}</a></small>
           </p>
         </a>
       </div>
     );
   }
-}
+} 
