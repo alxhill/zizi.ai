@@ -17,14 +17,14 @@ export default class Songs extends React.PureComponent {
     );
   }
 
-  renderSong(songs) {
+  renderSong(song) {
     return (
-      <div className="song" key={songs.id}>
-        <a onClick={() => this.props.changeSong(songs.id)}>
-            <img src={`img/album_covers/${songs.id}.jpg`} />
+      <div className="song" key={song.id}>
+        <a onClick={() => this.props.changeSong(song.id)}>
+            <img src={`img/album_covers/${song.id}.jpg`} />
             <p>
-            <w>{songs.name}</w> | {songs.artist} <br />
-            <small>Movement originally trained on <a>{songs.performer}</a></small>
+            <w>{song.name}</w> | {song.artist} <br />
+            <small>Movement by {this.props.performers[(song.performer)].name}</small>
           </p>
         </a>
       </div>

@@ -185,7 +185,7 @@ h1 {
 .performers-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   line-height: 0.2rem;
 }
 
@@ -216,6 +216,7 @@ h1 {
   width: 100%;
   text-align: left;
   padding-bottom: 1rem;
+
 }
 .secondary-sidebar .song p {
   height: 4rem;
@@ -225,6 +226,7 @@ h1 {
   display: table-cell;
   vertical-align: middle;
   background-color: #380011;
+  
 }
 .secondary-sidebar .song w {
   color: #fff;

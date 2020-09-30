@@ -65,7 +65,7 @@ export default class ZiziSidebar extends React.Component {
           {zoomInOut}
           <SkipToNextTrack />
           <ShowPerformers onClick={this.showPerformers} />
-          <NewPerformer onClick={() => this.props.changePerformer()}/>
+          <NewPerformer onClick={() => this.props.newPerformer()}/>
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -90,17 +90,18 @@ export default class ZiziSidebar extends React.Component {
             <Captions />
           </div>
           <div className="now-playing">
+          <p></p>
             <p>"Raise Your Glass" by P!nk</p>
-            <sub>Original performance by <a className="inline-link" href="#strats">Ruby Wednesday</a></sub>
-            <sub>Deepfake trained on <a className="inline-link" href="#dstir">Lilly Snatchdragon</a></sub>
+            <sub>Original performance by <a className="inline-link" href="#strats">{this.props.showData.performers["ruby"].name}</a></sub>
+            <sub>Deepfake trained on <a className="inline-link" href="#dstir">{this.props.showData.performers["lilly"].name}</a></sub>
           </div>
           <div className="about-button">
             <a onClick={this.showAbout} className="sidebar-large-button">ABOUT</a>
           </div>
         </div>
         <div className="copyright">
-            <sub>The Zizi Project</sub>
-            <sub><a className="inline-link" href="https://jakeelwes.com">Jake Elwes</a> 2020</sub>
+            <sub>The Zizi Project&copy;</sub>
+            <sub><a className="inline-link" href="https://jakeelwes.com"> Jake Elwes</a> 2020</sub>
             <sub>Part of <a className="inline-link" href="https://newsreal.cc">newsreal.cc</a></sub>
         </div>
       </div>
@@ -132,7 +133,7 @@ export default class ZiziSidebar extends React.Component {
         return <Performers changePerformer={this.props.changePerformer} performers={this.props.showData.performers} />
 
       case "songs":
-        return <Songs changeSong={this.props.changeSong} songs={this.props.showData.songs} />
+        return <Songs changeSong={this.props.changeSong} songs={this.props.showData.songs} performers={this.props.showData.performers} />
 
       default:
       case "none": 
