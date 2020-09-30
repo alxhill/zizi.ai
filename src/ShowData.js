@@ -25,8 +25,8 @@ let songs = {
     artist: "La Cage aux Folles",
     performer: "me",
     youtube: {
-      id: "AsxB259zyLc",
-      startTime: -5.0,
+      id: "aB5JLA7A7No",
+      startTime: 0.0,
     },
   },
   glass: {
