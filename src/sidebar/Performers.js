@@ -11,7 +11,7 @@ export default class Performers extends React.PureComponent {
 
     return (
         <div>
-        <img src="img/performers.png" className="secondary-header"/>
+        <img alt="" src="img/performers.png" draggable="false" className="secondary-header"/>
         <div className="performers-list">{renderedPerformers}</div>
     </div>
     );
@@ -21,7 +21,7 @@ export default class Performers extends React.PureComponent {
     return (
       <div className="performer" key={performer.id}>
         <a onClick={() => this.props.changePerformer(performer.id)}>
-          <img src={`img/performers/${performer.id}.jpg`} />
+          <img alt={`AI generated of drag perfomer '${performer.name}'`} src={`img/performers/${performer.id}.jpg`} draggable="false" />
           <p>{performer.name}</p>
         </a>
         <p><a href="#">More Info</a></p>
