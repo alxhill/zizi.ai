@@ -76,7 +76,7 @@ class DragPlayer extends React.Component {
   renderShadowUrl(props) {
     let zoomString = props.zoom ? "close" : "full";
     // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-shadow-${zoomString}.mp4`;
-    return `http://d24pwke39s76sq.cloudfront.net/${props.song.id}-shadow-${zoomString}.m3u8`
+    return `http://d24pwke39s76sq.cloudfront.net/${props.song.id}-shadow-${zoomString}-low.m3u8`
   }
 
   handleHls() {

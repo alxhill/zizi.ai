@@ -83,7 +83,7 @@ function Captions(props) {
   );
 }
 
-function ShowActs(props) {
+function ShowSongs(props) {
   return (
     <a className="zizi-icon">
       <ListRounded fontSize="inherit" onClick={props.onClick} />
@@ -143,6 +143,6 @@ export {
   Forward10,
   Back10,
   SkipToNextTrack,
-  ShowActs,
+  ShowSongs,
   Captions,
 };

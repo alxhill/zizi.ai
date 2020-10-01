@@ -41,6 +41,7 @@ export default class ZiziPlayer extends React.Component {
           onDisablePose={this.disablePose}
           changeSong={this.changeSong}
           changePerformer={this.changePerformer}
+          newPerformer={this.newPerformer}
         />
 
         <Curtain zoom={this.state.zoom} type="side" />
@@ -122,10 +123,11 @@ export default class ZiziPlayer extends React.Component {
   }
 
   newPerformer = () => {
-    // let performerName = this.props.showData.performers.find(key => n[key] === Math.random() * 14);
-    let performerName = "amalgam";
+    var keys = Object.keys(this.props.showData.performers);
+    let random = keys[ keys.length * Math.random() << 0]
+    console.log(random)
     this.setState({
-      performer: this.props.showData.performers[performerName]
+      performer: this.props.showData.performers[random]
     })
   }
 }

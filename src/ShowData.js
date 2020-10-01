@@ -1,4 +1,4 @@
-let songData = {
+let songs = {
   fiveyears: {
     id: "fiveyears",
     name: "Five Years",
@@ -25,8 +25,8 @@ let songData = {
     artist: "La Cage aux Folles",
     performer: "me",
     youtube: {
-      id: "AsxB259zyLc",
-      startTime: -5.0,
+      id: "aB5JLA7A7No",
+      startTime: 0.0,
     },
   },
   glass: {
@@ -42,7 +42,7 @@ let songData = {
   nancy: {
     id: "nancy",
     name: "Nancy Boy",
-    artist: "Ruby Wednesday",
+    artist: "Placebo",
     performer: "ruby",
     youtube: {
       id: "PBxuq_eWW94",
@@ -52,7 +52,7 @@ let songData = {
   mighty: {
     id: "mighty",
     name: "You Make Me Feel",
-    artist: "Chiyo",
+    artist: "Sylvester",
     performer: "chiyo",
     youtube: {
       id: "Ifr13Upytb4",
@@ -173,6 +173,6 @@ let performers = {
 };
 
 export default {
-  songs: songData,
+  songs: songs,
   performers: performers,
 };

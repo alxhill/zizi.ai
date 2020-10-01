@@ -11,10 +11,12 @@ import {
   Forward10,
   Back10,
   SkipToNextTrack,
-  ShowActs,
+  ShowSongs,
   Captions,
 } from "../Buttons";
 import Performers from "./Performers";
+import Songs from "./Songs";
+import About from "./About";
 
 export default class ZiziSidebar extends React.Component {
   constructor(props) {
@@ -54,7 +56,7 @@ export default class ZiziSidebar extends React.Component {
 
           {/* Temporary ACTS & PLAY Button - For Dev */}
           <br></br>
-          <ShowActs onClick={this.showActs} />
+          <ShowSongs onClick={this.showSongs} />
           <br></br>
           <Play onClick={this.props.onPlay} />
 
@@ -63,7 +65,7 @@ export default class ZiziSidebar extends React.Component {
           {zoomInOut}
           <SkipToNextTrack />
           <ShowPerformers onClick={this.showPerformers} />
-          <NewPerformer onClick={() => this.props.changePerformer()}/>
+          <NewPerformer onClick={() => this.props.newPerformer()}/>
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -88,17 +90,18 @@ export default class ZiziSidebar extends React.Component {
             <Captions />
           </div>
           <div className="now-playing">
+          <p></p>
             <p>"Raise Your Glass" by P!nk</p>
-            <sub>Original performance by <a className="inline-link" href="#strats">Ruby Wednesday</a></sub>
-            <sub>Deepfake trained on <a className="inline-link" href="#dstir">Lilly Snatchdragon</a></sub>
+            <sub>Original performance by <a className="inline-link" href="#strats">{this.props.showData.performers["ruby"].name}</a></sub>
+            <sub>Deepfake trained on <a className="inline-link" href="#dstir">{this.props.showData.performers["lilly"].name}</a></sub>
           </div>
           <div className="about-button">
             <a onClick={this.showAbout} className="sidebar-large-button">ABOUT</a>
           </div>
         </div>
         <div className="copyright">
-            <sub>The Zizi Project</sub>
-            <sub><a className="inline-link" href="https://jakeelwes.com">Jake Elwes</a> 2020</sub>
+            <sub>The Zizi Project&copy;</sub>
+            <sub><a className="inline-link" href="https://jakeelwes.com"> Jake Elwes</a> 2020</sub>
             <sub>Part of <a className="inline-link" href="https://newsreal.cc">newsreal.cc</a></sub>
         </div>
       </div>
@@ -109,8 +112,10 @@ export default class ZiziSidebar extends React.Component {
     let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
       <div className={"secondary-sidebar " + secondaryBarOpenClose}>
-        <div className="close-sidebar button-sidebar">
+        <div className="close-sidebar-left">
+        <div className="close-button2">
           <Close onClick={this.hideSecondaryBar} />
+        </div>
         </div>
        <div className="content-sidebar">
         {this.renderSecondaryBarContent()}
@@ -122,53 +127,14 @@ export default class ZiziSidebar extends React.Component {
   renderSecondaryBarContent() {
     switch (this.state.secondaryBar) {
       case "about":
-        return <div>
-          <img src="img/about.png" className="secondary-header"/>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in est augue. Suspendisse potenti. Proin nisl tellus, placerat nec neque ut, tempus mollis augue.</p>
-          <iframe width="80%" src="https://www.youtube.com/embed/QOK97wutH-s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p>Mauris vulputate, magna vel pellentesque fermentum, neque mauris lobortis enim, non posuere enim lectus non quam. Vestibulum sagittis sem nulla, at sodales dolor auctor rutrum. Fusce lacinia efficitur erat, non bibendum mi pellentesque cursus. Aliquam justo neque, condimentum vitae pharetra non, congue ut ex. Donec iaculis vitae ante id condimentum.<br />Nulla viverra id neque sit amet convallis. Cras venenatis purus odio, a vehicula velit hendrerit ac. Mauris vulputate mattis vulputate. Aliquam lacinia magna sed tempor dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a elit in felis vehicula accumsan.</p>
-      <iframe width="80%" src="https://www.youtube.com/embed/vtpVr5KVvnk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       </div>
-
+        return <About />
 
       case "performers":
         return <Performers changePerformer={this.props.changePerformer} performers={this.props.showData.performers} />
 
-      case "acts":
-        return <div>
-          <img src="img/pick.png" className="secondary-header" />
+      case "songs":
+        return <Songs changeSong={this.props.changeSong} songs={this.props.showData.songs} performers={this.props.showData.performers} />
 
-          <a href="#fiveyears" onClick={() => this.props.changeSong("fiveyears")}>
-            <p>Five Years | David Bowie<br />
-            Performed by <a href="#ruby">Ruby Wednesday</a></p>
-          </a>
-          <a href="#freedom" onClick={() => this.props.changeSong("freedom")}>
-            <p>Freedom! ’90 | George Michael<br />
-            Performed by <a href="#mark">Mark Anthony</a></p>
-          </a>
-          <a href="#iam" onClick={() => this.props.changeSong("iam")}>
-            <p>I Am What I Am | La Cage aux Folles<br />
-            Performed by <a href="#me">Me</a></p>
-          </a>
-          <a href="#glass" onClick={() => this.props.changeSong("glass")}>
-            <p>Raise Your Glass | P!nk<br />
-            Performed by <a href="#lilly">Lilly Snatchdragon</a></p>
-          </a>
-          <a href="#nancy" onClick={() => this.props.changeSong("nancy")}>
-            <p>Nancy Boy | Placebo<br />
-            Performed by <a href="#ruby">Ruby Wednesday</a></p>
-          </a>
-          <a href="#mighty" onClick={() => this.props.changeSong("mighty")}>
-            <p>You Make Me Feel | Sylvester<br />
-            Performed by <a href="#chiyo">Chiyo</a></p>
-          </a>
-          <a href="#mylife" onClick={() => this.props.changeSong("mylife")}>
-            <p>This Is My Life | Shirley Bassey<br />
-            Performed by <a href="#me">Me</a></p>
-          </a>
-
-
-        </div>
       default:
       case "none": 
         return <div></div>
@@ -192,8 +158,8 @@ export default class ZiziSidebar extends React.Component {
     this.setState({secondaryBar: "about", showSecondaryBar: true})
   }
 
-  showActs = () => {
-    this.setState({secondaryBar: "acts", showSecondaryBar: true})
+  showSongs = () => {
+    this.setState({secondaryBar: "songs", showSecondaryBar: true})
   }
 
   hideSecondaryBar = () => {
