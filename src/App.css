@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     top: auto;
-    bottom: -26rem;
+    bottom: 0;
     height: 30rem;
     flex-direction: column-reverse;
     transition: bottom 1s ease;
@@ -27,7 +27,7 @@
 
   body .zizi-sidebar.closed {
     left: 0;
-    bottom: 0;
+    bottom: -26rem;
   }
   
   body .zizi-sidebar .mini-sidebar {
@@ -42,6 +42,25 @@
 
   body .zizi-sidebar .mini-sidebar .centered-buttons > a {
     padding: 0 20px 0 20px;
+  }
+
+  body .secondary-sidebar {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    height: 29rem;
+    flex-direction: column;
+    width: 100%;
+    transition: bottom 1s ease;
+  }
+
+  body .secondary-sidebar .content-sidebar {
+    padding-top: 0;
+  }
+
+  body .secondary-sidebar.closed {
+    bottom: -29rem;
   }
 }
 
