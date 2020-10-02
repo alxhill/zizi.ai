@@ -55,9 +55,7 @@ export default class ZiziSidebar extends React.Component {
           {hideShow}
 
           {/* Temporary ACTS & PLAY Button - For Dev */}
-          <br></br>
           <ShowSongs onClick={this.showSongs} />
-          <br></br>
           <Play onClick={this.props.onPlay} />
 
         </div>
