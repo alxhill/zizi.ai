@@ -55,8 +55,8 @@ export default class ZiziSidebar extends React.Component {
           {hideShow}
 
           {/* Temporary ACTS & PLAY Button - For Dev */}
-          <ShowSongs onClick={this.showSongs} />
-          <Play onClick={this.props.onPlay} />
+          {/* <ShowSongs onClick={this.showSongs} /> */}
+          {/* <Play onClick={this.props.onPlay} /> */}
 
         </div>
         <div className="centered-buttons">
@@ -98,6 +98,7 @@ export default class ZiziSidebar extends React.Component {
           </div>
         </div>
         <div className="copyright">
+        <ShowSongs onClick={this.showSongs} />
             <sub>The Zizi Project&copy;</sub>
             <sub><a className="inline-link" href="https://jakeelwes.com"> Jake Elwes</a> 2020</sub>
             <sub>Part of <a className="inline-link" href="https://newsreal.cc">newsreal.cc</a></sub>

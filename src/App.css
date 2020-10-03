@@ -260,6 +260,7 @@ h1 {
 
 .secondary-sidebar .performer img {
   height: 10rem;
+  box-shadow: 8px 8px 30px 0px rgba(0,0,0,0.75);
 }
 
 .secondary-sidebar .song img {

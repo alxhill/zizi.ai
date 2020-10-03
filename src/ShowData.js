@@ -69,6 +69,16 @@ let songs = {
       startTime: 0.0,
     },
   },
+  sweetdreams: {
+    id: "sweetdreams",
+    name: "Sweet Dreams (Live)",
+    artist: "Beyonce",
+    performer: "cara",
+    youtube: {
+      id: "y0xL3RH3JOo",
+      startTime: 0.0,
+    },
+  },
 };
 
 let performers = {
