@@ -90,6 +90,7 @@ h1 {
   height: 100%;
   display: flex;
   background-color: #2e010f;
+  background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,1) 70%, rgba(46,1,15,1) 100%);
   color: #ff9c84;
   transition: left 1s ease;
 }
@@ -217,10 +218,11 @@ h1 {
   position: absolute;
   top: 0;
   right: 0;
-  width: 27rem;
+  width: 25rem;
   height: 100%;
   display: flex;
   background-color: #2e010f;
+  background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,1) 70%, rgba(46,1,15,1) 100%);
   color: #ff9c84;
   text-align: center;
   display: flex;
@@ -236,6 +238,7 @@ h1 {
 .secondary-sidebar .content-sidebar {
   overflow: scroll;
   padding-top: 40px;
+  width: 100%;
 }
 
 .performers-list {
@@ -273,24 +276,40 @@ h1 {
 }
 
 .secondary-sidebar .song {
-  height: 4rem;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   text-align: left;
-  padding-bottom: 1rem;
-
+  margin-bottom: 1rem;
+  /* background-color: #38001170; */
 }
+
+.secondary-sidebar .song:hover {
+  box-shadow: 0px 0px 50px 4px rgba(0,0,0,0.4);
+}
+
 .secondary-sidebar .song p {
   height: 4rem;
   font-size: 0.85rem;
-  /* width: 200px; */
-  /* padding-left: 10px; */
+  padding-left: 1rem;
+  width: 200px;
   display: table-cell;
   vertical-align: middle;
-  background-color: #380011;
-  
 }
 .secondary-sidebar .song w {
   color: #fff;
+}
+.secondary-sidebar .song:hover w {
+  color: #d63a00;
+}
+.secondary-sidebar .song a:hover {
+  color: #ff9c84;
+}
+.secondary-sidebar .song .artist {
+  color: #edb49f;
+}
+.secondary-sidebar .song .artist:hover {
+  color: #d63a00;
 }
 
 .secondary-sidebar .about {
@@ -299,7 +318,11 @@ h1 {
   float: left;
   text-align: left;
   font-size: 15px;
-  margin-left: 10px;
+  font-size: 0.85rem;
+}
+
+.secondary-sidebar .about p {
+  margin: 1.5rem;
 }
 
 .curtain-bg {

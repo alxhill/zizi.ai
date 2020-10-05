@@ -24,7 +24,7 @@ export default class Songs extends React.PureComponent {
             <img src={`img/album_covers/${song.id}.jpg`} />
             <p>
             <w>{song.name}</w> | {song.artist} <br />
-            <small>Movement by {this.props.performers[(song.performer)].name}</small>
+            <small>Movement by <a class="artist">{this.props.performers[(song.performer)].name}</a></small>
           </p>
         </a>
       </div>
