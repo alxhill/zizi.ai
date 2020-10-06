@@ -84,7 +84,7 @@ export default class ZiziSidebar extends React.Component {
           </div>
           <div className="now-playing">
             <p>{`"${this.props.song.name}" by ${this.props.song.artist}`}</p>
-            <sub>Original performance by <a className="inline-link" href="#strats">{this.props.showData.performers[this.props.song.performer].name}</a></sub>
+            <sub>Movement by <a className="inline-link" href="#strats">{this.props.showData.performers[this.props.song.performer].name}</a></sub>
             <sub>Deepfake trained on <a className="inline-link" href="#dstir">{this.props.performer.name}</a></sub>
           </div>
           <div className="about-button">
