@@ -76,6 +76,22 @@ body {
   overflow: hidden;
 }
 
+.enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.enter img {
+  height: 25rem;
+}
+
+.enter img:hover {
+  -webkit-filter: drop-shadow(0px 0px 0px #800a12 );
+  filter: drop-shadow(0px 0px 0px #800a12 );
+}
+
 h1 {
   font-family: "market_decoregular", sans-serif;
   padding-bottom: 15px;
