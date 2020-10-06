@@ -53,11 +53,6 @@ export default class ZiziSidebar extends React.Component {
       <div className="mini-sidebar button-sidebar">
         <div className="top-buttons">
           {hideShow}
-
-          {/* Temporary ACTS & PLAY Button - For Dev */}
-          {/* <ShowSongs onClick={this.showSongs} /> */}
-          {/* <Play onClick={this.props.onPlay} /> */}
-
         </div>
         <div className="centered-buttons">
           {zoomInOut}
@@ -88,10 +83,9 @@ export default class ZiziSidebar extends React.Component {
             <Captions />
           </div>
           <div className="now-playing">
-          <p></p>
-            <p>"Raise Your Glass" by P!nk</p>
-            <sub>Original performance by <a className="inline-link" href="#strats">{this.props.showData.performers["ruby"].name}</a></sub>
-            <sub>Deepfake trained on <a className="inline-link" href="#dstir">{this.props.showData.performers["lilly"].name}</a></sub>
+            <p>{`"${this.props.song.name}" by ${this.props.song.artist}`}</p>
+            <sub>Original performance by <a className="inline-link" href="#strats">{this.props.showData.performers[this.props.song.performer].name}</a></sub>
+            <sub>Deepfake trained on <a className="inline-link" href="#dstir">{this.props.performer.name}</a></sub>
           </div>
           <div className="about-button">
             <a onClick={this.showAbout} className="sidebar-large-button">ABOUT</a>

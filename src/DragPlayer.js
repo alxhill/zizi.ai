@@ -53,7 +53,7 @@ class DragPlayer extends React.Component {
   }
 
   sync(newTime) {
-    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.4) {
+    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.3) {
       console.log("UPDATING TIME", this.dragVideo.current.currentTime, newTime);
       this.dragVideo.current.currentTime = newTime;
     }
@@ -66,7 +66,6 @@ class DragPlayer extends React.Component {
   }
 
   renderActUrl(props) {
-    console.log("props", props)
     let zoomString = props.zoom ? "close" : "full";
     let ziziString = props.pose ? "pose" : props.performer.id;
     // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/${props.song.id}-${ziziString}-${zoomString}.mp4`;
