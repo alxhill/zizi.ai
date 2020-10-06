@@ -1,18 +1,31 @@
 import React from "react";
 import ZiziPlayer from "./ZiziPlayer";
-import "./App.css"
+import "./App.css";
 import ShowData from "./ShowData";
-import { InputRounded } from "@material-ui/icons";
+import IntroScreen from "./IntroScreen"
 
-function App() {
-  return (
-    <div className="zizi">
-      <ZiziPlayer showData={ShowData}/>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mode: "intro",
+    };
+  }
+
+  render() {
+    switch (this.state.mode) {
+      case "intro":
+        return <IntroScreen />;
+      default:
+      case "zizi":
+        return (
+          <div className="zizi">
+            <ZiziPlayer showData={ShowData} />
+          </div>
+        );
+    }
+  }
 }
-
-
 
 // Intro
 
@@ -22,5 +35,3 @@ function App() {
 // Or as start of host-intro.m3u8
 // then play host-intro-test.m3u8 with music from youtube - id: "Si2KRXIfE4M"
 // then host-between-test.m3u8 with layers/shadow and zoom enabled - sound direct from audio file between songs - performers panel, then songs panel comes out when this video loads (or 2 sec delay?)
-
-export default App;

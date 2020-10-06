@@ -47,7 +47,7 @@ function ZoomIn(props) {
 
 function ShowPerformers(props) {
   return (
-    <a className="zizi-icon" fontSize="inherit" onClick={props.onClick}>
+    <a className="zizi-icon" onClick={props.onClick}>
       <svg
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
         focusable="false"
@@ -62,7 +62,7 @@ function ShowPerformers(props) {
 
 function NewPerformer(props) {
   return (
-    <a className="zizi-icon" fontSize="inherit" onClick={props.onClick}>
+    <a className="zizi-icon" onClick={props.onClick}>
       <svg
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
         focusable="false"
