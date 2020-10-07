@@ -48,12 +48,23 @@
     padding: 0 20px 0 20px;
   }
 
+  body .close-sidebar-left {
+    height: 15px;
+    width: 100%;
+  }
+
+  body .close-sidebar-left .close-button2 {
+    display: inherit;
+    padding-left: 15px;
+    padding-top: 30px;
+  }
+
   body .secondary-sidebar {
     left: 0;
     right: 0;
     top: auto;
     bottom: 0;
-    height: 29rem;
+    height: 30rem;
     flex-direction: column;
     width: 100%;
     transition: bottom 1s ease;
@@ -64,7 +75,7 @@
   }
 
   body .secondary-sidebar.closed {
-    bottom: -29rem;
+    bottom: -31rem;
   }
 }
 
@@ -289,6 +300,10 @@ h1 {
 .secondary-sidebar .song img {
   height: 4rem;
   float: left;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
 }
 
 .secondary-sidebar .song {
@@ -301,7 +316,7 @@ h1 {
 }
 
 .secondary-sidebar .song:hover {
-  box-shadow: 0px 0px 50px 4px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.6);
 }
 
 .secondary-sidebar .song p {
@@ -311,6 +326,12 @@ h1 {
   width: 200px;
   display: table-cell;
   vertical-align: middle;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .secondary-sidebar .song w {
   color: #fff;
