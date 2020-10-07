@@ -10,13 +10,14 @@
 }
 
 /* display for mobile and tablet */
-@media (max-aspect-ratio: 2/3) {
+@media (max-aspect-ratio: 2/3) and (orientation: portrait) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
 
-  body .enter {
-    /* width: 70%; */
+  body .enter img {
+    height: auto;
+    width: 90%;
   }
 
   body .zizi-sidebar {
@@ -39,7 +40,6 @@
   }
   
   body .zizi-sidebar .mini-sidebar {
-    width: 100%;
     flex-direction: row;
   }
 
@@ -48,8 +48,9 @@
     display: inline;
   }
 
-  body .zizi-sidebar .mini-sidebar .dummy-spacing-div {
-    width: 6rem;
+  body .main-bar-content {
+    flex-shrink: 0;
+    margin-top: 2rem;
   }
 
   body .zizi-sidebar .mini-sidebar .centered-buttons > a {
@@ -84,6 +85,20 @@
 
   body .secondary-sidebar.closed {
     bottom: -31rem;
+  }
+
+  body .main-bar-content div:after {
+    margin: 2rem 25% 2rem 25%;
+  }
+
+  body #main-bar-logo {
+    order: 1;
+    height: 8rem;
+  }
+
+  body .copyright {
+    order: 2;
+    margin-bottom: 1rem;
   }
 }
 
@@ -151,7 +166,7 @@ h1 {
 .button-sidebar {
   box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
   background-color: #380011;
-  padding: 15px;
+  padding: 1rem;
 }
 
 .mini-sidebar {
@@ -218,7 +233,10 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex-basis: 35rem;
+}
+
+.main-bar-content > div {
+  padding: 1rem;
 }
 
 .main-bar-content .player-controls a {
@@ -231,7 +249,7 @@ h1 {
   height: 1px;
   background-color: #ffbcaf;
   display: block;
-  margin: 25%;
+  margin: 3rem 25% 3rem 25%;
 }
 
 .copyright{

@@ -25,7 +25,7 @@ export default class ZiziPlayer extends React.Component {
           song={this.state.song}
           onReady={this.youtubeReady}
           playing={this.state.playing}
-          hideTimer={false}
+          hideTimer={true}
           adjustedTimerEvent={this.onTimerEvent}
         />
         <ZiziSidebar
