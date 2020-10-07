@@ -3,6 +3,7 @@ import ZiziPlayer from "./ZiziPlayer";
 import "./App.css";
 import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen"
+import ZiziPicker from "./ZiziPicker";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,8 @@ export default class App extends React.Component {
             <ZiziPlayer showData={ShowData} />
           </div>
         );
+      case "picker":
+        return <ZiziPicker />
     }
   }
 

@@ -108,6 +108,7 @@ body {
   font-family: "market_decoregular", sans-serif;
   z-index: 1;
   overflow: hidden;
+  touch-action: none;
 }
 
 .enter {
