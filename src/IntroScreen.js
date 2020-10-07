@@ -4,9 +4,9 @@ import Curtain from "./Curtain";
 export default function IntroScreen(props) {
   return (
     <div>
-      <div className="enter">
+      <a href="#main" className="enter" onClick={props.onEnter}>
         <img src="img/enterButton.png" />
-      </div>
+      </a>
       <Curtain type="side" />
       <Curtain type="bg" />
     </div>

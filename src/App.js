@@ -8,14 +8,14 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: "zizi",
+      mode: "intro",
     };
   }
 
   render() {
     switch (this.state.mode) {
       case "intro":
-        return <IntroScreen />;
+        return <IntroScreen onEnter={this.onEnter}/>;
       default:
       case "zizi":
         return (
@@ -24,6 +24,10 @@ export default class App extends React.Component {
           </div>
         );
     }
+  }
+
+  onEnter = () => {
+    this.setState({mode: "zizi"});
   }
 }
 
