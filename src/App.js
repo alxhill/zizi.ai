@@ -5,6 +5,12 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen"
 import ZiziPicker from "./ZiziPicker";
 
+import { createBrowserHistory } from 'history';
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);

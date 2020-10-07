@@ -10,7 +10,7 @@
 }
 
 /* display for mobile and tablet */
-@media (max-aspect-ratio: 2/3) and (orientation: portrait) {
+@media (max-aspect-ratio: 4/5) and (orientation: portrait) {
   html {
     font-size: 14px;
   }
