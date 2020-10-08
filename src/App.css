@@ -293,7 +293,6 @@ h1 {
 
 .secondary-sidebar .content-sidebar {
   overflow: scroll;
-  padding-top: 40px;
   width: 100%;
 }
 
@@ -318,6 +317,7 @@ h1 {
   -moz-user-select: none;
   -o-user-select: none;
   text-align: center;
+  margin-top: 2rem;;
 }
 
 
@@ -379,16 +379,29 @@ h1 {
 }
 
 .secondary-sidebar .about {
+  width: 100%;
+  height: 300%;
+  background-color: #000;
+}
+
+.secondary-sidebar .about read{
   font-family: 'Lato';
-  height: 5rem;
   float: left;
   text-align: left;
   font-size: 15px;
   font-size: 0.85rem;
 }
 
+.secondary-sidebar .content-sidebar .about {
+  padding-top: 0px;
+}
+
 .secondary-sidebar .about p {
   margin: 1.5rem;
+}
+
+.secondary-sidebar .about img {
+  width: 100%;
 }
 
 .curtain-bg {

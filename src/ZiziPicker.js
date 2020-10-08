@@ -11,6 +11,10 @@ export default class ZiziPicker extends React.Component {
 
     render() {
         return <div>
+
+{/* pick performer image */}
+{/* <img alt="" src="img/pick-performer.png" draggable="false" className="secondary-header"/> */}
+
             
         </div>
     }
