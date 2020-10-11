@@ -5,6 +5,14 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen"
 import ZiziPicker from "./ZiziPicker";
 
+
+// for allowing test build on subdirectory
+import { createBrowserHistory } from 'history';
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
