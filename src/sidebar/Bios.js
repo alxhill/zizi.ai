@@ -24,7 +24,7 @@ export default class Performers extends React.PureComponent {
           <img alt={`AI generated of drag perfomer '${performer.name}'`} src={`img/performers/PickerImage/${performer.id}.jpg`} draggable="false" />
           <p>{performer.name}</p>
         </a>
-        <p className="info"><a href="#">More Info</a></p>
+        <small><p><a href="#">More Info</a></p></small>
       </div>
     );
   }

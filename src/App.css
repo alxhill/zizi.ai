@@ -237,7 +237,8 @@ h1 {
 }
 
 .main-bar-content > div {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .main-bar-content .player-controls a {
@@ -246,11 +247,11 @@ h1 {
 
 .main-bar-content div:after {
   content: "";
-  width: 50%;
+  width: 6rem;
   height: 1px;
   background-color: #ffbcaf;
   display: block;
-  margin: 3rem 25% 3rem 25%;
+  margin: 3rem auto 3rem auto;
 }
 
 .copyright{
@@ -309,6 +310,11 @@ h1 {
 
 .performers-list a:hover {
   box-shadow: 0px 0px 50px 4px rgba(0,0,0,1);
+}
+
+.performers-list .info a {
+  font-size: 0.65rem;
+  text-decoration: none;
 }
 
 .secondary-header {
@@ -390,6 +396,7 @@ h1 {
   text-align: left;
   font-size: 15px;
   font-size: 0.85rem;
+  margin-top: 1.5rem;
 }
 
 .secondary-sidebar .content-sidebar .about {
@@ -398,6 +405,7 @@ h1 {
 
 .secondary-sidebar .about p {
   margin: 1.5rem;
+  margin-top: 0rem;
 }
 
 .secondary-sidebar .about img {

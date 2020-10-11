@@ -105,9 +105,9 @@ let performers = {
   },
   chiyo: {
     id: "chiyo",
-    name: "Chiyo",
-    insta: "@inst",
-    bio: "test bio",
+    name: "CHIYO",
+    insta: "@PrinxChiyo",
+    bio: "The Prinx of Provocation. Sexual Freedom Award's 'PERFORMER OF THE YEAR' and the first Trans finalist for Mr Gay England.",
     n: 3
   },
   dakota: {
@@ -119,23 +119,23 @@ let performers = {
   },
   lilly: {
     id: "lilly",
-    name: "Lilly Snatchdragon",
-    insta: "@inst",
-    bio: "test bio",
+    name: "Lilly SnatchDragon",
+    insta: "@lillysnatch",
+    bio: "Lilly SnatchDragon is an international, award - winning drag queen, burlesque artist and compere. Her approach to how the West stereotypes S.E Asian women won her 'Best Newcomer' at the London Cabaret Awards in 2015.  She has been in the Top 15 ‘UK Burlesque Performers’ since 2015, including No. 1 in 2017 and No. 3 in 2018.  Lilly is currently #5 in the world and #5 in the UK for 2019. She is also one of the founders of sell-out show ‘LADS’ and of renowned all-Asian cabaret collective ‘The Bitten Peach’. @bittenpeachuk",
     n: 5
   },
   luke: {
     id: "luke",
     name: "Luke Slyka",
-    insta: "@inst",
-    bio: "test bio",
+    insta: "@LukeSlyka",
+    bio: "Similar to hitting randomise on a character creation screen is pretty much the aesthetic to my looks. A Clubkid Drag Thing.",
     n: 6
   },
   mahatma: {
     id: "mahatma",
     name: "Mahatma Khandi",
-    insta: "@inst",
-    bio: "test bio",
+    insta: "@mahatmakhandi",
+    bio: "Mahatma Khandi as sweet and spicy as the curry sauce at McDonalds, Coined by her inner circle of voices in her head as the all knowing auntie that brings the 'good' potato salad to the BBQ, she thinks she’s Haute couture but she’s more like Haute mess. She believes in the power of equality and stupidity, to describe her in three words would be reductive (right madonna) but she’s Fabuslaysian, she’s Fashion, and she’s hella Fanny.",
     n: 7
   },
   mark: {
@@ -155,8 +155,8 @@ let performers = {
   pussi: {
     id: "pussi",
     name: "Oedipussi Rex",
-    insta: "@inst",
-    bio: "test bio",
+    insta: "@Oedipussi.rex",
+    bio: "Oedi is a beardy drag barbarian, with acts as wildly inconsistent as the Gods themselves. When not stomping around and yelling incoherently at passing geese, he can usually be found creating mighty bits of facial hair from stuff found in a skip. Oedi also runs Phantasmaglorious- a monthly queer cabaret Gameshow at Matchstick Piehouse (Deptford)",
     n: 10
   },
   ruby: {

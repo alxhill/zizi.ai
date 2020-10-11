@@ -96,6 +96,7 @@ export default class ZiziSidebar extends React.Component {
             <sub>The Zizi Project&copy;</sub>
             <sub><a className="inline-link" href="https://jakeelwes.com"> Jake Elwes</a> 2020</sub>
             <sub>Part of <a className="inline-link" href="https://newsreal.cc">newsreal.cc</a></sub>
+            <sub><a className="inline-link" href="https://instagram.com/zizidrag">Instagram</a></sub>
         </div>
       </div>
     );
@@ -106,7 +107,7 @@ export default class ZiziSidebar extends React.Component {
     return (
       <div className={"secondary-sidebar " + secondaryBarOpenClose}>
         <div className="close-sidebar-left">
-        <div className="close-button2">
+        <div className="close-button2"> 
           <Close onClick={this.hideSecondaryBar} />
         </div>
         </div>

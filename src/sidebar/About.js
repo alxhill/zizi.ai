@@ -31,12 +31,15 @@ export default class About extends React.PureComponent {
 
             <iframe width="60%" src="https://www.youtube.com/embed/QOK97wutH-s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-            <p>Credits:<br />
+            <p>Credits:</p>
+            <read>
+            <p>
             Jake Elwes - Artist<br />
             Alexander Hill - Web tech &amp; development<br />
             Toby Elwes - Camera<br />
             Me - Performance Director
             </p>
+            </read>
         </div>
     }
 }
