@@ -57,7 +57,7 @@ export default class ZiziPlayer extends React.Component {
           pose={this.state.pose}
           shadow={false}
         />
-        <DragPlayer
+        {/* <DragPlayer
           className="pose-player"
           song={this.state.song}
           performer={this.state.performer}
@@ -66,7 +66,7 @@ export default class ZiziPlayer extends React.Component {
           zoom={this.state.zoom}
           pose={true}
           shadow={false}
-        />
+        /> */}
         <DragPlayer
           className="shadow-player"
           song={this.state.song}
