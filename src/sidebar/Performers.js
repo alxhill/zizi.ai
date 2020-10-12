@@ -31,11 +31,25 @@ export default class Performers extends React.PureComponent {
       );
     } else {
       return (
-        <div>
-          <p>
-            Stuff for specific person:
+        <div className="bios">
+          <h1>
             {this.state.performer.name}
+          </h1>
+
+          <img
+            alt={`Image of '${this.state.performer.name}'`}
+            src={`img/performers/BioImage/${this.state.performer.id}.jpg`}
+            draggable="false"
+          />
+
+          <p>
+            {this.state.performer.bio}
           </p>
+
+          <p>
+            {this.state.performer.insta}
+          </p>  
+
           <a onClick={this.backToThumbnails}>Back</a>
         </div>
       );
@@ -47,14 +61,14 @@ export default class Performers extends React.PureComponent {
       <div className="performer" key={performer.id}>
         <a onClick={() => this.props.changePerformer(performer.id)}>
           <img
-            alt={`AI generated of drag perfomer '${performer.name}'`}
+            alt={`Image of '${performer.name}'`}
             src={`img/performers/PickerImage/${performer.id}.jpg`}
             draggable="false"
           />
           <p>{performer.name}</p>
         </a>
         <p className="info">
-          <a onClick={() => this.moreInfo(performer)}>More Info</a>
+          <a onClick={() => this.moreInfo(performer)}>About</a>
         </p>
       </div>
     );
