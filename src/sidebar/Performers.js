@@ -1,59 +1,35 @@
 import React from "react";
 
 export default class Performers extends React.PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      mode: "thumbnails",
-      performer: null,
-    };
-  }
 
   render() {
-    if (this.state.mode === "thumbnails") {
-      let renderedPerformers = [];
-      for (const performerId in this.props.performers) {
-        renderedPerformers.push(
-          this.renderPerformer(this.props.performers[performerId])
-        );
-      }
-
-      return (
-        <div>
-          <img
-            alt=""
-            src="img/performers.png"
-            draggable="false"
-            className="secondary-header"
-          />
-          <div className="performers-list">{renderedPerformers}</div>
-        </div>
-      );
+    if (this.props.content === "thumbnails") {
+      return this.renderThumbnails();
     } else {
-      return (
-        <div className="bios">
-          <h1>
-            {this.state.performer.name}
-          </h1>
+      let performer = this.props.performers[this.props.content]
+      return this.renderAboutView(performer);
+    }
+  }
 
-          <img
-            alt={`Image of '${this.state.performer.name}'`}
-            src={`img/performers/BioImage/${this.state.performer.id}.jpg`}
-            draggable="false"
-          />
-
-          <p>
-            {this.state.performer.bio}
-          </p>
-
-          <p>
-            {this.state.performer.insta}
-          </p>  
-
-          <a onClick={this.backToThumbnails}>Back</a>
-        </div>
+  renderThumbnails() {
+    let renderedPerformers = [];
+    for (const performerId in this.props.performers) {
+      renderedPerformers.push(
+        this.renderPerformer(this.props.performers[performerId])
       );
     }
+
+    return (
+      <div>
+        <img
+          alt=""
+          src="img/performers.png"
+          draggable="false"
+          className="secondary-header"
+        />
+        <div className="performers-list">{renderedPerformers}</div>
+      </div>
+    );
   }
 
   renderPerformer(performer) {
@@ -68,18 +44,27 @@ export default class Performers extends React.PureComponent {
           <p>{performer.name}</p>
         </a>
         <p className="info">
-          <a onClick={() => this.moreInfo(performer)}>About</a>
+          <a onClick={() => this.props.showAboutView(performer.id)}>About</a>
         </p>
       </div>
     );
   }
 
-  moreInfo = (performer) => {
-    console.log(performer)
-    this.setState({ mode: "more-info", performer: performer });
-  };
+  renderAboutView(performer) {
+    return (
+      <div className="bios">
+        <h1>{performer.name}</h1>
 
-  backToThumbnails = () => {
-    this.setState({ mode: "thumbnails", performer: null });
-  };
+        <img
+          alt={`Image of '${performer.name}'`}
+          src={`img/performers/BioImage/${performer.id}.jpg`}
+          draggable="false"
+        />
+
+        <p>{performer.bio}</p>
+        <p>{performer.insta}</p>
+        <a onClick={this.props.showThumbnails}>Back</a>
+      </div>
+    );
+  }
 }
