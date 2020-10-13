@@ -120,6 +120,14 @@ body {
   top: 20%;
 }
 
+.drag-video.zoom {
+
+}
+
+.drag-video.full {
+
+}
+
 .enter img {
   height: 25rem;
 }

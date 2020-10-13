@@ -15,10 +15,11 @@ class DragPlayer extends React.Component {
   }
 
   render() {
+    let zoomClass = this.props.zoom ? "zoom" : "full"
     return (
       <video
         autoPlay={this.props.playing}
-        className={this.props.className}
+        className={this.props.className + " drag-video " + zoomClass}
         playsInline={true}
         muted={true}
         ref={this.dragVideo}
