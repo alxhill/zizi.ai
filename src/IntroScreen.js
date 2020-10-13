@@ -7,8 +7,7 @@ export default function IntroScreen(props) {
       <a href="#main" className="enter" onClick={props.onEnter}>
         <img src="img/enterButton.png" />
       </a>
-      <Curtain type="side" />
-      <Curtain type="bg" />
+      <Curtain />
     </div>
   );
 }

@@ -23,8 +23,8 @@ export default class Songs extends React.PureComponent {
         <a onClick={() => this.props.changeSong(song.id)}>
             <img src={`img/album_covers/${song.id}.jpg`} draggable="false" />
             <p>
-            <w>{song.name}</w> | {song.artist} <br />
-            <small>Movement by <a class="artist">{this.props.performers[song.performer].name}</a></small>
+            <span>{song.name}</span> | {song.artist} <br />
+            <small>Movement by <span>{this.props.performers[song.performer].name}</span></small>
           </p>
         </a>
       </div>

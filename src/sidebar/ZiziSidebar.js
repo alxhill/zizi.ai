@@ -17,6 +17,7 @@ import {
 import Performers from "./Performers";
 import Songs from "./Songs";
 import About from "./About";
+import SecondaryBar from "./SecondaryBar";
 
 export default class ZiziSidebar extends React.Component {
   constructor(props) {
@@ -142,18 +143,10 @@ export default class ZiziSidebar extends React.Component {
   }
 
   renderSecondaryBar() {
-    let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
     return (
-      <div className={"secondary-sidebar " + secondaryBarOpenClose}>
-        <div className="close-sidebar-left">
-          <div className="close-button2">
-            <Close onClick={this.hideSecondaryBar} />
-          </div>
-        </div>
-        <div className="content-sidebar">
+      <SecondaryBar onClose={this.hideSecondaryBar} openClose={this.state.showSecondaryBar}>
           {this.renderSecondaryBarContent()}
-        </div>
-      </div>
+      </SecondaryBar>
     );
   }
 

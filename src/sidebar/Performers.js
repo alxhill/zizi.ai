@@ -19,11 +19,13 @@ export default class Performers extends React.PureComponent {
       );
     }
 
+    let src = this.props.mode === "pick" ? "img/pick-performer.png" : "img/performers.png";
+
     return (
       <div>
         <img
           alt=""
-          src="img/performers.png"
+          src={src}
           draggable="false"
           className="secondary-header"
         />

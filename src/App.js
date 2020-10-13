@@ -2,7 +2,7 @@ import React from "react";
 import ZiziPlayer from "./ZiziPlayer";
 import "./App.css";
 import ShowData from "./ShowData";
-import IntroScreen from "./IntroScreen"
+import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 
 export default class App extends React.Component {
@@ -16,22 +16,39 @@ export default class App extends React.Component {
   render() {
     switch (this.state.mode) {
       case "intro":
-        return <IntroScreen onEnter={this.onEnter}/>;
+        return <IntroScreen onEnter={this.onEnter} />;
       default:
       case "zizi":
         return (
           <div className="zizi">
-            <ZiziPlayer showData={ShowData} />
+            <ZiziPlayer
+              song={this.state.chosenSong}
+              startingPerformer={this.state.chosenPerformer}
+              showData={ShowData}
+            />
           </div>
         );
       case "picker":
-        return <ZiziPicker showData={ShowData} />
+        return (
+          <ZiziPicker
+            showData={ShowData}
+            switchToPlayer={this.switchToPlayer}
+          />
+        );
     }
   }
 
   onEnter = () => {
-    this.setState({mode: "zizi"});
-  }
+    this.setState({ mode: "picker" });
+  };
+
+  switchToPlayer = (performer, song) => {
+    this.setState({
+      mode: "zizi",
+      chosenPerformer: performer,
+      chosenSong: song,
+    });
+  };
 }
 
 // Intro

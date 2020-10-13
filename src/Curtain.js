@@ -2,8 +2,9 @@ import React from "react";
 
 export default function Curtain(props) {
   let zoomString = props.zoom ? "close" : "full";
-  let ext = props.type === "side" ? ".png" : ".jpg";
-  let src = "img/curtain-" + props.type + "-" + zoomString + ext;
-  let cls = "curtain-" + props.type;
-  return <img src={src} className={cls} draggable={false} />;
+  let srcBg = "img/curtain-bg-" + zoomString + ".jpg";
+  let srcSide = "img/curtain-side-" + zoomString + ".png";
+  return [<img src={srcBg} className="curtain-bg" draggable={false} />,
+    <img src={srcSide} className="curtain-side" draggable={false} />
+  ];
 }
