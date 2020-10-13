@@ -17,6 +17,7 @@ class DragPlayer extends React.Component {
   render() {
     let zoomClass = this.props.zoom ? "zoom" : "full"
     return (
+      <div className="vidWindow">
       <video
         autoPlay={this.props.playing}
         className={this.props.className + " drag-video " + zoomClass}
@@ -26,6 +27,7 @@ class DragPlayer extends React.Component {
       >
         <source src={this.renderUrl(this.props)} />
       </video>
+      </div>
     );
   }
 

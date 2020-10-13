@@ -120,14 +120,6 @@ body {
   top: 20%;
 }
 
-.drag-video.zoom {
-
-}
-
-.drag-video.full {
-
-}
-
 .enter img {
   height: 25rem;
 }
@@ -141,7 +133,7 @@ h1 {
   font-family: "market_decoregular", sans-serif;
   padding-bottom: 15px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 2rem;
 }
 
 .zizi-sidebar {
@@ -406,19 +398,24 @@ h1 {
   color: #d63a00;
 }
 
+h2 {
+  font-family: "market_decoregular", sans-serif;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .secondary-sidebar .about {
   width: 100%;
   height: 300%;
   background-color: #000;
-}
-
-.secondary-sidebar .about read{
+  margin: 1.5rem;
   font-family: 'Lato';
   float: left;
   text-align: left;
   font-size: 15px;
   font-size: 0.85rem;
-  margin-top: 1.5rem;
 }
 
 .secondary-sidebar .content-sidebar .about {
@@ -470,9 +467,20 @@ h1 {
     -150px 0px 100px -50px black inset;
 }
 
+
+
+
+.vidWindow {
+  /* position: absolute; */
+  height: 100%;
+}
+
 .primary-player {
   position: absolute;
   height: 100%;
+  /* height: 200px;
+  width: 200px; */
+  object-fit: cover;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -481,6 +489,20 @@ h1 {
   mix-blend-mode: lighten;
   z-index: -2;
 }
+
+
+.drag-video.zoom {
+  object-position: 100% 0;
+  height: 500px;
+  width: 500px;
+}
+
+.drag-video.full {
+  object-position: 0 100%;
+  height: 500px;
+  width: 500px;
+}
+
 
 .pose-player {
   position: absolute;
