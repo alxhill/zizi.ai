@@ -4,7 +4,6 @@ import Hls from "hls.js";
 class DragPlayer extends React.Component {
   static defaultProps = {
     zoom: false,
-    pose: false,
     shadow: false,
     playing: false,
   };
@@ -20,7 +19,7 @@ class DragPlayer extends React.Component {
       <span className={"video-frame " + this.props.className}>
         <video
           autoPlay={this.props.playing}
-          className={" drag-video "+ zoomClass}
+          className={"drag-video "+ zoomClass}
           playsInline={true}
           muted={true}
           ref={this.dragVideo}
@@ -70,8 +69,7 @@ class DragPlayer extends React.Component {
   }
 
   renderActUrl(props) {
-    let ziziString = props.pose ? "pose" : props.performer.id;
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${ziziString}/playlist.m3u8`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;
   }
 
   renderShadowUrl(props) {

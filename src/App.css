@@ -159,7 +159,8 @@ button {
   height: 100%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  mix-blend-mode: lighten;
 }
 
 h1 {
@@ -471,6 +472,11 @@ h2 {
   user-select: none;
   transform: translate(-50%, -50%);
   z-index: -4;
+  transition: opacity 1s;
+}
+
+.curtain-bg.fade {
+  opacity: 40%;
 }
 
 .curtain-side {

@@ -22,7 +22,7 @@ export default class ZiziPicker extends React.Component {
         <SecondaryBar openClose={true}>
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
-        <Curtain />
+        <Curtain fade/>
       </div>
     );
   }

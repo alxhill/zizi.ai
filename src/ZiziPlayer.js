@@ -11,7 +11,6 @@ export default class ZiziPlayer extends React.Component {
       isLoaded: false,
       playing: false,
       zoom: false,
-      pose: false,
       currentTime: 0,
       song: this.props.showData.songs[this.props.song],
       performer: this.props.showData.performers[this.props.startingPerformer],
@@ -51,20 +50,9 @@ export default class ZiziPlayer extends React.Component {
           playing={this.state.playing}
           currentTime={this.state.currentTime}
           zoom={this.state.zoom}
-          pose={this.state.pose}
           shadow={false}
           onEnded={this.props.switchToPicker}
         />
-        {/* <DragPlayer
-          className="pose-player"
-          song={this.state.song}
-          performer={this.state.performer}
-          playing={this.state.playing}
-          currentTime={this.state.currentTime}
-          zoom={this.state.zoom}
-          pose={true}
-          shadow={false}
-        /> */}
         <DragPlayer
           className="shadow-player"
           song={this.state.song}
@@ -72,7 +60,6 @@ export default class ZiziPlayer extends React.Component {
           playing={this.state.playing}
           currentTime={this.state.currentTime}
           zoom={this.state.zoom}
-          pose={this.state.pose}
           shadow={true}
         />
         <Curtain zoom={this.state.zoom} />
@@ -81,7 +68,7 @@ export default class ZiziPlayer extends React.Component {
   }
 
   youtubeReady = () => {
-    this.setState({ isLoaded: true });
+    this.setState({ isLoaded: true, playing: true });
   };
 
   play = () => {
