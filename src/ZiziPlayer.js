@@ -53,6 +53,7 @@ export default class ZiziPlayer extends React.Component {
           zoom={this.state.zoom}
           pose={this.state.pose}
           shadow={false}
+          onEnded={this.props.switchToPicker}
         />
         {/* <DragPlayer
           className="pose-player"

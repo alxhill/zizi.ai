@@ -24,6 +24,7 @@ class DragPlayer extends React.Component {
           playsInline={true}
           muted={true}
           ref={this.dragVideo}
+          onEnded={this.props.onEnded}
         >
           <source src={this.renderUrl(this.props)} />
         </video>
@@ -56,7 +57,7 @@ class DragPlayer extends React.Component {
   }
 
   sync(newTime) {
-    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.3) {
+    if (Math.abs(newTime - this.dragVideo.current.currentTime) > 0.2) {
       console.log("UPDATING TIME", this.dragVideo.current.currentTime, newTime);
       this.dragVideo.current.currentTime = newTime;
     }

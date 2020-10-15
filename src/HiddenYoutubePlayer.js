@@ -36,7 +36,7 @@ export default class HiddenYoutubePlayer extends React.Component {
       width: "640",
       videoId: "",
       playsinline: "1",
-      playerVars: { autoplay: 0, autohide: 1, playsinline: 1 },
+      playerVars: { autoplay: 0, autohide: 1, playsinline: 1, start: 100 },
     };
 
     return (

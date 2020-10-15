@@ -10,7 +10,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       mode: "zizi",
-      chosenSong: "fiveyears",
+      chosenSong: "iam",
       chosenPerformer: "amalgam"
     };
   }
@@ -27,6 +27,7 @@ export default class App extends React.Component {
               song={this.state.chosenSong}
               startingPerformer={this.state.chosenPerformer}
               showData={ShowData}
+              switchToPicker={this.switchToPicker}
             />
           </div>
         );
@@ -51,6 +52,12 @@ export default class App extends React.Component {
       chosenSong: song,
     });
   };
+
+  switchToPicker = () => {
+    this.setState({
+      mode: "picker"
+    });
+  }
 }
 
 // Intro
