@@ -1,6 +1,6 @@
 import React from "react";
-import DragPlayer from "./DragPlayer";
-import HiddenYoutubePlayer from "./HiddenYoutubePlayer";
+import DragPlayer from "./video/DragPlayer";
+import HiddenYoutubePlayer from "./video/HiddenYoutubePlayer";
 import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 
@@ -50,17 +50,7 @@ export default class ZiziPlayer extends React.Component {
           playing={this.state.playing}
           currentTime={this.state.currentTime}
           zoom={this.state.zoom}
-          shadow={false}
           onEnded={this.props.switchToPicker}
-        />
-        <DragPlayer
-          className="shadow-player"
-          song={this.state.song}
-          performer={this.state.performer}
-          playing={this.state.playing}
-          currentTime={this.state.currentTime}
-          zoom={this.state.zoom}
-          shadow={true}
         />
         <Curtain zoom={this.state.zoom} />
       </div>
@@ -113,7 +103,6 @@ export default class ZiziPlayer extends React.Component {
   };
 
   changePerformer = (performerName) => {
-    console.log(performerName, this.props.showData.performers);
     this.setState({
       performer: this.props.showData.performers[performerName],
     });
