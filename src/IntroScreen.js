@@ -16,7 +16,7 @@ export default class IntroScreen extends React.Component {
         <video className="intro-video" onEnded={this.props.onEnter} autoPlay={true}>
           <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov "/>
         </video>
-        <button onClick={this.props.onEnter}>Skip Intro <i className="material-icons-round">fast_forward</i></button>
+        <button onClick={this.props.onEnter}>Skip Intro <FastForwardRounded fontSize="inherit"/></button>
         <Curtain />
       </div>
     }

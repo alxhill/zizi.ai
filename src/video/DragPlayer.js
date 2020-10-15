@@ -44,8 +44,8 @@ class DragPlayer extends React.Component {
   componentDidMount() {
     this.performerVideo.current.currentTime = this.props.currentTime;
     this.shadowVideo.current.currentTime = this.props.currentTime;
-    this.handleHls(this.performerVideo.current, this.performerSrc(this.props));
-    this.handleHls(this.shadowVideo.current, this.shadowSrc(this.props));
+    this.handleHls(this.performerVideo.current);
+    this.handleHls(this.shadowVideo.current);
   }
 
   componentDidUpdate(prevProps) {
@@ -65,15 +65,11 @@ class DragPlayer extends React.Component {
     }
 
     if (this.performerSrc(prevProps) !== this.performerSrc(this.props)) {
-      performer.load();
-      performer.currentTime = this.props.currentTime;
-      this.handleHls(performer, this.performerSrc(this.props));
+      this.reload(performer)
     }
 
     if (this.shadowSrc(prevProps) !== this.shadowSrc(this.props)) {
-      shadow.load();
-      shadow.currentTime = this.props.currentTime;
-      this.handleHls(shadow, this.shadowSrc(this.props));
+      this.reload(shadow)
     }
   }
 
@@ -97,6 +93,12 @@ class DragPlayer extends React.Component {
     return Math.abs(newTime - video.currentTime) > 0.2;
   }
 
+  reload(video) {
+    video.load();
+    video.currentTime = this.props.currentTime;
+    this.handleHls(video);
+  }
+
   performerSrc(props) {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;
   }
@@ -105,13 +107,13 @@ class DragPlayer extends React.Component {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-shadow/playlist.m3u8`;
   }
 
-  handleHls(video, url) {
+  handleHls(video) {
     if (
       Hls.isSupported() &&
       !video.canPlayType("application/vnd.apple.mpegurl")
     ) {
       var hls = new Hls();
-      hls.loadSource(url);
+      hls.loadSource(video.querySelector('source').src);
       hls.attachMedia(video);
     }
   }
