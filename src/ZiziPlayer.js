@@ -75,7 +75,7 @@ export default class ZiziPlayer extends React.Component {
           pose={this.state.pose}
           shadow={true}
         />
-        <Curtain zoom={this.state.zoom}/>
+        <Curtain zoom={this.state.zoom} />
       </div>
     );
   }
@@ -120,24 +120,27 @@ export default class ZiziPlayer extends React.Component {
 
   changeSong = (songName) => {
     this.setState({
-      song: this.props.showData.songs[songName]
+      song: this.props.showData.songs[songName],
       // start: this.props.showData.youtube.startTime[0.0]
-    })
-  }
+    });
+  };
 
   changePerformer = (performerName) => {
-    console.log(performerName, this.props.showData.performers)
+    console.log(performerName, this.props.showData.performers);
     this.setState({
-      performer: this.props.showData.performers[performerName]
-    })
-  }
+      performer: this.props.showData.performers[performerName],
+    });
+  };
 
   newPerformer = () => {
     var keys = Object.keys(this.props.showData.performers);
-    let random = keys[ keys.length * Math.random() << 0]
-    console.log(random)
+    var random = keys[(keys.length * Math.random()) << 0];
+      // avoid edge case of randomising to the current performer
+    while (random === this.state.performer) {
+      random = keys[(keys.length * Math.random()) << 0];
+    }
     this.setState({
-      performer: this.props.showData.performers[random]
-    })
-  }
+      performer: this.props.showData.performers[random],
+    });
+  };
 }

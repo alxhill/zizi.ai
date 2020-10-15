@@ -64,7 +64,7 @@ export default class ZiziSidebar extends React.Component {
           {zoomInOut}
           <SkipToNextTrack />
           <ShowPerformers onClick={this.showPerformers} />
-          <NewPerformer onClick={() => this.props.newPerformer()} />
+          <NewPerformer onClick={this.props.newPerformer} />
         </div>
         <div className="dummy-spacing-div" />
       </div>
@@ -78,9 +78,7 @@ export default class ZiziSidebar extends React.Component {
       <Play onClick={this.props.onPlay} />
     );
 
-    let movementPerformer = this.props.showData.performers[
-      this.props.song.performer
-    ];
+    let movementPerformer = this.props.showData.performers[this.props.song.performer];
     let bodyPerformer = this.props.performer;
 
     return (
