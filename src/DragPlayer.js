@@ -15,25 +15,25 @@ class DragPlayer extends React.Component {
   }
 
   render() {
-    let zoomClass = this.props.zoom ? "zoom" : "full"
+    let zoomClass = this.props.zoom ? "zoom" : "full";
     return (
-      <div className="vidWindow">
-      <video
-        autoPlay={this.props.playing}
-        className={this.props.className + " drag-video " + zoomClass}
-        playsInline={true}
-        muted={true}
-        ref={this.dragVideo}
-      >
-        <source src={this.renderUrl(this.props)} />
-      </video>
-      </div>
+      <span className={"video-frame " + this.props.className}>
+        <video
+          autoPlay={this.props.playing}
+          className={" drag-video "+ zoomClass}
+          playsInline={true}
+          muted={true}
+          ref={this.dragVideo}
+        >
+          <source src={this.renderUrl(this.props)} />
+        </video>
+      </span>
     );
   }
 
   componentDidMount() {
     this.dragVideo.current.currentTime = this.props.currentTime;
-    this.handleHls()
+    this.handleHls();
   }
 
   componentDidUpdate(prevProps) {
@@ -51,7 +51,7 @@ class DragPlayer extends React.Component {
     if (this.renderUrl(prevProps) !== this.renderUrl(this.props)) {
       player.load();
       player.currentTime = this.props.currentTime;
-      this.handleHls()
+      this.handleHls();
     }
   }
 
@@ -78,7 +78,10 @@ class DragPlayer extends React.Component {
   }
 
   handleHls() {
-    if (Hls.isSupported() && !this.dragVideo.current.canPlayType('application/vnd.apple.mpegurl')) {
+    if (
+      Hls.isSupported() &&
+      !this.dragVideo.current.canPlayType("application/vnd.apple.mpegurl")
+    ) {
       var hls = new Hls();
       hls.loadSource(this.renderUrl(this.props));
       hls.attachMedia(this.dragVideo.current);

@@ -19,7 +19,7 @@ export default class Performers extends React.PureComponent {
       );
     }
 
-    let src = this.props.mode === "pick" ? "img/pick-performer.png" : "img/performers.png";
+    let src = this.props.mode === "pick" ? "img/pick-performers.png" : "img/performers.png";
 
     return (
       <div>
@@ -55,7 +55,7 @@ export default class Performers extends React.PureComponent {
   renderAboutView(performer) {
     return (
       <div className="bios">
-        <h1>{performer.name}</h1>
+        <h2>{performer.name}</h2>
 
         <img
           alt={`Image of '${performer.name}'`}

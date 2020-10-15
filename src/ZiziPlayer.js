@@ -32,7 +32,6 @@ export default class ZiziPlayer extends React.Component {
           showData={this.props.showData}
           song={this.state.song}
           performer={this.state.performer}
-          isLoaded={this.state.isLoaded}
           playing={this.state.playing}
           zoom={this.state.zoom}
           onPlay={this.play}
@@ -45,7 +44,6 @@ export default class ZiziPlayer extends React.Component {
           changePerformer={this.changePerformer}
           newPerformer={this.newPerformer}
         />
-        <Curtain zoom={this.state.zoom}/>
         <DragPlayer
           className="primary-player"
           song={this.state.song}
@@ -76,6 +74,7 @@ export default class ZiziPlayer extends React.Component {
           pose={this.state.pose}
           shadow={true}
         />
+        <Curtain zoom={this.state.zoom}/>
       </div>
     );
   }
