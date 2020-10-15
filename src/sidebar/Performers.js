@@ -19,7 +19,7 @@ export default class Performers extends React.PureComponent {
       );
     }
 
-    let src = this.props.mode === "pick" ? "img/pick-performers.png" : "img/performers.png";
+    let src = this.props.mode === "pick" ? "img/pick-performer.png" : "img/performers.png";
 
     return (
       <div>

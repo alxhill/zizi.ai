@@ -11,6 +11,7 @@ import {
   MenuRounded,
   ListRounded,
   ClosedCaptionRounded,
+  FastForwardRounded,
 } from "@material-ui/icons";
 
 function Play(props) {
