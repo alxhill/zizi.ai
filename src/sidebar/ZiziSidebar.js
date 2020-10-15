@@ -11,8 +11,7 @@ import {
   Forward10,
   Back10,
   SkipToNextTrack,
-  ShowSongs,
-  Captions,
+  Fullscreen,
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
@@ -59,10 +58,10 @@ export default class ZiziSidebar extends React.Component {
 
     return (
       <div className="mini-sidebar button-sidebar">
-        <div className="top-buttons">{hideShow}</div>
+        <div className="close-button2">{hideShow}</div>
         <div className="centered-buttons">
           {zoomInOut}
-          <SkipToNextTrack />
+          <SkipToNextTrack onClick={this.props.switchToPicker} />
           <ShowPerformers onClick={this.showPerformers} />
           <NewPerformer onClick={this.props.newPerformer} />
         </div>
@@ -94,7 +93,7 @@ export default class ZiziSidebar extends React.Component {
             {playPause}
             <Back10 />
             <Forward10 />
-            <Captions />
+            <Fullscreen />
           </div>
           <div className="now-playing">
             <p>{`"${this.props.song.name}" by ${this.props.song.artist}`}</p>
@@ -116,7 +115,6 @@ export default class ZiziSidebar extends React.Component {
           </div>
         </div>
         <div className="copyright">
-          <ShowSongs onClick={this.showSongs} />
           <sub>The Zizi Project&copy;</sub>
           <sub>
             <a className="inline-link" href="https://jakeelwes.com">
@@ -131,9 +129,9 @@ export default class ZiziSidebar extends React.Component {
             </a>
           </sub>
           <sub>
-            <a className="inline-link" href="https://instagram.com/zizidrag">
+            {/* <a className="inline-link" href="https://instagram.com/zizidrag">
               Instagram
-            </a>
+            </a> */}
           </sub>
         </div>
       </div>

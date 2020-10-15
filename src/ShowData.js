@@ -6,7 +6,7 @@ let songs = {
     performer: "ruby",
     youtube: {
       id: "IWm03wYBTbM",
-      startTime: 10.0,
+      startTime: 0.0,
     },
   },
   freedom: {

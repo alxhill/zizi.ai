@@ -55,6 +55,7 @@ export default class Performers extends React.PureComponent {
   renderAboutView(performer) {
     return (
       <div className="bios">
+        <a className="backbutton" onClick={this.props.showThumbnails}>Back</a>
         <h2>{performer.name}</h2>
 
         <img
@@ -65,7 +66,6 @@ export default class Performers extends React.PureComponent {
 
         <p>{performer.bio}</p>
         <p>{performer.insta}</p>
-        <a onClick={this.props.showThumbnails}>Back</a>
       </div>
     );
   }

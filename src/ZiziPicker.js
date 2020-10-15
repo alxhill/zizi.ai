@@ -22,6 +22,9 @@ export default class ZiziPicker extends React.Component {
         <SecondaryBar openClose={true}>
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
+        <video className="intro-video" onEnded={this.props.onEnter} autoPlay={true}>
+          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov "/>
+        </video>
         <Curtain fade/>
       </div>
     );

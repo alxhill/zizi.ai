@@ -14,7 +14,7 @@ export default class IntroScreen extends React.Component {
     if (this.state.entered) {
       return <div className="enter-screen">
         <video className="intro-video" onEnded={this.props.onEnter} autoPlay={true}>
-          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/iam-pose-full.mp4"/>
+          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov "/>
         </video>
         <button onClick={this.props.onEnter}>Skip Intro <i className="material-icons-round">fast_forward</i></button>
         <Curtain />

@@ -111,7 +111,7 @@ export default class About extends React.PureComponent {
         </p>
         <p>
           Facial recognition algorithms(and deep fake technology) currently have
-          a real problem recognising trans & queer people, as well as other
+          a real problem recognising trans &amp; queer people, as well as other
           marginalised identities due to the way they’re built and who they’ve
           been trained on.The Zizi project aims to critically examine these
           techniques using a dataset of drag performers, as well as opening up
