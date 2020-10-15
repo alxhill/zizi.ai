@@ -42,6 +42,7 @@ export default class ZiziPlayer extends React.Component {
           changeSong={this.changeSong}
           changePerformer={this.changePerformer}
           newPerformer={this.newPerformer}
+          switchToPicker={this.props.switchToPicker}
         />
         <DragPlayer
           className="primary-player"
