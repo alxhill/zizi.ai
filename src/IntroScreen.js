@@ -42,7 +42,7 @@ export default class IntroScreen extends React.Component {
             name="password"
             value={this.state.password}
             onChange={this.updatePassword}
-            placeholder="Enter password..."
+            placeholder="Password"
           />
         </form>
         <Curtain />

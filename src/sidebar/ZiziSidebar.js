@@ -58,7 +58,7 @@ export default class ZiziSidebar extends React.Component {
 
     return (
       <div className="mini-sidebar button-sidebar">
-        <div className="close-button2">{hideShow}</div>
+        <div className="close-button">{hideShow}</div>
         <div className="centered-buttons">
           {zoomInOut}
           <SkipToNextTrack onClick={this.props.switchToPicker} />
@@ -118,13 +118,11 @@ export default class ZiziSidebar extends React.Component {
           <sub>The Zizi Project&copy;</sub>
           <sub>
             <a className="inline-link" href="https://jakeelwes.com">
-              Jake Elwes
-            </a>
-            2020
+              Jake Elwes</a> 2020
           </sub>
           <sub>
-            Part of <a className="inline-link" href="https://newsreal.cc">
-              newsreal.cc
+            Part of <a className="inline-link" href="https://newreal.cc">
+              newreal.cc
             </a>
           </sub>
           <sub>

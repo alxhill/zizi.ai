@@ -64,8 +64,7 @@
 
   body .close-sidebar-left .close-button2 {
     display: inherit;
-    padding-left: 15px;
-    padding-top: 30px;
+    padding-left: 1rem;
   }
 
   body .secondary-sidebar {
@@ -165,8 +164,9 @@ button {
   left: 50%;
   transform: translateX(-50%);
   top: 60%;
-  font-size: 1.4rem;
+  font-size: 0.9rem;
   padding: 0.4rem;
+  text-align: center;
 }
 
 .intro-video {
@@ -233,6 +233,7 @@ h1 {
 
 .button-sidebar .zizi-icon {
   font-size: 2.1rem;
+  height: 2rem;
 }
 
 .mini-sidebar .centered-buttons,
@@ -256,6 +257,14 @@ h1 {
   width: 1rem;
   font-size: 2.1rem;
   z-index: 1;
+}
+
+.close-button {
+  height: 2rem;
+  font-size: 2.1rem;
+  padding: 1rem;
+  display: inline-flex;
+  background-color: #520319;
 }
 
 .close-button2 {
