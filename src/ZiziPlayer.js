@@ -4,6 +4,18 @@ import HiddenYoutubePlayer from "./video/HiddenYoutubePlayer";
 import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 
+class YoutubeTimerDelegate {
+  shiftTime(shift) {
+    if (this.callback != null) {
+      this.callback(shift);
+    }
+  }
+
+  onTimeChanged(callback) {
+    this.callback = callback;
+  }
+}
+
 export default class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +27,8 @@ export default class ZiziPlayer extends React.Component {
       song: this.props.showData.songs[this.props.song],
       performer: this.props.showData.performers[this.props.startingPerformer],
     };
+
+    this.timerDelegate = new YoutubeTimerDelegate();
   }
 
   render() {
@@ -26,6 +40,7 @@ export default class ZiziPlayer extends React.Component {
           playing={this.state.playing}
           hideTimer={true}
           adjustedTimerEvent={this.onTimerEvent}
+          timerDelegate={this.timerDelegate}
         />
         <ZiziSidebar
           showData={this.props.showData}
@@ -35,6 +50,8 @@ export default class ZiziPlayer extends React.Component {
           zoom={this.state.zoom}
           onPlay={this.play}
           onPause={this.pause}
+          onForward10={() => this.shiftTime(10)}
+          onBack10={() => this.shiftTime(-10)}
           onZoomOut={this.zoomOut}
           onZoomIn={this.zoomIn}
           onEnablePose={this.enablePose}
@@ -112,12 +129,17 @@ export default class ZiziPlayer extends React.Component {
   newPerformer = () => {
     var keys = Object.keys(this.props.showData.performers);
     var random = keys[(keys.length * Math.random()) << 0];
-      // avoid edge case of randomising to the current performer
+    // avoid edge case of randomising to the current performer
     while (random === this.state.performer) {
       random = keys[(keys.length * Math.random()) << 0];
     }
     this.setState({
       performer: this.props.showData.performers[random],
     });
+  };
+
+  shiftTime = (shift) => {
+    this.timerDelegate.shiftTime(shift);
+    this.setState({ currentTime: this.state.currentTime + shift });
   };
 }

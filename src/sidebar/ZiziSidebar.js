@@ -91,8 +91,8 @@ export default class ZiziSidebar extends React.Component {
         <div className="main-bar-content">
           <div className="player-controls">
             {playPause}
-            <Back10 />
-            <Forward10 />
+            <Back10 onClick={this.props.onBack10}/>
+            <Forward10 onClick={this.props.onForward10}/>
             <Fullscreen />
           </div>
           <div className="now-playing">
@@ -123,8 +123,7 @@ export default class ZiziSidebar extends React.Component {
             2020
           </sub>
           <sub>
-            Part of{" "}
-            <a className="inline-link" href="https://newsreal.cc">
+            Part of <a className="inline-link" href="https://newsreal.cc">
               newsreal.cc
             </a>
           </sub>

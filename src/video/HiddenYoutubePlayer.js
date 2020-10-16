@@ -60,6 +60,9 @@ export default class HiddenYoutubePlayer extends React.Component {
     this.player.seekTo(this.props.song.youtube.startTime)
     this.player.pauseVideo()
     this.props.onReady();
+    this.props.timerDelegate.onTimeChanged((shift) => {
+      this.player.seekTo(this.player.getCurrentTime() + shift)
+    });
   };
 
   play() {
