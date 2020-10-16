@@ -93,6 +93,7 @@
   body #main-bar-logo {
     order: 1;
     height: 8rem;
+    flex-shrink: 0;
   }
 
   body .copyright {
@@ -217,6 +218,8 @@ h1 {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+  /* -webkit-flex: 1 0;
+  flex: 1 0; */
 }
 
 .button-sidebar {
