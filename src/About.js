@@ -6,9 +6,7 @@ import {
 export default function About(props) {
   return (
     <div className="about-page">
-      <a className="about-back-button" onClick={props.onBack}>
-        Back!!!!!
-      </a>
+      <Close className="close" onClick={props.onBack} />
 
       <img
         src="img/curtain-side-full.png"
