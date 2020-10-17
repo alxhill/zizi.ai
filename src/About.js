@@ -4,7 +4,9 @@ export default class About extends React.PureComponent {
   render() {
     return (
       <div className="about-page">
-          <a onClick={this.props.onBack}>Back!!!!!</a>
+          
+          <a className="about-back-button" onClick={this.props.onBack}>Back!!!!!</a>
+
         <img
           src="img/curtain-side-full.png"
           className="curtain-side"
