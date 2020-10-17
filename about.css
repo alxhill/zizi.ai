@@ -23,86 +23,80 @@ body {
     margin: 0px;
   }
 
-  h2 {
-    font-family: "market_decoregular", sans-serif;
-    margin-top: 4rem;
-    text-align: center;
-  }
+h2 {
+  font-family: "market_decoregular", sans-serif;
+  margin-top: 4rem;
+  text-align: center;
+}
 
-  .about {
-    max-width: 600px;
-    margin: auto;
-    display: block;
-    object-fit: fill;
-  }
+.about {
+  max-width: 600px;
+  margin: auto;
+  display: block;
+  object-fit: fill;
+}
 
-  .secondary-header {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;    
-    margin-bottom: 0;    
-    width: 20rem;
+.secondary-header {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;    
+  margin-bottom: 0;    
+  width: 20rem;
 
-  }
+}
 
-  img {
-    width: 70%;
-    margin: 1rem 0 1rem 0;
-  }
+img {
+  width: 70%;
+  margin: 1rem 0 1rem 0;
+}
 
-  .banner {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;    
-    margin-top: 0;
-    width: 60%;
+.banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;    
+  margin-top: 0;
+  width: 60%;
 
-  }
+}
 
-  .first {
-    margin-top: 0;
-  }
-  
+.first {
+  margin-top: 0;
+}
 
-  hr {
-    border-color: #ee9c92;
-    margin: 4rem;
-  }
+hr {
+  border-color: #ee9c92;
+  margin: 4rem;
+}
 
-  hr .first {
-    margin-top: 0;
-  }
+hr .first {
+  margin-top: 0;
+}
 
-  .footnote {
-    font-size: 17px;
-  }
+.footnote {
+  font-size: 17px;
+}
 
-  a {
-    color: #f7cdc7;
+sup {
+  font-size: 12px;
+}
 
-  }
-
-  sup {
-    font-size: 12px;
-  }
-
-  .curtain {
-    /* background-image: url('public/img/curtain-side-full.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed; */
-    position: absolute;
-    min-height: 100%;
-    width: 120%;
-    height: 100%;
-    left: 50%;
-    top: 50%;
-    user-select: none;
-    transform: translate(-50%, -50%);
-    /* mix-blend-mode: overlay; */
-    z-index: 2;
-  }
+.curtain {
+  /* background-image: url('public/img/curtain-side-full.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  position: absolute;
+  min-height: 100%;
+  width: 120%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  /* mix-blend-mode: overlay; */
+  z-index: 2;
+}

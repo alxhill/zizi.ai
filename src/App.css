@@ -159,8 +159,6 @@ button {
   opacity: 80%;
 }
 
-
-
 .enter-screen button svg {
   top: 0.125em;
   position: relative;
@@ -185,6 +183,15 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -2;
+}
+
+.about-page {
+  overflow: scroll;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 h1 {
@@ -540,10 +547,6 @@ h2 {
   transition: opacity 1s;
 }
 
-.curtain-bg.fade {
-  opacity: 40%;
-}
-
 .curtain-side {
   position: absolute;
   height: 101%;
@@ -610,4 +613,65 @@ a:active {
 
 a:disabled {
   color: #555;
+}
+
+/* about page */
+.about-page h2 {
+  font-family: "market_decoregular", sans-serif;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.about-page .about {
+  max-width: 600px;
+  margin: auto;
+  display: block;
+  object-fit: fill;
+}
+
+.about-page .secondary-header {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  width: 20rem;
+}
+
+.about-page img {
+  width: 70%;
+  margin: 1rem 0 1rem 0;
+}
+
+.about-page .banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  width: 60%;
+}
+
+.about-page .first {
+  margin-top: 0;
+}
+
+.about-page hr {
+  border-color: #ee9c92;
+  margin: 4rem;
+}
+
+.about-page hr .first {
+  margin-top: 0;
+}
+
+.about-page .footnote {
+  font-size: 17px;
+}
+
+.about-page sup {
+  font-size: 12px;
 }

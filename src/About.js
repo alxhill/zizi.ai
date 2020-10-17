@@ -6,17 +6,17 @@ export default class About extends React.PureComponent {
       <div className="about-page">
           <a onClick={this.props.onBack}>Back!!!!!</a>
         <img
-          src="public/img/curtain-side-full.png"
-          className="curtain"
+          src="img/curtain-side-full.png"
+          className="curtain-side"
           draggable="false"
         />
         <img
-          src="public/img/about.png"
+          src="img/about.png"
           className="secondary-header"
           draggable="false"
         />
         <img
-          src="public/img/About/Zizi banner.jpg"
+          src="img/About/Zizi banner.jpg"
           className="banner"
           draggable="false"
         />
@@ -73,7 +73,7 @@ export default class About extends React.PureComponent {
               us about AI.”
             </p>
           </i>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jake Elwes</p>
+          <p>Jake Elwes</p>
           <hr />
 
           <h2>Technical</h2>
@@ -114,7 +114,7 @@ export default class About extends React.PureComponent {
             learning how to create images of Lilly SnatchDragon:
           </p>
 
-          <img src="public/img/About/diagram.gif" draggable="false" />
+          <img src="img/About/diagram.gif" draggable="false" />
 
           <p>
             Using machine learning, this process iterates and improves until it
@@ -139,11 +139,11 @@ export default class About extends React.PureComponent {
           </p>
 
           <img
-            src="public/img/About/diagram-gen-close-small.gif"
+            src="img/About/diagram-gen-close-small.gif"
             draggable="false"
           />
           <img
-            src="public/img/About/diagram-gen-full-small.gif"
+            src="img/About/diagram-gen-full-small.gif"
             draggable="false"
           />
           <p>
