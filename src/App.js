@@ -5,6 +5,7 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 import Curtain from "./Curtain";
+import About from "./About";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class App extends React.Component {
       mode: "intro",
       chosenSong: "iam",
       chosenPerformer: "amalgam",
-      source: "enter"
+      source: "enter",
     };
   }
 
@@ -30,6 +31,7 @@ export default class App extends React.Component {
               startingPerformer={this.state.chosenPerformer}
               showData={ShowData}
               switchToPicker={this.switchToPicker}
+              switchToAbout={this.switchToAbout}
             />
           </div>
         );
@@ -41,6 +43,8 @@ export default class App extends React.Component {
             source={this.state.source}
           />
         );
+      case "about":
+        return <About onBack={this.restorePlayer} />;
     }
   }
 
@@ -58,9 +62,22 @@ export default class App extends React.Component {
 
   switchToPicker = () => {
     this.setState({
-      mode: "picker", source: "song-end"
+      mode: "picker",
+      source: "song-end",
     });
-  }
+  };
+
+  switchToAbout = (returnToPerformer, returnToSong) => {
+    this.setState({
+      mode: "about",
+      chosenPerformer: returnToPerformer,
+      chosenSong: returnToSong,
+    });
+  };
+
+  restorePlayer = () => {
+    this.setState({ mode: "zizi" });
+  };
 }
 
 // Intro

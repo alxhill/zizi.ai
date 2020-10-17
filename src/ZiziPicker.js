@@ -31,7 +31,7 @@ export default class ZiziPicker extends React.Component {
       case "enter":
         return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
       case "song-end":
-        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro${num}/playlist.m3u8`;
+        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host${num}/playlist.m3u8`;
     }
   }
 
@@ -46,7 +46,6 @@ export default class ZiziPicker extends React.Component {
           onEnded={this.props.onEnter}
           autoPlay={true}
           ref={this.video}
-          loop={true}
         >
           <source src={this.state.src} />
         </video>

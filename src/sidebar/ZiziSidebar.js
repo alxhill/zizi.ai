@@ -15,7 +15,6 @@ import {
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
-import About from "./About";
 import SecondaryBar from "./SecondaryBar";
 
 export default class ZiziSidebar extends React.Component {
@@ -145,9 +144,6 @@ export default class ZiziSidebar extends React.Component {
 
   renderSecondaryBarContent() {
     switch (this.state.secondaryBar.type) {
-      case "about":
-        return <About />;
-
       case "performers":
         return (
           <Performers
@@ -190,7 +186,7 @@ export default class ZiziSidebar extends React.Component {
   };
 
   showAbout = () => {
-    this.setState({ secondaryBar: { type: "about" }, showSecondaryBar: true });
+    this.props.switchToAbout(this.props.performer.id, this.props.song.id);
   };
 
   showSongs = () => {

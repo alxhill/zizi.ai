@@ -60,6 +60,7 @@ export default class ZiziPlayer extends React.Component {
           changePerformer={this.changePerformer}
           newPerformer={this.newPerformer}
           switchToPicker={this.props.switchToPicker}
+          switchToAbout={this.props.switchToAbout}
         />
         <DragPlayer
           className="primary-player"
