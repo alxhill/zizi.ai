@@ -12,7 +12,8 @@ export default class App extends React.Component {
     this.state = {
       mode: "intro",
       chosenSong: "iam",
-      chosenPerformer: "amalgam"
+      chosenPerformer: "amalgam",
+      source: "enter"
     };
   }
 
@@ -37,13 +38,14 @@ export default class App extends React.Component {
           <ZiziPicker
             showData={ShowData}
             switchToPlayer={this.switchToPlayer}
+            source={this.state.source}
           />
         );
     }
   }
 
   onEnter = () => {
-    this.setState({ mode: "picker" });
+    this.setState({ mode: "picker", source: "enter" });
   };
 
   switchToPlayer = (performer, song) => {
@@ -56,7 +58,7 @@ export default class App extends React.Component {
 
   switchToPicker = () => {
     this.setState({
-      mode: "picker"
+      mode: "picker", source: "song-end"
     });
   }
 }

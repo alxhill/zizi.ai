@@ -1,4 +1,5 @@
 import React from "react";
+import Hls from "hls.js";
 import Curtain from "./Curtain";
 import Performers from "./sidebar/Performers";
 import SecondaryBar from "./sidebar/SecondaryBar";
@@ -13,7 +14,25 @@ export default class ZiziPicker extends React.Component {
         content: "thumbnails",
       },
       chosenPerformer: null,
+      src: this.getSrc(this.props.source),
     };
+
+    this.video = React.createRef();
+  }
+
+  componentDidMount() {
+    this.handleHls(this.video.current);
+  }
+
+  getSrc(source) {
+    let num = Math.floor(Math.random() * 3) + 1;
+    switch (source) {
+      default:
+      case "enter":
+        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
+      case "song-end":
+        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro${num}/playlist.m3u8`;
+    }
   }
 
   render() {
@@ -22,18 +41,19 @@ export default class ZiziPicker extends React.Component {
         <SecondaryBar openClose={true}>
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
-        <video className="intro-video" onEnded={this.props.onEnter} autoPlay={true}>
-          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/intro-and-host/host-intro/playlist.m3u8"/>
+        <video
+          className="intro-video"
+          onEnded={this.props.onEnter}
+          autoPlay={true}
+          ref={this.video}
+          loop={true}
+        >
+          <source src={this.state.src} />
         </video>
-        <Curtain fade/>
+        <Curtain fade />
       </div>
     );
   }
-
-  // behaviour - if come fromIntroScreen play host-intro/playlist.m3u8 otherwise play host1, host2, or host3/playlist.m3u8 at random
-  // num = Math.floor(Math.random() * 3)+1;
-  // <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/intro-and-host/intro${num}/playlist.m3u8"/>
-
 
   renderContent(mode) {
     switch (mode.type) {
@@ -82,4 +102,15 @@ export default class ZiziPicker extends React.Component {
   setSong = (chosenSong) => {
     this.props.switchToPlayer(this.state.chosenPerformer, chosenSong);
   };
+
+  handleHls(video) {
+    if (
+      Hls.isSupported() &&
+      !video.canPlayType("application/vnd.apple.mpegurl")
+    ) {
+      var hls = new Hls();
+      hls.loadSource(video.querySelector("source").src);
+      hls.attachMedia(video);
+    }
+  }
 }

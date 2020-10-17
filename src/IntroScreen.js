@@ -20,7 +20,7 @@ export default class IntroScreen extends React.Component {
             onEnded={this.props.onEnter}
             autoPlay={true}
           >
-            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov " />
+            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov" />
           </video>
           <button onClick={this.props.onEnter}>
             Skip Intro <FastForwardRounded fontSize="inherit" />
