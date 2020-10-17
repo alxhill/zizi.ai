@@ -34,6 +34,7 @@ export default class IntroScreen extends React.Component {
             onEnded={this.props.onEnter}
             autoPlay={true}
             ref={this.video}
+            playsInline={true}
           >
             <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
           </video>

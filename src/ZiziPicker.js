@@ -46,6 +46,7 @@ export default class ZiziPicker extends React.Component {
           onEnded={this.props.onEnter}
           autoPlay={true}
           ref={this.video}
+          playsInline={true}
         >
           <source src={this.state.src} />
         </video>
