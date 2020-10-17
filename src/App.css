@@ -150,10 +150,16 @@ button {
   bottom: 5rem;
   right: 5rem;
   font-size: 2rem;
-  background-color: #555;
+  color: #ff9c84;
+  background-color: rgba(46, 1, 15, 1);
   border-radius: 8px;
   padding: 0.6rem;
 }
+.enter-screen button:hover {
+  opacity: 80%;
+}
+
+
 
 .enter-screen button svg {
   top: 0.125em;

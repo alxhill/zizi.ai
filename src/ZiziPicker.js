@@ -23,12 +23,17 @@ export default class ZiziPicker extends React.Component {
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
         <video className="intro-video" onEnded={this.props.onEnter} autoPlay={true}>
-          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov "/>
+          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/intro-and-host/host-intro/playlist.m3u8"/>
         </video>
         <Curtain fade/>
       </div>
     );
   }
+
+  // behaviour - if come fromIntroScreen play host-intro/playlist.m3u8 otherwise play host1, host2, or host3/playlist.m3u8 at random
+  // num = Math.floor(Math.random() * 3)+1;
+  // <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/intro-and-host/intro${num}/playlist.m3u8"/>
+
 
   renderContent(mode) {
     switch (mode.type) {
