@@ -30,7 +30,7 @@ export default class IntroScreen extends React.Component {
       return (
         <div className="enter-screen">
           <video
-            className="intro-video"
+            className="zizi-intro-video"
             onEnded={this.props.onEnter}
             autoPlay={true}
             ref={this.video}
@@ -40,7 +40,6 @@ export default class IntroScreen extends React.Component {
           <button onClick={this.props.onEnter}>
             Skip Intro <FastForwardRounded fontSize="inherit" />
           </button>
-          <Curtain />
         </div>
       );
     }

@@ -173,8 +173,16 @@ button {
   font-size: 0.9rem;
   padding: 0.4rem;
   text-align: center;
-  opacity: 70%;
   filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
+}
+
+.zizi-intro-video {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
 .intro-video {
