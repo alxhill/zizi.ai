@@ -30,18 +30,20 @@ export default function About(props) {
             <b>Me</b> - Performance Director
           </li>
           <li>
-            <b>Alexander Hill</b> - Web and streaming technology &amp;
-            development
+            <b>Alexander Hill</b> - Web &amp; Development
           </li>
           <li>
-            <b>Toby Elwes</b> - Camera
+            <b>Toby Elwes</b> - Camera &amp; Lighting
+          </li>
+          <li>
+            <b>Charlie Baker</b> - Sound Mixing
           </li>
           </ul>
           <small>
             <p style={{textAlign: "center", marginTop: "3rem"}}>Edinburgh Futures Institute </p>
             <ul>
           <li>
-            <b>Drew Hemment</b> - Lead Researcher &amp; Curator of The New Real
+            <b>Drew Hemment</b> - Lead Researcher &amp; Curator of 'The New Real'
           </li>
           <li>
             <b>Suzy Glass</b> - Producer
