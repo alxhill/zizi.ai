@@ -1,15 +1,23 @@
 import React from "react";
+import {
+  Close,
+} from "./Buttons";
 
 export default class About extends React.PureComponent {
   render() {
     return (
       <div className="about-page">
           
-          <a className="about-back-button" onClick={this.props.onBack}>Back!!!!!</a>
+          <Close className="close" onClick={this.props.onBack} />
 
         <img
           src="img/curtain-side-full.png"
           className="curtain-side"
+          draggable="false"
+        />
+        <img
+          src="img/curtain-bg-full.jpg"
+          className="curtain-bg"
           draggable="false"
         />
         <img
@@ -86,7 +94,7 @@ export default class About extends React.PureComponent {
             the videos you see on this website. To produce a deep-fake, you
             start by training a neural network
             <sup>
-              <a href="#fn1" id="ref1">
+              <a href="#" id="ref1">
                 1
               </a>
             </sup>{" "}
@@ -104,7 +112,7 @@ export default class About extends React.PureComponent {
             get as close as possible to the original and does this by being
             given an accuracy score.
             <sup>
-              <a href="#fn2" id="ref2">
+              <a href="#" id="ref2">
                 2
               </a>
             </sup>{" "}
@@ -116,14 +124,14 @@ export default class About extends React.PureComponent {
             learning how to create images of Lilly SnatchDragon:
           </p>
 
-          <img src="img/About/diagram.gif" draggable="false" />
+          <img className="diagram" src="img/About/diagram.gif" draggable="false" />
 
           <p>
             Using machine learning, this process iterates and improves until it
             can create new, fake faces which are indistinguishable from the
             real. For Zizi the method I use is called Video-to-Video Synthesis.
             <sup>
-              <a href="#fn3" id="ref3">
+              <a href="#" id="ref3">
                 3
               </a>
             </sup>
@@ -143,10 +151,12 @@ export default class About extends React.PureComponent {
           <img
             src="img/About/diagram-gen-close-small.gif"
             draggable="false"
+            className="diagram"
           />
           <img
             src="img/About/diagram-gen-full-small.gif"
             draggable="false"
+            className="diagram"
           />
           <p>
             This process was repeated to create deep fakes of all 13 of our
@@ -164,12 +174,12 @@ export default class About extends React.PureComponent {
             as other marginalised identities, because they’ve been trained on
             photos of people with cis binary identities.{" "}
             <sup>
-              <a href="#fn4" id="ref4">
+              <a href="#" id="ref4">
                 4
               </a>
             </sup>
             <sup>
-              <a href="#fn5" id="ref5">
+              <a href="#" id="ref5">
                 5
               </a>
             </sup>

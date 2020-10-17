@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 @font-face {
   font-family: "market_decoregular";
@@ -615,6 +616,16 @@ a:disabled {
   color: #555;
 }
 
+.about-page {
+  color: #ee9c92;
+  font-family: 'Roboto Slab', charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  line-height: 32px;
+  font-size: 18px;
+  margin: 0px;
+  z-index: -4;
+  padding: 1rem;
+}
+
 /* about page */
 .about-page h2 {
   font-family: "market_decoregular", sans-serif;
@@ -642,18 +653,16 @@ a:disabled {
   width: 20rem;
 }
 
-.about-page img {
-  width: 70%;
-  margin: 1rem 0 1rem 0;
-}
 
 .about-page .banner {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
-  width: 60%;
+  max-width: 700px;
+  mix-blend-mode: lighten;
 }
+
 
 .about-page .first {
   margin-top: 0;
@@ -674,4 +683,16 @@ a:disabled {
 
 .about-page sup {
   font-size: 12px;
+}
+
+.about-page .curtain-bg {
+  filter: brightness(40%);
+}
+.about-page .close {
+  font-size: 3rem;
+}
+
+.about-page .diagram {
+  width: 100%;
+  margin: 20px 0 20px 0;
 }
