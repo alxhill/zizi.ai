@@ -1,3 +1,4 @@
+import Hls from "hls.js";
 import { FastForwardRounded } from "@material-ui/icons";
 import React from "react";
 import Curtain from "./Curtain";
@@ -9,6 +10,19 @@ export default class IntroScreen extends React.Component {
       entered: false,
       password: "",
     };
+    this.video = React.createRef();
+  }
+
+  componentDidMount() {
+    if (this.video.current) {
+      this.handleHls(this.video.current);
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.video.current) {
+      this.handleHls(this.video.current)
+    }
   }
 
   render() {
@@ -19,8 +33,9 @@ export default class IntroScreen extends React.Component {
             className="intro-video"
             onEnded={this.props.onEnter}
             autoPlay={true}
+            ref={this.video}
           >
-            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vids/host-between-test.mov" />
+            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8" />
           </video>
           <button onClick={this.props.onEnter}>
             Skip Intro <FastForwardRounded fontSize="inherit" />
@@ -64,4 +79,15 @@ export default class IntroScreen extends React.Component {
       alert("Invalid password!");
     }
   };
+
+  handleHls(video) {
+    if (
+      Hls.isSupported() &&
+      !video.canPlayType("application/vnd.apple.mpegurl")
+    ) {
+      var hls = new Hls();
+      hls.loadSource(video.querySelector("source").src);
+      hls.attachMedia(video);
+    }
+  }
 }
