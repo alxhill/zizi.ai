@@ -84,7 +84,7 @@ let songs = {
 let performers = {
   amalgam: {
     id: "amalgam",
-    name: "Zizi: Amalgam",
+    name: "Zizi",
     insta: "@inst",
     bio: "test bio",
     n: 0

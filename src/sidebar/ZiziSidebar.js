@@ -21,7 +21,7 @@ export default class ZiziSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullSize: false,
+      fullSize: true,
       showSecondaryBar: false,
       secondaryBar: {
         type: "none",
@@ -60,9 +60,9 @@ export default class ZiziSidebar extends React.Component {
         <div className="close-button">{hideShow}</div>
         <div className="centered-buttons">
           {zoomInOut}
-          <SkipToNextTrack onClick={this.props.switchToPicker} />
-          <ShowPerformers onClick={this.showPerformers} />
           <NewPerformer onClick={this.props.newPerformer} />
+          <ShowPerformers onClick={this.showPerformers} />
+          <SkipToNextTrack onClick={this.props.switchToPicker} />
         </div>
         <div className="dummy-spacing-div" />
       </div>

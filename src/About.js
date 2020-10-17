@@ -36,16 +36,24 @@ export default function About(props) {
           <li>
             <b>Toby Elwes</b> - Camera
           </li>
+          </ul>
+          <small>
+            <p style={{textAlign: "center", marginTop: "3rem"}}>Edinburgh Futures Institute </p>
+            <ul>
           <li>
-            <b>Edinburgh Futures</b> - Institute:
-          </li>
-          <li>
-            <b>Drew Hemment</b> - Curator
+            <b>Drew Hemment</b> - Lead Researcher &amp; Curator of The New Real
           </li>
           <li>
             <b>Suzy Glass</b> - Producer
           </li>
+          <li>
+            <b>Sarah Bennett</b> - Researcher
+          </li>
+          <li>
+            <b>Chris Sharratt</b> - Editor
+          </li>
         </ul>
+        </small>
         <hr />
         <i>
           <p>

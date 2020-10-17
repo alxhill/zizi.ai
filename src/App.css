@@ -158,7 +158,7 @@ button {
   filter: drop-shadow(20px 20px 5px #000);
 }
 .enter-screen button:hover {
-  opacity: 80%;
+  filter: brightness(160%);
 }
 
 .enter-screen button svg {
