@@ -148,13 +148,14 @@ button {
 
 .enter-screen button {
   position: absolute;
-  bottom: 5rem;
-  right: 5rem;
-  font-size: 2rem;
+  bottom: 2rem;
+  right: 6rem;
+  font-size: 1.6rem;
   color: #ff9c84;
-  background-color: rgba(46, 1, 15, 1);
-  border-radius: 8px;
+  background-color: rgba(46, 1, 15, 0.5);
+  border-radius: 12px;
   padding: 0.6rem;
+  filter: drop-shadow(20px 20px 5px #000);
 }
 .enter-screen button:hover {
   opacity: 80%;
@@ -175,6 +176,14 @@ button {
   text-align: center;
   filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
+.enter-screen p {
+  margin-top: 3rem;
+}
+.enter-screen b {
+  font-size: 1.5rem;
+  line-height:50px;
+}
+
 
 .zizi-intro-video {
   position: absolute;

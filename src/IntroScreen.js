@@ -58,9 +58,10 @@ export default class IntroScreen extends React.Component {
             value={this.state.password}
             onChange={this.updatePassword}
             placeholder="Password"
-          /><br></br>
-          <label className="password"><br></br><br></br><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</label>          
+          />
         </form>
+        <p className="password"><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>
+
         <Curtain />
       </div>
     );
