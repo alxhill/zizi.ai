@@ -61,9 +61,8 @@ export default class Performers extends React.PureComponent {
           src={`img/performers/BioImage/${performer.id}.jpg`}
           draggable="false"
         />
-
-        <p>{performer.bio}</p>
         <p>{performer.insta}</p>
+        <p>{performer.bio}</p>
       </div>
     );
   }

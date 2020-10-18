@@ -13,14 +13,18 @@ export default function About(props) {
         className="curtain-side"
         draggable="false"
       />
+      <img
+        src="img/curtain-bg-full.jpg"
+        className="curtain-bg"
+        draggable="false"
+      />
+      <div className="about">
       <img src="img/about.png" className="secondary-header" draggable="false" />
       <img
         src="img/About/Zizi banner.jpg"
         className="banner"
         draggable="false"
       />
-      <div className="about">
-        <hr className="first" />
         <h2>Team</h2>
         <ul>
           <li>
@@ -38,23 +42,23 @@ export default function About(props) {
           <li>
             <b>Charlie Baker</b> - Sound Mixing
           </li>
-          </ul>
-          <small>
-            <p style={{textAlign: "center", marginTop: "3rem"}}>Edinburgh Futures Institute </p>
-            <ul>
-          <li>
-            <b>Drew Hemment</b> - Lead Researcher &amp; Curator of 'The New Real'
-          </li>
-          <li>
-            <b>Suzy Glass</b> - Producer
-          </li>
-          <li>
-            <b>Sarah Bennett</b> - Researcher
-          </li>
-          <li>
-            <b>Chris Sharratt</b> - Editor
-          </li>
         </ul>
+        <small>
+          <p style={{ textAlign: "center", marginTop: "3rem" }}><i>Edinburgh Futures Institute</i></p>
+          <ul>
+            <li>
+              <b>Drew Hemment</b> - Lead Researcher &amp; Curator of 'The New Real'
+          </li>
+            <li>
+              <b>Suzy Glass</b> - Producer
+          </li>
+            <li>
+              <b>Sarah Bennett</b> - Researcher
+          </li>
+            <li>
+              <b>Chris Sharratt</b> - Editor
+          </li>
+          </ul>
         </small>
         <hr />
         <i>

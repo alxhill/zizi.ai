@@ -2,7 +2,7 @@ import { Close } from "../Buttons";
 import React from "react";
 
 export default function (props) {
-    let secondaryBarOpenClose = props.openClose ? "open" : "closed";
+  let secondaryBarOpenClose = props.openClose ? "open" : "closed";
 
   let maybeCloseButton = props.onClose == null ? null : (
     <div className="close-button2">

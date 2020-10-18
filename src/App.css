@@ -17,6 +17,10 @@
     height: auto;
     width: 90%;
   }
+  body .enter-screen button {
+    position: absolute;
+    right: 2rem;
+  }
   body .zizi-sidebar {
     left: 0;
     right: 0;
@@ -25,6 +29,12 @@
     height: 30rem;
     flex-direction: column-reverse;
     transition: bottom 1s ease;
+  }
+  body .pickerAboutButton {
+    position: absolute;
+    top: 2rem;
+    right: 6rem;
+    height: 3rem;
   }
   body .secondary-header {
     margin-top: 1rem;
@@ -93,6 +103,15 @@
     padding: 1rem;
     background-color: #520319;
   }
+  body .about-page p {
+    padding-left: 1.5rem;
+    padding-right: 3rem;
+    font-size: 1.1rem;
+  }
+  body .about-page ul {
+    padding-left: 1.5rem;
+    padding-right: 3rem;
+  }
 }
 
 body {
@@ -155,6 +174,7 @@ button {
   padding: 0.6rem;
   filter: drop-shadow(20px 20px 5px #000);
 }
+
 .pickerAboutButton:hover {
   -webkit-filter: drop-shadow(0px 0px 0px #800a12);
   filter: drop-shadow(0px 0px 0px #800a12);
@@ -207,15 +227,6 @@ button {
   z-index: -2;
 }
 
-.about-page {
-  overflow: scroll;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
 h1 {
   font-family: "market_decoregular", sans-serif;
   padding-bottom: 1rem;
@@ -255,14 +266,12 @@ h1 {
   background-color: #380011;
   /* padding: 1rem; */
   box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
-
 }
 
 .mini-sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .button-sidebar .zizi-icon {
@@ -289,6 +298,7 @@ h1 {
   background-color: #380011;
   width: 1rem;
   font-size: 2.1rem;
+  z-index: 1;
 }
 
 .close-button {
@@ -434,15 +444,32 @@ h1 {
   color: #db2c00;
 }
 
-.bios h1 {
+.bios h2 {
   font-size: 2rem;
+  filter: drop-shadow(0px 0px 10px rgb(255, 148, 105)) drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
 }
 
 .bios .backbutton {
-  text-align: right;
-  font-size: 1.5rem;
-  background-color: #9c0031;
+  font-size: 1.2rem;
+  background-color: #520319;
   padding: 0.5rem;
+  border-radius: 12px;
+  filter: drop-shadow(0px 0px 20px #000);
+}
+
+.bios {
+  text-align: right;
+  padding: 2rem;
+}
+
+.bios p {
+  text-align: left;
+  font-family: 'Roboto Slab', charter, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.bios img {
+  width: 100%;
+  border-radius: 12px;
 }
 
 .secondary-header {
@@ -490,9 +517,9 @@ h1 {
 
 .secondary-sidebar .song p {
   height: 4rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   padding-left: 1rem;
-  width: 200px;
+  width: 270px;
   display: table-cell;
   vertical-align: middle;
   -webkit-touch-callout: none;
@@ -503,8 +530,16 @@ h1 {
   user-select: none;
 }
 
+.secondary-sidebar .song small {
+  color: rgb(180, 95, 74);
+}
+
+.secondary-sidebar .song .sname {
+  color: rgb(255, 225, 200);
+}
+
 .secondary-sidebar .song w {
-  color: #fff;
+  color: rgb(250, 174, 129);
 }
 
 .secondary-sidebar .song:hover w {
@@ -647,7 +682,13 @@ a:disabled {
   margin: 0px;
   z-index: -4;
   padding: 1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
+
 
 /* about page */
 
@@ -662,6 +703,16 @@ a:disabled {
   margin: auto;
   display: block;
   object-fit: fill;
+  /* padding: 1rem; */
+  overflow: auto;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.about-page p {
+  text-align: justify;
+  text-justify: inter-word;
+
 }
 
 .about-page .secondary-header {
@@ -682,6 +733,7 @@ a:disabled {
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
+  width: 100%;
   max-width: 700px;
   mix-blend-mode: lighten;
 }
@@ -700,7 +752,9 @@ a:disabled {
 }
 
 .about-page .footnote {
-  font-size: 17px;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  text-align: left;
 }
 
 .about-page sup {
@@ -708,7 +762,7 @@ a:disabled {
 }
 
 .about-page .curtain-bg {
-  filter: brightness(40%);
+  filter: brightness(60%);
 }
 
 .about-page .close {
