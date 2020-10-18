@@ -29,9 +29,13 @@ export default class ZiziPicker extends React.Component {
     switch (source) {
       default:
       case "enter":
-        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
+        // return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
+        // local
+        return "vids/intro-and-host/host-intro/high.m3u8";
       case "song-end":
-        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host${num}/playlist.m3u8`;
+        // return `vids//intro-and-host/host${num}/playlist.m3u8`;
+        // local
+        return `vids/intro-and-host/host${num}/high.m3u8`;
     }
   }
 
