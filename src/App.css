@@ -424,7 +424,7 @@ h1 {
 }
 
 .performers-list a:hover {
-  /* box-shadow: 0px 0px 50px 4px rgba(0,0,0,1); */
+  color: #db5000;
 }
 
 .performers-list .info a {
@@ -434,8 +434,10 @@ h1 {
 }
 
 .performers-list .info a:hover {
-  color: #9b002e;
+  color: #db2c00;
 }
+
+
 
 .bios h1 {
   font-size: 2rem;
