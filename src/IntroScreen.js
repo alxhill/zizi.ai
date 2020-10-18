@@ -29,14 +29,15 @@ export default class IntroScreen extends React.Component {
     if (this.state.entered) {
       return (
         <div className="enter-screen">
+          
           <video
             className="zizi-intro-video"
             onEnded={this.props.onEnter}
-            autoPlay={true}
             ref={this.video}
             playsInline={true}
+            autoPlay={true}
           >
-            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
+          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
           </video>
           <button onClick={this.props.onEnter}>
             Skip Intro <FastForwardRounded fontSize="inherit" />
@@ -58,7 +59,7 @@ export default class IntroScreen extends React.Component {
             value={this.state.password}
             onChange={this.updatePassword}
             placeholder="Password"
-            
+
           />
         </form>
         <p className="password"><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>

@@ -41,18 +41,26 @@ export default class ZiziPicker extends React.Component {
         <SecondaryBar openClose={true}>
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
+        <button className="pickerAboutButton" onClick={this.showAbout}>
+            About
+          </button>
         <video
           className="intro-video"
           onEnded={this.props.onEnter}
           autoPlay={true}
           ref={this.video}
-          playsInline={true}
-        >
+          playsInline={true}>
           <source src={this.state.src} />
         </video>
+        {/* <audio 
+          autoPlay={true}
+
+        ></audio> */}
+        
         <Curtain fade />
       </div>
     );
+
   }
 
   renderContent(mode) {
@@ -79,6 +87,10 @@ export default class ZiziPicker extends React.Component {
         );
     }
   }
+  
+  showAbout = () => {
+    this.props.switchToAbout(null, null);
+  };
 
   showAboutView = (performer) => {
     this.setState({
@@ -102,6 +114,7 @@ export default class ZiziPicker extends React.Component {
   setSong = (chosenSong) => {
     this.props.switchToPlayer(this.state.chosenPerformer, chosenSong);
   };
+
 
   handleHls(video) {
     if (

@@ -40,6 +40,7 @@ export default class App extends React.Component {
           <ZiziPicker
             showData={ShowData}
             switchToPlayer={this.switchToPlayer}
+            switchToAbout={this.switchToAbout}
             source={this.state.source}
           />
         );
@@ -76,7 +77,11 @@ export default class App extends React.Component {
   };
 
   restorePlayer = () => {
-    this.setState({ mode: "zizi" });
+    if (this.state.chosenPerfomer == null || this.state.chosenSong == null) {
+      this.setState({ mode: "picker" });
+    } else {
+      this.setState({ mode: "zizi" });
+    }
   };
 }
 

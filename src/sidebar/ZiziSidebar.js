@@ -21,7 +21,7 @@ export default class ZiziSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullSize: true,
+      fullSize: false,
       showSecondaryBar: false,
       secondaryBar: {
         type: "none",
@@ -46,14 +46,14 @@ export default class ZiziSidebar extends React.Component {
     let zoomInOut = this.props.zoom ? (
       <ZoomOut onClick={this.props.onZoomOut} />
     ) : (
-      <ZoomIn onClick={this.props.onZoomIn} />
-    );
+        <ZoomIn onClick={this.props.onZoomIn} />
+      );
 
     let hideShow = this.state.fullSize ? (
       <Close onClick={this.hideMain} />
     ) : (
-      <Menu onClick={this.showMain} />
-    );
+        <Menu onClick={this.showMain} />
+      );
 
     return (
       <div className="mini-sidebar button-sidebar">
@@ -73,8 +73,8 @@ export default class ZiziSidebar extends React.Component {
     let playPause = this.props.playing ? (
       <Pause onClick={this.props.onPause} />
     ) : (
-      <Play onClick={this.props.onPlay} />
-    );
+        <Play onClick={this.props.onPlay} />
+      );
 
     let movementPerformer = this.props.showData.performers[this.props.song.performer];
     let bodyPerformer = this.props.performer;
@@ -90,8 +90,8 @@ export default class ZiziSidebar extends React.Component {
         <div className="main-bar-content">
           <div className="player-controls">
             {playPause}
-            <Back10 onClick={this.props.onBack10}/>
-            <Forward10 onClick={this.props.onForward10}/>
+            <Back10 onClick={this.props.onBack10} />
+            <Forward10 onClick={this.props.onForward10} />
             <Fullscreen />
           </div>
           <div className="now-playing">
@@ -137,7 +137,7 @@ export default class ZiziSidebar extends React.Component {
   renderSecondaryBar() {
     return (
       <SecondaryBar onClose={this.hideSecondaryBar} openClose={this.state.showSecondaryBar}>
-          {this.renderSecondaryBarContent()}
+        {this.renderSecondaryBarContent()}
       </SecondaryBar>
     );
   }
@@ -147,7 +147,7 @@ export default class ZiziSidebar extends React.Component {
       case "performers":
         return (
           <Performers
-            changePerformer={this.props.changePerformer}
+            changePerformer={this.changePerformer}
             performers={this.props.showData.performers}
             content={this.state.secondaryBar.content}
             showAboutView={this.showAboutView}
@@ -178,19 +178,24 @@ export default class ZiziSidebar extends React.Component {
     this.setState({ fullSize: true });
   };
 
+  changePerformer = (performer) => {
+    this.setState({
+      // performer: this.props.showData.performers[performerName],
+      showSecondaryBar: false,
+    });
+    this.props.changePerformer(performer)
+  };
+
   showPerformers = () => {
     this.setState({
       secondaryBar: { type: "performers", content: "thumbnails" },
-      showSecondaryBar: true,
+      showSecondaryBar: !this.state.showSecondaryBar,
     });
+
   };
 
   showAbout = () => {
     this.props.switchToAbout(this.props.performer.id, this.props.song.id);
-  };
-
-  showSongs = () => {
-    this.setState({ secondaryBar: { type: "songs" }, showSecondaryBar: true });
   };
 
   showAboutView = (performer) => {

@@ -1,26 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
-
 @font-face {
   font-family: "market_decoregular";
-  src: url("font/market_deco-webfont.woff2") format("woff2"),
-    url("font/market_deco-webfont.woff") format("woff"),
-    url("font/market_deco.ttf") format("ttf");
+  src: url("font/market_deco-webfont.woff2") format("woff2"), url("font/market_deco-webfont.woff") format("woff"), url("font/market_deco.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 /* display for mobile and tablet */
+
 @media (max-aspect-ratio: 4/5) and (orientation: portrait) {
   html {
     font-size: 14px;
   }
-
   body .enter img {
     height: auto;
     width: 90%;
   }
-
   body .zizi-sidebar {
     left: 0;
     right: 0;
@@ -30,44 +26,40 @@
     flex-direction: column-reverse;
     transition: bottom 1s ease;
   }
-
+  body .secondary-header {
+    margin-top: 1rem;
+  }
   body .zizi-sidebar .main-sidebar {
     width: 100%;
   }
-
   body .zizi-sidebar.closed {
     left: 0;
     bottom: -26rem;
   }
-
   body .zizi-sidebar .mini-sidebar {
     flex-direction: row;
+    height: 5rem;
   }
-
-  body .zizi-sidebar .mini-sidebar .top-buttons,
-  body .zizi-sidebar .mini-sidebar .centered-buttons {
+  body .zizi-sidebar .mini-sidebar .top-buttons, body .zizi-sidebar .mini-sidebar .centered-buttons {
     flex-direction: row;
   }
-
   body .main-bar-content {
     flex-shrink: 0;
     margin-top: 2rem;
   }
-
-  body .zizi-sidebar .mini-sidebar .centered-buttons > a {
+  body .zizi-sidebar .mini-sidebar .centered-buttons>a {
     padding: 1rem 20px 1rem 20px;
   }
-
   body .close-sidebar-left {
-    height: 15px;
     width: 100%;
+    height: 1rem;
+    min-height: 1rem;
+    max-height: 1rem;
   }
-
   body .close-sidebar-left .close-button2 {
     display: inherit;
     padding-left: 1rem;
   }
-
   body .secondary-sidebar {
     left: 0;
     right: 0;
@@ -78,30 +70,24 @@
     width: 100%;
     transition: bottom 1s ease;
   }
-
   body .secondary-sidebar .content-sidebar {
     padding-top: 0;
   }
-
   body .secondary-sidebar.closed {
-    bottom: -31rem;
+    bottom: -35rem;
   }
-
   body .main-bar-content div:after {
     margin: 2rem 25% 2rem 25%;
   }
-
   body #main-bar-logo {
     order: 1;
     height: 8rem;
     flex-shrink: 0;
   }
-
   body .copyright {
     order: 2;
     margin-bottom: 1rem;
   }
-
   body .close-button2 {
     font-size: 2.1rem;
     padding: 1rem;
@@ -157,6 +143,23 @@ button {
   padding: 0.6rem;
   filter: drop-shadow(20px 20px 5px #000);
 }
+
+.pickerAboutButton {
+  position: absolute;
+  bottom: 2rem;
+  left: 6rem;
+  font-size: 1.6rem;
+  color: #ff9c84;
+  background-color: rgba(46, 1, 15, 0.5);
+  border-radius: 12px;
+  padding: 0.6rem;
+  filter: drop-shadow(20px 20px 5px #000);
+}
+.pickerAboutButton:hover {
+  -webkit-filter: drop-shadow(0px 0px 0px #800a12);
+  filter: drop-shadow(0px 0px 0px #800a12);
+}
+
 .enter-screen button:hover {
   filter: brightness(160%);
 }
@@ -176,14 +179,15 @@ button {
   text-align: center;
   filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
+
 .enter-screen p {
   margin-top: 3rem;
 }
+
 .enter-screen b {
   font-size: 1.5rem;
-  line-height:50px;
+  line-height: 50px;
 }
-
 
 .zizi-intro-video {
   position: absolute;
@@ -225,13 +229,6 @@ h1 {
   left: 0;
   height: 100%;
   display: flex;
-  background-color: #2e010f;
-  background: linear-gradient(
-    0deg,
-    rgba(7, 0, 2, 1) 2%,
-    rgba(46, 1, 15, 1) 70%,
-    rgba(46, 1, 15, 1) 100%
-  );
   color: #ff9c84;
   transition: left 1s ease;
 }
@@ -255,15 +252,17 @@ h1 {
 }
 
 .button-sidebar {
-  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
   background-color: #380011;
   /* padding: 1rem; */
+  box-shadow: 0px 0px 41px 10px rgba(0, 0, 0, 0.7);
+
 }
 
 .mini-sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 
 .button-sidebar .zizi-icon {
@@ -271,8 +270,7 @@ h1 {
   height: 2rem;
 }
 
-.mini-sidebar .centered-buttons,
-.mini-sidebar .top-buttons {
+.mini-sidebar .centered-buttons, .mini-sidebar .top-buttons {
   display: flex;
   flex-direction: column;
 }
@@ -282,7 +280,7 @@ h1 {
   background-color: #520319;
 }
 
-.mini-sidebar .centered-buttons > a {
+.mini-sidebar .centered-buttons>a {
   padding: 20px 1rem 20px 1rem;
 }
 
@@ -291,7 +289,6 @@ h1 {
   background-color: #380011;
   width: 1rem;
   font-size: 2.1rem;
-  z-index: 1;
 }
 
 .close-button {
@@ -307,8 +304,8 @@ h1 {
   /* padding: 1rem 1rem 1rem 0;
   margin-left: 1rem; */
   padding: 1rem;
-  width: 30px;
-  height: 30px;
+  width: 2rem;
+  height: 2rem;
   display: inline-flex;
   background-color: #520319;
 }
@@ -321,16 +318,21 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   overflow: scroll;
+  background-color: #2e010f;
+  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%);
 }
 
 .main-sidebar .zizi-icon {
   font-size: 2rem;
+  -webkit-filter: drop-shadow(0px 0px 10px #000);
+  filter: drop-shadow(0px 0px 10px #000);
 }
 
 .main-sidebar a.inline-link {
   text-decoration: none;
   color: #ffbcaf;
 }
+
 .main-sidebar a.inline-link:hover {
   text-decoration: none;
   color: #d63a00;
@@ -342,7 +344,7 @@ h1 {
   justify-content: space-evenly;
 }
 
-.main-bar-content > div {
+.main-bar-content>div {
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -386,12 +388,7 @@ h1 {
   display: flex;
   background-color: #2e010f;
   /* background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,0.5) 70%, rgba(46,1,15,0.9) 100%); */
-  background: linear-gradient(
-    0deg,
-    rgba(7, 0, 2, 1) 2%,
-    rgba(46, 1, 15, 1) 70%,
-    rgba(46, 1, 15, 1) 100%
-  );
+  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%);
   color: #ff9c84;
   text-align: center;
   display: flex;
@@ -436,8 +433,6 @@ h1 {
 .performers-list .info a:hover {
   color: #db2c00;
 }
-
-
 
 .bios h1 {
   font-size: 2rem;
@@ -507,18 +502,23 @@ h1 {
   -ms-user-select: none;
   user-select: none;
 }
+
 .secondary-sidebar .song w {
   color: #fff;
 }
+
 .secondary-sidebar .song:hover w {
   color: #d63a00;
 }
+
 .secondary-sidebar .song a:hover {
   color: #f5c5b3;
 }
+
 .secondary-sidebar .song .artist {
   color: #edb49f;
 }
+
 .secondary-sidebar .song .artist:hover {
   color: #d63a00;
 }
@@ -608,24 +608,28 @@ h2 {
 }
 
 /* unvisited link */
+
 a:link {
   color: #d98b6f;
   cursor: pointer;
 }
 
 /* visited link */
+
 a:visited {
   color: #edb49f;
   cursor: pointer;
 }
 
 /* mouse over link */
+
 a:hover {
   color: #aa272e;
   cursor: pointer;
 }
 
 /* selected link */
+
 a:active {
   color: #fff;
   cursor: pointer;
@@ -646,6 +650,7 @@ a:disabled {
 }
 
 /* about page */
+
 .about-page h2 {
   font-family: "market_decoregular", sans-serif;
   margin-top: 4rem;
@@ -672,7 +677,6 @@ a:disabled {
   width: 20rem;
 }
 
-
 .about-page .banner {
   display: block;
   margin-left: auto;
@@ -681,7 +685,6 @@ a:disabled {
   max-width: 700px;
   mix-blend-mode: lighten;
 }
-
 
 .about-page .first {
   margin-top: 0;
@@ -707,6 +710,7 @@ a:disabled {
 .about-page .curtain-bg {
   filter: brightness(40%);
 }
+
 .about-page .close {
   font-size: 3rem;
 }
