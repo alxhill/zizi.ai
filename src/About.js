@@ -19,19 +19,19 @@ export default function About(props) {
         draggable="false"
       />
       <div className="about">
-      <img src="img/about.png" className="secondary-header" draggable="false" />
-      <img
-        src="img/About/Zizi banner.jpg"
-        className="banner"
-        draggable="false"
-      />
+        <img src="img/about.png" className="secondary-header" draggable="false" />
+        <img
+          src="img/About/Zizi banner.jpg"
+          className="banner"
+          draggable="false"
+        />
         <h2>Team</h2>
         <ul>
           <li>
             <b>Jake Elwes</b> - Artist
           </li>
           <li>
-            <b>Me</b> - Performance Director
+            <b>Me</b> - Performance &amp; Casting Director
           </li>
           <li>
             <b>Alexander Hill</b> - Web &amp; Development
@@ -44,7 +44,7 @@ export default function About(props) {
           </li>
         </ul>
         <small>
-          <p style={{ textAlign: "center", marginTop: "3rem" }}><i>Edinburgh Futures Institute</i></p>
+          <p style={{ textAlign: "center", marginTop: "3rem" }}><i>In Collaboration with the <b>Edinburgh Futures Institute</b></i></p>
           <ul>
             <li>
               <b>Drew Hemment</b> - Lead Researcher &amp; Curator of 'The New Real'
@@ -55,34 +55,18 @@ export default function About(props) {
             <li>
               <b>Sarah Bennett</b> - Researcher
           </li>
-            <li>
-              <b>Chris Sharratt</b> - Editor
-          </li>
           </ul>
         </small>
         <hr />
         <i>
           <p>
-            "My latest work aims to bring together two things I love, artificial
-            intelligence, and the world of Drag performance. In an entertaining
-            and humorous way Drag has allowed me to dig into some of the social
-            issues built into machine learning technology.
+            "My latest work aims to bring together two things I love, artificial intelligence, and the world of drag performance. In an entertaining and humorous way, drag has allowed me to dig into some of the social issues built into machine learning technology. Drag is just such a brilliant medium for exploring the layers of construction and social bias in AI.
           </p>
           <p>
-            Drag is a brilliant lens through which we can explore and expose the
-            layers of technical construction and social bias inherent to AI.
+            Working closely with friends from the London drag scene, in Zizi we have created a ‘deepfake’ virtual cabaret. This deepfake tech has enabled us to collaborate with machine learning to do drag, demonstrating how drag queens, drag kings and drag things can never be replaced by artificial intelligence.
           </p>
           <p>
-            Working closely with friends from the London drag scene, in Zizi we
-            have created a ‘deep-fake’ virtual cabaret. This deep-fake tech has
-            enabled us to collaborate with machine learning to do drag,
-            demonstrating how drag queens, drag kings and drag things can never
-            be replaced by artificial intelligence.
-          </p>
-          <p>
-            The Zizi Project pushes the boundaries of both drag and AI to
-            discover what AI can teach us about drag – and what drag can teach
-            us about AI.”
+            The Zizi Project pushes the boundaries of both drag and AI to discover what AI can teach us about drag – and what drag can teach us about AI.”
           </p>
         </i>
         <p>Jake Elwes</p>
@@ -91,10 +75,7 @@ export default function About(props) {
         <h2>Technical</h2>
 
         <p>
-          Machine learning (teaching computers to learn from data), more
-          specifically deep-fake technology, has been used to construct all the
-          videos you see on this website. To produce a deep-fake, you start by
-          training a neural network
+          Machine learning – teaching computers to learn from data – and specifically deepfake technology, has been used to construct all the videos you see on this website. To produce a deepfake, you start by training a neural network
           <sup>
             <a href="#" id="ref1">
               1
@@ -103,34 +84,25 @@ export default function About(props) {
           on a dataset of images.
         </p>
         <p>
-          This dataset contains the original images (video frames) of the
-          real-life person as well as a graphic tracking the position of their
-          skeleton, facial features, and silhouette.
+          This dataset contains the original images (video frames) of the real-life person, as well as a graphic tracking the position of their skeleton, facial features, and silhouette.
         </p>
         <p>
-          Creating deep-fakes begins with training a neural network to try to
-          recreate the original image of this person, from only seeing their
-          skeleton tracking (illustrated below). The neural network aims to get
-          as close as possible to the original and does this by being given an
-          accuracy score.
+          Creating deepfakes begins with training a neural network to try to recreate the original image of this person based on just their skeleton tracking (illustrated below). The neural network aims to get as close as possible to the original and does this by being given an accuracy score.
           <sup>
             <a href="#" id="ref2">
               2
             </a>
           </sup>{" "}
-          Once it has learnt to do this it can then start producing deep-fakes.
+          Once it has learnt to do this it can then start producing deepfakes.
         </p>
         <p>
-          Below you can see the iterative training process of a neural network
-          learning how to create images of Lilly SnatchDragon:
+          Below, you can see the iterative training process of a neural network as it learns how to create images of the drag queen an burlesque artist Lilly SnatchDragon:
         </p>
 
         <img className="diagram" src="img/About/diagram.gif" draggable="false" />
 
         <p>
-          Using machine learning, this process iterates and improves until it
-          can create new, fake faces which are indistinguishable from the real.
-          For Zizi the method I use is called Video-to-Video Synthesis.
+          Using machine learning, this process iterates and improves until it can create new, fake faces which are indistinguishable from the real. For Zizi, the method I use is called Video-to-Video Synthesis.
           <sup>
             <a href="#" id="ref3">
               3
@@ -138,33 +110,22 @@ export default function About(props) {
           </sup>
         </p>
         <p>
-          Once the neural network has been training for, let's say, three days,
-          it is ready to be fed new movements. Anyone can now control the
-          deep-fake body by running skeleton tracking on a new video and then
-          feeding these into the neural network.
+          Once the neural network has been training for, let's say, three days, it is ready to be fed new movements. Anyone can now control the deepfake body by running skeleton tracking on a new video and then feeding these into the neural network.
         </p>
         <p>
-          These visuals below show how new deep-fake images of Lilly
-          SnatchDragon can be generated from the trained neural network (here
-          with her movement controlled by Me the Drag Queen).
+          These visuals below show how new deepfake images of Lilly SnatchDragon can be generated from the trained neural network (here with her movement controlled by Me the Drag Queen).
         </p>
 
         <img className="diagram" src="img/About/diagram-gen-close-small.gif" draggable="false" />
         <img className="diagram" src="img/About/diagram-gen-full-small.gif" draggable="false" />
         <p>
-          This process was repeated to create deep fakes of all 13 of our
-          wonderful, diverse drag cast.
+          This process was repeated to create deepfakes of all 13 of our wonderful, diverse drag cast.
         </p>
         <p>
-          The ‘Zizi’ character was created by simultaneously training on images
-          of all of the performers. Not knowing how to differentiate between the
-          bodies, the result is an amalgamation, a ‘queering’ of the data.
+          The ‘Zizi’ character was created by simultaneously training on images of all of the performers. Not knowing how to differentiate between the bodies, the result is an amalgamation, a ‘queering’ of the data.
         </p>
         <p>
-          Facial recognition algorithms (and deep fake technology) currently
-          have a real problem recognising trans and non-binary people, as well
-          as other marginalised identities, because they’ve been trained on
-          photos of people with cis binary identities.{" "}
+          Facial recognition algorithms (and deepfake technology) currently have difficulty recognising trans, queer and other marginalised identities, because they are often made by cis white people.
           <sup>
             <a href="#" id="ref4">
               4
@@ -177,15 +138,10 @@ export default function About(props) {
           </sup>
         </p>
         <p>
-          The project poses the question whether making deep fakes using queer
-          identities becomes a means of assimilation or inclusivity… or more a
-          techno-activist method of dirtying and obfuscating the systems used to
-          collect data on us.
+          The project asks whether making deepfakes using queer identities becomes a means of assimilation or inclusivity… or more a techno-activist method of dirtying and obfuscating the systems used to collect data on us.
         </p>
         <p>
-          The Zizi project aims to critically examine these techniques using a
-          dataset of drag performers, in the process exposing the workings of
-          the black box which is artificial intelligence.
+          The Zizi project aims to critically examine these techniques using a dataset of drag performers, in the process exposing the workings of the black box which is artificial intelligence.
         </p>
         <hr />
 
@@ -243,15 +199,18 @@ export default function About(props) {
         </p>
 
         <hr />
+        <h2>About the Artist</h2>
+        <p>
+          Jake Elwes is an artist living and working in London. His recent works have looked at machine learning and artificial intelligence research, exploring the code, philosophy and ethics behind it. In his art Jake engages with both the history and tropes of fine art and the possibilities and consequences of digital technology. He graduated with a BA in Fine Art from the Slade School of Fine Art (UCL), London in 2017.
+        </p><p>
+          Jake's work has been exhibited in museums and galleries internationally, including the ZKM, Karlsruhe, Germany; TANK Museum, Shanghai; Today Art Museum, Beijing; CyFest, Venice; Edinburgh Futures Institute, UK; Zabludowicz Collection, London; Frankfurter Kunstverein, Germany; New Contemporaries 2017, UK; Ars Electronica 2017, Austria; Victoria and Albert Museum, London; LABoral Centro, Spain; Nature Morte, Delhi, India, Centre for the Future of Intelligence, UK. He has also been featured on BBC4.
+        </p>
+
+        <hr />
+
 
         <p>
-          The Zizi Project (2019 - ongoing) is a collection of works by Jake
-          Elwes exploring the intersection of Artificial Intelligence (A.I.) and
-          drag performance. Drag challenges gender and explores otherness, while
-          A.I. is often mystified as a tool and contains social bias. Zizi
-          combines them through a deep fake, synthesised drag identity created
-          using machine learning. The project explores what AI can teach us
-          about drag, and what drag can teach us about A.I.
+        The Zizi Project (2019 - ongoing) is a collection of works by Jake Elwes exploring the intersection of Artificial Intelligence (A.I.) and drag performance. Drag challenges gender and explores otherness, while A.I. is often mystified as a concept and tool, and is complicit in reproducing social bias. Zizi combines these themes through a deepfake, synthesised drag identity created using machine learning. The project explores what AI can teach us about drag, and what drag can teach us about A.I.
         </p>
         <hr />
         <h2>'Zizi &amp; Me' 2020</h2>

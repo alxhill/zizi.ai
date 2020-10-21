@@ -61,7 +61,7 @@ export default class Performers extends React.PureComponent {
           src={`img/performers/BioImage/${performer.id}.jpg`}
           draggable="false"
         />
-        <p>{performer.insta}</p>
+        <a className="instagram" target='_blank' href={'https://www.instagram.com/' + performer.insta}>@{performer.insta}</a>
         <p>{performer.bio}</p>
       </div>
     );

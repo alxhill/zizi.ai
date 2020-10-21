@@ -29,13 +29,13 @@ export default class ZiziPicker extends React.Component {
     switch (source) {
       default:
       case "enter":
-        // return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
-        // local
-        return "vids/intro-and-host/host-intro/high.m3u8";
+        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
+      // local
+      // return "vids/intro-and-host/host-intro/high.m3u8";
       case "song-end":
-        // return `vids//intro-and-host/host${num}/playlist.m3u8`;
-        // local
-        return `vids/intro-and-host/host${num}/high.m3u8`;
+        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host${num}/playlist.m3u8`;
+      // local
+      // return `vids/intro-and-host/host${num}/high.m3u8`;
     }
   }
 
@@ -46,7 +46,7 @@ export default class ZiziPicker extends React.Component {
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
         <button className="pickerAboutButton" onClick={this.showAbout}>
-            About
+          About
           </button>
         <video
           className="intro-video"
@@ -60,7 +60,7 @@ export default class ZiziPicker extends React.Component {
           autoPlay={true}
 
         ></audio> */}
-        
+
         <Curtain fade />
       </div>
     );
@@ -91,7 +91,7 @@ export default class ZiziPicker extends React.Component {
         );
     }
   }
-  
+
   showAbout = () => {
     this.props.switchToAbout(null, null);
   };
