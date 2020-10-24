@@ -22,15 +22,15 @@ class DragPlayer extends React.Component {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
     return (
-      <div>
+      <div onClick={this.togglePose} className="xxxxx-drag-video-wrapper">
         {this.renderPlayer(["primary-player", primaryVisibility], this.performerVideo, this.performerSrc(this.props), this.props.onEnded, this.hidePose)}
         {this.renderPlayer(["shadow-player", primaryVisibility], this.shadowVideo, this.shadowSrc(this.props))}
-        {this.renderPlayer(["pose-player", poseVisibility], this.poseVideo, this.poseSrc(this.props), null)}
+        {this.renderPlayer(["pose-player", poseVisibility], this.poseVideo, this.poseSrc(this.props))}
       </div>
     );
   }
 
-  renderPlayer(additionalClasses, ref, src, onEnded, onLoadedData) {
+  renderPlayer(additionalClasses, ref, src, onEnded, onLoadedData, onClick) {
     additionalClasses.push("video-frame")
     let zoomClass = this.props.zoom ? "zoom" : "full";
     return (
@@ -122,8 +122,12 @@ class DragPlayer extends React.Component {
   }
 
   hidePose = () => {
-    console.log("loaded main thingy", this.state)
     this.setState({pose: false});
+  }
+
+  togglePose = () => {
+    console.log("not toggling pose, just pretending")
+    // this.setState({pose: !this.state.pose})
   }
 
   performerSrc(props) {
