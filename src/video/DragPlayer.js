@@ -13,22 +13,28 @@ class DragPlayer extends React.Component {
     this.performerVideo = React.createRef();
     this.shadowVideo = React.createRef();
     this.poseVideo = React.createRef();
+    this.state = {
+      pose: true
+    }
   }
 
   render() {
+    let poseVisibility = this.state.pose ? "visible" : "hidden";
+    let primaryVisibility = this.state.pose ? "hidden" : "visible";
     return (
       <div>
-        {this.renderPlayer("primary-player", this.performerVideo, this.performerSrc(this.props), this.props.onEnded)}
-        {this.renderPlayer("shadow-player", this.shadowVideo, this.shadowSrc(this.props))}
-        {this.renderPlayer("pose-player", this.poseVideo, this.poseSrc(this.props))}
+        {this.renderPlayer(["primary-player", primaryVisibility], this.performerVideo, this.performerSrc(this.props), this.props.onEnded, this.hidePose)}
+        {this.renderPlayer(["shadow-player", primaryVisibility], this.shadowVideo, this.shadowSrc(this.props))}
+        {this.renderPlayer(["pose-player", poseVisibility], this.poseVideo, this.poseSrc(this.props), null)}
       </div>
     );
   }
 
-  renderPlayer(className, ref, src, onEnded) {
+  renderPlayer(additionalClasses, ref, src, onEnded, onLoadedData) {
+    additionalClasses.push("video-frame")
     let zoomClass = this.props.zoom ? "zoom" : "full";
     return (
-      <span className={"video-frame " + className}>
+      <span className={additionalClasses.join(" ")}>
         <video
           autoPlay={this.props.playing}
           className={"drag-video " + zoomClass}
@@ -36,6 +42,7 @@ class DragPlayer extends React.Component {
           muted={true}
           ref={ref}
           onEnded={onEnded}
+          onLoadedData={onLoadedData}
         >
           <source src={src} />
         </video>
@@ -44,12 +51,14 @@ class DragPlayer extends React.Component {
   }
 
   componentDidMount() {
-    this.performerVideo.current.currentTime = this.props.currentTime;
-    this.shadowVideo.current.currentTime = this.props.currentTime;
-    this.poseVideo.current.currentTime = this.props.currentTime;
-    this.handleHls(this.performerVideo.current);
-    this.handleHls(this.shadowVideo.current);
-    this.handleHls(this.poseVideo.current);
+    this.loadVideo(this.performerVideo.current)
+    this.loadVideo(this.shadowVideo.current)
+    this.loadVideo(this.poseVideo.current)
+  }
+
+  loadVideo(video) {
+    video.currentTime = this.props.currentTime;
+    this.handleHls(video)
   }
 
   componentDidUpdate(prevProps) {
@@ -57,14 +66,12 @@ class DragPlayer extends React.Component {
     let shadow = this.shadowVideo.current;
     let pose = this.poseVideo.current;
 
+    let videos = [performer, shadow, pose]
+
     if (prevProps.playing && !this.props.playing) {
-      performer.pause();
-      shadow.pause();
-      pose.pause();
+      videos.forEach(video => video.pause())
     } else if (!prevProps.playing && this.props.playing) {
-      performer.play();
-      shadow.play();
-      pose.play();
+      videos.forEach(video => video.play())
     }
 
     if (this.props.playing) {
@@ -72,12 +79,14 @@ class DragPlayer extends React.Component {
     }
 
     if (this.performerSrc(prevProps) !== this.performerSrc(this.props)) {
+      this.setState({pose: true})
       this.reload(performer)
     }
 
     if (this.shadowSrc(prevProps) !== this.shadowSrc(this.props)) {
       this.reload(shadow)
     }
+
     if (this.poseSrc(prevProps) !== this.poseSrc(this.props)) {
       this.reload(pose)
     }
@@ -110,6 +119,11 @@ class DragPlayer extends React.Component {
     video.load();
     video.currentTime = this.props.currentTime;
     this.handleHls(video);
+  }
+
+  hidePose = () => {
+    console.log("loaded main thingy", this.state)
+    this.setState({pose: false});
   }
 
   performerSrc(props) {

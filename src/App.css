@@ -655,18 +655,19 @@ h2 {
 .primary-player {
   mix-blend-mode: lighten;
   z-index: -2;
-  visibility: hidden;
 }
 
 .shadow-player {
   mix-blend-mode: multiply;
   z-index: -3;
-  visibility: hidden;
 }
 .pose-player {
   mix-blend-mode: screen;
   z-index: -3;
-  /* visibility: hidden; */
+}
+
+.video-frame.hidden {
+  visibility: hidden;
 }
 
 /* unvisited link */
