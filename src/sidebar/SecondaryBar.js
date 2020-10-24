@@ -3,6 +3,7 @@ import React from "react";
 
 export default function (props) {
   let secondaryBarOpenClose = props.openClose ? "open" : "closed";
+  let classes = ["secondary-sidebar", props.className, secondaryBarOpenClose];
 
   let maybeCloseButton = props.onClose == null ? null : (
     <div className="close-button2">
@@ -11,7 +12,7 @@ export default function (props) {
   );
 
   return (
-    <div className={"secondary-sidebar " + secondaryBarOpenClose}>
+    <div className={classes.join(" ")}>
       <div className="close-sidebar-left">
         {maybeCloseButton}
       </div>

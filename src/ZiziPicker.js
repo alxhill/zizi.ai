@@ -42,7 +42,7 @@ export default class ZiziPicker extends React.Component {
   render() {
     return (
       <div>
-        <SecondaryBar openClose={true}>
+        <SecondaryBar openClose={true} className={"zizi-picker-bar"}>
           {this.renderContent(this.state.mode)}
         </SecondaryBar>
         <button className="pickerAboutButton" onClick={this.showAbout}>

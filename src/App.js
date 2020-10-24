@@ -4,7 +4,6 @@ import "./App.css";
 import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
-import Curtain from "./Curtain";
 import About from "./About";
 
 export default class App extends React.Component {
