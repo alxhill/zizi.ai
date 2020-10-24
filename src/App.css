@@ -407,8 +407,8 @@ h1 {
   height: 100%;
   display: flex;
   background-color: #2e010f;
-  /* background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,0.5) 70%, rgba(46,1,15,0.9) 100%); */
-  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%);
+  background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,0.5) 70%, rgba(46,1,15,0.9) 100%);
+  /* background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%); */
   color: #ff9c84;
   text-align: center;
   display: flex;
@@ -463,8 +463,9 @@ h1 {
   font-size: 1.2rem;
   background-color: #520319;
   padding: 0.5rem;
-  border-radius: 12px;
-  filter: drop-shadow(0px 0px 20px #000);
+  /* border-radius: 12px; */
+  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.6));
+  font-family: "market_decoregular", sans-serif;
 }
 
 .bios {
@@ -654,17 +655,24 @@ h2 {
 .primary-player {
   mix-blend-mode: lighten;
   z-index: -2;
+  visibility: hidden;
 }
 
 .shadow-player {
   mix-blend-mode: multiply;
   z-index: -3;
+  visibility: hidden;
+}
+.pose-player {
+  mix-blend-mode: screen;
+  z-index: -3;
+  /* visibility: hidden; */
 }
 
 /* unvisited link */
 
 a:link {
-  color: #d98b6f;
+  color: #edb49f;
   cursor: pointer;
 }
 
@@ -731,9 +739,8 @@ a:disabled {
 }
 
 .about-page p {
-  text-align: justify;
-  text-justify: inter-word;
-
+  /* text-align: justify; */
+  /* text-justify: inter-word; */
 }
 
 .about-page .secondary-header {
@@ -755,7 +762,6 @@ a:disabled {
   margin-right: auto;
   margin-top: 0;
   width: 100%;
-  max-width: 700px;
   mix-blend-mode: lighten;
 }
 
@@ -789,10 +795,19 @@ a:disabled {
 .about-page .close {
   font-size: 3rem;
 }
+.about-page iframe {
+  text-align: center;
+}
+.about-page .anchors {
+  /* text-align: center; */
+  list-style-type: square;
+  margin-top: 2rem;
+  font-family: "market_decoregular", sans-serif;
+  color: #edb49f;
+}
 
 .about-page .diagram {
   width: 100%;
   margin: 20px 0 20px 0;
   mix-blend-mode: lighten;
-
 }

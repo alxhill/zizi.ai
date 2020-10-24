@@ -56,10 +56,12 @@ export default class ZiziPicker extends React.Component {
           playsInline={true}>
           <source src={this.state.src} />
         </video>
-        {/* <audio 
+        <audio 
           autoPlay={true}
-
-        ></audio> */}
+          loop={true}
+          controls={false}
+          src="bgloop.mp3"
+        ></audio>
 
         <Curtain fade />
       </div>

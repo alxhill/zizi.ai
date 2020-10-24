@@ -12,6 +12,7 @@ class DragPlayer extends React.Component {
     super(props);
     this.performerVideo = React.createRef();
     this.shadowVideo = React.createRef();
+    this.poseVideo = React.createRef();
   }
 
   render() {
@@ -19,6 +20,7 @@ class DragPlayer extends React.Component {
       <div>
         {this.renderPlayer("primary-player", this.performerVideo, this.performerSrc(this.props), this.props.onEnded)}
         {this.renderPlayer("shadow-player", this.shadowVideo, this.shadowSrc(this.props))}
+        {this.renderPlayer("pose-player", this.poseVideo, this.poseSrc(this.props))}
       </div>
     );
   }
@@ -44,20 +46,25 @@ class DragPlayer extends React.Component {
   componentDidMount() {
     this.performerVideo.current.currentTime = this.props.currentTime;
     this.shadowVideo.current.currentTime = this.props.currentTime;
+    this.poseVideo.current.currentTime = this.props.currentTime;
     this.handleHls(this.performerVideo.current);
     this.handleHls(this.shadowVideo.current);
+    this.handleHls(this.poseVideo.current);
   }
 
   componentDidUpdate(prevProps) {
     let performer = this.performerVideo.current;
     let shadow = this.shadowVideo.current;
+    let pose = this.poseVideo.current;
 
     if (prevProps.playing && !this.props.playing) {
       performer.pause();
       shadow.pause();
+      pose.pause();
     } else if (!prevProps.playing && this.props.playing) {
       performer.play();
       shadow.play();
+      pose.play();
     }
 
     if (this.props.playing) {
@@ -71,21 +78,27 @@ class DragPlayer extends React.Component {
     if (this.shadowSrc(prevProps) !== this.shadowSrc(this.props)) {
       this.reload(shadow)
     }
+    if (this.poseSrc(prevProps) !== this.poseSrc(this.props)) {
+      this.reload(pose)
+    }
   }
 
   sync(newTime) {
     if (
       this.outOfSync(this.performerVideo.current, newTime) ||
-      this.outOfSync(this.shadowVideo.current, newTime)
+      this.outOfSync(this.shadowVideo.current, newTime) ||
+      this.outOfSync(this.poseVideo.current, newTime)
     ) {
       console.log(
         "UPDATING TIME",
         this.performerVideo.current.currentTime,
         this.shadowVideo.current.currentTime,
+        this.poseVideo.current.currentTime,
         newTime
       );
       this.performerVideo.current.currentTime = newTime;
       this.shadowVideo.current.currentTime = newTime;
+      this.poseVideo.current.currentTime = newTime;
     }
   }
 
@@ -109,6 +122,12 @@ class DragPlayer extends React.Component {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-shadow/playlist.m3u8`;
     // local
     // return `vids/web/${props.song.id}-shadow/high.m3u8`;
+  }
+
+  poseSrc(props) {
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-pose/playlist.m3u8`;
+    // local
+    // return `vids/web/${props.song.id}-pose/high.m3u8`;
   }
 
   handleHls(video) {
