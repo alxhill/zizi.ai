@@ -77,7 +77,7 @@ export default class App extends React.Component {
   };
 
   restorePlayer = () => {
-    if (this.state.chosenPerfomer == null || this.state.chosenSong == null) {
+    if (this.state.chosenPerformer == null || this.state.chosenSong == null) {
       this.setState({ mode: "picker" });
     } else {
       this.setState({ mode: "zizi" });
