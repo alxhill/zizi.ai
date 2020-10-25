@@ -10,7 +10,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: "intro",
+      mode: "zizi",
       chosenSong: "iam",
       chosenPerformer: "amalgam",
       source: "enter",

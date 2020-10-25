@@ -30,7 +30,7 @@ class DragPlayer extends React.Component {
     );
   }
 
-  renderPlayer(additionalClasses, ref, src, onEnded, onLoadedData, onClick) {
+  renderPlayer(additionalClasses, ref, src, onEnded, onSeeked, onClick) {
     additionalClasses.push("video-frame")
     let zoomClass = this.props.zoom ? "zoom" : "full";
     return (
@@ -42,7 +42,7 @@ class DragPlayer extends React.Component {
           muted={true}
           ref={ref}
           onEnded={onEnded}
-          onLoadedData={onLoadedData}
+          onSeeked={onSeeked}
         >
           <source src={src} />
         </video>
