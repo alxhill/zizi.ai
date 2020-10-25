@@ -12,10 +12,11 @@ export default class About extends React.Component {
     this.aboutProject = React.createRef()
   }
   scrollto = () => {
-    // this.aboutPageContent.scroll({
-    //   top: 5000,
-    //   behavior: 'smooth'
-    // });
+    this.aboutPageContent.current.scroll({
+      bottom: 500,
+      behavior: 'smooth',
+    });
+    console.log("scroll now!")
   }
 
 
