@@ -8,11 +8,11 @@ import {
 export default class About extends React.Component {
   constructor(props) {
     super(props);
-    this.aboutPage = React.createRef()
+    this.aboutPageContent = React.createRef()
     this.aboutProject = React.createRef()
   }
   scrollto = () => {
-    // this.aboutPage.scroll({
+    // this.aboutPageContent.scroll({
     //   top: 5000,
     //   behavior: 'smooth'
     // });
@@ -21,7 +21,7 @@ export default class About extends React.Component {
 
   render() {
     return (
-      <div className="about-page" ref={this.aboutPage}>
+      <div className="about-page" ref={this.aboutPageContent}>
         <Close className="close" onClick={this.props.onBack} />
 
         <img
