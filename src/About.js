@@ -2,6 +2,10 @@ import React from "react";
 import {
   Close,
 } from "./Buttons";
+import ScrollableAnchor from 'react-scrollable-anchor'
+import { configureAnchors } from 'react-scrollable-anchor'
+configureAnchors({offset: -60, scrollDuration: 200})
+
 
 export default function About(props) {
   return (
@@ -42,7 +46,7 @@ export default function About(props) {
             <a>About the Artist</a>
           </li>
           <li>
-            <a>About the Zizi Project</a>
+            <a href='#section1'>About the Zizi Project</a>
           </li>
           <li>
             <a>The Zizi Project: Other Works</a>
@@ -206,8 +210,9 @@ export default function About(props) {
 
         <hr />
 
+        <ScrollableAnchor id={'section1'}>
         <h2>About the Zizi Project</h2>
-
+        </ScrollableAnchor>
         <p>
           The Zizi Project (2019 - ongoing) is a collection of works by Jake Elwes exploring the intersection of Artificial Intelligence (A.I.) and drag performance. Drag challenges gender and explores otherness, while A.I. is often mystified as a concept and tool, and is complicit in reproducing social bias. Zizi combines these themes through a deepfake, synthesised drag identity created using machine learning. The project explores what AI can teach us about drag, and what drag can teach us about A.I.
         </p>

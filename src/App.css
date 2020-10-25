@@ -30,9 +30,6 @@
     flex-direction: column-reverse;
     transition: bottom 1s ease;
   }
-  body .pickerSidebar {
-      background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,0.5) 70%, rgba(46,1,15,0.9) 100%);
-  }
   body .pickerAboutButton {
     position: absolute;
     top: 2rem;
@@ -83,6 +80,10 @@
     flex-direction: column;
     width: 100%;
     transition: bottom 1s ease;
+    background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%);
+  }
+  body .zizi-picker-bar {
+    background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,0.5) 70%, rgba(46,1,15,0.9) 100%);
   }
   body .secondary-sidebar .content-sidebar {
     padding-top: 0;
@@ -339,7 +340,7 @@ h1 {
   justify-content: space-between;
   overflow: scroll;
   background-color: #2e010f;
-  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%);
+  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 0.5) 70%, rgba(46, 1, 15, 0.9) 100%);
 }
 
 .main-sidebar .zizi-icon {
