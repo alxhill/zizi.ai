@@ -49,7 +49,8 @@
   }
   body .zizi-sidebar .mini-sidebar {
     flex-direction: row;
-    height: 5rem;
+    height: 20%;
+    /* height for chrome - no idea why */
   }
   body .zizi-sidebar .mini-sidebar .top-buttons, body .zizi-sidebar .mini-sidebar .centered-buttons {
     flex-direction: row;
@@ -90,9 +91,6 @@
   }
   body .secondary-sidebar.closed {
     bottom: -35rem;
-  }
-  body .main-bar-content div:after {
-    margin: 2rem 25% 2rem 25%;
   }
   body #main-bar-logo {
     order: 1;
@@ -283,6 +281,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .button-sidebar .zizi-icon {
@@ -337,16 +336,24 @@ h1 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   overflow: scroll;
   background-color: #2e010f;
   background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 0.5) 70%, rgba(46, 1, 15, 0.9) 100%);
+  /* transform: translateY(-50%); */
+
 }
 
 .main-sidebar .zizi-icon {
   font-size: 2rem;
   -webkit-filter: drop-shadow(0px 0px 10px #000);
   filter: drop-shadow(0px 0px 10px #000);
+}
+
+
+.copyright {
+  bottom: 0px;
+  margin-bottom: 5rem;
 }
 
 .main-sidebar a.inline-link {
@@ -383,9 +390,6 @@ h1 {
   margin: 3rem auto 3rem auto;
 }
 
-.copyright {
-  margin-bottom: 5rem;
-}
 
 .main-sidebar sub {
   display: block;
@@ -406,7 +410,6 @@ h1 {
   right: 0;
   width: 30rem;
   height: 100%;
-  display: flex;
   background-color: #2e010f;
   background: linear-gradient(0deg, rgba(7,0,2,1) 2%, rgba(46,1,15,0.5) 70%, rgba(46,1,15,0.9) 100%);
   /* background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%); */
@@ -442,7 +445,7 @@ h1 {
 }
 
 .performers-list a:hover {
-  color: #db5000;
+  color: #ffe6d2;
 }
 
 .performers-list .info a {
@@ -794,6 +797,7 @@ a:disabled {
 
 .about-page sup {
   font-size: 12px;
+  text-decoration: underline;
 }
 
 .about-page .curtain-bg {
@@ -811,7 +815,9 @@ a:disabled {
   list-style-type: square;
   margin-top: 2rem;
   font-family: "market_decoregular", sans-serif;
+  font-size: smaller;
   color: #edb49f;
+  text-decoration: underline;
 }
 
 .about-page .diagram {

@@ -5,6 +5,8 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 import About from "./About";
+import { Dimensions } from 'react';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ export default class App extends React.Component {
       chosenSong: "iam",
       chosenPerformer: "amalgam",
       source: "enter",
+      orientation: ''
     };
   }
 
@@ -82,13 +85,22 @@ export default class App extends React.Component {
       this.setState({ mode: "zizi" });
     }
   };
+
+  // getOrientation = () => {
+  //   if (this.refs.rootView) {
+  //     if (Dimensions.get('window').width < Dimensions.get('window').height) {
+  //       this.setState({ orientation: 'portrait' });
+  //     }
+  //     else {
+  //       this.setState({ orientation: 'landscape' });
+  //     }
+  //   }
+  // }
+  // componentDidMount() {
+  //   this.getOrientation();
+  //   Dimensions.addEventListener('change', () => {
+  //     this.getOrientation();
+  //     // window.scrollTo(0, 0);
+  //   });
+  // }
 }
-
-// Intro
-
-// Enter button - img/enterButton.png & img/enterButtonHover.png
-
-// Could animate curtains with css - curtain-side-full.png (split left and right)
-// Or as start of host-intro.m3u8
-// then play host-intro-test.m3u8 with music from youtube - id: "Si2KRXIfE4M"
-// then host-between-test.m3u8 with layers/shadow and zoom enabled - sound direct from audio file between songs - performers panel, then songs panel comes out when this video loads (or 2 sec delay?)

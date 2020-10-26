@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Close,
+  Return,
 } from "./Buttons";
 
 
@@ -9,20 +10,35 @@ export default class About extends React.Component {
   constructor(props) {
     super(props);
     this.aboutPageContent = React.createRef()
+    this.team = React.createRef()
+    this.intro = React.createRef()
+    this.process = React.createRef()
+    this.footnotes = React.createRef()
+    this.aboutArtist = React.createRef()
     this.aboutProject = React.createRef()
+    this.other = React.createRef()
+    this.fn1 = React.createRef()
+    this.fn2 = React.createRef()
+    this.fn3 = React.createRef()
+    this.fn4 = React.createRef()
+    this.fn5 = React.createRef()
+    this.rfn1 = React.createRef()
+    this.rfn2 = React.createRef()
+    this.rfn3 = React.createRef()
+    this.rfn4 = React.createRef()
+    this.rfn5 = React.createRef()
   }
-  scrollto = () => {
+  scrollto = (element) => {
     this.aboutPageContent.current.scroll({
-      bottom: 500,
+      top: element.current.offsetTop - 100,
       behavior: 'smooth',
     });
-    console.log("scroll now!")
   }
 
 
   render() {
     return (
-      <div className="about-page" ref={this.aboutPageContent}>
+      <div className="about-page">
         <Close className="close" onClick={this.props.onBack} />
 
         <img
@@ -35,7 +51,7 @@ export default class About extends React.Component {
           className="curtain-bg"
           draggable="false"
         />
-        <div className="about">
+        <div className="about" ref={this.aboutPageContent}>
           <img src="img/about.png" className="secondary-header" draggable="false" />
           <img
             src="img/About/Zizi banner.jpg"
@@ -121,7 +137,7 @@ export default class About extends React.Component {
 
           <p>
             Machine learning – teaching computers to learn from data – and specifically deepfake technology, has been used to construct all the videos you see on this website. To produce a deepfake, you start by training a neural network
-          <a onClick={() => this.scrollto(this.fn1)}><sup>
+          <a onClick={() => this.scrollto(this.fn1)} ref={this.rfn1}><sup>
               1
           </sup></a>{" "}
           on a dataset of images.
@@ -131,7 +147,7 @@ export default class About extends React.Component {
         </p>
           <p>
             Creating deepfakes begins with training a neural network to try to recreate the original image of this person based on just their skeleton tracking (illustrated below). The neural network aims to get as close as possible to the original and does this by being given an accuracy score.
-            <a onClick={() => this.scrollto(this.fn2)}><sup>
+            <a onClick={() => this.scrollto(this.fn2)} ref={this.rfn2}><sup>
               2
           </sup></a>{" "}
           Once it has learnt to do this it can then start producing deepfakes.
@@ -144,7 +160,7 @@ export default class About extends React.Component {
 
           <p>
             Using machine learning, this process iterates and improves until it can create new, fake faces which are indistinguishable from the real. For Zizi, the method I use is called <a target='_blank' href="https://arxiv.org/abs/1808.06601"></a>Video-to-Video Synthesis.
-            <a onClick={() => this.scrollto(this.fn3)}><sup>
+            <a onClick={() => this.scrollto(this.fn3)} ref={this.rfn3}><sup>
               3
           </sup></a>
           </p>
@@ -165,10 +181,10 @@ export default class About extends React.Component {
         </p>
           <p>
             Facial recognition algorithms (and deepfake technology) currently have difficulty recognising trans, queer and other marginalised identities, because they are often made by cis white people.
-            <a onClick={() => this.scrollto(this.fn4)}><sup>
+            <a onClick={() => this.scrollto(this.fn4)} ref={this.rfn4}><sup>
               4
           </sup></a>
-            <a onClick={() => this.scrollto(this.fn5)}><sup>
+            <a onClick={() => this.scrollto(this.fn5)} ref={this.rfn5}><sup>
               5
           </sup></a>
           </p>
@@ -182,34 +198,39 @@ export default class About extends React.Component {
 
           <h2 ref={this.footnotes}>Footnotes</h2>
           <p>
-            <sup className="footnote" ref={this.fn1}>
-              1. For more information see <a target='_blank' href="https://deepai.org/machine-learning-glossary-and-terms/neural-network">DeepAI.org glossary - 'neural network'</a>
-            </sup>
+            <small className="footnote" ref={this.fn1}>
+              1. For more information see <a target='_blank' href="https://deepai.org/machine-learning-glossary-and-terms/neural-network">DeepAI.org glossary - 'neural network'. </a>
+            </small>
+            <Return onClick={() => this.scrollto(this.rfn1)}/>
           </p>
           <p>
-            <sup className="footnote" ref={this.fn2}>
+            <small className="footnote" ref={this.fn2}>
               2. This accuracy score (loss) is calculated using the gradient descent learning
               algorithm.
-          </sup>
+          </small>
+          <Return onClick={() => this.scrollto(this.rfn2)}/>
           </p>
           <p>
-            <sup className="footnote" ref={this.fn3}>
+            <small className="footnote" ref={this.fn3}>
               3. <a target='_blank' href="https://arxiv.org/abs/1808.06601">Video-to-Video Synthesis</a> is a conditional generative adversarial
             network (cGAN) developed by Wang et al. (Nvidia &amp; MIT), NeurIPS,
             2018. It uses <a target='_blank' href="https://arxiv.org/abs/1812.08008">OpenPose</a> (2018) for skeleton tracking and <a target='_blank' href="https://arxiv.org/abs/1802.00434">DensePose</a> (2018) for silhouette estimation. This technique also uses <a target='_blank' href="https://arxiv.org/abs/1612.01925">Flownet</a> (2016) to take into account the motion in the video.
-          </sup>
+          </small>
+          <Return onClick={() => this.scrollto(this.rfn3)}/>
           </p>
           <p>
-            <sup className="footnote" ref={this.fn4}>
+            <small className="footnote" ref={this.fn4}>
               4. <a target='_blank' href="https://www.researchgate.net/publication/324670607_Gender_Recognition_or_Gender_Reductionism_The_Social_Implications_of_Embedded_Gender_Recognition_Systems"> Gender recognition or gender reductionism? The social implications
             of embedded gender recognition systems.</a> Hamidi, F., Scheuerman, M.K. and Branham, S.M. (2018).
-          </sup>
+          </small>
+          <Return onClick={() => this.scrollto(this.rfn4)}/>
           </p>
           <p>
-            <sup className="footnote" ref={this.fn5}>
+            <small className="footnote" ref={this.fn5}>
               5. <a target='_blank' href="https://www.excavating.ai/">Excavating AI: The Politics of Images in Machine Learning
-            Training Sets</a>, Kate Crawford and Trevor Paglen
-          </sup>
+            Training Sets</a>, Kate Crawford and Trevor Paglen. 
+          </small>
+          <Return onClick={() => this.scrollto(this.rfn5)}/>
           </p>
 
           <hr />

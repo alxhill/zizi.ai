@@ -13,6 +13,7 @@ import {
   ClosedCaptionRounded,
   FastForwardRounded,
   FullscreenRounded,
+  KeyboardReturnRounded,
 } from "@material-ui/icons";
 
 function Play(props) {
@@ -143,6 +144,14 @@ function SkipToNextTrack(props) {
   );
 }
 
+function Return(props) {
+  return (
+    <a className="zizi-icon">
+      <KeyboardReturnRounded fontSize="inherit" onClick={props.onClick} />
+    </a>
+  );
+}
+
 export {
   Play,
   Pause,
@@ -157,5 +166,6 @@ export {
   SkipToNextTrack,
   ShowSongs,
   Captions,
-  Fullscreen
+  Fullscreen,
+  Return
 };
