@@ -104,3 +104,12 @@ export default class App extends React.Component {
   //   });
   // }
 }
+
+window.addEventListener('orientationchange', function() {
+  if (window.orientation == 0 || window.orientation == 180) {
+      // Reset scroll position if in portrait mode.
+      window.scrollTo({ top: 0 });
+      console.log("portrait")
+  }
+}, false);
+

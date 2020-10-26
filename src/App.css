@@ -281,7 +281,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .button-sidebar .zizi-icon {
