@@ -22,7 +22,7 @@ class DragPlayer extends React.Component {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
     return (
-      <div onClick={this.togglePose} className="xxxxx-drag-video-wrapper">
+      <div onMouseDown={this.showPose} onMouseUp={this.hidePose} onTouchStart={this.showPose} onTouchEnd={this.hidePose} className="drag-video-wrapper">
         {this.renderPlayer(["primary-player", primaryVisibility], this.performerVideo, this.performerSrc(this.props), this.props.onEnded, this.hidePose)}
         {this.renderPlayer(["shadow-player", primaryVisibility], this.shadowVideo, this.shadowSrc(this.props))}
         {this.renderPlayer(["pose-player", poseVisibility], this.poseVideo, this.poseSrc(this.props))}
@@ -125,9 +125,10 @@ class DragPlayer extends React.Component {
     this.setState({pose: false});
   }
 
-  togglePose = () => {
-    console.log("not toggling pose, just pretending")
-    // this.setState({pose: !this.state.pose})
+  showPose = () => {
+    console.log("pose")
+    this.setState({pose: true})
+    // ignore onSeeked
   }
 
   performerSrc(props) {

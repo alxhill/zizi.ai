@@ -18,10 +18,29 @@ export default class ZiziPicker extends React.Component {
     };
 
     this.video = React.createRef();
+    this.audioloop = React.createRef();
+    
   }
 
   componentDidMount() {
     this.handleHls(this.video.current);
+
+
+
+    // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
+
+    var lastSeen;
+    var loop = function () {
+      lastSeen = Date.now();
+      setTimeout(loop, 50);
+    };
+    loop();
+
+    this.audioloop.current.addEventListener('timeupdate', function () {
+      if (Date.now() - lastSeen > 100) {
+        this.pause();
+      }
+    }, false);
   }
 
   getSrc(source) {
@@ -56,9 +75,11 @@ export default class ZiziPicker extends React.Component {
           playsInline={true}>
           <source src={this.state.src} />
         </video>
-        <audio 
+        <audio
+          className="sound-loop"
           autoPlay={true}
           loop={true}
+          ref={this.audioloop}
           controls={false}
           src="bgloop.mp3"
         ></audio>
@@ -133,3 +154,5 @@ export default class ZiziPicker extends React.Component {
     }
   }
 }
+
+

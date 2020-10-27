@@ -20,6 +20,7 @@ import SecondaryBar from "./SecondaryBar";
 export default class ZiziSidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.bar = React.createRef()
     this.state = {
       fullSize: false,
       showSecondaryBar: false,
@@ -80,7 +81,7 @@ export default class ZiziSidebar extends React.Component {
     let bodyPerformer = this.props.performer;
 
     return (
-      <div className="main-sidebar">
+      <div className="main-sidebar" ref={this.bar}>
         <img
           src="img/title.png"
           id="main-bar-logo"
