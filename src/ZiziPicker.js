@@ -24,11 +24,8 @@ export default class ZiziPicker extends React.Component {
 
   componentDidMount() {
     this.handleHls(this.video.current);
-
-
-
+    
     // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
-
     var lastSeen;
     var loop = function () {
       lastSeen = Date.now();

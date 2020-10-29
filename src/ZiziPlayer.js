@@ -1,8 +1,9 @@
 import React from "react";
-import DragPlayer from "./video/DragPlayer";
-import HiddenYoutubePlayer from "./video/HiddenYoutubePlayer";
+import DragPlayer from "./media/DragPlayer";
+import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
 import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
+import SongPlayer from "./media/SongPlayer";
 
 class YoutubeTimerDelegate {
   shiftTime(shift) {
@@ -34,14 +35,21 @@ export default class ZiziPlayer extends React.Component {
   render() {
     return (
       <div>
-        <HiddenYoutubePlayer
+        <SongPlayer
+        song={this.state.song}
+        onReady={this.songReady}
+        playing={this.state.playing}
+        adjustedTimerEvent={this.onTimerEvent}
+        timerDelegate={this.timerDelegate}
+        />
+        {/* <HiddenYoutubePlayer
           song={this.state.song}
           onReady={this.youtubeReady}
           playing={this.state.playing}
           hideTimer={true}
           adjustedTimerEvent={this.onTimerEvent}
           timerDelegate={this.timerDelegate}
-        />
+        /> */}
         <ZiziSidebar
           showData={this.props.showData}
           song={this.state.song}
@@ -74,6 +82,10 @@ export default class ZiziPlayer extends React.Component {
         <Curtain zoom={this.state.zoom} />
       </div>
     );
+  }
+
+  songReady = () => {
+    this.setState({ isLoaded: true, playing: true })
   }
 
   youtubeReady = () => {

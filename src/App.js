@@ -5,7 +5,6 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 import About from "./About";
-import { Dimensions } from 'react';
 
 
 export default class App extends React.Component {
