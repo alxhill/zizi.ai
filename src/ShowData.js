@@ -102,7 +102,7 @@ let performers = {
     id: "cara",
     name: "Cara Melle",
     insta: "tastemycaramelle",
-    bio: "",
+    bio: "Sweet, Salty and Sticky if you’re nasty. Cara Melle is an international drag diva extraordinaire and renowned Beyoncé impersonator.",
     n: 2
   },
   chiyo: {
@@ -179,7 +179,7 @@ let performers = {
     id: "tete",
     name: "Tete Bang",
     insta: "tete_bang",
-    bio: "",
+    bio: ["Tete Bang. Star of ", <a target='_blank' href='https://www.channel4.com/programmes/drag-sos'>Drag SOS. </a>," Queer Qween and Ambassador of Love and Equality.  ", <a target='_blank' href='https://www.tetebang.co.uk/'>tetebang.co.uk</a>],
     n: 13
   },
 };
