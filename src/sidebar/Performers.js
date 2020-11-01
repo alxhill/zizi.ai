@@ -35,17 +35,15 @@ export default class Performers extends React.PureComponent {
   renderPerformer(performer) {
     return (
       <div className="performer" key={performer.id}>
-        <a onClick={() => this.props.changePerformer(performer.id)}>
+        <button type="button" className="pick-performer" onClick={() => this.props.changePerformer(performer.id)}>
           <img
-            alt={`Image of '${performer.name}'`}
+            alt={performer.name}
             src={`img/performers/PickerImage/${performer.id}.jpg`}
             draggable="false"
           />
-          <p>{performer.name}</p>
-        </a>
-        <p className="info">
-          <a onClick={() => this.props.showAboutView(performer.id)}>About</a>
-        </p>
+          <div class="name">{performer.name}</div>
+        </button>
+        <button type="button" className="info" onClick={() => this.props.showAboutView(performer.id)}>About</button>
       </div>
     );
   }
@@ -53,15 +51,15 @@ export default class Performers extends React.PureComponent {
   renderAboutView(performer) {
     return (
       <div className="bios">
-        <a className="backbutton" onClick={this.props.showThumbnails}>Back</a>
+        <button type="button" className="backbutton" onClick={this.props.showThumbnails}>Back</button>
         <h2>{performer.name}</h2>
 
         <img
-          alt={`Image of '${performer.name}'`}
+          alt={performer.name}
           src={`img/performers/BioImage/${performer.id}.jpg`}
           draggable="false"
         />
-        <a className="instagram" target='_blank' href={'https://www.instagram.com/' + performer.insta}>@{performer.insta}</a>
+        <a className="instagram" target='_blank' rel="noopener noreferrer" href={'https://www.instagram.com/' + performer.insta}>@{performer.insta}</a>
         <p>{performer.bio}</p>
       </div>
     );

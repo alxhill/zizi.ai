@@ -20,7 +20,7 @@ import SecondaryBar from "./SecondaryBar";
 export default class ZiziSidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.bar = React.createRef()
+    this.bar = React.createRef();
     this.state = {
       fullSize: false,
       showSecondaryBar: false,
@@ -47,17 +47,17 @@ export default class ZiziSidebar extends React.Component {
     let zoomInOut = this.props.zoom ? (
       <ZoomOut onClick={this.props.onZoomOut} />
     ) : (
-        <ZoomIn onClick={this.props.onZoomIn} />
-      );
+      <ZoomIn onClick={this.props.onZoomIn} />
+    );
 
     let hideShow = this.state.fullSize ? (
       <Close onClick={this.hideMain} />
     ) : (
-        <Menu onClick={this.showMain} />
-      );
+      <Menu onClick={this.showMain} />
+    );
 
     return (
-      <div className="mini-sidebar button-sidebar">
+      <div className="button-sidebar">
         <div className="close-button">{hideShow}</div>
         <div className="centered-buttons">
           {zoomInOut}
@@ -70,66 +70,96 @@ export default class ZiziSidebar extends React.Component {
     );
   }
 
+  inlineLink(handleClick, text) {
+    return (
+      <button type="button" className="inline-link" onClick={handleClick}>
+        {text}
+      </button>
+    );
+  }
+
+
   renderMainbar() {
     let playPause = this.props.playing ? (
       <Pause onClick={this.props.onPause} />
     ) : (
-        <Play onClick={this.props.onPlay} />
-      );
+      <Play onClick={this.props.onPlay} />
+    );
 
-    let movementPerformer = this.props.showData.performers[this.props.song.performer];
+    let movementPerformer = this.props.showData.performers[
+      this.props.song.performer
+    ];
     let bodyPerformer = this.props.performer;
 
     return (
       <div className="main-sidebar" ref={this.bar}>
-        <img
-          src="img/title.png"
-          id="main-bar-logo"
-          alt="The Zizi Show"
-          draggable="false"
-        />
         <div className="main-bar-content">
+          <img
+            src="img/title.png"
+            id="main-bar-logo-top"
+            alt="The Zizi Show"
+            draggable="false"
+          />
           <div className="player-controls">
             {playPause}
             <Back10 onClick={this.props.onBack10} />
             <Forward10 onClick={this.props.onForward10} />
             <Fullscreen />
           </div>
+          <div className="divider"></div>
           <div className="now-playing">
-            <p>{`"${this.props.song.name}" by ${this.props.song.artist}`}</p>
-            <sub>
-              Movement by <a className="inline-link" onClick={() => this.showAboutView(movementPerformer.id)}>
-                {movementPerformer.name}
-              </a>
-            </sub>
-            <sub>
-              Deepfake trained on <a className="inline-link" onClick={() => this.showAboutView(bodyPerformer.id)}>
-                {bodyPerformer.name}
-              </a>
-            </sub>
+            <div className="song-title">
+              {this.props.song.name} by {this.props.song.artist}
+            </div>
+            <div className="credits">
+              Movement by{" "}
+              {this.inlineLink(
+                () => this.showAboutView(movementPerformer.id),
+                movementPerformer.name
+              )}
+            </div>
+            <div className="credits">
+              Deepfake trained on{" "}
+              {this.inlineLink(
+                () => this.showAboutView(bodyPerformer.id),
+                bodyPerformer.name
+              )}
+            </div>
           </div>
+          <div className="divider"></div>
+
           <div className="about-button">
-            <a onClick={this.showAbout} className="sidebar-large-button">
-              ABOUT
-            </a>
+          <button type="button" className="about-button" onClick={this.showAbout}>
+            ABOUT
+          </button>
           </div>
-        </div>
-        <div className="copyright">
-          <sub>The Zizi Project&copy;</sub>
-          <sub>
-            <a className="inline-link" href="https://jakeelwes.com">
-              Jake Elwes</a> 2020
-          </sub>
-          <sub>
-            Part of <a className="inline-link" href="https://newreal.cc">
-              newreal.cc
-            </a>
-          </sub>
-          <sub>
-            {/* <a className="inline-link" href="https://instagram.com/zizidrag">
-              Instagram
-            </a> */}
-          </sub>
+          <div className="divider"></div>
+          <div className="copyright">
+            <img
+              src="img/title.png"
+              id="main-bar-logo-bottom"
+              alt="The Zizi Show"
+              draggable="false"
+            />
+            <div>The Zizi Project&copy;</div>
+            <div>
+              <a className="inline-link" href="https://jakeelwes.com">
+                Jake Elwes
+              </a>{" "}
+              2020
+            </div>
+            <div>
+              Part of{" "}
+              <a className="inline-link" href="https://newreal.cc">
+                newreal.cc
+              </a>
+            </div>
+            <div>
+              {/* <a className="inline-link" href="https://instagram.com/zizidrag">
+                      Instagram
+                      </a> */}
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -137,7 +167,10 @@ export default class ZiziSidebar extends React.Component {
 
   renderSecondaryBar() {
     return (
-      <SecondaryBar onClose={this.hideSecondaryBar} openClose={this.state.showSecondaryBar}>
+      <SecondaryBar
+        onClose={this.hideSecondaryBar}
+        openClose={this.state.showSecondaryBar}
+      >
         {this.renderSecondaryBarContent()}
       </SecondaryBar>
     );
@@ -184,7 +217,7 @@ export default class ZiziSidebar extends React.Component {
       // performer: this.props.showData.performers[performerName],
       showSecondaryBar: false,
     });
-    this.props.changePerformer(performer)
+    this.props.changePerformer(performer);
   };
 
   showPerformers = () => {
@@ -192,7 +225,6 @@ export default class ZiziSidebar extends React.Component {
       secondaryBar: { type: "performers", content: "thumbnails" },
       showSecondaryBar: !this.state.showSecondaryBar,
     });
-
   };
 
   showAbout = () => {
