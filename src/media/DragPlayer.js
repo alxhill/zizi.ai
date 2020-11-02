@@ -14,7 +14,7 @@ class DragPlayer extends React.Component {
     this.shadowVideo = React.createRef();
     this.poseVideo = React.createRef();
     this.state = {
-      pose: true
+      pose: false
     }
   }
 
@@ -128,7 +128,7 @@ class DragPlayer extends React.Component {
 
   showPose = () => {
     console.log("pose")
-    // this.setState({pose: true})
+    this.setState({pose: true})
     // ignore onSeeked
   }
 
