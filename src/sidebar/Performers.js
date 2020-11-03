@@ -52,15 +52,17 @@ export default class Performers extends React.PureComponent {
     return (
       <div className="bios">
         <button type="button" className="backbutton" onClick={this.props.showThumbnails}>Back</button>
-        <h2>{performer.name}</h2>
+        <div className="biosPadding">
+          <h2>{performer.name}</h2>
 
-        <img
-          alt={performer.name}
-          src={`img/performers/BioImage/${performer.id}.jpg`}
-          draggable="false"
-        />
-        <a className="instagram" target='_blank' rel="noopener noreferrer" href={'https://www.instagram.com/' + performer.insta}>@{performer.insta}</a>
-        <p>{performer.bio}</p>
+          <img
+            alt={performer.name}
+            src={`img/performers/BioImage/${performer.id}.jpg`}
+            draggable="false"
+          />
+          <a className="instagram" target='_blank' rel="noopener noreferrer" href={'https://www.instagram.com/' + performer.insta}>@{performer.insta}</a>
+          <p>{performer.bio}</p>
+        </div>
       </div>
     );
   }

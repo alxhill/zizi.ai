@@ -436,7 +436,10 @@ button.inline-link:focus {
 
 .bios {
   text-align: right;
-  padding: 2rem;
+}
+
+.biosPadding {
+  padding: 0 2rem 0 2rem;
 }
 
 .bios h2 {
@@ -447,7 +450,7 @@ button.inline-link:focus {
 .bios .backbutton {
   font-size: 1.2rem;
   background-color: #520319;
-  padding: 0.5rem;
+  padding: 0.8rem;
   /* border-radius: 12px; */
   filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.6));
 }
