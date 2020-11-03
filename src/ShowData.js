@@ -179,7 +179,7 @@ let performers = {
     id: "tete",
     name: "Tete Bang",
     insta: "tete_bang",
-    bio: ["Tete Bang. Star of ", <a target='_blank' href='https://www.channel4.com/programmes/drag-sos'>Drag SOS. </a>," Queer Qween and Ambassador of Love and Equality.  ", <a target='_blank' href='https://www.tetebang.co.uk/'>tetebang.co.uk</a>],
+    bio: ["Tete Bang. Star of ", <a target='_blank' rel="noopener noreferrer" href='https://www.channel4.com/programmes/drag-sos'>Drag SOS. </a>," Queer Qween and Ambassador of Love and Equality.  ", <a target='_blank' rel="noopener noreferrer" href='https://www.tetebang.co.uk/'>tetebang.co.uk</a>],
     n: 13
   },
 };

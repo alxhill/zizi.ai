@@ -12,6 +12,7 @@ import {
   Back10,
   SkipToNextTrack,
   Fullscreen,
+  FullscreenExit,
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
@@ -23,6 +24,7 @@ export default class ZiziSidebar extends React.Component {
     this.bar = React.createRef();
     this.state = {
       fullSize: false,
+      fullscreen: false,
       showSecondaryBar: false,
       secondaryBar: {
         type: "none",
@@ -78,7 +80,6 @@ export default class ZiziSidebar extends React.Component {
     );
   }
 
-
   renderMainbar() {
     let playPause = this.props.playing ? (
       <Pause onClick={this.props.onPause} />
@@ -90,6 +91,12 @@ export default class ZiziSidebar extends React.Component {
       this.props.song.performer
     ];
     let bodyPerformer = this.props.performer;
+
+    let fullscreen = this.state.fullscreen ? (
+      <FullscreenExit onClick={this.fullscreenexit} />
+    ) : (
+      <Fullscreen onClick={this.fullscreen} />
+    );
 
     return (
       <div className="main-sidebar" ref={this.bar}>
@@ -104,7 +111,7 @@ export default class ZiziSidebar extends React.Component {
             {playPause}
             <Back10 onClick={this.props.onBack10} />
             <Forward10 onClick={this.props.onForward10} />
-            <Fullscreen />
+            {fullscreen}
           </div>
           <div className="divider"></div>
           <div className="now-playing">
@@ -129,9 +136,13 @@ export default class ZiziSidebar extends React.Component {
           <div className="divider"></div>
 
           <div className="about-button">
-          <button type="button" className="about-button" onClick={this.showAbout}>
-            ABOUT
-          </button>
+            <button
+              type="button"
+              className="about-button"
+              onClick={this.showAbout}
+            >
+              ABOUT
+            </button>
           </div>
           <div className="divider"></div>
           <div className="copyright">
@@ -210,6 +221,16 @@ export default class ZiziSidebar extends React.Component {
 
   showMain = () => {
     this.setState({ fullSize: true });
+  };
+
+  fullscreen = () => {
+    this.setState({ fullscreen: true });
+    console.log("s");
+  };
+
+  fullscreenexit = () => {
+    this.setState({ fullscreen: false });
+    console.log("s");
   };
 
   changePerformer = (performer) => {

@@ -11,8 +11,8 @@ import {
   MenuRounded,
   ListRounded,
   ClosedCaptionRounded,
-  FastForwardRounded,
   FullscreenRounded,
+  FullscreenExitRounded,
   KeyboardReturnRounded,
 } from "@material-ui/icons";
 
@@ -96,6 +96,14 @@ function Fullscreen(props) {
   );
 }
 
+function FullscreenExit(props) {
+  return (
+    <span className="zizi-icon">
+      <FullscreenExitRounded fontSize="inherit" onClick={props.onClick} />
+    </span>
+  );
+}
+
 function ShowSongs(props) {
   return (
     <span className="zizi-icon">
@@ -167,5 +175,6 @@ export {
   ShowSongs,
   Captions,
   Fullscreen,
+  FullscreenExit,
   Return
 };

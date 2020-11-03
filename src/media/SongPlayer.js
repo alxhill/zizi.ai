@@ -27,7 +27,7 @@ export default class SongPlayer extends React.Component {
       <div style={{ display: "none" }}>
         <audio
           autoPlay={true}
-          src="https://s3-eu-west-1.amazonaws.com/zizi.ai/songs/glass.m4a"
+          src={"https://s3-eu-west-1.amazonaws.com/zizi.ai/songs/" + this.props.song.id + ".m4a"}
           onCanPlay={this.onReady}
           ref={this.audioPlayer}
         ></audio>
@@ -46,10 +46,14 @@ export default class SongPlayer extends React.Component {
   }
 
   updateTimer = () => {
-    let currentTime = this.audioPlayer.current.currentTime;
+    if (this.audioPlayer.current === null) {
+      return null
+    } else {
+      let currentTime = this.audioPlayer.current.currentTime;
 
-    this.setState({ timer: currentTime });
-    this.props.adjustedTimerEvent(currentTime);
+      this.setState({ timer: currentTime });
+      this.props.adjustedTimerEvent(currentTime);
+    }
   };
 
   onReady = () => {

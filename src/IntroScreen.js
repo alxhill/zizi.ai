@@ -2,6 +2,14 @@ import Hls from "hls.js";
 import { FastForwardRounded } from "@material-ui/icons";
 import React from "react";
 import Curtain from "./Curtain";
+import {
+  Play,
+  Pause,
+  Forward10,
+  Back10,
+  Fullscreen,
+  FullscreenExit,
+} from "./Buttons";
 
 export default class IntroScreen extends React.Component {
   constructor(props) {
@@ -26,19 +34,41 @@ export default class IntroScreen extends React.Component {
   }
 
   render() {
+
+    let playPause = this.props.playing ? (
+      <Play onClick={this.props.onPause} />
+    ) : (
+        <Pause onClick={this.props.onPlay} />
+      );
+
+    let fullscreen = this.state.fullscreen ? (
+      <FullscreenExit onClick={this.fullscreenexit} />
+    ) : (
+        <Fullscreen onClick={this.fullscreen} />
+      );
+
+
     if (this.state.entered) {
       return (
         <div className="enter-screen">
-
           <video
+            // controls
             className="zizi-intro-video"
             onEnded={this.props.onEnter}
             ref={this.video}
             playsInline={true}
             autoPlay={true}
           >
-          <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
+            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
           </video>
+
+          <div className="controls">
+          {playPause}
+            <Back10 onClick={this.props.onBack10} />
+            <Forward10 onClick={this.props.onForward10} />
+            {fullscreen}
+          </div>
+
           <button className="skip-intro" onClick={this.props.onEnter}>
             Skip Intro <FastForwardRounded fontSize="inherit" />
           </button>
