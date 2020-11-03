@@ -224,13 +224,26 @@ export default class ZiziSidebar extends React.Component {
   };
 
   fullscreen = () => {
+    var elem = document.documentElement;
     this.setState({ fullscreen: true });
-    console.log("s");
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    // } else if (elem.webkitRequestFullscreen) { /* Safari */
+    //   elem.webkitRequestFullscreen();
+    // } else if (elem.msRequestFullscreen) { /* IE11 */
+    //   elem.msRequestFullscreen();
+    }
   };
 
   fullscreenexit = () => {
     this.setState({ fullscreen: false });
-    console.log("s");
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    // } else if (document.webkitExitFullscreen) { /* Safari */
+    //   document.webkitExitFullscreen();
+    // } else if (document.msExitFullscreen) { /* IE11 */
+    //   document.msExitFullscreen();
+    }
   };
 
   changePerformer = (performer) => {

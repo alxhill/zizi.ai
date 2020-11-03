@@ -1,5 +1,5 @@
 import Hls from "hls.js";
-import { FastForwardRounded } from "@material-ui/icons";
+import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
 import Curtain from "./Curtain";
 import {
@@ -35,12 +35,6 @@ export default class IntroScreen extends React.Component {
 
   render() {
 
-    let playPause = this.props.playing ? (
-      <Play onClick={this.props.onPause} />
-    ) : (
-        <Pause onClick={this.props.onPlay} />
-      );
-
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
     ) : (
@@ -52,7 +46,6 @@ export default class IntroScreen extends React.Component {
       return (
         <div className="enter-screen">
           <video
-            // controls
             className="zizi-intro-video"
             onEnded={this.props.onEnter}
             ref={this.video}
@@ -63,15 +56,14 @@ export default class IntroScreen extends React.Component {
           </video>
 
           <div className="controls">
-          {playPause}
-            <Back10 onClick={this.props.onBack10} />
-            <Forward10 onClick={this.props.onForward10} />
+            <Back10 onClick={this.onBack10} />
+            <Forward10 onClick={this.onForward10} />
             {fullscreen}
+          <button className="skip-intro" onClick={this.props.onEnter}>
+            Skip Intro<SkipNextRounded fontSize="inherit" />
+          </button>
           </div>
 
-          <button className="skip-intro" onClick={this.props.onEnter}>
-            Skip Intro <FastForwardRounded fontSize="inherit" />
-          </button>
         </div>
       );
     }
@@ -98,6 +90,50 @@ export default class IntroScreen extends React.Component {
       </div>
     );
   }
+  
+
+  // fullscreen = () => {
+  //   this.setState({ fullscreen: true });
+  //   this.video.current.requestFullscreen();
+  // };
+
+  // fullscreenexit = () => {
+  //   this.setState({ fullscreen: false });
+  //   this.video.current.requestFullscreen();
+  // };
+
+  fullscreen = () => {
+    var elem = document.documentElement;
+    this.setState({ fullscreen: true });
+    // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    // } else if (elem.webkitRequestFullscreen) { /* Safari */
+    //   elem.webkitRequestFullscreen();
+    // } else if (elem.msRequestFullscreen) { /* IE11 */
+    //   elem.msRequestFullscreen();
+    }
+  };
+
+  fullscreenexit = () => {
+    this.setState({ fullscreen: false });
+    // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    // } else if (document.webkitExitFullscreen) { /* Safari */
+    //   document.webkitExitFullscreen();
+    // } else if (document.msExitFullscreen) { /* IE11 */
+    //   document.msExitFullscreen();
+    }
+  };
+
+  onForward10 = () => {
+    this.video.current.currentTime += 10;
+  };
+
+  onBack10 = () => {
+    this.video.current.currentTime += -10;
+  };
 
   updatePassword = (event) => {
     this.setState({ password: event.target.value });
