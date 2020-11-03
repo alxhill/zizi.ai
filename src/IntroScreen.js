@@ -62,7 +62,6 @@ export default class IntroScreen extends React.Component {
             <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
           </video>
 
-
           <div className="controls">
           {playPause}
             <Back10 onClick={this.props.onBack10} />
@@ -70,7 +69,7 @@ export default class IntroScreen extends React.Component {
             {fullscreen}
           </div>
 
-          <button onClick={this.props.onEnter}>
+          <button className="skip-intro" onClick={this.props.onEnter}>
             Skip Intro <FastForwardRounded fontSize="inherit" />
           </button>
         </div>
@@ -79,12 +78,12 @@ export default class IntroScreen extends React.Component {
 
     return (
       <div className="enter-screen">
-        <a className="enter" onClick={this.attemptLogin}>
-          <img src="img/enterButton.png" />
-        </a>
-        <form onSubmit={this.attemptLogin}>
+        <button type="button" className="enter" onClick={this.attemptLogin}>
+          <img src="img/enterButton.png" alt="Enter the Zizi show" />
+        </button>
+        <form className="password" onSubmit={this.attemptLogin}>
           <input
-            className="password"
+
             type="password"
             name="password"
             value={this.state.password}
@@ -92,8 +91,8 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
 
           />
+          <p><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>
         </form>
-        <p className="password"><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>
 
         <Curtain />
       </div>

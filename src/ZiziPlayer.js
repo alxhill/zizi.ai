@@ -1,6 +1,5 @@
 import React from "react";
 import DragPlayer from "./media/DragPlayer";
-import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
 import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";

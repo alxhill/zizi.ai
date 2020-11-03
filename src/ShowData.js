@@ -123,7 +123,7 @@ let performers = {
     id: "lilly",
     name: "Lilly SnatchDragon",
     insta: "lillysnatch",
-    bio: ["Lilly SnatchDragon is an international, award - winning drag queen, burlesque artist and compere. Her approach to how the West stereotypes S.E Asian women won her 'Best Newcomer' at the London Cabaret Awards in 2015.  She has been in the Top 15 ‘UK Burlesque Performers’ since 2015, including No. 1 in 2017 and No. 3 in 2018.  Lilly is currently #5 in the world and #5 in the UK for 2019. She is also one of the founders of sell-out show ‘LADS’ and of renowned all-Asian cabaret collective ‘The Bitten Peach’. ",<a className="instagram" target='_blank' href='https://www.instagram.com/bittenpeachuk'>@bittenpeachuk</a>],
+    bio: ["Lilly SnatchDragon is an international, award - winning drag queen, burlesque artist and compere. Her approach to how the West stereotypes S.E Asian women won her 'Best Newcomer' at the London Cabaret Awards in 2015.  She has been in the Top 15 ‘UK Burlesque Performers’ since 2015, including No. 1 in 2017 and No. 3 in 2018.  Lilly is currently #5 in the world and #5 in the UK for 2019. She is also one of the founders of sell-out show ‘LADS’ and of renowned all-Asian cabaret collective ‘The Bitten Peach’. ",<a className="instagram" target='_blank' rel="noopener noreferrer" href='https://www.instagram.com/bittenpeachuk'>@bittenpeachuk</a>],
     n: 5
   },
   luke: {
@@ -144,7 +144,7 @@ let performers = {
     id: "mark",
     name: "Mark Anthony",
     insta: "markanthony.dragking",
-    bio: ["Mark has been performing in the UK and internationally for nearly four years and is the current Mr Boylesque UK. A man on a mission to challenge the status quo, he is the first Drag King and trans performer to hold the Mr Boylesque title worldwide and to win renowned Not Another Drag Competition. Known for smooth vocals, comical lip-syncs, sexy strips and occasionally a cello, this king can pull almost anything out of his rhinestoned utility belt. ", <a target='_blank' href='https://www.youtube.com/channel/UCX78ZNHPZg-PbAfjDKZ1mGA?view_as=subscriber'>Youtube</a>],
+    bio: ["Mark has been performing in the UK and internationally for nearly four years and is the current Mr Boylesque UK. A man on a mission to challenge the status quo, he is the first Drag King and trans performer to hold the Mr Boylesque title worldwide and to win renowned Not Another Drag Competition. Known for smooth vocals, comical lip-syncs, sexy strips and occasionally a cello, this king can pull almost anything out of his rhinestoned utility belt. ", <a target='_blank' rel="noopener noreferrer" href='https://www.youtube.com/channel/UCX78ZNHPZg-PbAfjDKZ1mGA?view_as=subscriber'>Youtube</a>],
     n: 8
   },
   me: {
@@ -179,7 +179,7 @@ let performers = {
     id: "tete",
     name: "Tete Bang",
     insta: "tete_bang",
-    bio: ["Tete Bang. Star of ", <a target='_blank' href='https://www.channel4.com/programmes/drag-sos'>Drag SOS. </a>," Queer Qween and Ambassador of Love and Equality.  ", <a target='_blank' href='https://www.tetebang.co.uk/'>tetebang.co.uk</a>],
+    bio: ["Tete Bang. Star of ", <a target='_blank' rel="noopener noreferrer" href='https://www.channel4.com/programmes/drag-sos'>Drag SOS. </a>," Queer Qween and Ambassador of Love and Equality.  ", <a target='_blank' rel="noopener noreferrer" href='https://www.tetebang.co.uk/'>tetebang.co.uk</a>],
     n: 13
   },
 };

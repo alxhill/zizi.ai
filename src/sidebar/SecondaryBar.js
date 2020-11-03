@@ -6,7 +6,7 @@ export default function (props) {
   let classes = ["secondary-sidebar", props.className, secondaryBarOpenClose];
 
   let maybeCloseButton = props.onClose == null ? null : (
-    <div className="close-button2">
+    <div className="close-button">
       <Close onClick={props.onClose} />
     </div>
   );
