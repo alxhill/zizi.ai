@@ -14,7 +14,8 @@ class DragPlayer extends React.Component {
     this.shadowVideo = React.createRef();
     this.poseVideo = React.createRef();
     this.state = {
-      pose: false
+      pose: false,
+      poseOverride: false,
     }
   }
 
@@ -22,11 +23,12 @@ class DragPlayer extends React.Component {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
     return (
-      // <div onMouseDown={this.showPose} onMouseUp={this.hidePose} onTouchStart={this.showPose} onTouchEnd={this.hidePose} className="drag-video-wrapper">
+      <div onMouseDown={this.showPose} onMouseUp={this.rehidePose} onTouchStart={this.showPose} onTouchEnd={this.rehidePose} className="drag-video-wrapper">
       <div className="drag-video-wrapper">
         {this.renderPlayer(["primary-player", primaryVisibility], this.performerVideo, this.performerSrc(this.props), this.props.onEnded, this.hidePose)}
         {this.renderPlayer(["shadow-player", primaryVisibility], this.shadowVideo, this.shadowSrc(this.props))}
         {this.renderPlayer(["pose-player", poseVisibility], this.poseVideo, this.poseSrc(this.props))}
+      </div>
       </div>
     );
   }
@@ -123,13 +125,24 @@ class DragPlayer extends React.Component {
   }
 
   hidePose = () => {
-    this.setState({pose: false});
+    if (this.state.poseOverride === false) {
+      console.log(this.state.poseOverride);
+      this.setState({pose: false});
+    }
   }
 
   showPose = () => {
+    this.setState({poseOverride: true})
+    console.log(this.state.poseOverride);
     console.log("pose")
     this.setState({pose: true})
     // ignore onSeeked
+  }
+
+  rehidePose = () => {
+    this.setState({poseOverride: false})
+    console.log(this.state.poseOverride);
+    this.setState({pose: false});
   }
 
   performerSrc(props) {

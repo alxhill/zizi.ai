@@ -18,7 +18,7 @@ body {
   touch-action: none;
 }
 
-button {
+button, a {
   background: none;
   color: inherit;
   border: none;
@@ -28,6 +28,11 @@ button {
   cursor: pointer;
   outline: inherit;
   text-align: inherit;
+  color: #edb49f;
+}
+
+span {
+  cursor: pointer;
 }
 
 .curtain-bg {
@@ -38,6 +43,7 @@ button {
   transform: translate(-50%, -50%);
   z-index: -4;
   transition: opacity 1s;
+  touch-action: none;
 }
 
 .curtain-side {
@@ -48,6 +54,7 @@ button {
   transform: translate(-50%, -50%);
   /* mix-blend-mode: overlay; */
   z-index: -1;
+  touch-action: none;
 }
 
 .video-frame {
@@ -57,6 +64,7 @@ button {
   left: 50%;
   overflow: hidden;
   transform: translateX(-50%);
+  touch-action: none;
 }
 
 .video-frame.hidden {
@@ -94,18 +102,18 @@ button {
 }
 
 /* unvisited link, visited link */
-a:link,
-a:visited {
+button:link,
+button:visited, a:visited {
   color: #edb49f;
 }
 
 /* mouse over link */
-a:hover {
+button:hover, a:hover, span:hover {
   color: #aa272e;
 }
 
 /* selected link */
-a:active {
+button:active, a:active {
   color: #fff;
 }
 
@@ -158,7 +166,7 @@ button.inline-link:focus {
 }
 
 .enter-screen button.skip-intro:hover {
-  filter: brightness(160%);
+  filter: brightness(120%);
 }
 
 .enter-screen button.skip-intro svg {
@@ -224,6 +232,7 @@ button.inline-link:focus {
   display: flex;
   color: #ff9c84;
   transition: left 1s ease;
+  touch-action: none;
 }
 
 .zizi-sidebar.closed {
@@ -409,15 +418,15 @@ button.inline-link:focus {
   margin: 0.4rem;
 }
 
-.performers-list .performer img:hover {
-  filter: sepia(100%);
+.performers-list .performer .pick-performer:hover {
+  filter: sepia(100%) brightness(120%);
   /* filter: contrast(90%) brightness(123%) blur(2px); */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/filter */
 }
 
 .performers-list .pick-performer .name {
   padding-top: 0.35rem;
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.2rem;
 }
 
 .performers-list button:hover {
@@ -431,7 +440,7 @@ button.inline-link:focus {
 }
 
 .performers-list button.info:hover {
-  color: #db2c00;
+  color: #ec5252;
 }
 
 .bios {
@@ -444,7 +453,9 @@ button.inline-link:focus {
 
 .bios h2 {
   filter: drop-shadow(0px 0px 10px rgb(255, 148, 105))
-    drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
+  drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .bios .backbutton {
@@ -489,11 +500,14 @@ button.inline-link:focus {
 
 .secondary-sidebar .song:hover {
   box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.7);
+  filter: brightness(150%);
 }
 
 .secondary-sidebar .song button:hover {
-  color: #f5c5b3;
+  color: #edb49f;
 }
+
+
 
 .secondary-sidebar .song img {
   height: 4rem;
@@ -689,6 +703,11 @@ button.inline-link:focus {
 @media (max-aspect-ratio: 4/5) and (orientation: portrait) {
   html {
     font-size: 14px;
+    touch-action: none;
+  }
+
+  body {
+    touch-action: none;
   }
 
   .enter-screen button.enter img {
@@ -707,6 +726,7 @@ button.inline-link:focus {
     height: 30rem;
     flex-direction: column-reverse;
     transition: bottom 1s ease;
+    touch-action: none;
   }
 
   .zizi-sidebar.closed {
