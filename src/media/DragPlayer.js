@@ -15,8 +15,8 @@ class DragPlayer extends React.Component {
     this.shadowVideo = React.createRef();
     this.poseVideo = React.createRef();
     this.state = {
-      pose: false
-    }
+      pose: false,
+    };
   }
 
   render() {
@@ -49,7 +49,7 @@ class DragPlayer extends React.Component {
   }
 
   renderPlayer(additionalClasses, ref, src, onEnded, onSeeked, onClick) {
-    additionalClasses.push("video-frame")
+    additionalClasses.push("video-frame");
     let zoomClass = this.props.zoom ? "zoom" : "full";
     return (
       <span className={additionalClasses.join(" ")}>
@@ -69,14 +69,14 @@ class DragPlayer extends React.Component {
   }
 
   componentDidMount() {
-    this.loadVideo(this.performerVideo.current)
-    this.loadVideo(this.shadowVideo.current)
-    this.loadVideo(this.poseVideo.current)
+    this.loadVideo(this.performerVideo.current);
+    this.loadVideo(this.shadowVideo.current);
+    this.loadVideo(this.poseVideo.current);
   }
 
   loadVideo(video) {
     video.currentTime = this.props.currentTime;
-    this.handleHls(video)
+    this.handleHls(video);
   }
 
   componentDidUpdate(prevProps) {
@@ -87,9 +87,9 @@ class DragPlayer extends React.Component {
     let videos = [performer, shadow, pose]
 
     if (prevProps.playing && !this.props.playing) {
-      videos.forEach(video => video.pause())
+      videos.forEach((video) => video.pause());
     } else if (!prevProps.playing && this.props.playing) {
-      videos.forEach(video => video.play())
+      videos.forEach((video) => video.play());
     }
 
     if (this.props.playing) {
@@ -97,16 +97,16 @@ class DragPlayer extends React.Component {
     }
 
     if (this.performerSrc(prevProps) !== this.performerSrc(this.props)) {
-      this.setState({pose: true})
-      this.reload(performer)
+      this.setState({ pose: true });
+      this.reload(performer);
     }
 
     if (this.shadowSrc(prevProps) !== this.shadowSrc(this.props)) {
-      this.reload(shadow)
+      this.reload(shadow);
     }
 
     if (this.poseSrc(prevProps) !== this.poseSrc(this.props)) {
-      this.reload(pose)
+      this.reload(pose);
     }
   }
 
@@ -140,14 +140,14 @@ class DragPlayer extends React.Component {
   }
 
   hidePose = () => {
-    this.setState({pose: false});
-  }
+    this.setState({ pose: false });
+  };
 
   showPose = () => {
-    console.log("pose")
-    this.setState({pose: true})
+    console.log("pose");
+    this.setState({ pose: true });
     // ignore onSeeked
-  }
+  };
 
   performerSrc(props) {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;
@@ -173,7 +173,7 @@ class DragPlayer extends React.Component {
       !video.canPlayType("application/vnd.apple.mpegurl")
     ) {
       var hls = new Hls();
-      hls.loadSource(video.querySelector('source').src);
+      hls.loadSource(video.querySelector("source").src);
       hls.attachMedia(video);
     }
   }

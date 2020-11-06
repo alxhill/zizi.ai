@@ -22,18 +22,16 @@ export default class IntroScreen extends React.Component {
 
   componentDidUpdate() {
     if (this.video.current) {
-      this.handleHls(this.video.current)
+      this.handleHls(this.video.current);
     }
   }
 
   render() {
-
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
     ) : (
-        <Fullscreen onClick={this.fullscreen} />
-      );
-
+      <Fullscreen onClick={this.fullscreen} />
+    );
 
     if (this.state.entered) {
       return (
@@ -52,11 +50,11 @@ export default class IntroScreen extends React.Component {
             <Back10 onClick={this.onBack10} />
             <Forward10 onClick={this.onForward10} />
             {fullscreen}
-          <button className="skip-intro" onClick={this.props.onEnter}>
-            Skip Intro<SkipNextRounded fontSize="inherit" />
-          </button>
+            <button className="skip-intro" onClick={this.props.onEnter}>
+              Skip Intro
+              <SkipNextRounded fontSize="inherit" />
+            </button>
           </div>
-
         </div>
       );
     }
@@ -71,20 +69,21 @@ export default class IntroScreen extends React.Component {
         </button>
         <form className="password" onSubmit={this.attemptLogin}>
           <input
-
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.updatePassword}
             placeholder="Password"
-
           />
-          <p><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>
+          <p>
+            <b>BETA version</b>
+            <br></br>Works best in Chrome (desktop). <br></br>Known bugs on
+            mobile.
+          </p>
         </form>
       </div>
     );
   }
-  
 
   // fullscreen = () => {
   //   this.setState({ fullscreen: true });
@@ -102,10 +101,10 @@ export default class IntroScreen extends React.Component {
     // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    // } else if (elem.webkitRequestFullscreen) { /* Safari */
-    //   elem.webkitRequestFullscreen();
-    // } else if (elem.msRequestFullscreen) { /* IE11 */
-    //   elem.msRequestFullscreen();
+      // } else if (elem.webkitRequestFullscreen) { /* Safari */
+      //   elem.webkitRequestFullscreen();
+      // } else if (elem.msRequestFullscreen) { /* IE11 */
+      //   elem.msRequestFullscreen();
     }
   };
 
@@ -114,10 +113,10 @@ export default class IntroScreen extends React.Component {
     // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
     if (document.exitFullscreen) {
       document.exitFullscreen();
-    // } else if (document.webkitExitFullscreen) { /* Safari */
-    //   document.webkitExitFullscreen();
-    // } else if (document.msExitFullscreen) { /* IE11 */
-    //   document.msExitFullscreen();
+      // } else if (document.webkitExitFullscreen) { /* Safari */
+      //   document.webkitExitFullscreen();
+      // } else if (document.msExitFullscreen) { /* IE11 */
+      //   document.msExitFullscreen();
     }
   };
 
