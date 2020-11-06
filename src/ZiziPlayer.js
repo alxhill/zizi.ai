@@ -1,6 +1,5 @@
 import React from "react";
 import DragPlayer from "./media/DragPlayer";
-import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
 
@@ -49,6 +48,15 @@ export default class ZiziPlayer extends React.Component {
           adjustedTimerEvent={this.onTimerEvent}
           timerDelegate={this.timerDelegate}
         /> */}
+        <DragPlayer
+          className="primary-player"
+          song={this.state.song}
+          performer={this.state.performer}
+          playing={this.state.playing}
+          currentTime={this.state.currentTime}
+          zoom={this.state.zoom}
+          onEnded={this.props.switchToPicker}
+        />
         <ZiziSidebar
           showData={this.props.showData}
           song={this.state.song}
@@ -69,16 +77,6 @@ export default class ZiziPlayer extends React.Component {
           switchToPicker={this.props.switchToPicker}
           switchToAbout={this.props.switchToAbout}
         />
-        <DragPlayer
-          className="primary-player"
-          song={this.state.song}
-          performer={this.state.performer}
-          playing={this.state.playing}
-          currentTime={this.state.currentTime}
-          zoom={this.state.zoom}
-          onEnded={this.props.switchToPicker}
-        />
-        <Curtain zoom={this.state.zoom} />
       </div>
     );
   }

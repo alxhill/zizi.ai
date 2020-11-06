@@ -1,5 +1,6 @@
 import React from "react";
 import Hls from "hls.js";
+import { sideCurtain, backCurtain } from "../Curtain";
 
 class DragPlayer extends React.Component {
   static defaultProps = {
@@ -24,9 +25,25 @@ class DragPlayer extends React.Component {
     return (
       // <div onMouseDown={this.showPose} onMouseUp={this.hidePose} onTouchStart={this.showPose} onTouchEnd={this.hidePose} className="drag-video-wrapper">
       <div className="drag-video-wrapper">
-        {this.renderPlayer(["primary-player", primaryVisibility], this.performerVideo, this.performerSrc(this.props), this.props.onEnded, this.hidePose)}
-        {this.renderPlayer(["shadow-player", primaryVisibility], this.shadowVideo, this.shadowSrc(this.props))}
-        {this.renderPlayer(["pose-player", poseVisibility], this.poseVideo, this.poseSrc(this.props))}
+        {backCurtain(this.props.zoom)}
+        {sideCurtain(this.props.zoom)}
+        {this.renderPlayer(
+          ["primary-player", primaryVisibility],
+          this.performerVideo,
+          this.performerSrc(this.props),
+          this.props.onEnded,
+          this.hidePose
+        )}
+        {this.renderPlayer(
+          ["shadow-player", primaryVisibility],
+          this.shadowVideo,
+          this.shadowSrc(this.props)
+        )}
+        {this.renderPlayer(
+          ["pose-player", poseVisibility],
+          this.poseVideo,
+          this.poseSrc(this.props)
+        )}
       </div>
     );
   }

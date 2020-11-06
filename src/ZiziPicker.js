@@ -1,9 +1,8 @@
 import React from "react";
 import Hls from "hls.js";
-import Curtain from "./Curtain";
 import Performers from "./sidebar/Performers";
-import SecondaryBar from "./sidebar/SecondaryBar";
 import Songs from "./sidebar/Songs";
+import { sideCurtain, backCurtain } from "./Curtain";
 
 export default class ZiziPicker extends React.Component {
   constructor(props) {
@@ -57,13 +56,10 @@ export default class ZiziPicker extends React.Component {
 
   render() {
     return (
-      <div>
-        <SecondaryBar openClose={true} className={"zizi-picker-bar"}>
-          {this.renderContent(this.state.mode)}
-        </SecondaryBar>
-        <button className="pickerAboutButton" onClick={this.showAbout}>
-          About
-          </button>
+      <div className="picker fullheight">
+        {backCurtain(false)}
+        {sideCurtain(false)}
+
         <video
           className="intro-video"
           onEnded={this.props.onEnter}
@@ -80,8 +76,15 @@ export default class ZiziPicker extends React.Component {
           controls={false}
           src="bgloop.mp3"
         ></audio>
-
-        <Curtain fade />
+        <div className="secondary-sidebar zizi-picker-bar open">
+          <div className="close-sidebar-left"></div>
+          <div className="content-sidebar">
+            {this.renderContent(this.state.mode)}
+          </div>
+        </div>
+        <button className="pickerAboutButton" onClick={this.showAbout}>
+          About
+        </button>
       </div>
     );
 

@@ -30,19 +30,27 @@ button {
   text-align: inherit;
 }
 
-.curtain-bg {
-  position: absolute;
+html,
+body,
+#root,
+.fullheight {
   height: 100%;
+}
+
+.curtain-bg {
+  position: fixed;
+  height: 100%;
+  /* display: none; */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -4;
-  transition: opacity 1s;
 }
 
 .curtain-side {
-  position: absolute;
-  height: 101%;
+  position: fixed;
+  height: 100%;
+  /* display: none; */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -51,7 +59,7 @@ button {
 }
 
 .video-frame {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100vh;
   left: 50%;
@@ -88,9 +96,11 @@ button {
 }
 
 .drag-video-wrapper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
+  isolation: isolate;
+  /* background-color: grey; */
 }
 
 /* unvisited link, visited link */
@@ -131,7 +141,7 @@ button.inline-link:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 20%;
 }
@@ -145,7 +155,7 @@ button.inline-link:focus {
 }
 
 .enter-screen button.skip-intro {
-  /* position: absolute; */
+  /* position: fixed; */
   /* height: 25rem; */
   /* bottom: 2rem; */
   /* right: 6rem; */
@@ -167,7 +177,7 @@ button.inline-link:focus {
 }
 
 .enter-screen .controls {
-  position: absolute;
+  position: fixed;
   color: #ff9c84;
   font-size: 2rem;
   display: flex;
@@ -185,7 +195,6 @@ button.inline-link:focus {
 
 .enter-screen .controls span {
   margin: 0 1rem 0 1rem;
-
 }
 
 .enter-screen .controls span:hover {
@@ -193,7 +202,7 @@ button.inline-link:focus {
 }
 
 .enter-screen .password {
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 60%;
@@ -217,7 +226,7 @@ button.inline-link:focus {
 }
 
 .zizi-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -356,7 +365,7 @@ button.inline-link:focus {
 }
 
 .secondary-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 30rem;
@@ -527,7 +536,6 @@ button.inline-link:focus {
   line-height: 32px;
   font-size: 18px;
   margin: 0px;
-  position: absolute;
   left: 0;
   top: 0;
   height: 100%;
@@ -624,8 +632,12 @@ button.inline-link:focus {
   mix-blend-mode: lighten;
 }
 
+.picker {
+    isolation: isolate;
+}
+
 .pickerAboutButton {
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   left: 6rem;
   font-size: 1.6rem;
@@ -651,21 +663,20 @@ button.inline-link:focus {
   flex-shrink: 0;
 }
 
-.zizi-intro-video {
-  position: absolute;
+.zizi-intro-video,
+.picker .intro-video {
+  position: fixed;
   height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.zizi-intro-video {
   z-index: 0;
 }
 
-.intro-video {
-  position: absolute;
-  height: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.picker .intro-video {
   z-index: -2;
 }
 

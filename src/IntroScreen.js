@@ -1,15 +1,8 @@
 import Hls from "hls.js";
 import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
-import Curtain from "./Curtain";
-import {
-  Play,
-  Pause,
-  Forward10,
-  Back10,
-  Fullscreen,
-  FullscreenExit,
-} from "./Buttons";
+import { sideCurtain, backCurtain } from "./Curtain";
+import { Forward10, Back10, Fullscreen, FullscreenExit } from "./Buttons";
 
 export default class IntroScreen extends React.Component {
   constructor(props) {
@@ -70,6 +63,9 @@ export default class IntroScreen extends React.Component {
 
     return (
       <div className="enter-screen">
+        {backCurtain(false)}
+        {sideCurtain(false)}
+
         <button type="button" className="enter" onClick={this.attemptLogin}>
           <img src="img/enterButton.png" alt="Enter the Zizi show" />
         </button>
@@ -85,8 +81,6 @@ export default class IntroScreen extends React.Component {
           />
           <p><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>
         </form>
-
-        <Curtain />
       </div>
     );
   }

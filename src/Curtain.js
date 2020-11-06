@@ -1,11 +1,25 @@
 import React from "react";
 
-export default function Curtain(props) {
-  let zoomString = props.zoom ? "close" : "full";
-  let srcBg = "img/curtain-bg-" + zoomString + ".jpg";
-  let srcSide = "img/curtain-side-" + zoomString + ".png";
-  return [
-      <img key="one" src={srcBg} className="curtain-bg " draggable={false} alt="" />,
-      <img key="two" src={srcSide} className="curtain-side" draggable={false} alt="" />
-  ];
+export function backCurtain(isZoomed) {
+  let zoomString = isZoomed ? "close" : "full";
+  return (
+    <img
+      src={"img/curtain-bg-" + zoomString + ".jpg"}
+      className="curtain-bg "
+      draggable={false}
+      alt=""
+    />
+  );
+}
+
+export function sideCurtain(isZoomed) {
+  let zoomString = isZoomed ? "close" : "full";
+  return (
+    <img
+      src={"img/curtain-side-" + zoomString + ".png"}
+      className="curtain-side"
+      draggable={false}
+      alt=""
+    />
+  );
 }
