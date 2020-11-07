@@ -362,6 +362,10 @@ button.inline-link:focus {
 
 .main-sidebar .main-bar-content .about-button {
   font-size: 2rem;
+  color: #ff9c84;
+}
+.main-sidebar .main-bar-content .about-button:hover {
+  color: #aa272e;
 }
 
 .secondary-sidebar {
@@ -562,8 +566,8 @@ button.inline-link:focus {
   margin: auto;
   display: block;
   object-fit: fill;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-left: calc(50% - 325px);
+  padding-right: calc(50% - 325px);
   overflow-x: auto;
   overflow-y: scroll;
   height: 100%;

@@ -23,7 +23,7 @@ class DragPlayer extends React.Component {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
     return (
-      <div onMouseDown={this.showPose} onMouseUp={this.rehidePose} onTouchStart={this.showPose} onTouchEnd={this.rehidePose} className="drag-video-wrapper">
+      <div onMouseDown={this.showPose} onMouseUp={this.forceHidePose} onTouchStart={this.showPose} onTouchEnd={this.forceHidePose} className="drag-video-wrapper">
       <div className="drag-video-wrapper">
         {this.renderPlayer(["primary-player", primaryVisibility], this.performerVideo, this.performerSrc(this.props), this.props.onEnded, this.hidePose)}
         {this.renderPlayer(["shadow-player", primaryVisibility], this.shadowVideo, this.shadowSrc(this.props))}
@@ -126,22 +126,17 @@ class DragPlayer extends React.Component {
 
   hidePose = () => {
     if (this.state.poseOverride === false) {
-      console.log(this.state.poseOverride);
       this.setState({pose: false});
     }
   }
 
   showPose = () => {
     this.setState({poseOverride: true})
-    console.log(this.state.poseOverride);
-    console.log("pose")
     this.setState({pose: true})
-    // ignore onSeeked
   }
 
-  rehidePose = () => {
+  forceHidePose = () => {
     this.setState({poseOverride: false})
-    console.log(this.state.poseOverride);
     this.setState({pose: false});
   }
 

@@ -116,7 +116,7 @@ export default class ZiziSidebar extends React.Component {
           <div className="divider"></div>
           <div className="now-playing">
             <div className="song-title">
-              {this.props.song.name} by {this.props.song.artist}
+              <i>'{this.props.song.name}'</i> | {this.props.song.artist}
             </div>
             <div className="credits">
               Movement by{" "}
@@ -228,10 +228,10 @@ export default class ZiziSidebar extends React.Component {
     this.setState({ fullscreen: true });
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    // } else if (elem.webkitRequestFullscreen) { /* Safari */
-    //   elem.webkitRequestFullscreen();
-    // } else if (elem.msRequestFullscreen) { /* IE11 */
-    //   elem.msRequestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
     }
   };
 
@@ -239,10 +239,10 @@ export default class ZiziSidebar extends React.Component {
     this.setState({ fullscreen: false });
     if (document.exitFullscreen) {
       document.exitFullscreen();
-    // } else if (document.webkitExitFullscreen) { /* Safari */
-    //   document.webkitExitFullscreen();
-    // } else if (document.msExitFullscreen) { /* IE11 */
-    //   document.msExitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
     }
   };
 

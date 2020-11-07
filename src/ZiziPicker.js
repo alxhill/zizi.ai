@@ -36,6 +36,7 @@ export default class ZiziPicker extends React.Component {
     this.audioloop.current.addEventListener('timeupdate', function () {
       if (Date.now() - lastSeen > 100) {
         this.pause();
+        console.log("INACTIVE -HOST");
       }
     }, false);
   }

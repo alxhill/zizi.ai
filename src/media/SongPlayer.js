@@ -21,19 +21,18 @@ export default class SongPlayer extends React.Component {
       this.play();
     }
 
+    // var lastSeen;
+    // var loop = function () {
+    //   lastSeen = Date.now();
+    // };
+    // loop();
 
-    var lastSeen;
-    var loop = function () {
-      lastSeen = Date.now();
-    };
-    loop();
-
-    this.audioPlayer.current.addEventListener('timeupdate', function () {
-      if (Date.now() - lastSeen > 100) {
-        this.pause();
-        // pause video and render restart play button
-      }
-    }, false);
+    // this.audioPlayer.current.addEventListener('timeupdate', function () {
+    //   if (Date.now() - lastSeen > 100) {
+    //     this.pause();
+    //     // console.log("INACTIVE");
+    //   }
+    // }, false);
   }
 
   render() {
