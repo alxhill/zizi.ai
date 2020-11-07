@@ -16,6 +16,7 @@ class DragPlayer extends React.Component {
     this.poseVideo = React.createRef();
     this.state = {
       pose: false,
+      poseOverride: false,
     };
   }
 
@@ -23,7 +24,7 @@ class DragPlayer extends React.Component {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
     return (
-      // <div onMouseDown={this.showPose} onMouseUp={this.hidePose} onTouchStart={this.showPose} onTouchEnd={this.hidePose} className="drag-video-wrapper">
+      <div onMouseDown={this.showPose} onMouseUp={this.forceHidePose} onTouchStart={this.showPose} onTouchEnd={this.forceHidePose} className="drag-video-wrapper">
       <div className="drag-video-wrapper">
         {backCurtain(this.props.zoom)}
         {sideCurtain(this.props.zoom)}
@@ -44,6 +45,7 @@ class DragPlayer extends React.Component {
           this.poseVideo,
           this.poseSrc(this.props)
         )}
+      </div>
       </div>
     );
   }
@@ -140,14 +142,20 @@ class DragPlayer extends React.Component {
   }
 
   hidePose = () => {
-    this.setState({ pose: false });
-  };
+    if (this.state.poseOverride === false) {
+      this.setState({pose: false});
+    }
+  }
 
   showPose = () => {
-    console.log("pose");
-    this.setState({ pose: true });
-    // ignore onSeeked
-  };
+    this.setState({poseOverride: true})
+    this.setState({pose: true})
+  }
+
+  forceHidePose = () => {
+    this.setState({poseOverride: false})
+    this.setState({pose: false});
+  }
 
   performerSrc(props) {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;

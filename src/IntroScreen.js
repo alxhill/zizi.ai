@@ -101,10 +101,10 @@ export default class IntroScreen extends React.Component {
     // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-      // } else if (elem.webkitRequestFullscreen) { /* Safari */
+    // } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
       //   elem.webkitRequestFullscreen();
-      // } else if (elem.msRequestFullscreen) { /* IE11 */
-      //   elem.msRequestFullscreen();
+    // } else if (elem.msRequestFullscreen) { /* IE11 */
+    //   elem.msRequestFullscreen();
     }
   };
 

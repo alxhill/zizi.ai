@@ -31,15 +31,12 @@ export default class ZiziPicker extends React.Component {
     };
     loop();
 
-    this.audioloop.current.addEventListener(
-      "timeupdate",
-      function () {
-        if (Date.now() - lastSeen > 100) {
-          this.pause();
-        }
-      },
-      false
-    );
+    this.audioloop.current.addEventListener('timeupdate', function () {
+      if (Date.now() - lastSeen > 100) {
+        this.pause();
+        console.log("INACTIVE -HOST");
+      }
+    }, false);
   }
 
   getSrc(source) {

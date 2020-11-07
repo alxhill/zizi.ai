@@ -11,12 +11,12 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: "picker",
+      mode: "intro",
       chosenSong: "iam",
       chosenPerformer: "amalgam",
       source: "enter",
-      orientation: ''
-    };
+      fullscreen: false,
+      };
   }
 
   render() {
@@ -84,6 +84,29 @@ export default class App extends React.Component {
       this.setState({ mode: "zizi" });
     }
   };
+
+  fullscreenEnter = () => {
+    var elem = document.documentElement;
+    this.setState({ fullscreen: true });
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    }
+  };
+
+  fullscreenExit = () => {
+    this.setState({ fullscreen: false });
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+    }
+  };
 }
 
 window.addEventListener('orientationchange', function() {
@@ -94,5 +117,5 @@ window.addEventListener('orientationchange', function() {
       console.log("portrait")
   }
 }, false);
-
 // https://stackoverflow.com/questions/7759879/page-shifts-to-the-left-when-rotating-ipad-from-landscape-to-portrait
+
