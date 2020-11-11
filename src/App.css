@@ -40,6 +40,12 @@ body,
 #root,
 .fullheight {
   height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .curtain-bg {
@@ -50,7 +56,6 @@ body,
   transform: translate(-50%, -50%);
   z-index: -4;
   transition: opacity 1s;
-  touch-action: none;
 }
 
 .curtain-side {
@@ -60,7 +65,6 @@ body,
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
-  touch-action: none;
 }
 
 .video-frame {
@@ -70,7 +74,6 @@ body,
   left: 50%;
   overflow: hidden;
   transform: translateX(-50%);
-  touch-action: none;
 }
 
 .video-frame.hidden {
@@ -239,6 +242,7 @@ button.inline-link:focus {
   color: #ff9c84;
   transition: left 1s ease;
   touch-action: none;
+  -webkit-touch-callout:none;
 }
 
 .zizi-sidebar.closed {
@@ -259,7 +263,8 @@ button.inline-link:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 4;
+  -webkit-transform: translate3d(0,0,0);
 }
 
 .button-sidebar .zizi-icon {
@@ -480,6 +485,12 @@ button.inline-link:focus {
   text-align: left;
   font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
     Times, serif;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .bios a {
@@ -487,6 +498,12 @@ button.inline-link:focus {
   text-align: center;
   font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
     Times, serif;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .bios img {
@@ -555,6 +572,12 @@ button.inline-link:focus {
   top: 0;
   height: 100%;
   width: 100%;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .about-page h2 {
@@ -748,6 +771,7 @@ button.inline-link:focus {
 
   .button-sidebar {
     flex-direction: row;
+    /* -webkit-transform: translate3d(0,0,0); */
     /* height: 20%; */
     /* height for safari - no idea why */
   }
@@ -777,7 +801,10 @@ button.inline-link:focus {
 
   .main-sidebar .main-bar-content {
     flex-shrink: 0;
-    margin-top: 2rem;
+  }
+
+  .main-sidebar .main-bar-content .player-controls {
+    padding-top: 2rem;
   }
 
   .secondary-sidebar {
