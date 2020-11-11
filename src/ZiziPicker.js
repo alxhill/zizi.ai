@@ -19,12 +19,14 @@ export default class ZiziPicker extends React.Component {
     };
 
     this.video = React.createRef();
+    this.loopvideo = React.createRef();
     this.audioloop = React.createRef();
     
   }
 
   componentDidMount() {
     this.handleHls(this.video.current);
+    this.handleHls(this.loopvideo.current);
     
     // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
     var lastSeen;
@@ -47,17 +49,19 @@ export default class ZiziPicker extends React.Component {
     switch (source) {
       default:
       case "enter":
-        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-intro/playlist.m3u8";
+        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-0";
       // local
       // return "vids/intro-and-host/host-intro/high.m3u8";
       case "song-end":
-        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host${num}/playlist.m3u8`;
+        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}`;
       // local
       // return `vids/intro-and-host/host${num}/high.m3u8`;
     }
   }
 
   render() {
+    let startVisibility = this.state.loop ? "hidden" : "visible";
+    let loopVisibility = this.state.loop ? "visible" : "hidden";
     return (
       <div>
         <SecondaryBar openClose={true} className={"zizi-picker-bar"}>
@@ -67,12 +71,21 @@ export default class ZiziPicker extends React.Component {
           About
           </button>
         <video
-          className="intro-video"
-          onEnded={this.props.onEnter}
+          className={"host-video " + startVisibility}
+          onEnded={this.showLoop}
           autoPlay={true}
           ref={this.video}
           playsInline={true}>
-          <source src={this.state.src} />
+          <source src={this.state.src + "-start/playlist.m3u8"} />
+        </video>
+        <video
+          className={"host-video " + loopVisibility}
+          onEnded={this.props.onEnter}
+          autoPlay={false}
+          loop={true}
+          ref={this.loopvideo}
+          playsInline={true}>
+          <source src={this.state.src + "-loop/playlist.m3u8"} />
         </video>
         <audio
           className="sound-loop"
@@ -141,6 +154,10 @@ export default class ZiziPicker extends React.Component {
     this.props.switchToPlayer(this.state.chosenPerformer, chosenSong);
   };
 
+  showLoop = () => {
+    this.setState({loop: true})
+    this.loopvideo.current.play()
+  };
 
   handleHls(video) {
     if (

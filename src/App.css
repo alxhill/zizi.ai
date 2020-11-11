@@ -678,13 +678,17 @@ button.inline-link:focus {
   z-index: 0;
 }
 
-.intro-video {
+.host-video {
   position: absolute;
   height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -2;
+}
+
+.host-video.hidden {
+  visibility: hidden;
 }
 
 #main-bar-logo-top,
