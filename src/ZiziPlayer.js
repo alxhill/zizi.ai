@@ -39,6 +39,7 @@ export default class ZiziPlayer extends React.Component {
 
   componentDidMount() {
     this.handleHls(this.hostEndingVideo.current);
+    document.addEventListener("keydown", this.handleKeyDown);
     // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
     // var lastSeen;
     // var loop = function () {
@@ -191,6 +192,36 @@ export default class ZiziPlayer extends React.Component {
   getSrc() {
     let num = Math.floor(Math.random() * 4);
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}-end/playlist.m3u8`;
+  };
+
+  handleKeyDown = (event) => {
+    switch( event.keyCode ) {
+      case 37 || 39:
+          // Arrow left or right - newPerformer
+          // this.newPerformer; 
+          break;
+      case 32:
+          // space - pause/play
+          // if(playing){
+          //   this.pause;
+          // } else {
+          //   this.play;
+          // }
+          break;
+      case 13:
+          // enter - zoom in
+          // this.setState({ zoom: !zoom });
+          break;
+      case 27:
+        // esc - not fullscreen
+          console.log("ESC");
+          break;
+      case 70:
+          // 'f' - fullscreen
+          break;
+      default: 
+          break;
+  }
   };
 
   hideHost = () => {
