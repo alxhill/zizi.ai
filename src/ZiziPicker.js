@@ -12,6 +12,7 @@ export default class ZiziPicker extends React.Component {
       mode: {
         type: "performer",
         content: "thumbnails",
+        loop: false,
       },
       chosenPerformer: null,
       src: this.getSrc(this.props.source),
