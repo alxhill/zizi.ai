@@ -65,10 +65,14 @@ span {
   overflow: hidden;
   transform: translateX(-50%);
   touch-action: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .video-frame.hidden {
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+    /* could also use linear */
 }
 
 .drag-video {
@@ -685,10 +689,21 @@ button.inline-link:focus {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -2;
+  opacity: 1;
 }
 
 .host-video.hidden {
-  visibility: hidden;
+  opacity: 0;
+}
+
+.host-video.hidden.fade {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.host-video.visible.fade {
+  opacity: 1;
+  transition: opacity 1s;
 }
 
 #main-bar-logo-top,

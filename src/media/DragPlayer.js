@@ -33,7 +33,7 @@ class DragPlayer extends React.Component {
     );
   }
 
-  renderPlayer(additionalClasses, ref, src, onEnded, onSeeked, onClick) {
+  renderPlayer(additionalClasses, ref, src, onEnded, onSeeked) {
     additionalClasses.push("video-frame")
     let zoomClass = this.props.zoom ? "zoom" : "full";
     return (

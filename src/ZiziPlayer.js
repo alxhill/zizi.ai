@@ -1,6 +1,5 @@
 import React from "react";
 import DragPlayer from "./media/DragPlayer";
-import Hls from "hls.js";
 import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
@@ -27,34 +26,14 @@ export default class ZiziPlayer extends React.Component {
       currentTime: 0,
       song: this.props.showData.songs[this.props.song],
       performer: this.props.showData.performers[this.props.startingPerformer],
-      visibility: 'visible',
-      src: this.getSrc(),
     };
 
     this.timerDelegate = new YoutubeTimerDelegate();
-    this.hostEndingVideo = React.createRef();
-    this.audio = React.createRef();
   }
-
 
   componentDidMount() {
-    this.handleHls(this.hostEndingVideo.current);
     document.addEventListener("keydown", this.handleKeyDown);
-    // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
-    // var lastSeen;
-    // var loop = function () {
-    //   lastSeen = Date.now();
-    //   setTimeout(loop, 50);
-    // };
-    // loop();
-
-    // this.audio.current.addEventListener('timeupdate', function () {
-    //   if (Date.now() - lastSeen > 100) {
-    //     this.pause();
-    //     console.log("INACTIVE -HOST");
-    //   }
-    // }, false);
-  }
+  };
 
   render() {
     return (
@@ -65,7 +44,6 @@ export default class ZiziPlayer extends React.Component {
         playing={this.state.playing}
         adjustedTimerEvent={this.onTimerEvent}
         timerDelegate={this.timerDelegate}
-        ref={this.audio}
         />
         {/* <HiddenYoutubePlayer
           song={this.state.song}
@@ -95,14 +73,6 @@ export default class ZiziPlayer extends React.Component {
           switchToPicker={this.props.switchToPicker}
           switchToAbout={this.props.switchToAbout}
         />
-        <video
-          className={"host-video " + this.state.visibility}
-          onEnded={this.hideHost}
-          autoPlay={true}
-          ref={this.hostEndingVideo}
-          playsInline={true}>
-          <source src={this.state.src} />
-        </video>
         <DragPlayer
           className="primary-player"
           song={this.state.song}
@@ -184,16 +154,6 @@ export default class ZiziPlayer extends React.Component {
     });
   };
 
-  shiftTime = (shift) => {
-    this.timerDelegate.shiftTime(shift);
-    this.setState({ currentTime: this.state.currentTime + shift });
-  };
-
-  getSrc() {
-    let num = Math.floor(Math.random() * 4);
-    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}-end/playlist.m3u8`;
-  };
-
   handleKeyDown = (event) => {
     switch( event.keyCode ) {
       case 37 || 39:
@@ -224,18 +184,8 @@ export default class ZiziPlayer extends React.Component {
   }
   };
 
-  hideHost = () => {
-    this.setState({visibility: 'hidden'});
-  }
-
-  handleHls(video) {
-    if (
-      Hls.isSupported() &&
-      !video.canPlayType("application/vnd.apple.mpegurl")
-    ) {
-      var hls = new Hls();
-      hls.loadSource(video.querySelector("source").src);
-      hls.attachMedia(video);
-    }
-  }
+  shiftTime = (shift) => {
+    this.timerDelegate.shiftTime(shift);
+    this.setState({ currentTime: this.state.currentTime + shift });
+  };
 }
