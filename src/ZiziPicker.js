@@ -26,14 +26,12 @@ export default class ZiziPicker extends React.Component {
     this.loopvideo = React.createRef();
     this.endvideo = React.createRef();
     this.audioloop = React.createRef();
-    
   }
 
   componentDidMount() {
     this.handleHls(this.startvideo.current);
     this.handleHls(this.loopvideo.current);
     this.handleHls(this.endvideo.current);
-    
     // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
     var lastSeen;
     var loop = function () {
@@ -85,6 +83,7 @@ export default class ZiziPicker extends React.Component {
         <video
           className={"host-video " + this.state.loopVisibility}
           autoPlay={false}
+          preload={false}
           loop={true}
           ref={this.loopvideo}
           playsInline={true}>
@@ -94,6 +93,7 @@ export default class ZiziPicker extends React.Component {
           className={"host-video " + this.state.endVisibility + " fade"}
           onEnded={this.enterPlayer}
           autoPlay={false}
+          preload={false}
           loop={false}
           ref={this.endvideo}
           playsInline={true}>
@@ -107,11 +107,9 @@ export default class ZiziPicker extends React.Component {
           controls={false}
           src="bgloop.mp3"
         ></audio>
-
         <Curtain fade />
       </div>
     );
-
   }
 
   renderContent(mode) {
@@ -138,6 +136,17 @@ export default class ZiziPicker extends React.Component {
         );
     }
   }
+
+  // renderDelay() {
+  //   setTimeout(
+  //     return (
+  //     <div>
+  //      Code for Vid 2 & 3
+  //     </div>
+  //   ),
+  //   1000
+  //   );
+  // }
 
   showAbout = () => {
     this.props.switchToAbout(null, null);
@@ -174,17 +183,17 @@ export default class ZiziPicker extends React.Component {
   }
 
   showLoop = () => {
-    this.setState({startVisibility: 'hidden'});
-    this.setState({loopVisibility: 'visible'});
-    this.setState({endVisibility: 'hidden'});
+    this.setState({ startVisibility: 'hidden' });
+    this.setState({ loopVisibility: 'visible' });
+    this.setState({ endVisibility: 'hidden' });
     this.loopvideo.current.play();
   };
 
   showEnd = () => {
-    this.setState({startVisibility: 'hidden fade'});
-    this.setState({loopVisibility: 'hidden fade'});
-    this.setState({endVisibility: 'visible'});
-    this.setState({sidebarVisible: false});
+    this.setState({ startVisibility: 'hidden fade' });
+    this.setState({ loopVisibility: 'hidden fade' });
+    this.setState({ endVisibility: 'visible' });
+    this.setState({ sidebarVisible: false });
     this.endvideo.current.play();
     this.startvideo.current.pause();
   };
