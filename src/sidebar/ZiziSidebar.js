@@ -13,6 +13,7 @@ import {
   SkipToNextTrack,
   Fullscreen,
   FullscreenExit,
+  Loading,
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
@@ -26,6 +27,7 @@ export default class ZiziSidebar extends React.Component {
       fullSize: false,
       fullscreen: false,
       showSecondaryBar: false,
+      loadingPerformer: false,
       secondaryBar: {
         type: "none",
       },
@@ -58,12 +60,18 @@ export default class ZiziSidebar extends React.Component {
       <Menu onClick={this.showMain} />
     );
 
+    let loadPerformer = this.state.loadingPerformer ? (
+      <Loading />
+    ) : (
+      <NewPerformer onClick={this.props.newPerformer} />
+    );
+
     return (
       <div className="button-sidebar">
         <div className="close-button">{hideShow}</div>
         <div className="centered-buttons">
           {zoomInOut}
-          <NewPerformer onClick={this.props.newPerformer} />
+          {loadPerformer}
           <ShowPerformers onClick={this.showPerformers} />
           <SkipToNextTrack onClick={this.props.switchToPicker} />
         </div>
