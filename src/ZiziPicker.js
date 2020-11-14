@@ -82,8 +82,7 @@ export default class ZiziPicker extends React.Component {
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
-          autoPlay={false}
-          preload={false}
+          preload="none"
           loop={true}
           ref={this.loopvideo}
           playsInline={true}>
@@ -92,8 +91,7 @@ export default class ZiziPicker extends React.Component {
         <video
           className={"host-video " + this.state.endVisibility + " fade"}
           onEnded={this.enterPlayer}
-          autoPlay={false}
-          preload={false}
+          preload="none"
           loop={false}
           ref={this.endvideo}
           playsInline={true}>

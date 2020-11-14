@@ -84,6 +84,25 @@ span {
   transform: translateX(-50%);
 }
 
+.resume {
+  position: absolute;
+  color: #ff9c84;
+  height: 100%;
+  width: 100vh;
+  left: calc(50% - 6rem);
+  top: calc(50% - 6rem);
+  z-index: 1;
+  font-size: 12rem;
+  opacity: 80%;
+  -webkit-filter: drop-shadow(0px 0px 15px #000) drop-shadow(0px 0px 30px #000) drop-shadow(0px 0px 50px #000);
+  /* filter: drop-shadow(0px 0px 30px #000); */
+}
+
+.primary-player {
+  mix-blend-mode: lighten;
+  z-index: -2;
+}
+
 .primary-player {
   mix-blend-mode: lighten;
   z-index: -2;
@@ -721,6 +740,57 @@ button.inline-link:focus {
   user-select: none;
 }
 
+.spinner {
+  animation: 2s linear infinite svg-animation;
+  max-width: 100px;
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg)
+  }
+}
+
+circle {
+  animation: 1.4s ease-in-out infinite both circle-animation;
+  display: block;
+  fill: transparent;
+  stroke: #ff9c84;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 280;
+  stroke-width: 10px;
+  transform-origin: 50% 50%;
+}
+
+@keyframes circle-animation {
+  0%,
+  25% {
+    stroke-dashoffset: 280;
+    transform: rotate(0);
+  }
+  
+  50%,
+  75% {
+    stroke-dashoffset: 75;
+    transform: rotate(45deg);
+  }
+  
+  100% {
+    stroke-dashoffset: 280;
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
 /* display for mobile and tablet */
 
 @media (max-aspect-ratio: 4/5) and (orientation: portrait) {
@@ -731,6 +801,10 @@ button.inline-link:focus {
 
   body {
     touch-action: none;
+  }
+
+  circle {
+    transform-origin: 50% 50%;
   }
 
   .enter-screen button.enter img {
@@ -860,48 +934,3 @@ button.inline-link:focus {
   }
 }
 
-
-.spinner {
-  animation: 2s linear infinite svg-animation;
-  max-width: 100px;
-}
-
-@keyframes svg-animation {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(360deg)
-  }
-}
-
-circle {
-  animation: 1.4s ease-in-out infinite both circle-animation;
-  display: block;
-  fill: transparent;
-  stroke: #ff9c84;
-  stroke-linecap: round;
-  stroke-dasharray: 283;
-  stroke-dashoffset: 280;
-  stroke-width: 10px;
-  transform-origin: 50% 50%;
-}
-
-@keyframes circle-animation {
-  0%,
-  25% {
-    stroke-dashoffset: 280;
-    transform: rotate(0);
-  }
-  
-  50%,
-  75% {
-    stroke-dashoffset: 75;
-    transform: rotate(45deg);
-  }
-  
-  100% {
-    stroke-dashoffset: 280;
-    transform: rotate(360deg);
-  }
-}

@@ -27,7 +27,6 @@ export default class ZiziSidebar extends React.Component {
       fullSize: false,
       fullscreen: false,
       showSecondaryBar: false,
-      loadingPerformer: false,
       secondaryBar: {
         type: "none",
       },
@@ -60,10 +59,10 @@ export default class ZiziSidebar extends React.Component {
       <Menu onClick={this.showMain} />
     );
 
-    let loadPerformer = this.state.loadingPerformer ? (
-      <Loading />
-    ) : (
+    let loadPerformer = this.props.ziziVideoLoaded ? (
       <NewPerformer onClick={this.props.newPerformer} />
+    ) : (
+      <Loading />
     );
 
     return (
