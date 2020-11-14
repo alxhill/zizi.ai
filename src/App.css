@@ -510,6 +510,7 @@ button.inline-link:focus {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .secondary-header {
