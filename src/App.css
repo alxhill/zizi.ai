@@ -93,9 +93,9 @@ span {
   top: calc(50% - 6rem);
   z-index: 1;
   font-size: 12rem;
-  opacity: 80%;
+  filter: drop-shadow(0px 0px 30px #000);
   -webkit-filter: drop-shadow(0px 0px 15px #000) drop-shadow(0px 0px 30px #000) drop-shadow(0px 0px 50px #000);
-  /* filter: drop-shadow(0px 0px 30px #000); */
+  opacity: 0.8;
 }
 
 .primary-player {
@@ -786,11 +786,6 @@ circle {
 }
 
 
-
-
-
-
-
 /* display for mobile and tablet */
 
 @media (max-aspect-ratio: 4/5) and (orientation: portrait) {
@@ -803,8 +798,10 @@ circle {
     touch-action: none;
   }
 
-  circle {
-    transform-origin: 50% 50%;
+  .spinner {
+    transform: translate(-25%, -25%);
+    height: 2rem;
+    font-size: 2.1rem;
   }
 
   .enter-screen button.enter img {

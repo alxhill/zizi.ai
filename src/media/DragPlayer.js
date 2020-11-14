@@ -24,8 +24,7 @@ class DragPlayer extends React.Component {
   render() {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
-
-    let resumeButton = this.props.playing ? (
+    let resumeButton = this.props.playing || this.props.currentTime < 0.1  ? (
       null
     ) : (
       <div className="resume">

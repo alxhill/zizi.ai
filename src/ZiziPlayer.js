@@ -174,28 +174,37 @@ export default class ZiziPlayer extends React.Component {
 
   handleKeyDown = (event) => {
     switch (event.keyCode) {
-      case 37 || 39:
-        // Arrow left or right - newPerformer
-        // this.newPerformer; 
+      case 38:
+        // Arrow up or down - newPerformer
+        this.newPerformer();
+        break;
+      case 40:
+        // Arrow up or down - newPerformer
+        this.newPerformer();
+        break;
+      case 37:
+        // Arrow left or right - skip
+        this.shiftTime(-10)
+        break;
+      case 39:
+        // Arrow left or right - skip
+        this.shiftTime(10)
         break;
       case 32:
         // space - pause/play
-        // if(playing){
-        //   this.pause;
-        // } else {
-        //   this.play;
-        // }
+        if (this.state.playing) {
+          this.pause();
+        } else {
+          this.play();
+        }
         break;
       case 13:
         // enter - zoom in
-        // this.setState({ zoom: !zoom });
-        break;
-      case 27:
-        // esc - not fullscreen
-        console.log("ESC");
-        break;
-      case 70:
-        // 'f' - fullscreen
+        this.state.zoom ? (
+          this.zoomOut()
+        ) : (
+            this.zoomIn()
+          );
         break;
       default:
         break;
