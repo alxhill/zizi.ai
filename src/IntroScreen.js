@@ -17,6 +17,7 @@ export default class IntroScreen extends React.Component {
     this.state = {
       entered: false,
       password: "",
+      currentTime: 0,
     };
     this.video = React.createRef();
   }
@@ -95,7 +96,7 @@ export default class IntroScreen extends React.Component {
   fullscreen = () => {
     var elem = document.documentElement;
     this.setState({ fullscreen: true });
-    // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
+    this.setState({ currentTime: this.video.current.currentTime });
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
@@ -103,18 +104,22 @@ export default class IntroScreen extends React.Component {
     } else if (elem.msRequestFullscreen) { /* IE11 */
       elem.msRequestFullscreen();
     }
+    // setTimeout(this.refreshTime(), 500);
+    setTimeout(() => this.refreshTime(this.state.currentTime), 100);
   };
 
   fullscreenexit = () => {
     this.setState({ fullscreen: false });
-    // this.video.current.currentTime = parseFloat(this.video.current.currentTime);
+    this.setState({ currentTime: this.video.current.currentTime });
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.webkitExitFullscreen) { /* Safari */
       document.webkitExitFullscreen();
     } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen();
+      document.msExitFullscreen(this.video.current.currentTime);
     }
+    // setTimeout(this.refreshTime(), 500);
+    setTimeout(() => this.refreshTime(this.state.currentTime), 100);
   };
 
   onForward10 = () => {
@@ -127,6 +132,11 @@ export default class IntroScreen extends React.Component {
 
   updatePassword = (event) => {
     this.setState({ password: event.target.value });
+  };
+
+  refreshTime = (time) => {
+    console.log(time);
+    this.video.current.currentTime += time;
   };
 
   attemptLogin = (event) => {
