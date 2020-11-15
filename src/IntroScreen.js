@@ -99,13 +99,13 @@ export default class IntroScreen extends React.Component {
     this.setState({ currentTime: this.video.current.currentTime });
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
+      setTimeout(() => this.refreshTime(this.state.currentTime), 100);
     } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
       elem.webkitRequestFullscreen();
     } else if (elem.msRequestFullscreen) { /* IE11 */
       elem.msRequestFullscreen();
     }
     // setTimeout(this.refreshTime(), 500);
-    setTimeout(() => this.refreshTime(this.state.currentTime), 100);
   };
 
   fullscreenexit = () => {
@@ -113,13 +113,13 @@ export default class IntroScreen extends React.Component {
     this.setState({ currentTime: this.video.current.currentTime });
     if (document.exitFullscreen) {
       document.exitFullscreen();
+      setTimeout(() => this.refreshTime(this.state.currentTime), 100);
     } else if (document.webkitExitFullscreen) { /* Safari */
       document.webkitExitFullscreen();
     } else if (document.msExitFullscreen) { /* IE11 */
       document.msExitFullscreen(this.video.current.currentTime);
     }
     // setTimeout(this.refreshTime(), 500);
-    setTimeout(() => this.refreshTime(this.state.currentTime), 100);
   };
 
   onForward10 = () => {

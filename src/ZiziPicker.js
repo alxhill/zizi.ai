@@ -88,7 +88,7 @@ export default class ZiziPicker extends React.Component {
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
-          preload="none"
+          preload="metadata"
           loop={true}
           ref={this.loopvideo}
           playsInline={true}>
@@ -97,7 +97,7 @@ export default class ZiziPicker extends React.Component {
         <video
           className={"host-video " + this.state.endVisibility + " fade"}
           onEnded={this.enterPlayer}
-          preload="none"
+          preload="metadata"
           loop={false}
           ref={this.endvideo}
           playsInline={true}>
@@ -177,19 +177,19 @@ export default class ZiziPicker extends React.Component {
   };
 
   showLoop = () => {
-    this.setState({ startVisibility: 'hidden' });
+    // this.setState({ startVisibility: 'hidden' });
     this.setState({ loopVisibility: 'visible' });
     this.setState({ endVisibility: 'hidden' });
     this.loopvideo.current.play();
   };
 
   showEnd = () => {
-    this.setState({ startVisibility: 'hidden fade' });
-    this.setState({ loopVisibility: 'hidden fade' });
+    // this.setState({ startVisibility: 'hidden fade' });
+    // this.setState({ loopVisibility: 'hidden fade' });
     this.setState({ endVisibility: 'visible' });
     this.setState({ sidebarVisible: false });
     this.endvideo.current.play();
-    this.startvideo.current.pause();
+    this.loopvideo.current.pause();
   };
 
   handleHls(video) {
