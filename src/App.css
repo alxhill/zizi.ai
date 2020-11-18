@@ -243,6 +243,7 @@ button.inline-link:focus {
   transition: left 1s ease;
   touch-action: none;
   -webkit-touch-callout:none;
+  pointer-events: none;
 }
 
 .zizi-sidebar.closed {
@@ -735,6 +736,12 @@ button.inline-link:focus {
 
 /* display for mobile and tablet */
 
+@media (hover: none) {
+  button:hover, a:hover, span:hover, button:visited, a:visited, span:visited {
+    color: inherit;
+  }
+}
+
 @media (max-aspect-ratio: 4/5) and (orientation: portrait) {
   html {
     font-size: 14px;
@@ -762,6 +769,7 @@ button.inline-link:focus {
     flex-direction: column-reverse;
     transition: bottom 1s ease;
     touch-action: none;
+    /* pointer-events: none; */
   }
 
   .zizi-sidebar.closed {
