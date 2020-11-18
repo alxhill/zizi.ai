@@ -361,15 +361,6 @@ button.inline-link:focus {
   flex-shrink: 0;
 }
 
-.main-sidebar div.divider2 {
-  width: 0rem;
-  height: 1px;
-  background-color: #ffbcaf;
-  display: block;
-  margin: 1rem auto auto auto;
-  height: 1px;
-  flex-shrink: 0;
-}
 
 .main-sidebar .player-controls span {
   margin: 0 1rem 0 1rem;
@@ -775,18 +766,18 @@ button.inline-link:focus {
 
   .zizi-sidebar {
     right: 0;
-    top: auto;
-    bottom: 0;
+    top: 0;
+    bottom: auto;
     height: 30rem;
-    flex-direction: column-reverse;
-    transition: bottom 1s ease;
+    flex-direction: column;
+    transition: top 1s ease;
     touch-action: none;
     /* pointer-events: none; */
   }
 
   .zizi-sidebar.closed {
     left: 0;
-    bottom: -26rem;
+    top: -26rem;
   }
 
   .button-sidebar {
@@ -821,6 +812,7 @@ button.inline-link:focus {
 
   .main-sidebar .main-bar-content {
     flex-shrink: 0;
+    flex-direction: column-reverse;
   }
 
   /* .main-sidebar .main-bar-content .player-controls {
