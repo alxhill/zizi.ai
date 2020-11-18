@@ -757,6 +757,15 @@ button.inline-link:focus {
     /* touch-action: none; */
   }
 
+  html,
+  body,
+  #root,
+  .fullheight {
+    height: calc(100% + 72px);
+    overflow-y: scroll;
+  }
+
+
   .enter-screen button.enter img {
     height: auto;
     width: 90%;
@@ -779,7 +788,7 @@ button.inline-link:focus {
 
   .zizi-sidebar.closed {
     left: 0;
-    bottom: -26rem;
+    bottom: -27.6rem;
   }
 
   .button-sidebar {
@@ -816,9 +825,9 @@ button.inline-link:focus {
     flex-shrink: 0;
   }
 
-  /* .main-sidebar .main-bar-content .player-controls {
-    padding-top: 2rem;
-  } */
+  .main-sidebar .main-bar-content .player-controls {
+    padding-top: 1.5rem;
+  }
 
   /* removes hairline in safari but not square */
   /* .button-sidebar .close-button {
