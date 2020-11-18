@@ -106,6 +106,7 @@ export default class ZiziSidebar extends React.Component {
             alt="The Zizi Show"
             draggable="false"
           />
+          <div className="divider2"></div>
           <div className="player-controls">
             {playPause}
             <Back10 onClick={this.props.onBack10} />
