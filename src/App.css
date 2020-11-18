@@ -813,6 +813,10 @@ button.inline-link:focus {
     max-height: 1rem;
   }
 
+  .close-sidebar-left .close-button {
+    width: 2rem;
+  }
+
   .secondary-header {
     margin-top: 1rem;
   }
@@ -845,7 +849,7 @@ button.inline-link:focus {
     top: auto;
     bottom: 0;
     width: 100%;
-    height: 30rem;
+    height: 31.7rem;
     flex-direction: column;
     transition: bottom 1s ease;
     /* background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%); */
