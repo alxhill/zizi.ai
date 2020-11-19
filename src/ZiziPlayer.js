@@ -26,20 +26,26 @@ export default class ZiziPlayer extends React.Component {
       currentTime: 0,
       song: this.props.showData.songs[this.props.song],
       performer: this.props.showData.performers[this.props.startingPerformer],
+      ziziVideoLoaded: true,
     };
 
     this.timerDelegate = new YoutubeTimerDelegate();
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  };
+
   render() {
     return (
       <div>
         <SongPlayer
-        song={this.state.song}
-        onReady={this.songReady}
-        playing={this.state.playing}
-        adjustedTimerEvent={this.onTimerEvent}
-        timerDelegate={this.timerDelegate}
+          song={this.state.song}
+          onReady={this.songReady}
+          playing={this.state.playing}
+          adjustedTimerEvent={this.onTimerEvent}
+          timerDelegate={this.timerDelegate}
+          pause={this.pause}
         />
         {/* <HiddenYoutubePlayer
           song={this.state.song}
@@ -68,6 +74,7 @@ export default class ZiziPlayer extends React.Component {
           newPerformer={this.newPerformer}
           switchToPicker={this.props.switchToPicker}
           switchToAbout={this.props.switchToAbout}
+          ziziVideoLoaded={this.state.ziziVideoLoaded}
         />
         <DragPlayer
           className="primary-player"
@@ -77,7 +84,17 @@ export default class ZiziPlayer extends React.Component {
           currentTime={this.state.currentTime}
           zoom={this.state.zoom}
           onEnded={this.props.switchToPicker}
+          onVideoLoaded={this.onVideoLoaded}
+          play={this.play}
         />
+        <audio
+          className="sound-loop"
+          autoPlay={true}
+          loop={false}
+          ref={this.audioloop}
+          controls={false}
+          src="bgloop-fade.mp3"
+        ></audio>
         <Curtain zoom={this.state.zoom} />
       </div>
     );
@@ -125,6 +142,10 @@ export default class ZiziPlayer extends React.Component {
     this.setState({ pose: false });
   };
 
+  onVideoLoaded = () => {
+    this.setState({ ziziVideoLoaded: true });
+  };
+
   changeSong = (songName) => {
     this.setState({
       song: this.props.showData.songs[songName],
@@ -147,7 +168,47 @@ export default class ZiziPlayer extends React.Component {
     }
     this.setState({
       performer: this.props.showData.performers[random],
+      ziziVideoLoaded: false,
     });
+  };
+
+  handleKeyDown = (event) => {
+    switch (event.keyCode) {
+      case 38:
+        // Arrow up or down - newPerformer
+        this.newPerformer();
+        break;
+      case 40:
+        // Arrow up or down - newPerformer
+        this.newPerformer();
+        break;
+      case 37:
+        // Arrow left or right - skip
+        this.shiftTime(-10)
+        break;
+      case 39:
+        // Arrow left or right - skip
+        this.shiftTime(10)
+        break;
+      case 32:
+        // space - pause/play
+        if (this.state.playing) {
+          this.pause();
+        } else {
+          this.play();
+        }
+        break;
+      case 13:
+        // enter - zoom in
+        if (this.state.zoom) {
+          this.zoomOut()
+        } else {
+          this.zoomIn()
+        }
+        break;
+      default:
+        break;
+    }
   };
 
   shiftTime = (shift) => {
