@@ -260,7 +260,7 @@ export default class ZiziSidebar extends React.Component {
   handleKeyDown = (event) => {
     switch (event.keyCode) {
       case 27:
-        if(this.state.fullscreen == true) {
+        if(this.state.fullscreen) {
           this.fullscreenexit()
         }
         break;

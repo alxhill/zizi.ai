@@ -143,13 +143,11 @@ class DragPlayer extends React.Component {
   }
 
   showPose = () => {
-    this.setState({ poseOverride: true })
-    this.setState({ pose: true })
+    this.setState({ poseOverride: true, pose: true })
   }
 
   forceHidePose = () => {
-    this.setState({ poseOverride: false })
-    this.setState({ pose: false });
+    this.setState({ poseOverride: false, pose: false });
   }
 
   performerSrc(props) {

@@ -200,11 +200,11 @@ export default class ZiziPlayer extends React.Component {
         break;
       case 13:
         // enter - zoom in
-        this.state.zoom ? (
+        if (this.state.zoom) {
           this.zoomOut()
-        ) : (
-            this.zoomIn()
-          );
+        } else {
+          this.zoomIn()
+        }
         break;
       default:
         break;

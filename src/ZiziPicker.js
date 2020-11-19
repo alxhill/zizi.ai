@@ -178,16 +178,14 @@ export default class ZiziPicker extends React.Component {
 
   showLoop = () => {
     // this.setState({ startVisibility: 'hidden' });
-    this.setState({ loopVisibility: 'visible' });
-    this.setState({ endVisibility: 'hidden' });
+    this.setState({ loopVisibility: 'visible, endVisibility: 'hidden' });
     this.loopvideo.current.play();
   };
 
   showEnd = () => {
     // this.setState({ startVisibility: 'hidden fade' });
     // this.setState({ loopVisibility: 'hidden fade' });
-    this.setState({ endVisibility: 'visible' });
-    this.setState({ sidebarVisible: false });
+    this.setState({ endVisibility: 'visible', sidebarVisible: false });
     this.endvideo.current.play();
     this.loopvideo.current.pause();
   };
@@ -203,5 +201,4 @@ export default class ZiziPicker extends React.Component {
     }
   }
 }
-
 
