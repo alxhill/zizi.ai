@@ -51,7 +51,7 @@ export default class IntroScreen extends React.Component {
             <Forward10 onClick={this.onForward10} />
             {fullscreen}
             <button className="skip-intro" onClick={this.props.onEnter}>
-              Skip Intro
+              Skip
               <SkipNextRounded fontSize="inherit" />
             </button>
           </div>
