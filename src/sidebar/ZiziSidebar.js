@@ -13,6 +13,7 @@ import {
   SkipToNextTrack,
   Fullscreen,
   FullscreenExit,
+  Loading,
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
@@ -31,6 +32,10 @@ export default class ZiziSidebar extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  };
+
   render() {
     let openCloseClassName = this.state.fullSize ? "open" : "closed";
     return (
@@ -48,21 +53,27 @@ export default class ZiziSidebar extends React.Component {
     let zoomInOut = this.props.zoom ? (
       <ZoomOut onClick={this.props.onZoomOut} />
     ) : (
-      <ZoomIn onClick={this.props.onZoomIn} />
-    );
+        <ZoomIn onClick={this.props.onZoomIn} />
+      );
 
     let hideShow = this.state.fullSize ? (
       <Close onClick={this.hideMain} />
     ) : (
-      <Menu onClick={this.showMain} />
-    );
+        <Menu onClick={this.showMain} />
+      );
+
+    let loadPerformer = this.props.ziziVideoLoaded ? (
+      <NewPerformer onClick={this.props.newPerformer} />
+    ) : (
+        <Loading />
+      );
 
     return (
       <div className="button-sidebar">
         <div className="close-button">{hideShow}</div>
         <div className="centered-buttons">
           {zoomInOut}
-          <NewPerformer onClick={this.props.newPerformer} />
+          {loadPerformer}
           <ShowPerformers onClick={this.showPerformers} />
           <SkipToNextTrack onClick={this.props.switchToPicker} />
         </div>
@@ -83,8 +94,8 @@ export default class ZiziSidebar extends React.Component {
     let playPause = this.props.playing ? (
       <Pause onClick={this.props.onPause} />
     ) : (
-      <Play onClick={this.props.onPlay} />
-    );
+        <Play onClick={this.props.onPlay} />
+      );
 
     let movementPerformer = this.props.showData.performers[
       this.props.song.performer
@@ -94,8 +105,8 @@ export default class ZiziSidebar extends React.Component {
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
     ) : (
-      <Fullscreen onClick={this.fullscreen} />
-    );
+        <Fullscreen onClick={this.fullscreen} />
+      );
 
     return (
       <div className="main-sidebar" ref={this.bar}>
@@ -254,6 +265,25 @@ export default class ZiziSidebar extends React.Component {
     } else if (document.msExitFullscreen) {
       /* IE11 */
       document.msExitFullscreen();
+    }
+  };
+
+  handleKeyDown = (event) => {
+    switch (event.keyCode) {
+      case 27:
+        if(this.state.fullscreen) {
+          this.fullscreenexit()
+        }
+        break;
+      case 70:
+        this.state.fullscreen ? (
+          this.fullscreenexit()
+        ) : (
+            this.fullscreen()
+          );
+        break;
+      default:
+        break;
     }
   };
 

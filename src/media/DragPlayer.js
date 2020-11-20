@@ -1,6 +1,8 @@
 import React from "react";
 import Hls from "hls.js";
 import { sideCurtain, backCurtain } from "../Curtain";
+import { Play } from "../Buttons";
+
 
 class DragPlayer extends React.Component {
   static defaultProps = {
@@ -23,35 +25,43 @@ class DragPlayer extends React.Component {
   render() {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
+    let resumeButton = this.props.playing || this.props.currentTime < 0.1 ? (
+      null
+    ) : (
+        <div className="resume">
+          <Play onClick={this.props.play} />
+        </div>
+      );
     return (
-      <div onMouseDown={this.showPose} onMouseUp={this.forceHidePose} onTouchStart={this.showPose} onTouchEnd={this.forceHidePose} className="drag-video-wrapper">
-      <div className="drag-video-wrapper">
-        {backCurtain(this.props.zoom)}
-        {sideCurtain(this.props.zoom)}
-        {this.renderPlayer(
-          ["primary-player", primaryVisibility],
-          this.performerVideo,
-          this.performerSrc(this.props),
-          this.props.onEnded,
-          this.hidePose
-        )}
-        {this.renderPlayer(
-          ["shadow-player", primaryVisibility],
-          this.shadowVideo,
-          this.shadowSrc(this.props)
-        )}
-        {this.renderPlayer(
-          ["pose-player", poseVisibility],
-          this.poseVideo,
-          this.poseSrc(this.props)
-        )}
-      </div>
+      <div>
+        {resumeButton}
+        <div className="drag-video-wrapper" onMouseDown={this.showPose} onMouseUp={this.forceHidePose} onTouchStart={this.showPose} onTouchEnd={this.forceHidePose}>
+          {backCurtain(this.props.zoom)}
+          {sideCurtain(this.props.zoom)}
+          {this.renderPlayer(
+            ["primary-player", primaryVisibility],
+            this.performerVideo,
+            this.performerSrc(this.props),
+            this.props.onEnded,
+            this.hidePose
+          )}
+          {this.renderPlayer(
+            ["shadow-player", primaryVisibility],
+            this.shadowVideo,
+            this.shadowSrc(this.props)
+          )}
+          {this.renderPlayer(
+            ["pose-player", poseVisibility],
+            this.poseVideo,
+            this.poseSrc(this.props)
+          )}
+        </div>
       </div>
     );
   }
 
-  renderPlayer(additionalClasses, ref, src, onEnded, onSeeked, onClick) {
-    additionalClasses.push("video-frame");
+  renderPlayer(additionalClasses, ref, src, onEnded, onSeeked) {
+    additionalClasses.push("video-frame")
     let zoomClass = this.props.zoom ? "zoom" : "full";
     return (
       <span className={additionalClasses.join(" ")}>
@@ -143,18 +153,17 @@ class DragPlayer extends React.Component {
 
   hidePose = () => {
     if (this.state.poseOverride === false) {
-      this.setState({pose: false});
+      this.setState({ pose: false });
     }
+    this.props.onVideoLoaded()
   }
 
   showPose = () => {
-    this.setState({poseOverride: true})
-    this.setState({pose: true})
+    this.setState({ poseOverride: true, pose: true })
   }
 
   forceHidePose = () => {
-    this.setState({poseOverride: false})
-    this.setState({pose: false});
+    this.setState({ poseOverride: false, pose: false });
   }
 
   performerSrc(props) {

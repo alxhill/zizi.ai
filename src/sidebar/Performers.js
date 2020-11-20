@@ -59,6 +59,7 @@ export default class Performers extends React.PureComponent {
             alt={performer.name}
             src={`img/performers/BioImage/${performer.id}.jpg`}
             draggable="false"
+            onClick={this.props.showThumbnails}
           />
           <a className="instagram" target='_blank' rel="noopener noreferrer" href={'https://www.instagram.com/' + performer.insta}>@{performer.insta}</a>
           <p>{performer.bio}</p>

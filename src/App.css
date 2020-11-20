@@ -74,10 +74,15 @@ body,
   left: 50%;
   overflow: hidden;
   transform: translateX(-50%);
+  touch-action: none;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .video-frame.hidden {
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+    /* could also use linear */
 }
 
 .drag-video {
@@ -87,6 +92,25 @@ body,
 
 .drag-video.zoom {
   transform: translateX(-50%);
+}
+
+.resume {
+  position: absolute;
+  color: #ff9c84;
+  height: 100%;
+  width: 100vh;
+  left: calc(50% - 6rem);
+  top: calc(50% - 6rem);
+  z-index: 1;
+  font-size: 12rem;
+  filter: drop-shadow(0px 0px 30px #000);
+  -webkit-filter: drop-shadow(0px 0px 15px #000) drop-shadow(0px 0px 30px #000) drop-shadow(0px 0px 50px #000);
+  opacity: 0.8;
+}
+
+.primary-player {
+  mix-blend-mode: lighten;
+  z-index: -2;
 }
 
 .primary-player {
@@ -245,6 +269,7 @@ button.inline-link:focus {
   /* touch-action: none; */
   -webkit-touch-callout:none;
   /* pointer-events: none; */
+  z-index: 1;
 }
 
 .zizi-sidebar.closed {
@@ -265,7 +290,7 @@ button.inline-link:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 4;
+  z-index: 1;
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0, 0, 0);
   /* position: -webkit-sticky; */
@@ -478,6 +503,7 @@ button.inline-link:focus {
   drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .bios .backbutton {
@@ -517,6 +543,7 @@ button.inline-link:focus {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .secondary-header {
@@ -721,8 +748,28 @@ button.inline-link:focus {
   z-index: 0;
 }
 
-.picker .intro-video {
+.host-video {
+  position: fixed;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: -2;
+  opacity: 1;
+}
+
+.host-video.hidden {
+  opacity: 0;
+}
+
+.host-video.hidden.fade {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.host-video.visible.fade {
+  opacity: 1;
+  transition: opacity 1s;
 }
 
 #main-bar-logo-top,
@@ -739,6 +786,52 @@ button.inline-link:focus {
   -ms-user-select: none;
   user-select: none;
 }
+
+.spinner {
+  animation: 2s linear infinite svg-animation;
+  max-width: 100px;
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg)
+  }
+}
+
+circle {
+  animation: 1.4s ease-in-out infinite both circle-animation;
+  display: block;
+  fill: transparent;
+  stroke: #ff9c84;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 280;
+  stroke-width: 10px;
+  transform-origin: 50% 50%;
+}
+
+@keyframes circle-animation {
+  0%,
+  25% {
+    stroke-dashoffset: 280;
+    transform: rotate(0);
+  }
+  
+  50%,
+  75% {
+    stroke-dashoffset: 75;
+    transform: rotate(45deg);
+  }
+  
+  100% {
+    stroke-dashoffset: 280;
+    transform: rotate(360deg);
+  }
+}
+
 
 /* display for mobile and tablet */
 
@@ -767,6 +860,12 @@ button.inline-link:focus {
   }
 
 
+  .spinner {
+    transform: translate(-25%, -25%);
+    height: 2rem;
+    font-size: 2.1rem;
+  }
+
   .enter-screen button.enter img {
     height: auto;
     width: 90%;
@@ -780,7 +879,7 @@ button.inline-link:focus {
     right: 0;
     top: auto;
     bottom: 0;
-    /* height: 30rem; */
+    height: 33rem;
     flex-direction: column-reverse;
     transition: bottom 1s ease;
     /* touch-action: none; */
@@ -907,3 +1006,4 @@ button.inline-link:focus {
     display: block;
   }
 }
+

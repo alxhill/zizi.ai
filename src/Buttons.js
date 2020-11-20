@@ -14,6 +14,7 @@ import {
   FullscreenRounded,
   FullscreenExitRounded,
   KeyboardReturnRounded,
+  HdrWeakRounded,
 } from "@material-ui/icons";
 
 function Play(props) {
@@ -160,6 +161,16 @@ function Return(props) {
   );
 }
 
+function Loading() {
+  return (
+    <span className="zizi-icon">
+      <svg className="spinner" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="35" />
+      </svg>    
+    </span>
+  );
+}
+
 export {
   Play,
   Pause,
@@ -176,5 +187,6 @@ export {
   Captions,
   Fullscreen,
   FullscreenExit,
-  Return
+  Return,
+  Loading,
 };
