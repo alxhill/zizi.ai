@@ -95,7 +95,7 @@ body,
 }
 
 .resume {
-  position: absolute;
+  position: fixed;
   color: #ff9c84;
   height: 100%;
   width: 100vh;
@@ -646,10 +646,9 @@ button.inline-link:focus {
 
 .about-page .banner {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -120px;
   margin-top: 0;
-  width: 100%;
+  width: calc(100% + 240px);
   mix-blend-mode: lighten;
 }
 
@@ -682,9 +681,10 @@ button.inline-link:focus {
 }
 
 .about-page .anchors {
-  /* text-align: center; */
-  list-style-type: square;
-  font-size: smaller;
+  text-align: center;
+  /* list-style-type: square; */
+  list-style-type: none;
+  /* font-size: smaller; */
   margin-top: 2rem;
   color: #edb49f;
 }

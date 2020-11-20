@@ -189,9 +189,10 @@ export default class ZiziPicker extends React.Component {
   showEnd = () => {
     // this.setState({ startVisibility: 'hidden fade' });
     // this.setState({ loopVisibility: 'hidden fade' });
-    this.setState({ startVisibility: 'hidden', endVisibility: 'visible', sidebarVisible: 'closed' });
+    this.setState({ startVisibility: 'hidden fade', loopVisibility: 'hidden fade', endVisibility: 'visible', sidebarVisible: 'closed' });
     this.endvideo.current.play();
     this.loopvideo.current.pause();
+    this.startvideo.current.pause();
   };
 
   handleHls(video) {
