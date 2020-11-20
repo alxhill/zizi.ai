@@ -1,15 +1,8 @@
 import Hls from "hls.js";
 import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
-import Curtain from "./Curtain";
-import {
-  Play,
-  Pause,
-  Forward10,
-  Back10,
-  Fullscreen,
-  FullscreenExit,
-} from "./Buttons";
+import { sideCurtain, backCurtain } from "./Curtain";
+import { Forward10, Back10, Fullscreen, FullscreenExit } from "./Buttons";
 
 export default class IntroScreen extends React.Component {
   constructor(props) {
@@ -30,18 +23,16 @@ export default class IntroScreen extends React.Component {
 
   componentDidUpdate() {
     if (this.video.current) {
-      this.handleHls(this.video.current)
+      this.handleHls(this.video.current);
     }
   }
 
   render() {
-
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
     ) : (
-        <Fullscreen onClick={this.fullscreen} />
-      );
-
+      <Fullscreen onClick={this.fullscreen} />
+    );
 
     if (this.state.entered) {
       return (
@@ -61,33 +52,36 @@ export default class IntroScreen extends React.Component {
             <Forward10 onClick={this.onForward10} />
             {fullscreen}
             <button className="skip-intro" onClick={this.props.onEnter}>
-              Skip Intro<SkipNextRounded fontSize="inherit" />
+              Skip
+              <SkipNextRounded fontSize="inherit" />
             </button>
           </div>
-
         </div>
       );
     }
 
     return (
       <div className="enter-screen">
+        {backCurtain(false)}
+        {sideCurtain(false)}
+
         <button type="button" className="enter" onClick={this.attemptLogin}>
           <img src="img/enterButton.png" alt="Enter the Zizi show" />
         </button>
         <form className="password" onSubmit={this.attemptLogin}>
           <input
-
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.updatePassword}
             placeholder="Password"
-
           />
-          <p><b>BETA version</b><br></br>Works best in Chrome (desktop). <br></br>Known bugs on mobile.</p>
+          <p>
+            <b>BETA version</b>
+            <br></br>Works best in Chrome (desktop). <br></br>Known bugs on
+            mobile.
+          </p>
         </form>
-
-        <Curtain />
       </div>
     );
   }

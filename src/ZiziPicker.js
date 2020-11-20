@@ -1,9 +1,8 @@
 import React from "react";
 import Hls from "hls.js";
-import Curtain from "./Curtain";
 import Performers from "./sidebar/Performers";
-import SecondaryBar from "./sidebar/SecondaryBar";
 import Songs from "./sidebar/Songs";
+import { sideCurtain, backCurtain } from "./Curtain";
 
 export default class ZiziPicker extends React.Component {
   constructor(props) {
@@ -19,7 +18,7 @@ export default class ZiziPicker extends React.Component {
       startVisibility: 'visible',
       loopVisibility: 'hidden',
       endVisibility: 'hidden',
-      sidebarVisible: true,
+      sidebarVisible: 'open',
     };
 
     this.startvideo = React.createRef();
@@ -71,13 +70,10 @@ export default class ZiziPicker extends React.Component {
 
   render() {
     return (
-      <div>
-        <SecondaryBar openClose={this.state.sidebarVisible} className={"zizi-picker-bar"}>
-          {this.renderContent(this.state.mode)}
-        </SecondaryBar>
-        <button className="pickerAboutButton" onClick={this.showAbout}>
-          About
-          </button>
+      <div className="picker fullheight">
+        {backCurtain(false)}
+        {sideCurtain(false)}
+
         <video
           className={"host-video " + this.state.startVisibility}
           onEnded={this.showLoop}
@@ -111,7 +107,15 @@ export default class ZiziPicker extends React.Component {
           controls={false}
           src="bgloop.mp3"
         ></audio>
-        <Curtain fade />
+        <div className={"secondary-sidebar zizi-picker-bar " + this.state.sidebarVisible}>
+          <div className="close-sidebar-left"></div>
+          <div className="content-sidebar">
+            {this.renderContent(this.state.mode)}
+          </div>
+        </div>
+        <button className="pickerAboutButton" onClick={this.showAbout}>
+          About
+        </button>
       </div>
     );
   }
@@ -178,14 +182,14 @@ export default class ZiziPicker extends React.Component {
 
   showLoop = () => {
     // this.setState({ startVisibility: 'hidden' });
-    this.setState({ loopVisibility: 'visible, endVisibility: 'hidden' });
+    this.setState({ loopVisibility: 'visible', endVisibility: 'hidden' });
     this.loopvideo.current.play();
   };
 
   showEnd = () => {
     // this.setState({ startVisibility: 'hidden fade' });
     // this.setState({ loopVisibility: 'hidden fade' });
-    this.setState({ endVisibility: 'visible', sidebarVisible: false });
+    this.setState({ startVisibility: 'hidden', endVisibility: 'visible', sidebarVisible: 'closed' });
     this.endvideo.current.play();
     this.loopvideo.current.pause();
   };

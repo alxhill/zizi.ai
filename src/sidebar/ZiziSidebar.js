@@ -17,7 +17,6 @@ import {
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
-import SecondaryBar from "./SecondaryBar";
 
 export default class ZiziSidebar extends React.Component {
   constructor(props) {
@@ -118,6 +117,7 @@ export default class ZiziSidebar extends React.Component {
             alt="The Zizi Show"
             draggable="false"
           />
+          {/* <div className="divider hidden"></div> */}
           <div className="player-controls">
             {playPause}
             <Back10 onClick={this.props.onBack10} />
@@ -188,13 +188,20 @@ export default class ZiziSidebar extends React.Component {
   }
 
   renderSecondaryBar() {
+    let secondaryBarOpenClose = this.state.showSecondaryBar ? "open" : "closed";
+    let classes = ["secondary-sidebar", secondaryBarOpenClose];
+
     return (
-      <SecondaryBar
-        onClose={this.hideSecondaryBar}
-        openClose={this.state.showSecondaryBar}
-      >
-        {this.renderSecondaryBarContent()}
-      </SecondaryBar>
+      <div className={classes.join(" ")}>
+        <div className="close-sidebar-left">
+          <div className="close-button">
+            <Close onClick={this.hideSecondaryBar} />
+          </div>
+        </div>
+        <div className="content-sidebar">
+          {this.renderSecondaryBarContent()}
+        </div>
+      </div>
     );
   }
 
@@ -239,9 +246,11 @@ export default class ZiziSidebar extends React.Component {
     this.setState({ fullscreen: true });
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
+    } else if (elem.webkitRequestFullscreen) {
+      /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
       elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
+    } else if (elem.msRequestFullscreen) {
+      /* IE11 */
       elem.msRequestFullscreen();
     }
   };
@@ -250,9 +259,11 @@ export default class ZiziSidebar extends React.Component {
     this.setState({ fullscreen: false });
     if (document.exitFullscreen) {
       document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
+    } else if (document.webkitExitFullscreen) {
+      /* Safari */
       document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
+    } else if (document.msExitFullscreen) {
+      /* IE11 */
       document.msExitFullscreen();
     }
   };

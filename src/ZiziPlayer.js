@@ -1,6 +1,5 @@
 import React from "react";
 import DragPlayer from "./media/DragPlayer";
-import Curtain from "./Curtain";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
 
@@ -95,7 +94,6 @@ export default class ZiziPlayer extends React.Component {
           controls={false}
           src="bgloop-fade.mp3"
         ></audio>
-        <Curtain zoom={this.state.zoom} />
       </div>
     );
   }

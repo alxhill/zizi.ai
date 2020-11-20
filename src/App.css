@@ -15,7 +15,7 @@ body {
   font-family: "market_decoregular", sans-serif;
   z-index: 1;
   overflow: hidden;
-  touch-action: none;
+  /* touch-action: none; */
 }
 
 button, a {
@@ -35,30 +35,40 @@ span {
   cursor: pointer;
 }
 
+html,
+body,
+#root,
+.fullheight {
+  height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .curtain-bg {
-  position: absolute;
+  position: fixed;
   height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: -4;
   transition: opacity 1s;
-  touch-action: none;
 }
 
 .curtain-side {
-  position: absolute;
-  height: 101%;
+  position: fixed;
+  height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* mix-blend-mode: overlay; */
   z-index: -1;
-  touch-action: none;
 }
 
 .video-frame {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100vh;
   left: 50%;
@@ -119,9 +129,10 @@ span {
 }
 
 .drag-video-wrapper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
+  isolation: isolate;
 }
 
 /* unvisited link, visited link */
@@ -162,7 +173,7 @@ button.inline-link:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 20%;
 }
@@ -176,7 +187,7 @@ button.inline-link:focus {
 }
 
 .enter-screen button.skip-intro {
-  /* position: absolute; */
+  /* position: fixed; */
   /* height: 25rem; */
   /* bottom: 2rem; */
   /* right: 6rem; */
@@ -198,25 +209,25 @@ button.inline-link:focus {
 }
 
 .enter-screen .controls {
-  position: absolute;
+  position: fixed;
   color: #ff9c84;
   font-size: 2rem;
   display: flex;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 0;
+  /* right: 0; */
   z-index: 25;
   cursor: pointer;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  /* background-color: rgba(46, 1, 15, 0.5); */
-  padding: 0.6rem;
-  filter: drop-shadow(1px 10px 10px #000) drop-shadow(1px 10px 10px #000);
+  background-color: rgba(46, 1, 15, 0.5);
+  padding: 1rem 0 1rem 0;
+  filter: drop-shadow(1px 10px 10px #000);
+  width: 100%;
 }
 
 .enter-screen .controls span {
   margin: 0 1rem 0 1rem;
-
 }
 
 .enter-screen .controls span:hover {
@@ -224,7 +235,7 @@ button.inline-link:focus {
 }
 
 .enter-screen .password {
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 60%;
@@ -248,14 +259,17 @@ button.inline-link:focus {
 }
 
 .zizi-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   display: flex;
   color: #ff9c84;
   transition: left 1s ease;
-  touch-action: none;
+  /* touch-action: none; */
+  -webkit-touch-callout:none;
+  /* pointer-events: none; */
+  z-index: 1;
 }
 
 .zizi-sidebar.closed {
@@ -277,6 +291,9 @@ button.inline-link:focus {
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
+  /* position: -webkit-sticky; */
 }
 
 .button-sidebar .zizi-icon {
@@ -287,7 +304,6 @@ button.inline-link:focus {
 .button-sidebar .close-button,
 .close-sidebar-left .close-button {
   height: 2rem;
-  width: 2rem;
   font-size: 2.1rem;
   padding: 1rem;
   display: block;
@@ -370,6 +386,10 @@ button.inline-link:focus {
   flex-shrink: 0;
 }
 
+.main-sidebar .divider.hidden {
+  opacity: 0;
+}
+
 .main-sidebar .player-controls span {
   margin: 0 1rem 0 1rem;
 }
@@ -392,7 +412,7 @@ button.inline-link:focus {
 }
 
 .secondary-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 30rem;
@@ -483,6 +503,7 @@ button.inline-link:focus {
   drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .bios .backbutton {
@@ -497,6 +518,12 @@ button.inline-link:focus {
   text-align: left;
   font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
     Times, serif;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .bios a {
@@ -504,6 +531,12 @@ button.inline-link:focus {
   text-align: center;
   font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
     Times, serif;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .bios img {
@@ -569,11 +602,16 @@ button.inline-link:focus {
   line-height: 32px;
   font-size: 18px;
   margin: 0px;
-  position: absolute;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .about-page h2 {
@@ -666,15 +704,19 @@ button.inline-link:focus {
   mix-blend-mode: lighten;
 }
 
+.picker {
+    isolation: isolate;
+}
+
 .pickerAboutButton {
-  position: absolute;
-  bottom: 2rem;
-  left: 6rem;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   font-size: 1.6rem;
   color: #ff9c84;
   background-color: rgba(46, 1, 15, 0.5);
-  border-radius: 12px;
-  padding: 0.6rem;
+  /* border-radius: 12px; */
+  padding: 0.7rem;
   filter: drop-shadow(20px 20px 5px #000);
 }
 
@@ -693,17 +735,21 @@ button.inline-link:focus {
   flex-shrink: 0;
 }
 
-.zizi-intro-video {
-  position: absolute;
+.zizi-intro-video,
+.picker .intro-video {
+  position: fixed;
   height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.zizi-intro-video {
   z-index: 0;
 }
 
 .host-video {
-  position: absolute;
+  position: fixed;
   height: 100%;
   left: 50%;
   top: 50%;
@@ -789,15 +835,30 @@ circle {
 
 /* display for mobile and tablet */
 
+@media (hover: none) {
+  button:hover, a:hover, span:hover, button:visited, a:visited, span:visited {
+    color: inherit;
+  }
+}
+
 @media (max-aspect-ratio: 4/5) and (orientation: portrait) {
   html {
     font-size: 14px;
-    touch-action: none;
+    /* touch-action: none; */
   }
 
   body {
-    touch-action: none;
+    /* touch-action: none; */
   }
+
+  html,
+  body,
+  #root,
+  .fullheight {
+    height: calc(100% + 72px);
+    overflow-y: scroll;
+  }
+
 
   .spinner {
     transform: translate(-25%, -25%);
@@ -818,19 +879,21 @@ circle {
     right: 0;
     top: auto;
     bottom: 0;
-    height: 30rem;
+    height: 33rem;
     flex-direction: column-reverse;
     transition: bottom 1s ease;
-    touch-action: none;
+    /* touch-action: none; */
+    /* pointer-events: none; */
   }
 
   .zizi-sidebar.closed {
     left: 0;
-    bottom: -26rem;
+    bottom: -27.6rem;
   }
 
   .button-sidebar {
     flex-direction: row;
+    /* -webkit-transform: translate3d(0,0,0); */
     /* height: 20%; */
     /* height for safari - no idea why */
   }
@@ -850,6 +913,10 @@ circle {
     max-height: 1rem;
   }
 
+  .close-sidebar-left .close-button {
+    width: 2rem;
+  }
+
   .secondary-header {
     margin-top: 1rem;
   }
@@ -860,15 +927,29 @@ circle {
 
   .main-sidebar .main-bar-content {
     flex-shrink: 0;
-    margin-top: 2rem;
   }
+
+  .main-sidebar .main-bar-content .player-controls {
+    padding-top: 1.5rem;
+  }
+
+  /* removes hairline in safari but not square */
+  /* .button-sidebar .close-button {
+    height: auto;
+  } */
+
+  .main-sidebar .divider.hidden {
+    margin: 1rem auto auto auto;
+  } 
+
+
 
   .secondary-sidebar {
     left: 0;
     top: auto;
     bottom: 0;
     width: 100%;
-    height: 30rem;
+    height: 31.7rem;
     flex-direction: column;
     transition: bottom 1s ease;
     /* background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%); */
@@ -911,12 +992,6 @@ circle {
   }
   .about-page .anchors {
     padding: 0.5rem;
-  }
-
-  .pickerAboutButton {
-    top: 2rem;
-    left: 1rem;
-    height: 3rem;
   }
 }
 
