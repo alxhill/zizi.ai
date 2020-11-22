@@ -31,8 +31,8 @@ export default class IntroScreen extends React.Component {
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
     ) : (
-      <Fullscreen onClick={this.fullscreen} />
-    );
+        <Fullscreen onClick={this.fullscreen} />
+      );
 
     if (this.state.entered) {
       return (
@@ -62,11 +62,16 @@ export default class IntroScreen extends React.Component {
 
     return (
       <div className="enter-screen">
-        {backCurtain(false)}
+        <img
+          src={"img/curtain-intro.jpg"}
+          className="curtain-bg "
+          draggable={false}
+          alt=""
+        />        
         {sideCurtain(false)}
 
         <button type="button" className="enter" onClick={this.attemptLogin}>
-          <img src="img/enterButton.png" alt="Enter the Zizi show" />
+          <img src="img/enterButtonFull.png" alt="Enter the Zizi show" />
         </button>
         <form className="password" onSubmit={this.attemptLogin}>
           <input
@@ -77,9 +82,9 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
           />
           <p>
-            <b>BETA version</b>
-            <br></br>Works best in Chrome (desktop). <br></br>Known bugs on
-            mobile.
+            <b>Private Release</b>
+            <br></br>
+            Please do not share
           </p>
         </form>
       </div>
