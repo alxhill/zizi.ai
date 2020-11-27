@@ -25,16 +25,13 @@ class DragPlayer extends React.Component {
   render() {
     let poseVisibility = this.state.pose ? "visible" : "hidden";
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
-    let resumeButton = this.props.playing || this.props.currentTime < 0.1 ? (
-      null
-    ) : (
-        <div className="resume">
-          <Play onClick={this.props.play} />
-        </div>
-      );
+    let resumeVisible = this.props.playing ? "" : "visible";
+
     return (
       <div>
-        {resumeButton}
+        <div className={"resume " + resumeVisible + " fade-in"}>
+          <Play onClick={this.props.play} />
+        </div>
         <div className="drag-video-wrapper" onMouseDown={this.showPose} onMouseUp={this.forceHidePose} onTouchStart={this.showPose} onTouchEnd={this.forceHidePose}>
           {backCurtain(this.props.zoom)}
           {sideCurtain(this.props.zoom)}

@@ -101,12 +101,53 @@ body,
   width: 100vh;
   left: calc(50% - 6rem);
   top: calc(50% - 6rem);
-  z-index: 1;
+  z-index: -5;
   font-size: 12rem;
   filter: drop-shadow(0px 0px 30px #000);
   -webkit-filter: drop-shadow(0px 0px 15px #000) drop-shadow(0px 0px 30px #000) drop-shadow(0px 0px 50px #000);
-  opacity: 0.8;
+  opacity: 0;
+  transition: opacity 1s;
 }
+
+.resume.visible {
+  opacity: 0.8;
+  z-index: 1;
+  transition: opacity 1s;
+}
+
+.fade-in {
+  animation: fadeIn 6s;
+  -webkit-animation: fadeIn 6s;
+  -moz-animation: fadeIn 6s;
+  -o-animation: fadeIn 6s;
+  -ms-animation: fadeIn 6s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+
 
 .primary-player {
   mix-blend-mode: lighten;
