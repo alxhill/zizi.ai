@@ -23,7 +23,7 @@ export default class ZiziPicker extends React.Component {
 
     this.startvideo = React.createRef();
     this.loopvideo = React.createRef();
-    this.endvideo = React.createRef();
+    // this.endvideo = React.createRef();
     this.audioloop = React.createRef();
   }
 
@@ -32,9 +32,9 @@ export default class ZiziPicker extends React.Component {
     setTimeout(
       () => this.handleHls(this.loopvideo.current),
       1500);
-    setTimeout(
-      () => this.handleHls(this.endvideo.current),
-      1000);
+    // setTimeout(
+    //   () => this.handleHls(this.endvideo.current),
+    //   1000);
 
     // ~~~~ Pause Picker BG Music when inactive - current bugs on some devices where it pauses ~~~~
     // 
@@ -91,7 +91,7 @@ export default class ZiziPicker extends React.Component {
           playsInline={true}>
           <source src={this.state.src + "-loop/playlist.m3u8"} />
         </video>
-        <video
+        {/* <video
           className={"host-video " + this.state.endVisibility + " fade"}
           onEnded={this.enterPlayer}
           preload="metadata"
@@ -99,7 +99,7 @@ export default class ZiziPicker extends React.Component {
           ref={this.endvideo}
           playsInline={true}>
           <source src={this.state.src + "-end/playlist.m3u8"} />
-        </video>
+        </video> */}
         <audio
           className="sound-loop"
           autoPlay={true}
@@ -195,7 +195,9 @@ export default class ZiziPicker extends React.Component {
     // this.setState({ startVisibility: 'hidden fade' });
     // this.setState({ loopVisibility: 'hidden fade' });
     this.setState({ startVisibility: 'hidden fade', loopVisibility: 'hidden fade', endVisibility: 'visible', sidebarVisible: 'closed' });
-    this.endvideo.current.play();
+
+    // BUG - need error handler in case doesnt play?
+    // this.endvideo.current.play();
     this.loopvideo.current.pause();
     this.startvideo.current.pause();
   };

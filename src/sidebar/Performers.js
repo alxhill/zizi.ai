@@ -18,6 +18,9 @@ export default class Performers extends React.PureComponent {
         this.renderPerformer(this.props.performers[performerId])
       );
     }
+    // Randomize thumbnail list order
+    renderedPerformers = renderedPerformers.sort(() => Math.random() - 0.5)
+
 
     return (
       <div>

@@ -86,10 +86,14 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
           />
           <p>
+          <p>Private pre-Release<br />
+            Please do not share</p>
             <p><b>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b><br />
             in Collaboration with 13 of the UK's top drag artists</p>
-            <p>Private Release<br />
-            Please do not share</p>
+    
+            <small>
+            <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
+            </small>
           </p>
         </form>
       </div>

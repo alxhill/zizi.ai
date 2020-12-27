@@ -80,8 +80,7 @@ export default class About extends React.Component {
               {this.scrollLink(this.intro, "Intro")}
             </li>
             <li>
-              {this.scrollLink(this.process, "The Process")}{'  '}
-              <small><small>{this.scrollLink(this.footnotes, "(footnotes)")}</small></small>
+              {this.scrollLink(this.process, "The Process")}{'  | '}<small><small>{this.scrollLink(this.footnotes, "footnotes")}</small></small>
             </li>
             <li>
               {this.scrollLink(this.aboutArtist, "About the Artist")}
