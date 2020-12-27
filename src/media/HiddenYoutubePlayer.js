@@ -32,16 +32,17 @@ export default class HiddenYoutubePlayer extends React.Component {
 
   render() {
     var playerOpts = {
-      height: "390",
-      width: "640",
+      height: "100",
+      width: "320",
       videoId: "",
       playsinline: "1",
-      playerVars: { autoplay: 0, autohide: 1, playsinline: 1, start: 0 },
+      playerVars: { autoplay: 0, autohide: 0, playsinline: 1, start: 0, controls: 1 },
     };
 
     return (
       <div>
-        <div style={{ display: "none" }}>
+        <div className="youtube-iframe">
+        {/* <div style={{ display: "none" }}> */}
           <YouTube
             videoId={this.props.song.youtube.id}
             opts={playerOpts}

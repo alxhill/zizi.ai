@@ -454,6 +454,16 @@ button.inline-link:focus {
   color: #aa272e;
 }
 
+.youtube-iframe iframe {
+  z-index: 12;
+  position: fixed;
+  touch-action: none;
+  user-select: none;
+  opacity: 50%;
+  bottom: 0px;
+  right: 0px;
+}
+
 .secondary-sidebar {
   position: fixed;
   top: 0;

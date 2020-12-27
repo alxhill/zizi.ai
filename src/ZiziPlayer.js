@@ -2,6 +2,7 @@ import React from "react";
 import DragPlayer from "./media/DragPlayer";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
+import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
 
 class YoutubeTimerDelegate {
   shiftTime(shift) {
@@ -46,7 +47,8 @@ export default class ZiziPlayer extends React.Component {
           timerDelegate={this.timerDelegate}
           pause={this.pause}
         />
-        {/* <HiddenYoutubePlayer
+        {/* Can switch between now
+        <HiddenYoutubePlayer
           song={this.state.song}
           onReady={this.youtubeReady}
           playing={this.state.playing}
