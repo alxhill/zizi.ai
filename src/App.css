@@ -271,29 +271,35 @@ button.inline-link:focus {
   color: #b22d3f;
 }
 
-.enter-screen .password {
+.enter-screen .intro-text {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 60%;
   text-align: center;
-  filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
 
-.enter-screen .password input {
+.enter-screen .intro-text input {
   font-size: 0.9rem;
   padding: 0.4rem;
   text-align: center;
+  filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
 
-.enter-screen .password p {
+.enter-screen .intro-text p {
   margin-top: 1rem;
+  color: #ee9c92;
 }
 
-.enter-screen .password p b {
+.enter-screen .intro-text p b {
   font-size: 1.5rem;
   line-height: 50px;
 }
+
+.enter-screen .intro-text a {
+  text-decoration: none;
+}
+
 
 .zizi-sidebar {
   position: fixed;
@@ -878,7 +884,7 @@ circle {
   }
 }
 
-@media (max-aspect-ratio: 4/5) and (orientation: portrait) {
+@media (max-aspect-ratio: 5/6) and (orientation: portrait) {
   html {
     font-size: 14px;
     /* touch-action: none; */

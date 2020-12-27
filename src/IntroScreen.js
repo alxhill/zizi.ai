@@ -27,6 +27,10 @@ export default class IntroScreen extends React.Component {
     }
   }
 
+  externalLink(ref, content) {
+    return <a target='_blank' rel="noopener noreferrer" href={ref}>{content}</a>;
+  }
+
   render() {
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
@@ -73,7 +77,7 @@ export default class IntroScreen extends React.Component {
         <button type="button" className="enter" onClick={this.attemptLogin}>
           <img src="img/enterButtonFull.png" alt="Enter the Zizi show" />
         </button>
-        <form className="password" onSubmit={this.attemptLogin}>
+        <form className="intro-text" onSubmit={this.attemptLogin}>
           <input
             type="password"
             name="password"
@@ -82,9 +86,10 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
           />
           <p>
-            <b>Private Release</b>
-            <br></br>
-            Please do not share
+            <p><b>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b><br />
+            in Collaboration with 13 of the UK's top drag artists</p>
+            <p>Private Release<br />
+            Please do not share</p>
           </p>
         </form>
       </div>

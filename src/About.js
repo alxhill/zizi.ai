@@ -98,7 +98,7 @@ export default class About extends React.Component {
           <h2 ref={this.team}>Team</h2>
           <ul>
             <li>
-              <b>{this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b> - Artist
+              <b>{this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b> - Artist, Coder &amp; Producer
           </li>
             <li>
               <b>{this.externalLink("https://www.instagram.com/methedragqueen", "Me")}</b> - Performance &amp; Casting Director
