@@ -154,11 +154,6 @@ body,
   z-index: -2;
 }
 
-.primary-player {
-  mix-blend-mode: lighten;
-  z-index: -2;
-}
-
 .shadow-player {
   mix-blend-mode: multiply;
   z-index: -3;
