@@ -137,7 +137,7 @@ let performers = {
     id: "sister",
     name: "Sister Sister",
     insta: "officialsistersister",
-    bio: "Sister Sister is a visual spectacle and comedy queen residing in Liverpool, where the river Mersey runs... (because if it walked it would get stuck talking to her).",
+    bio: ["RuPaul's Drag Race UK, Season 2.",<br />, "Sister Sister is a visual spectacle and comedy queen residing in Liverpool, where the river Mersey runs... (because if it walked it would get stuck talking to her)."],
     n: 12
   },
   lilly: {

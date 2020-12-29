@@ -27,12 +27,16 @@ export default class IntroScreen extends React.Component {
     }
   }
 
+  externalLink(ref, content) {
+    return <a target='_blank' rel="noopener noreferrer" href={ref}>{content}</a>;
+  }
+
   render() {
     let fullscreen = this.state.fullscreen ? (
       <FullscreenExit onClick={this.fullscreenexit} />
     ) : (
-      <Fullscreen onClick={this.fullscreen} />
-    );
+        <Fullscreen onClick={this.fullscreen} />
+      );
 
     if (this.state.entered) {
       return (
@@ -62,13 +66,18 @@ export default class IntroScreen extends React.Component {
 
     return (
       <div className="enter-screen">
-        {backCurtain(false)}
+        <img
+          src={"img/curtain-intro.jpg"}
+          className="curtain-bg "
+          draggable={false}
+          alt=""
+        />        
         {sideCurtain(false)}
 
         <button type="button" className="enter" onClick={this.attemptLogin}>
-          <img src="img/enterButton.png" alt="Enter the Zizi show" />
+          <img src="img/enterButtonFull.png" alt="Enter the Zizi show" />
         </button>
-        <form className="password" onSubmit={this.attemptLogin}>
+        <form className="intro-text" onSubmit={this.attemptLogin}>
           <input
             type="password"
             name="password"
@@ -77,9 +86,14 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
           />
           <p>
-            <b>BETA version</b>
-            <br></br>Works best in Chrome (desktop). <br></br>Known bugs on
-            mobile.
+          <p>Private pre-Release<br />
+            Please do not share</p>
+            <p><b>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b><br />
+            in Collaboration with 13 of the UK's top drag artists</p>
+    
+            <small>
+            <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
+            </small>
           </p>
         </form>
       </div>

@@ -95,18 +95,59 @@ body,
 }
 
 .resume {
-  position: absolute;
+  position: fixed;
   color: #ff9c84;
   height: 100%;
   width: 100vh;
   left: calc(50% - 6rem);
   top: calc(50% - 6rem);
-  z-index: 1;
+  z-index: -5;
   font-size: 12rem;
   filter: drop-shadow(0px 0px 30px #000);
   -webkit-filter: drop-shadow(0px 0px 15px #000) drop-shadow(0px 0px 30px #000) drop-shadow(0px 0px 50px #000);
-  opacity: 0.8;
+  opacity: 0;
+  transition: opacity 1s;
 }
+
+.resume.visible {
+  opacity: 0.8;
+  z-index: 1;
+  transition: opacity 1s;
+}
+
+.fade-in {
+  animation: fadeIn 6s;
+  -webkit-animation: fadeIn 6s;
+  -moz-animation: fadeIn 6s;
+  -o-animation: fadeIn 6s;
+  -ms-animation: fadeIn 6s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  60% {opacity:0;}
+  100% {opacity:0.8;}
+}
+
 
 .primary-player {
   mix-blend-mode: lighten;
@@ -169,18 +210,14 @@ button.inline-link:focus {
   color: #d63a00;
 }
 
-.enter-screen button.enter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.enter-screen button.enter img {
   position: fixed;
-  width: 100%;
-  top: 20%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.enter-screen button.enter img {
-  height: 25rem;
-}
 .enter-screen button.enter img:hover {
   -webkit-filter: drop-shadow(0px 0px 0px #800a12);
   filter: drop-shadow(0px 0px 0px #800a12);
@@ -234,29 +271,35 @@ button.inline-link:focus {
   color: #b22d3f;
 }
 
-.enter-screen .password {
+.enter-screen .intro-text {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 60%;
   text-align: center;
-  filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
 
-.enter-screen .password input {
+.enter-screen .intro-text input {
   font-size: 0.9rem;
   padding: 0.4rem;
   text-align: center;
+  filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
 
-.enter-screen .password p {
+.enter-screen .intro-text p {
   margin-top: 1rem;
+  color: #ee9c92;
 }
 
-.enter-screen .password p b {
+.enter-screen .intro-text p b {
   font-size: 1.5rem;
   line-height: 50px;
 }
+
+.enter-screen .intro-text a {
+  text-decoration: none;
+}
+
 
 .zizi-sidebar {
   position: fixed;
@@ -409,6 +452,16 @@ button.inline-link:focus {
 }
 .main-sidebar .main-bar-content .about-button:hover {
   color: #aa272e;
+}
+
+.youtube-iframe iframe {
+  z-index: 12;
+  position: fixed;
+  touch-action: none;
+  user-select: none;
+  opacity: 50%;
+  bottom: 0px;
+  right: 0px;
 }
 
 .secondary-sidebar {
@@ -646,10 +699,9 @@ button.inline-link:focus {
 
 .about-page .banner {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -120px;
   margin-top: 0;
-  width: 100%;
+  width: calc(100% + 240px);
   mix-blend-mode: lighten;
 }
 
@@ -682,9 +734,10 @@ button.inline-link:focus {
 }
 
 .about-page .anchors {
-  /* text-align: center; */
-  list-style-type: square;
-  font-size: smaller;
+  text-align: center;
+  /* list-style-type: square; */
+  list-style-type: none;
+  /* font-size: smaller; */
   margin-top: 2rem;
   color: #edb49f;
 }
@@ -841,7 +894,7 @@ circle {
   }
 }
 
-@media (max-aspect-ratio: 4/5) and (orientation: portrait) {
+@media (max-aspect-ratio: 5/6) and (orientation: portrait) {
   html {
     font-size: 14px;
     /* touch-action: none; */
@@ -864,11 +917,6 @@ circle {
     transform: translate(-25%, -25%);
     height: 2rem;
     font-size: 2.1rem;
-  }
-
-  .enter-screen button.enter img {
-    height: auto;
-    width: 90%;
   }
 
   .enter-screen button.skip-intro {

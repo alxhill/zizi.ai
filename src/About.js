@@ -74,16 +74,13 @@ export default class About extends React.Component {
           />
           <ul className="anchors">
             <li>
-            {this.scrollLink(this.team, "The Team")}
+              {this.scrollLink(this.team, "The Team")}
             </li>
             <li>
               {this.scrollLink(this.intro, "Intro")}
             </li>
             <li>
-              {this.scrollLink(this.process, "The Process")}
-            </li>
-            <li>
-              {this.scrollLink(this.footnotes, "Footnotes")}
+              {this.scrollLink(this.process, "The Process")}{'  | '}<small><small>{this.scrollLink(this.footnotes, "footnotes")}</small></small>
             </li>
             <li>
               {this.scrollLink(this.aboutArtist, "About the Artist")}
@@ -100,7 +97,7 @@ export default class About extends React.Component {
           <h2 ref={this.team}>Team</h2>
           <ul>
             <li>
-              <b>{this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b> - Artist
+              <b>{this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b> - Artist, Coder &amp; Producer
           </li>
             <li>
               <b>{this.externalLink("https://www.instagram.com/methedragqueen", "Me")}</b> - Performance &amp; Casting Director
@@ -116,7 +113,7 @@ export default class About extends React.Component {
           </li>
           </ul>
           <small>
-            <p style={{ textAlign: "center", marginTop: "3rem" }}><i>In Collaboration with the <b>{this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</b></i></p>
+            <p style={{ textAlign: "center", marginTop: "3rem" }}><i>In Collaboration with <b>{this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</b></i></p>
             <ul>
               <li>
                 <b>Drew Hemment</b> - Project Director &amp; Curator
@@ -128,7 +125,6 @@ export default class About extends React.Component {
                 <b>Sarah Bennett</b> - Researcher
           </li>
             </ul>
-            <br />
             <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")} at {this.externalLink("https://www.eif.co.uk/whats-on/2020/the-new-real", "Edinburgh International Festival")}.</p>
           </small>
           <hr />
@@ -164,7 +160,7 @@ export default class About extends React.Component {
             Below, you can see the iterative training process of a neural network as it learns how to create images of the drag queen an burlesque artist {this.externalLink("https://www.instagram.com/lillysnatch/", "Lilly SnatchDragon")}:
         </p>
 
-          <img className="diagram" src="img/About/diagram.gif" draggable="false" alt="Training process"/>
+          <img className="diagram" src="img/About/diagram.gif" draggable="false" alt="Training process" />
 
           <p>
             Using machine learning, this process iterates and improves until it can create new, fake faces which are indistinguishable from the real. For Zizi, the method I use is called {this.externalLink("https://arxiv.org/abs/1808.06601", "Video-to-Video Synthesis")}.
@@ -202,14 +198,14 @@ export default class About extends React.Component {
             <small className="footnote" ref={this.fn1}>
               1. For more information see {this.externalLink("https://deepai.org/machine-learning-glossary-and-terms/neural-network", "DeepAI.org glossary - 'neural network'")}.
             </small>
-            <Return onClick={() => this.scrollto(this.rfn1)}/>
+            <Return onClick={() => this.scrollto(this.rfn1)} />
           </p>
           <p>
             <small className="footnote" ref={this.fn2}>
               2. This accuracy score (loss) is calculated using the gradient descent learning
               algorithm.
           </small>
-          <Return onClick={() => this.scrollto(this.rfn2)}/>
+            <Return onClick={() => this.scrollto(this.rfn2)} />
           </p>
           <p>
             <small className="footnote" ref={this.fn3}>
@@ -217,19 +213,19 @@ export default class About extends React.Component {
             network (cGAN) developed by Wang et al. (Nvidia &amp; MIT), NeurIPS,
             2018. It uses {this.externalLink("https://arxiv.org/abs/1812.08008", "OpenPose")} (2018) for skeleton tracking and {this.externalLink("https://arxiv.org/abs/1802.00434", "DensePose")} (2018) for silhouette estimation. This technique also uses {this.externalLink("https://arxiv.org/abs/1612.01925", "Flownet")} (2016) to take into account the motion in the video.
           </small>
-          <Return onClick={() => this.scrollto(this.rfn3)}/>
+            <Return onClick={() => this.scrollto(this.rfn3)} />
           </p>
           <p>
             <small className="footnote" ref={this.fn4}>
               4. {this.externalLink("https://www.researchgate.net/publication/324670607_Gender_Recognition_or_Gender_Reductionism_The_Social_Implications_of_Embedded_Gender_Recognition_Systems", "Gender recognition or gender reductionism? The social implications of embedded gender recognition systems")}, Hamidi, F., Scheuerman, M.K. and Branham, S.M. (2018).
           </small>
-          <Return onClick={() => this.scrollto(this.rfn4)}/>
+            <Return onClick={() => this.scrollto(this.rfn4)} />
           </p>
           <p>
             <small className="footnote" ref={this.fn5}>
               5. {this.externalLink("https://www.excavating.ai/", "Excavating AI: The Politics of Images in Machine Learning Training Sets")}, Kate Crawford and Trevor Paglen.
           </small>
-          <Return onClick={() => this.scrollto(this.rfn5)}/>
+            <Return onClick={() => this.scrollto(this.rfn5)} />
           </p>
 
           <hr />

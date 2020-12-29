@@ -23,7 +23,7 @@ export default class ZiziPicker extends React.Component {
 
     this.startvideo = React.createRef();
     this.loopvideo = React.createRef();
-    this.endvideo = React.createRef();
+    // this.endvideo = React.createRef();
     this.audioloop = React.createRef();
   }
 
@@ -32,25 +32,26 @@ export default class ZiziPicker extends React.Component {
     setTimeout(
       () => this.handleHls(this.loopvideo.current),
       1500);
-    setTimeout(
-      () => this.handleHls(this.endvideo.current),
-      1000);
+    // setTimeout(
+    //   () => this.handleHls(this.endvideo.current),
+    //   1000);
 
-
+    // ~~~~ Pause Picker BG Music when inactive - current bugs on some devices where it pauses ~~~~
+    // 
     // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
-    var lastSeen;
-    var loop = function () {
-      lastSeen = Date.now();
-      setTimeout(loop, 50);
-    };
-    loop();
+    // var lastSeen;
+    // var loop = function () {
+    //   lastSeen = Date.now();
+    //   setTimeout(loop, 50);
+    // };
+    // loop();
 
-    this.audioloop.current.addEventListener('timeupdate', function () {
-      if (Date.now() - lastSeen > 100) {
-        this.pause();
-        console.log("INACTIVE -HOST");
-      }
-    }, false);
+    // this.audioloop.current.addEventListener('timeupdate', function () {
+    //   if (Date.now() - lastSeen > 100) {
+    //     this.pause();
+    //     console.log("INACTIVE -HOST");
+    //   }
+    // }, false);
   }
 
   getSrc(source) {
@@ -90,7 +91,7 @@ export default class ZiziPicker extends React.Component {
           playsInline={true}>
           <source src={this.state.src + "-loop/playlist.m3u8"} />
         </video>
-        <video
+        {/* <video
           className={"host-video " + this.state.endVisibility + " fade"}
           onEnded={this.enterPlayer}
           preload="metadata"
@@ -98,7 +99,7 @@ export default class ZiziPicker extends React.Component {
           ref={this.endvideo}
           playsInline={true}>
           <source src={this.state.src + "-end/playlist.m3u8"} />
-        </video>
+        </video> */}
         <audio
           className="sound-loop"
           autoPlay={true}
@@ -170,6 +171,7 @@ export default class ZiziPicker extends React.Component {
   };
 
   setSong = (song) => {
+<<<<<<< HEAD
     this.setState({
       chosenSong: song,
     });
@@ -177,6 +179,16 @@ export default class ZiziPicker extends React.Component {
     gtag('send', 'choose_song', {
       'event_label' : song    
     })
+=======
+    this.props.switchToPlayer(this.state.chosenPerformer, song);
+
+    // ~~~~ GO to walk off first ~~~~
+    // 
+    // this.setState({
+    //   chosenSong: song,
+    // });
+    // this.showEnd();
+>>>>>>> origin/fixSafariOffscreenBug
   };
 
   enterPlayer = () => {
@@ -192,9 +204,12 @@ export default class ZiziPicker extends React.Component {
   showEnd = () => {
     // this.setState({ startVisibility: 'hidden fade' });
     // this.setState({ loopVisibility: 'hidden fade' });
-    this.setState({ startVisibility: 'hidden', endVisibility: 'visible', sidebarVisible: 'closed' });
-    this.endvideo.current.play();
+    this.setState({ startVisibility: 'hidden fade', loopVisibility: 'hidden fade', endVisibility: 'visible', sidebarVisible: 'closed' });
+
+    // BUG - need error handler in case doesnt play?
+    // this.endvideo.current.play();
     this.loopvideo.current.pause();
+    this.startvideo.current.pause();
   };
 
   handleHls(video) {
