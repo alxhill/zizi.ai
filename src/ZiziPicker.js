@@ -35,23 +35,22 @@ export default class ZiziPicker extends React.Component {
     // setTimeout(
     //   () => this.handleHls(this.endvideo.current),
     //   1000);
+    document.addEventListener("visibilitychange", this.onVisibilityChange, false);
+  }
 
-    // ~~~~ Pause Picker BG Music when inactive - current bugs on some devices where it pauses ~~~~
-    // 
-    // https://stackoverflow.com/questions/14414654/stop-html5-audio-from-looping-when-ios-safari-is-closed
-    // var lastSeen;
-    // var loop = function () {
-    //   lastSeen = Date.now();
-    //   setTimeout(loop, 50);
-    // };
-    // loop();
+  componentWillUnmount() {
+    document.removeEventListener("visibilitychange", this.onVisibilityChange)
+  }
 
-    // this.audioloop.current.addEventListener('timeupdate', function () {
-    //   if (Date.now() - lastSeen > 100) {
-    //     this.pause();
-    //     console.log("INACTIVE -HOST");
-    //   }
-    // }, false);
+  onVisibilityChange = () => {
+    console.log("visibilitychange", this.audioloop, document.hidden, this)
+    if (document.hidden) {
+      this.audioloop.current.pause();
+      console.log("INACTIVE - HOST");
+    } else {
+      this.audioloop.current.play()
+      console.log("RESUME - HOST");
+    }
   }
 
   getSrc(source) {
@@ -174,7 +173,7 @@ export default class ZiziPicker extends React.Component {
     this.props.switchToPlayer(this.state.chosenPerformer, song);
     // eslint-disable-next-line no-undef
     gtag('event', 'choose_song', {
-      'event_label' : song    
+      'event_label': song
     })
 
     // ~~~~ GO to walk off first ~~~~

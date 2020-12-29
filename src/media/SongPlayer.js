@@ -20,22 +20,6 @@ export default class SongPlayer extends React.Component {
     } else if (!prevProps.playing && this.props.playing) {
       this.play();
     }
-
-    // ~~~~ Pause Sound when inactive - current bugs on some devices where it pauses ~~~~
-    // 
-    // var lastSeen;
-    // var loop = function () {
-    //   lastSeen = Date.now();
-    //   setTimeout(loop, 50);
-    // };
-    // loop();
-
-    // this.audioPlayer.current.addEventListener('timeupdate', () => {
-    //   if (Date.now() - lastSeen > 100) {
-    //     this.props.pause();
-    //     console.log("INACTIVE");
-    //   }
-    // }, false);
   }
 
   render() {

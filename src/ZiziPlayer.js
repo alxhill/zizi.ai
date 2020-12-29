@@ -34,7 +34,20 @@ export default class ZiziPlayer extends React.Component {
 
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown);
-  };
+    document.addEventListener("visibilitychange", this.onVisibilityChange, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("visibilitychange", this.onVisibilityChange)
+  }
+
+  onVisibilityChange = () => {
+    console.log("visibilitychange", document.hidden, this)
+    if (document.hidden) {
+      this.pause();
+      console.log("INACTIVE - SONG");
+    }
+  }
 
   render() {
     return (
