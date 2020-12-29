@@ -172,8 +172,8 @@ export default class ZiziPicker extends React.Component {
 
   setSong = (song) => {
     this.props.switchToPlayer(this.state.chosenPerformer, song);
-
-    gtag('send', 'choose_song', {
+    // eslint-disable-next-line no-undef
+    gtag('event', 'choose_song', {
       'event_label' : song    
     })
 
