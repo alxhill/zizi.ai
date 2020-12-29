@@ -86,9 +86,9 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
           />
           <p>
-          <p>Private pre-Release<br />
-            Please do not share</p>
-            <p><b>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b><br />
+          <p><i>Private pre-Release<br />
+            Please do not share</i></p>
+            <p>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}<br />
             in Collaboration with 13 of the UK's top drag artists</p>
     
             <small>
