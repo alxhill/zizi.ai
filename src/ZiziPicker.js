@@ -171,16 +171,11 @@ export default class ZiziPicker extends React.Component {
   };
 
   setSong = (song) => {
-<<<<<<< HEAD
-    this.setState({
-      chosenSong: song,
-    });
-    this.showEnd();
+    this.props.switchToPlayer(this.state.chosenPerformer, song);
+
     gtag('send', 'choose_song', {
       'event_label' : song    
     })
-=======
-    this.props.switchToPlayer(this.state.chosenPerformer, song);
 
     // ~~~~ GO to walk off first ~~~~
     // 
@@ -188,7 +183,6 @@ export default class ZiziPicker extends React.Component {
     //   chosenSong: song,
     // });
     // this.showEnd();
->>>>>>> origin/fixSafariOffscreenBug
   };
 
   enterPlayer = () => {
