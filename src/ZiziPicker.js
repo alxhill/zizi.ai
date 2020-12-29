@@ -174,6 +174,9 @@ export default class ZiziPicker extends React.Component {
       chosenSong: song,
     });
     this.showEnd();
+    gtag('send', 'choose_song', {
+      'event_label' : song    
+    })
   };
 
   enterPlayer = () => {
