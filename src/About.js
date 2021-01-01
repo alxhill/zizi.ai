@@ -28,6 +28,15 @@ export default class About extends React.Component {
     this.rfn4 = React.createRef()
     this.rfn5 = React.createRef()
   }
+
+  componentDidMount() {
+    // eslint-disable-next-line no-undef
+    gtag('event', 'about_page', {
+      'page': 'about'
+    })
+  }
+
+
   scrollto = (element) => {
     this.aboutPageContent.current.scroll({
       top: element.current.offsetTop - 100,
