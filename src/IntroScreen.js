@@ -3,12 +3,13 @@ import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
 import { sideCurtain, backCurtain } from "./Curtain";
 import { Forward10, Back10, Fullscreen, FullscreenExit } from "./Buttons";
+import YouTube from "react-youtube";
 
 export default class IntroScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      entered: false,
+      entered: true,
       password: "",
       currentTime: 0,
     };
@@ -16,15 +17,10 @@ export default class IntroScreen extends React.Component {
   }
 
   componentDidMount() {
-    if (this.video.current) {
-      this.handleHls(this.video.current);
-    }
+    window.yt = this.player
   }
 
   componentDidUpdate() {
-    if (this.video.current) {
-      this.handleHls(this.video.current);
-    }
   }
 
   externalLink(ref, content) {
@@ -38,29 +34,24 @@ export default class IntroScreen extends React.Component {
         <Fullscreen onClick={this.fullscreen} />
       );
 
+    const playerOpts = {
+      playsinline: "1",
+      playerVars: { autoplay: 1, autohide: 0, playsinline: 1, start: 0, frameborder: 0, controls: 1 },
+    };
+
     if (this.state.entered) {
       return (
         <div className="enter-screen">
-          <video
-            className="zizi-intro-video"
-            onEnded={this.props.onEnter}
-            ref={this.video}
-            playsInline={true}
-            autoPlay={true}
-          >
-            <source src="https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/intro/playlist.m3u8" />
-          </video>
+
+          <YouTube className="zizi-intro-video" videoId="hBlB8RAJEEc" opts={playerOpts} onReady={this._onReady} />
 
           <div className="controls">
-            <Back10 onClick={this.onBack10} />
-            <Forward10 onClick={this.onForward10} />
-            {fullscreen}
             <button className="skip-intro" onClick={this.props.onEnter}>
               Skip
               <SkipNextRounded fontSize="inherit" />
             </button>
           </div>
-        </div>
+        </div >
       );
     }
 
@@ -71,7 +62,7 @@ export default class IntroScreen extends React.Component {
           className="curtain-bg "
           draggable={false}
           alt=""
-        />        
+        />
         {sideCurtain(false)}
 
         <button type="button" className="enter" onClick={this.attemptLogin}>
@@ -86,13 +77,13 @@ export default class IntroScreen extends React.Component {
             placeholder="Password"
           />
           <p>
-          <p><i>Private pre-Release<br />
+            <p><i>Private pre-Release<br />
             Please do not share</i></p>
             <p>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}<br />
             in Collaboration with 13 of the UK's top drag artists</p>
-    
+
             <small>
-            <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
+              <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
             </small>
           </p>
         </form>
@@ -145,6 +136,12 @@ export default class IntroScreen extends React.Component {
   refreshTime = (time) => {
     console.log(time);
     this.video.current.currentTime += time;
+  };
+
+  youtubeReady = (event) => {
+    this.player = event.target;
+    this.player.seekTo(this.props.song.youtube.startTime)
+    this.player.pauseVideo()
   };
 
   attemptLogin = (event) => {
