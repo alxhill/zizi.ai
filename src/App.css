@@ -157,6 +157,7 @@ body,
 .shadow-player {
   mix-blend-mode: multiply;
   z-index: -3;
+  width: 99vh;
 }
 
 .pose-player {
@@ -245,16 +246,15 @@ button.inline-link:focus {
   color: #ff9c84;
   font-size: 2rem;
   display: flex;
-  top: 0;
+  bottom: 40px;
+  right: 20px;
   z-index: 25;
   cursor: pointer;
   flex-direction: row;
-  justify-content: center;
   align-items: flex-start;
   /* background-color: rgba(46, 1, 15, 0.5); */
   padding: 1rem 0 1rem 0;
   filter: drop-shadow(1px 10px 10px #000);
-  width: 100%;
 }
 
 .enter-screen .controls span {
@@ -292,6 +292,42 @@ button.inline-link:focus {
 
 .enter-screen .intro-text a {
   text-decoration: none;
+}
+
+/* .zizi-intro-video {
+  position: relative;
+  height: 100vh; 
+  width: 100%;
+}
+
+.zizi-intro-video iframe {
+  position: fixed;
+  height: 150%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.enter-screen iframe{
+  position: fixed;
+  height: 100vh;
+  /* width: 100vw; */
+  width: calc((100vh*16) /9);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* CSS cant affect inside iframe */
+/* .player video.video-stream.html5-main-video {
+  height: 100vh;
+  width: 200%;
+  top:0;
+} */
+
+.zizi-intro-video {
+  height: 100vh;
+  overflow: hidden;
 }
 
 
@@ -782,41 +818,6 @@ button.inline-link:focus {
   flex-shrink: 0;
 }
 
-/* .zizi-intro-video {
-  position: relative;
-  height: 100vh; 
-  width: 100%;
-}
-
-.zizi-intro-video iframe {
-  position: fixed;
-  height: 150%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-.enter-screen iframe{
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  /* width: calc((100vh*16) /9); */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* CSS cant affect inside iframe */
-/* .player video.video-stream.html5-main-video {
-  height: 100vh;
-  width: 200%;
-  top:0;
-} */
-
-.zizi-intro-video {
-  height: 100vh;
-  overflow: hidden;
-}
 
 .host-video {
   position: fixed;
@@ -936,9 +937,9 @@ circle {
     font-size: 2.1rem;
   }
 
-  .enter-screen button.skip-intro {
+  /* .enter-screen button.skip-intro {
     right: 2rem;
-  }
+  } */
 
   .zizi-sidebar {
     right: 0;

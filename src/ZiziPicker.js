@@ -176,7 +176,7 @@ export default class ZiziPicker extends React.Component {
     // eslint-disable-next-line no-undef
     gtag('event', 'song_' + song)
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + this.state.chosenPerformer)
+    gtag('event', 'perf_' + this.state.chosenPerformer + '_init')
 
     // ~~~~ GO to walk off first ~~~~
     // 

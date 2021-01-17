@@ -43,7 +43,7 @@ export default class IntroScreen extends React.Component {
       return (
         <div className="enter-screen">
 
-          <YouTube className="zizi-intro-video" videoId="hBlB8RAJEEc" opts={playerOpts} onReady={this._onReady} />
+          <YouTube className="zizi-intro-video" videoId="mNWaz2zjmWE" opts={playerOpts} onReady={this._onReady} />
 
           <div className="controls">
             <button className="skip-intro" onClick={this.props.onEnter}>
