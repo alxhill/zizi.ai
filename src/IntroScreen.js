@@ -1,26 +1,20 @@
-import Hls from "hls.js";
 import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
-import { sideCurtain, backCurtain } from "./Curtain";
-import { Forward10, Back10, Fullscreen, FullscreenExit } from "./Buttons";
+import { sideCurtain } from "./Curtain";
 import YouTube from "react-youtube";
 
 export default class IntroScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      entered: true,
+      entered: false,
       password: "",
       currentTime: 0,
     };
-    this.video = React.createRef();
   }
 
   componentDidMount() {
     window.yt = this.player
-  }
-
-  componentDidUpdate() {
   }
 
   externalLink(ref, content) {
@@ -28,15 +22,8 @@ export default class IntroScreen extends React.Component {
   }
 
   render() {
-    let fullscreen = this.state.fullscreen ? (
-      <FullscreenExit onClick={this.fullscreenexit} />
-    ) : (
-        <Fullscreen onClick={this.fullscreen} />
-      );
-
     const playerOpts = {
-      playsinline: "1",
-      playerVars: { autoplay: 1, autohide: 0, playsinline: 1, start: 0, frameborder: 0, controls: 1 },
+      playerVars: { autoplay: 1, autohide: 0, playsinline: 1, start: 0, frameborder: 0, controls: 1, rel: 0, showinfo: 0, ecver: 2 },
     };
 
     if (this.state.entered) {
@@ -92,43 +79,6 @@ export default class IntroScreen extends React.Component {
   }
 
 
-  fullscreen = () => {
-    var elem = document.documentElement;
-    this.setState({ fullscreen: true });
-    this.setState({ currentTime: this.video.current.currentTime });
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-      setTimeout(() => this.refreshTime(this.state.currentTime), 100);
-    } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
-    }
-    // setTimeout(this.refreshTime(), 500);
-  };
-
-  fullscreenexit = () => {
-    this.setState({ fullscreen: false });
-    this.setState({ currentTime: this.video.current.currentTime });
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-      setTimeout(() => this.refreshTime(this.state.currentTime), 100);
-    } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen(this.video.current.currentTime);
-    }
-    // setTimeout(this.refreshTime(), 500);
-  };
-
-  onForward10 = () => {
-    this.video.current.currentTime += 10;
-  };
-
-  onBack10 = () => {
-    this.video.current.currentTime += -10;
-  };
-
   updatePassword = (event) => {
     this.setState({ password: event.target.value });
   };
@@ -155,14 +105,7 @@ export default class IntroScreen extends React.Component {
     }
   };
 
-  handleHls(video) {
-    if (
-      Hls.isSupported() &&
-      !video.canPlayType("application/vnd.apple.mpegurl")
-    ) {
-      var hls = new Hls();
-      hls.loadSource(video.querySelector("source").src);
-      hls.attachMedia(video);
-    }
+  _onReady(event) {
+    event.target.playVideo();
   }
 }

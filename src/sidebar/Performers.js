@@ -44,7 +44,7 @@ export default class Performers extends React.PureComponent {
             src={`img/performers/PickerImage/${performer.id}.jpg`}
             draggable="false"
           />
-          <div class="name">{performer.name}</div>
+          <div className="name">{performer.name}</div>
         </button>
         <button type="button" className="info" onClick={() => this.props.showAboutView(performer.id)}>About</button>
       </div>
