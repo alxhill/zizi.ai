@@ -1,4 +1,4 @@
-import { SkipNextRounded } from "@material-ui/icons";
+import { Portrait, SkipNextRounded } from "@material-ui/icons";
 import React from "react";
 import { sideCurtain } from "./Curtain";
 import YouTube from "react-youtube";
@@ -10,10 +10,14 @@ export default class IntroScreen extends React.Component {
       entered: false,
       password: "",
       currentTime: 0,
+      width: 0,
+      height: 0,
     };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
+    this.updateWindowDimensions();
     window.yt = this.player
   }
 
@@ -23,14 +27,23 @@ export default class IntroScreen extends React.Component {
 
   render() {
     const playerOpts = {
-      playerVars: { autoplay: 1, autohide: 0, playsinline: 1, start: 0, frameborder: 0, controls: 1, rel: 0, showinfo: 0, ecver: 2 },
+      playerVars: { autoplay: 1, autohide: 0, playsinline: 0, start: 0, frameborder: 0, controls: 1, rel: 0, showinfo: 0, ecver: 2 },
     };
+
+    let vidId;
+    if (this.state.width > this.state.height) {
+      // Landscape
+      vidId = "Tzbm-cedKls"
+    } else {
+      // Portrait
+      vidId = "sn9w8ECVT1k"
+    }
 
     if (this.state.entered) {
       return (
         <div className="enter-screen">
 
-          <YouTube className="zizi-intro-video" videoId="mNWaz2zjmWE" opts={playerOpts} onReady={this._onReady} />
+          <YouTube className="zizi-intro-video" videoId={vidId} opts={playerOpts} onReady={this._onReady} />
 
           <div className="controls">
             <button className="skip-intro" onClick={this.props.onEnter}>
@@ -104,6 +117,10 @@ export default class IntroScreen extends React.Component {
       alert("Invalid password!");
     }
   };
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
 
   _onReady(event) {
     event.target.playVideo();
