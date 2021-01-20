@@ -27,7 +27,18 @@ export default class IntroScreen extends React.Component {
 
   render() {
     const playerOpts = {
-      playerVars: { autoplay: 1, autohide: 0, playsinline: 0, start: 0, frameborder: 0, controls: 1, rel: 0, showinfo: 0, ecver: 2 },
+      playerVars: {
+        autoplay: 1,
+        autohide: 0,
+        playsinline: 0,
+        start: 0,
+        frameborder: 0,
+        controls: 1,
+        rel: 0,
+        showinfo: 0,
+        fs: 1,
+        modestbranding: 1,
+      },
     };
 
     let vidId;
@@ -43,7 +54,7 @@ export default class IntroScreen extends React.Component {
       return (
         <div className="enter-screen">
 
-          <YouTube className="zizi-intro-video" videoId={vidId} opts={playerOpts} onReady={this._onReady} />
+          <YouTube className="zizi-intro-video" videoId={vidId} opts={playerOpts} onReady={this._onReady} onEnd={this.props.onEnter} onError={this.props.onEnter} />
 
           <div className="controls">
             <button className="skip-intro" onClick={this.props.onEnter}>
