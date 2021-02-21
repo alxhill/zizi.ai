@@ -307,14 +307,15 @@ button.inline-link:focus {
 }
 
 #mc_embed_signup .button {
-  background-color: #444;
+  background-color: rgba(44,44,44,0.7);
   color: #ffffff;
   margin: 0 auto;
+    font-size: 1rem;
+
   box-sizing: border-box;
   border-radius: 3px;
   border: none;
   font-family: "market_decoregular", sans-serif;
-  opacity: 70%;
 }
 #mc_embed_signup .button:hover {
   background-color: #a3a3a3;

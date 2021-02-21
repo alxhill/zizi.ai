@@ -9,6 +9,7 @@ export default class IntroScreen extends React.Component {
     this.state = {
       entered: false,
       password: "",
+      email: "",
       currentTime: 0,
       width: 0,
       height: 0,
@@ -90,7 +91,7 @@ export default class IntroScreen extends React.Component {
 
 
           <p>
-            <p><i>A deepfake drag cabaret</i></p>
+            <p><i>A deepfake drag cabaret, coming soon</i></p>
             <small>
               {/* <p>
               Requires a fast internet connection. <br />Not optimised for android devices.
@@ -98,21 +99,21 @@ export default class IntroScreen extends React.Component {
 
               <p>Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
                 in Collaboration with 13 of the UK's top drag artists<br />
-              The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
+              The Zizi Show 2021 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
             </small>
           </p>
 
           <div id="mc_embed_signup">
             <form
-              action="https://zizi.us10.list-manage.com/subscribe/post?u=ee24af4926f5f371f6fe5a0c8&amp;id=b14dd06991"
-              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
-              target="_blank" novalidate>
+              onSubmit="null" action="https://zizi.us10.list-manage.com/subscribe/post?u=ee24af4926f5f371f6fe5a0c8&amp;id=b14dd06991" method="POST" novalidate>
+                {/* <input type="hidden" name="u" value="ee24af4926f5f371f6fe5a0c8"/> */}
               <div id="mc_embed_signup_scroll">
                 <input
                   type="email"
-                  value=""
+                  value={this.state.email}
                   name="EMAIL"
                   className="email"
+                  onChange={this.updateEmail}
                   id="mce-EMAIL"
                   placeholder="email address"
                   required
@@ -137,6 +138,10 @@ export default class IntroScreen extends React.Component {
 
   updatePassword = (event) => {
     this.setState({ password: event.target.value });
+  };
+
+  updateEmail = (event) => {
+    this.setState({ email: event.target.value });
   };
 
   refreshTime = (time) => {
