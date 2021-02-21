@@ -85,20 +85,52 @@ export default class IntroScreen extends React.Component {
             name="password"
             value={this.state.password}
             onChange={this.updatePassword}
-            placeholder="Password"
+            placeholder="pre-release password"
           />
-          <p>
-            <p><i>Private pre-Release<br />
-            Please do not share</i></p>
-            <p>A Deepfake Drag experience by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}<br />
-            in Collaboration with 13 of the UK's top drag artists</p>
 
+
+          <p>
+            <p><i>A deepfake drag cabaret</i></p>
             <small>
-              <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
+              {/* <p>
+              Requires a fast internet connection. <br />Not optimised for android devices.
+            </p> */}
+
+              <p>Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
+                in Collaboration with 13 of the UK's top drag artists<br />
+              The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
             </small>
           </p>
+
+          <div id="mc_embed_signup">
+            <form
+              action="https://zizi.us10.list-manage.com/subscribe/post?u=ee24af4926f5f371f6fe5a0c8&amp;id=b14dd06991"
+              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
+              target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+                <input
+                  type="email"
+                  value=""
+                  name="EMAIL"
+                  className="email"
+                  id="mce-EMAIL"
+                  placeholder="email address"
+                  required
+                />
+                <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                  <input type="text"
+                    name="b_ee24af4926f5f371f6fe5a0c8_b14dd06991" tabindex="-1" value="" />
+                </div>
+                <div className="clear" />
+                <input type="submit" value="SUBSCRIBE FOR NEWS" name="subscribe"
+                  id="mc-embedded-subscribe" className="button" />
+              </div>
+            </form>
+          </div>
+
+
         </form>
-      </div>
+      </div >
     );
   }
 

@@ -273,10 +273,11 @@ button.inline-link:focus {
   text-align: center;
 }
 
-.enter-screen .intro-text input {
-  font-size: 0.9rem;
+.enter-screen input {
   padding: 0.4rem;
   text-align: center;
+  width: 200px;
+  /* font-family: "market_decoregular", sans-serif; */
   filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
 }
 
@@ -292,6 +293,32 @@ button.inline-link:focus {
 
 .enter-screen .intro-text a {
   text-decoration: none;
+}
+
+#mc_embed_signup h2 {
+  font-size: 18px;
+  margin: 0 0 20px;
+  color: #000000;
+  text-align: center;
+}
+
+#mc_embed_signup_scroll {
+  padding: 20px 40px 20px 40px;
+}
+
+#mc_embed_signup .button {
+  background-color: #444;
+  color: #ffffff;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: none;
+  font-family: "market_decoregular", sans-serif;
+  opacity: 70%;
+}
+#mc_embed_signup .button:hover {
+  background-color: #a3a3a3;
+  animation: 1s linear background-color;
 }
 
 /* .zizi-intro-video {
