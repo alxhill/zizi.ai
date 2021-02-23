@@ -243,11 +243,13 @@ button.inline-link:hover, button.inline-link:focus {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  cursor:default;
+  pointer-events: none;
 }
 
 .enter-screen button.enter img:hover {
-  -webkit-filter: drop-shadow(0px 0px 0px #800a12);
-  filter: drop-shadow(0px 0px 0px #800a12);
+  /* -webkit-filter: drop-shadow(0px 0px 0px #800a12);
+  filter: drop-shadow(0px 0px 0px #800a12); */
 }
 
 @keyframes logoanimate {
@@ -338,6 +340,11 @@ button.inline-link:hover, button.inline-link:focus {
   text-align: center;
 }
 
+.enter-screen h1 {
+  font-size: 1.6rem;
+  margin: 0px;
+}
+
 .enter-screen input {
   padding: 0.4rem;
   text-align: center;
@@ -347,7 +354,7 @@ button.inline-link:hover, button.inline-link:focus {
 }
 
 .enter-screen .intro-text p {
-  margin-top: 1rem;
+  margin: 0rem;
   color: #ee9c92;
 }
 

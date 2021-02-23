@@ -79,39 +79,32 @@ export default class IntroScreen extends React.Component {
         />
         {sideCurtain(false)}
 
-        <button type="button" className="enter" onClick={this.attemptLogin}>
+        {/* <button type="button" className="enter" onClick={this.attemptLogin}> */}
+        <button type="button" className="enter">
           <img className={animateClass} src="img/enterButtonFull.png" alt="Enter the Zizi show" />
         </button>
         <div className={"black-overlay " + animateClass}></div>
 
 
         <form className="intro-text" onSubmit={this.attemptLogin}>
-          <input
+          {/* <input
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.updatePassword}
             placeholder="pre-release password"
-          />
+          /> */}
 
 
           <p>
-            <p><i>A deepfake drag cabaret, coming soon</i></p>
-            <small>
-              <p>
-              Requires a fast internet connection. <br />Not optimised for android devices.
-            </p>
+          <h1><i>coming soon</i></h1>
+          <p><i>A deepfake drag cabaret</i></p>
 
-              <p>Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
-                in Collaboration with 13 of the UK's top drag artists<br />
-              The Zizi Show 2021 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
-            </small>
           </p>
 
           <div id="mc_embed_signup">
             <form
               onSubmit="null" action="https://zizi.us10.list-manage.com/subscribe/post?u=ee24af4926f5f371f6fe5a0c8&amp;id=b14dd06991" method="POST" novalidate>
-                {/* <input type="hidden" name="u" value="ee24af4926f5f371f6fe5a0c8"/> */}
               <div id="mc_embed_signup_scroll">
                 <input
                   type="email"
@@ -133,6 +126,18 @@ export default class IntroScreen extends React.Component {
               </div>
             </form>
           </div>
+
+          <small>
+              
+              {/* <p>
+              Requires a fast internet connection. <br />Not optimised for android devices.
+            </p> */}
+
+              <p>Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
+                in Collaboration with 13 of the UK's top drag artists<br />
+              The Zizi Show 2021 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</p>
+            
+            </small>
 
 
         </form>
