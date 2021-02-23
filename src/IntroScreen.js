@@ -93,9 +93,9 @@ export default class IntroScreen extends React.Component {
           <p>
             <p><i>A deepfake drag cabaret, coming soon</i></p>
             <small>
-              {/* <p>
+              <p>
               Requires a fast internet connection. <br />Not optimised for android devices.
-            </p> */}
+            </p>
 
               <p>Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
                 in Collaboration with 13 of the UK's top drag artists<br />

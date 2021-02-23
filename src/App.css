@@ -405,6 +405,7 @@ button.inline-link:focus {
 .button-sidebar .close-button,
 .close-sidebar-left .close-button {
   height: 2rem;
+  width: 2rem;
   font-size: 2.1rem;
   padding: 1rem;
   display: block;
