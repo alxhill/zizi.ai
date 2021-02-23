@@ -7,6 +7,7 @@ export default class IntroScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      animate: false,
       entered: false,
       password: "",
       email: "",
@@ -66,7 +67,8 @@ export default class IntroScreen extends React.Component {
         </div >
       );
     }
-
+    
+    let animateClass = this.state.animate ? "animate" : "";
     return (
       <div className="enter-screen">
         <img
@@ -78,8 +80,11 @@ export default class IntroScreen extends React.Component {
         {sideCurtain(false)}
 
         <button type="button" className="enter" onClick={this.attemptLogin}>
-          <img src="img/enterButtonFull.png" alt="Enter the Zizi show" />
+          <img className={animateClass} src="img/enterButtonFull.png" alt="Enter the Zizi show" />
         </button>
+        <div className={"black-overlay " + animateClass}></div>
+
+
         <form className="intro-text" onSubmit={this.attemptLogin}>
           <input
             type="password"
@@ -155,12 +160,20 @@ export default class IntroScreen extends React.Component {
     this.player.pauseVideo()
   };
 
+  enter = (event) => {
+    this.setState({ animate: true });
+    // this.setState({ entered: true });
+    setTimeout(
+      () => this.setState({ entered: true }),
+      1000);
+  }
+
   attemptLogin = (event) => {
     if (event !== null) {
       event.preventDefault();
     }
     if (btoa(this.state.password) === "ZGVlcGZha2U=") {
-      this.setState({ entered: true });
+      this.enter();
     } else {
       alert("Invalid password!");
     }
