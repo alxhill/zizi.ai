@@ -80,24 +80,15 @@ export default class IntroScreen extends React.Component {
         {sideCurtain(false)}
 
         <button type="button" className="enter" onClick={this.enter}>
-          {/* <button type="button" className="enter"> */}
           <img className={animateClass} src="img/enterButtonFull.png" alt="Enter the Zizi show" />
         </button>
         <div className={"black-overlay " + animateClass}></div>
 
 
         <form className="intro-text" onSubmit={this.attemptLogin}>
-          {/* <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.updatePassword}
-            placeholder="pre-release password"
-          /> */}
 
 
           <p>
-            {/* <p className="soon">coming soon</p> */}
             <p className="subtitle"><i>A deepfake drag cabaret</i></p>
 
               <p className="credit">Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
@@ -114,31 +105,6 @@ export default class IntroScreen extends React.Component {
 
             </small>
           </p>
-
-          {/* <div id="mc_embed_signup">
-            <form
-              onSubmit="null" action="https://zizi.us10.list-manage.com/subscribe/post?u=ee24af4926f5f371f6fe5a0c8&amp;id=b14dd06991" method="POST" novalidate>
-              <div id="mc_embed_signup_scroll">
-                <input
-                  type="email"
-                  value={this.state.email}
-                  name="EMAIL"
-                  className="email"
-                  onChange={this.updateEmail}
-                  id="mce-EMAIL"
-                  placeholder="email address"
-                  required
-                />
-                <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-                  <input type="text"
-                    name="b_ee24af4926f5f371f6fe5a0c8_b14dd06991" tabindex="-1" value="" />
-                </div>
-                <div className="clear" />
-                <input type="submit" value="SUBSCRIBE FOR NEWS" name="subscribe"
-                  id="mc-embedded-subscribe" className="button" />
-              </div>
-            </form>
-          </div> */}
 
 
         </form>
