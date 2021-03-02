@@ -39,7 +39,7 @@ export default class IntroScreen extends React.Component {
         rel: 0,
         showinfo: 0,
         fs: 1,
-        modestbranding: 1,
+        modestbranding: 0,
       },
     };
 

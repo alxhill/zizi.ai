@@ -13,6 +13,7 @@ export default class Songs extends React.PureComponent {
       <div>
         <img src="img/pick.png" className="secondary-header" draggable="false" alt="Pick an act" />
         <div className="songs-list">{renderedSongs}</div>
+        <div><p><small> More Acts Coming Soon</small></p></div>
       </div>
     );
   }

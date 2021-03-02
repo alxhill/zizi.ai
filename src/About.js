@@ -128,7 +128,7 @@ export default class About extends React.Component {
                 <b>Drew Hemment</b> - Project Director &amp; Curator
           </li>
               <li>
-                <b>Suzy Glass</b> - Producer
+                <b>Suzy Glass &amp; Janet Archer</b> - Producers
           </li>
               <li>
                 <b>Sarah Bennett</b> - Researcher
@@ -142,14 +142,14 @@ export default class About extends React.Component {
               "My latest work aims to bring together two things I love, artificial intelligence, and the world of drag performance. In an entertaining and humorous way, drag has allowed me to dig into some of the social issues built into machine learning technology. Drag is just such a brilliant medium for exploring the layers of construction and social bias in AI.
           </p>
             <p>
-              Working closely with friends from the London drag scene, in Zizi we have created a ‘deepfake’ virtual cabaret. This deepfake tech has enabled us to collaborate with machine learning to do drag, demonstrating how drag queens, drag kings and drag things can never be replaced by artificial intelligence.
-          </p>
+              Working closely with friends from the London drag scene, in Zizi we have created a ‘deepfake’ virtual cabaret. Deepfake technology has enabled us to collaborate with machine learning to do drag - trained on 13 extremely talented performers - perhaps proving that drag queens, drag kings and drag things will never be replaced by artificial intelligence.
+              </p>
             <p>
               The Zizi Project pushes the boundaries of both drag and AI to discover what AI can teach us about drag – and what drag can teach us about AI.”
           </p>
           </i>
           <br />
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Jake Elwes</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Jake Elwes, artist</p>
           <hr />
 
           <h2 ref={this.process}>Process</h2>
