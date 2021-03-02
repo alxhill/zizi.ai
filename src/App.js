@@ -2,7 +2,7 @@ import React from "react";
 import ZiziPlayer from "./ZiziPlayer";
 import "./App.css";
 import ShowData from "./ShowData";
-import IntroScreen from "./IntroScreen";
+import IntroScreen from "./IntroScreen-press";
 import ZiziPicker from "./ZiziPicker";
 import About from "./About";
 
