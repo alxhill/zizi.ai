@@ -60,13 +60,13 @@ export default class ZiziPicker extends React.Component {
     switch (source) {
       default:
       case "enter":
-        // return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-0";
+        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-0";
       // local
-      return "vids/intro-and-host/host-0";
+      // return "vids/intro-and-host/host-intro/high.m3u8";
       case "song-end":
-        // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}`;
+        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}`;
       // local
-      return `vids/intro-and-host/host-${num}`;
+      // return `vids/intro-and-host/host${num}/high.m3u8`;
     }
   }
 
@@ -82,7 +82,7 @@ export default class ZiziPicker extends React.Component {
           autoPlay={true}
           ref={this.startvideo}
           playsInline={true}>
-          <source src={this.state.src + "-start/high.m3u8"} />
+          <source src={this.state.src + "-start/playlist.m3u8"} />
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
@@ -91,7 +91,7 @@ export default class ZiziPicker extends React.Component {
           loop={true}
           ref={this.loopvideo}
           playsInline={true}>
-          <source src={this.state.src + "-loop/high.m3u8"} />
+          <source src={this.state.src + "-loop/playlist.m3u8"} />
         </video>
         {/* <video
           className={"host-video " + this.state.endVisibility + " fade"}

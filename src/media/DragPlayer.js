@@ -164,21 +164,21 @@ class DragPlayer extends React.Component {
   }
 
   performerSrc(props) {
-    // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;
     // local
-    return `vids/web/${props.song.id}-${props.performer.id}/high.m3u8`;
+    // return `vids/web/${props.song.id}-${props.performer.id}/high.m3u8`;
   }
 
   shadowSrc(props) {
-    // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-shadow/playlist.m3u8`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-shadow/playlist.m3u8`;
     // local
-    return `vids/web/${props.song.id}-shadow/high.m3u8`;
+    // return `vids/web/${props.song.id}-shadow/high.m3u8`;
   }
 
   poseSrc(props) {
-    // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-pose/playlist.m3u8`;
+    return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-pose/playlist.m3u8`;
     // local
-    return `vids/web/${props.song.id}-pose/high.m3u8`;
+    // return `vids/web/${props.song.id}-pose/high.m3u8`;
   }
 
   handleHls(video) {
