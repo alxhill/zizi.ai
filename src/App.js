@@ -2,7 +2,7 @@ import React from "react";
 import ZiziPlayer from "./ZiziPlayer";
 import "./App.css";
 import ShowData from "./ShowData";
-import IntroScreen from "./IntroScreen-press";
+import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 import About from "./About";
 
@@ -11,8 +11,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: "intro",
-      chosenSong: "iam",
+      mode: "picker",
+      chosenSong: "mylife",
       chosenPerformer: "amalgam",
       source: "enter",
       fullscreen: false,

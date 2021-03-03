@@ -30,7 +30,7 @@ export default class ZiziPicker extends React.Component {
   componentDidMount() {
     this.handleHls(this.startvideo.current);
     this.handleHls(this.loopvideo.current);
-    this.handleHls(this.endvideo.current);
+    // this.handleHls(this.endvideo.current);
     // setTimeout(
     //   () => this.handleHls(this.loopvideo.current),
     //   1500);
@@ -60,13 +60,13 @@ export default class ZiziPicker extends React.Component {
     switch (source) {
       default:
       case "enter":
-        return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-0";
+        // return "https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-0";
       // local
-      // return "vids/intro-and-host/host-intro/high.m3u8";
+      return "vids/intro-and-host/host-0";
       case "song-end":
-        return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}`;
+        // return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/intro-and-host/host-${num}`;
       // local
-      // return `vids/intro-and-host/host${num}/high.m3u8`;
+      return `vids/intro-and-host/host-${num}`;
     }
   }
 
@@ -82,7 +82,7 @@ export default class ZiziPicker extends React.Component {
           autoPlay={true}
           ref={this.startvideo}
           playsInline={true}>
-          <source src={this.state.src + "-start/playlist.m3u8"} />
+          <source src={this.state.src + "-start/high.m3u8"} />
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
@@ -91,9 +91,9 @@ export default class ZiziPicker extends React.Component {
           loop={true}
           ref={this.loopvideo}
           playsInline={true}>
-          <source src={this.state.src + "-loop/playlist.m3u8"} />
+          <source src={this.state.src + "-loop/high.m3u8"} />
         </video>
-        <video
+        {/* <video
           className={"host-video " + this.state.endVisibility + " fade"}
           onEnded={this.enterPlayer}
           preload="metadata"
@@ -101,7 +101,7 @@ export default class ZiziPicker extends React.Component {
           ref={this.endvideo}
           playsInline={true}>
           <source src={this.state.src + "-end/playlist.m3u8"} />
-        </video>
+        </video> */}
         <audio
           className="sound-loop"
           autoPlay={true}
@@ -173,11 +173,12 @@ export default class ZiziPicker extends React.Component {
   };
 
   setSong = (song) => {
+    this.props.switchToPlayer(this.state.chosenPerformer, song);
 
     // incase of 404/freeze
-    setTimeout(
-      () => this.props.switchToPlayer(this.state.chosenPerformer, song),
-      4000);
+    // setTimeout(
+    //   () => this.props.switchToPlayer(this.state.chosenPerformer, song),
+    //   4000);
 
     console.log('song_' + song);
     console.log('perf_' + this.state.chosenPerformer);
@@ -187,10 +188,10 @@ export default class ZiziPicker extends React.Component {
     gtag('event', 'perf_' + this.state.chosenPerformer + '_init')
 
     // ~~~~ GO to walk off first ~~~~
-    this.setState({
-      chosenSong: song,
-    });
-    this.showEnd();
+    // this.setState({
+    //   chosenSong: song,
+    // });
+    // this.showEnd();
   };
 
   enterPlayer = () => {

@@ -120,6 +120,9 @@ export default class About extends React.Component {
             <li>
               <b>{this.externalLink("https://soundcloud.com/breakaleeds", "Charlie Baker")}</b> - Sound Mixing
           </li>
+          <li>
+              <b>{this.externalLink("https://theappletreelondon.com/#events", "The Apple Tree")}</b> - Filming Location (LGBTQ+ Cabaret Venue)
+          </li>
           </ul>
           <small>
             <p style={{ textAlign: "center", marginTop: "3rem" }}><i>In Collaboration with <b>{this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}</b></i></p>
