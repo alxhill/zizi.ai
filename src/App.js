@@ -12,7 +12,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       mode: "intro",
-      chosenSong: "iam",
+      chosenSong: "mylife",
       chosenPerformer: "amalgam",
       source: "enter",
       fullscreen: false,

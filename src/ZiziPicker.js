@@ -23,15 +23,17 @@ export default class ZiziPicker extends React.Component {
 
     this.startvideo = React.createRef();
     this.loopvideo = React.createRef();
-    // this.endvideo = React.createRef();
+    this.endvideo = React.createRef();
     this.audioloop = React.createRef();
   }
 
   componentDidMount() {
     this.handleHls(this.startvideo.current);
-    setTimeout(
-      () => this.handleHls(this.loopvideo.current),
-      1500);
+    this.handleHls(this.loopvideo.current);
+    // this.handleHls(this.endvideo.current);
+    // setTimeout(
+    //   () => this.handleHls(this.loopvideo.current),
+    //   1500);
     // setTimeout(
     //   () => this.handleHls(this.endvideo.current),
     //   1000);
@@ -84,6 +86,7 @@ export default class ZiziPicker extends React.Component {
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
+          onEnded={this.showEnd}
           preload="metadata"
           loop={true}
           ref={this.loopvideo}
@@ -171,15 +174,20 @@ export default class ZiziPicker extends React.Component {
 
   setSong = (song) => {
     this.props.switchToPlayer(this.state.chosenPerformer, song);
+
+    // incase of 404/freeze
+    // setTimeout(
+    //   () => this.props.switchToPlayer(this.state.chosenPerformer, song),
+    //   4000);
+
     console.log('song_' + song);
     console.log('perf_' + this.state.chosenPerformer);
     // eslint-disable-next-line no-undef
     gtag('event', 'song_' + song)
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + this.state.chosenPerformer)
+    gtag('event', 'perf_' + this.state.chosenPerformer + '_init')
 
     // ~~~~ GO to walk off first ~~~~
-    // 
     // this.setState({
     //   chosenSong: song,
     // });
@@ -202,7 +210,7 @@ export default class ZiziPicker extends React.Component {
     this.setState({ startVisibility: 'hidden fade', loopVisibility: 'hidden fade', endVisibility: 'visible', sidebarVisible: 'closed' });
 
     // BUG - need error handler in case doesnt play?
-    // this.endvideo.current.play();
+    this.endvideo.current.play();
     this.loopvideo.current.pause();
     this.startvideo.current.pause();
   };

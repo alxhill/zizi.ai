@@ -2,9 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 @font-face {
   font-family: "market_decoregular";
-  src: url("font/market_deco-webfont.woff2") format("woff2"),
-    url("font/market_deco-webfont.woff") format("woff"),
-    url("font/market_deco.ttf") format("ttf");
+  src: url("font/market_deco-webfont.woff2") format("woff2"), url("font/market_deco-webfont.woff") format("woff"), url("font/market_deco.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -35,10 +33,7 @@ span {
   cursor: pointer;
 }
 
-html,
-body,
-#root,
-.fullheight {
+html, body, #root, .fullheight {
   height: 100%;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -82,7 +77,7 @@ body,
 .video-frame.hidden {
   opacity: 0;
   transition: opacity 0.5s ease;
-    /* could also use linear */
+  /* could also use linear */
 }
 
 .drag-video {
@@ -106,13 +101,13 @@ body,
   filter: drop-shadow(0px 0px 30px #000);
   -webkit-filter: drop-shadow(0px 0px 15px #000) drop-shadow(0px 0px 30px #000) drop-shadow(0px 0px 50px #000);
   opacity: 0;
-  transition: opacity 1s;
+  /* transition: opacity 1s; */
 }
 
 .resume.visible {
   opacity: 0.8;
   z-index: 1;
-  transition: opacity 1s;
+  /* transition: opacity 1s; */
 }
 
 .fade-in {
@@ -122,32 +117,66 @@ body,
   -o-animation: fadeIn 6s;
   -ms-animation: fadeIn 6s;
 }
+
 @keyframes fadeIn {
-  0% {opacity:0;}
-  60% {opacity:0;}
-  100% {opacity:0.8;}
-}
-@-moz-keyframes fadeIn {
-  0% {opacity:0;}
-  60% {opacity:0;}
-  100% {opacity:0.8;}
-}
-@-webkit-keyframes fadeIn {
-  0% {opacity:0;}
-  60% {opacity:0;}
-  100% {opacity:0.8;}
-}
-@-o-keyframes fadeIn {
-  0% {opacity:0;}
-  60% {opacity:0;}
-  100% {opacity:0.8;}
-}
-@-ms-keyframes fadeIn {
-  0% {opacity:0;}
-  60% {opacity:0;}
-  100% {opacity:0.8;}
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
 }
 
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
 
 .primary-player {
   mix-blend-mode: lighten;
@@ -157,6 +186,7 @@ body,
 .shadow-player {
   mix-blend-mode: multiply;
   z-index: -3;
+  width: 99vh;
 }
 
 .pose-player {
@@ -172,17 +202,19 @@ body,
 }
 
 /* unvisited link, visited link */
-button:link,
-button:visited, a:visited {
+
+button:link, button:visited, a:visited {
   color: #edb49f;
 }
 
 /* mouse over link */
+
 button:hover, a:hover, span:hover {
   color: #aa272e;
 }
 
 /* selected link */
+
 button:active, a:active {
   color: #fff;
 }
@@ -200,10 +232,105 @@ button.inline-link {
   color: #ffbcaf;
 }
 
-button.inline-link:hover,
-button.inline-link:focus {
+button.inline-link:hover, button.inline-link:focus {
   color: #d63a00;
 }
+
+
+.enter-screen .intro-text {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60%;
+  text-align: center;
+}
+
+.enter-screen .intro-text p {
+  /* margin: 0px; */
+  color: #ee9c92;
+  padding: none;
+  user-select: text;
+  text-shadow : 0px 0px 15px #f81e2d;
+}
+
+.enter-screen .subtitle {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.enter-screen .subtitle2 {
+  font-size: 1.1rem;
+  margin-top: -20px;
+}
+
+.enter-screen .credit {
+  margin-bottom: 50px;
+}
+
+.enter-screen small {
+  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.enter-screen .intro-text a {
+  text-decoration: none;
+  color: #fdcfc6;
+}
+
+.enter-screen .intro-text a:hover {
+  text-decoration: none;
+  color: #fdf1f1;
+}
+
+.enter-screen input {
+  padding: 0.4rem;
+  text-align: center;
+  /* font-family: "market_decoregular", sans-serif; */
+  filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
+}
+
+#mc_embed_signup input {
+  width: 250px;
+}
+
+#mc_embed_signup h2 {
+  font-size: 18px;
+  margin: 0 0 20px;
+  color: #000000;
+  text-align: center;
+}
+
+
+#mc_embed_signup .button {
+  background-color: rgba(44, 44, 44, 0.7);
+  color: #ffffff;
+  margin: 0 auto;
+  /* font-size: 1rem; */
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: none;
+  /* font-family: "market_decoregular", sans-serif; */
+}
+
+#mc_embed_signup .button:hover {
+  background-color: #a3a3a3;
+  animation: 1s linear background-color;
+}
+
+/* .zizi-intro-video {
+  position: relative;
+  height: 100vh; 
+  width: 100%;
+}
+
+.zizi-intro-video iframe {
+  position: fixed;
+  height: 150%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
 
 .enter-screen button.enter img {
   position: fixed;
@@ -213,9 +340,45 @@ button.inline-link:focus {
   transform: translate(-50%, -50%);
 }
 
+
 .enter-screen button.enter img:hover {
   -webkit-filter: drop-shadow(0px 0px 0px #800a12);
   filter: drop-shadow(0px 0px 0px #800a12);
+}
+
+@keyframes logoanimate {
+  0% {
+    height: 100%;
+    top: 50%;
+    filter: blur(0px);
+  }
+  100% {
+    height: 500%;
+    top: 22%;
+    filter: blur(20px);
+  }
+}
+
+.enter-screen button.enter img.animate {
+  animation: logoanimate 1s ease-out;
+  -webkit-animation: logoanimate 1s ease-out;
+}
+
+.enter-screen .black-overlay {
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  top: -20px;
+  position: fixed;
+  background-color: #000;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enter-screen .black-overlay.animate {
+  opacity: 1;
+  transition:opacity 1s linear;
 }
 
 .enter-screen button.skip-intro {
@@ -223,11 +386,11 @@ button.inline-link:focus {
   /* height: 25rem; */
   /* bottom: 2rem; */
   /* right: 6rem; */
-  font-size: 1.6rem;
+  font-size: 2rem;
   /* color: #ff9c84; */
-  /* background-color: rgba(46, 1, 15, 0.5); */
-  /* border-radius: 12px; */
-  /* padding: 0.6rem; */
+  background-color: rgba(46, 1, 15, 0.5);
+  border-radius: 12px;
+  padding: 0.6rem;
   padding-left: 1rem;
 }
 
@@ -245,17 +408,15 @@ button.inline-link:focus {
   color: #ff9c84;
   font-size: 2rem;
   display: flex;
-  bottom: 0;
-  /* right: 0; */
+  bottom: 50px;
+  right: 20px;
   z-index: 25;
   cursor: pointer;
   flex-direction: row;
-  justify-content: center;
   align-items: flex-start;
-  background-color: rgba(46, 1, 15, 0.5);
+  /* background-color: rgba(46, 1, 15, 0.5); */
   padding: 1rem 0 1rem 0;
   filter: drop-shadow(1px 10px 10px #000);
-  width: 100%;
 }
 
 .enter-screen .controls span {
@@ -266,35 +427,21 @@ button.inline-link:focus {
   color: #b22d3f;
 }
 
-.enter-screen .intro-text {
+.enter-screen iframe {
   position: fixed;
+  height: 100vh;
+  width: 100vw;
+  /* width: calc((100vh*16) /9); */
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  top: 60%;
-  text-align: center;
+  transform: translate(-50%, -50%);
 }
 
-.enter-screen .intro-text input {
-  font-size: 0.9rem;
-  padding: 0.4rem;
-  text-align: center;
-  filter: brightness(40%) sepia(100%) hue-rotate(-45deg);
-}
 
-.enter-screen .intro-text p {
-  margin-top: 1rem;
-  color: #ee9c92;
+.zizi-intro-video {
+  height: 100vh;
+  overflow: hidden;
 }
-
-.enter-screen .intro-text p b {
-  font-size: 1.5rem;
-  line-height: 50px;
-}
-
-.enter-screen .intro-text a {
-  text-decoration: none;
-}
-
 
 .zizi-sidebar {
   position: fixed;
@@ -305,7 +452,7 @@ button.inline-link:focus {
   color: #ff9c84;
   transition: left 1s ease;
   /* touch-action: none; */
-  -webkit-touch-callout:none;
+  -webkit-touch-callout: none;
   /* pointer-events: none; */
   z-index: 1;
 }
@@ -329,7 +476,7 @@ button.inline-link:focus {
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   /* position: -webkit-sticky; */
 }
@@ -339,9 +486,9 @@ button.inline-link:focus {
   height: 2rem;
 }
 
-.button-sidebar .close-button,
-.close-sidebar-left .close-button {
+.button-sidebar .close-button, .close-sidebar-left .close-button {
   height: 2rem;
+  width: 2rem;
   font-size: 2.1rem;
   padding: 1rem;
   display: block;
@@ -371,12 +518,7 @@ button.inline-link:focus {
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: #2e010f;
-  background: linear-gradient(
-    0deg,
-    rgba(7, 0, 2, 1) 2%,
-    rgba(46, 1, 15, 0.5) 70%,
-    rgba(46, 1, 15, 0.9) 100%
-  );
+  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 0.5) 70%, rgba(46, 1, 15, 0.9) 100%);
   /* transform: translateY(-50%); */
   z-index: 1;
 }
@@ -432,8 +574,7 @@ button.inline-link:focus {
   margin: 0 1rem 0 1rem;
 }
 
-.main-sidebar .now-playing .credits,
-.main-sidebar .copyright {
+.main-sidebar .now-playing .credits, .main-sidebar .copyright {
   font-size: smaller;
 }
 
@@ -445,6 +586,7 @@ button.inline-link:focus {
   font-size: 2rem;
   color: #ff9c84;
 }
+
 .main-sidebar .main-bar-content .about-button:hover {
   color: #aa272e;
 }
@@ -466,12 +608,7 @@ button.inline-link:focus {
   width: 30rem;
   height: 100%;
   background-color: #2e010f;
-  background: linear-gradient(
-    0deg,
-    rgba(7, 0, 2, 1) 2%,
-    rgba(46, 1, 15, 0.5) 70%,
-    rgba(46, 1, 15, 0.9) 100%
-  );
+  background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 0.5) 70%, rgba(46, 1, 15, 0.9) 100%);
   /* background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%); */
   color: #ff9c84;
   text-align: center;
@@ -547,8 +684,7 @@ button.inline-link:focus {
 }
 
 .bios h2 {
-  filter: drop-shadow(0px 0px 10px rgb(255, 148, 105))
-  drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
+  filter: drop-shadow(0px 0px 10px rgb(255, 148, 105)) drop-shadow(10px 10px 10px #000) drop-shadow(10px 10px 20px #000);
   font-size: 3rem;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
@@ -564,8 +700,7 @@ button.inline-link:focus {
 
 .bios p {
   text-align: left;
-  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman", Times, serif;
   -webkit-touch-callout: text;
   -webkit-user-select: text;
   -khtml-user-select: text;
@@ -577,8 +712,7 @@ button.inline-link:focus {
 .bios a {
   /* padding-top: 5rem; */
   text-align: center;
-  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman", Times, serif;
   -webkit-touch-callout: text;
   -webkit-user-select: text;
   -khtml-user-select: text;
@@ -616,8 +750,6 @@ button.inline-link:focus {
   color: #edb49f;
 }
 
-
-
 .secondary-sidebar .song img {
   height: 4rem;
   float: left;
@@ -645,8 +777,7 @@ button.inline-link:focus {
 
 .about-page {
   color: #ee9c92;
-  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman", Times, serif;
   line-height: 32px;
   font-size: 18px;
   margin: 0px;
@@ -753,7 +884,7 @@ button.inline-link:focus {
 }
 
 .picker {
-    isolation: isolate;
+  isolation: isolate;
 }
 
 .pickerAboutButton {
@@ -773,27 +904,13 @@ button.inline-link:focus {
   filter: drop-shadow(0px 0px 0px #800a12);
 }
 
-.main-sidebar #main-bar-logo-top,
-.main-sidebar #main-bar-logo-bottom {
+.main-sidebar #main-bar-logo-top, .main-sidebar #main-bar-logo-bottom {
   /* -webkit-flex: 1 0;
   flex: 1 0; */
   -webkit-flex-shrink: 0;
   -moz-flex-shrink: 0;
   -ms-flex: 0;
   flex-shrink: 0;
-}
-
-.zizi-intro-video,
-.picker .intro-video {
-  position: fixed;
-  height: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.zizi-intro-video {
-  z-index: 0;
 }
 
 .host-video {
@@ -820,15 +937,7 @@ button.inline-link:focus {
   transition: opacity 1s;
 }
 
-#main-bar-logo-top,
-#main-bar-logo-bottom,
-.curtain-bg,
-.curtain-side,
-.drag-video,
-.secondary-header,
-.secondary-sidebar .song img,
-.secondary-sidebar .song p,
-.about-page .secondary-header {
+#main-bar-logo-top, #main-bar-logo-bottom, .curtain-bg, .curtain-side, .drag-video, .secondary-header, .secondary-sidebar .song img, .secondary-sidebar .song p, .about-page .secondary-header {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -862,24 +971,19 @@ circle {
 }
 
 @keyframes circle-animation {
-  0%,
-  25% {
+  0%, 25% {
     stroke-dashoffset: 280;
     transform: rotate(0);
   }
-  
-  50%,
-  75% {
+  50%, 75% {
     stroke-dashoffset: 75;
     transform: rotate(45deg);
   }
-  
   100% {
     stroke-dashoffset: 280;
     transform: rotate(360deg);
   }
 }
-
 
 /* display for mobile and tablet */
 
@@ -894,30 +998,34 @@ circle {
     font-size: 14px;
     /* touch-action: none; */
   }
-
   body {
     /* touch-action: none; */
   }
-
-  html,
-  body,
-  #root,
-  .fullheight {
+  html, body, #root, .fullheight {
     height: calc(100% + 72px);
     overflow-y: scroll;
   }
-
-
   .spinner {
     transform: translate(-25%, -25%);
     height: 2rem;
     font-size: 2.1rem;
   }
-
-  .enter-screen button.skip-intro {
+  /* .enter-screen button.skip-intro {
     right: 2rem;
+  } */
+  .enter-screen iframe {
+    height: 85vh;
   }
-
+  .enter-screen .subtitle {
+    font-size: 1.1rem;
+    margin-top: -10px;;
+  }
+  .enter-screen .credit {
+    font-size: 0.7rem;
+  }
+  .enter-screen small {
+    font-size: 0.7rem;
+  }
   .zizi-sidebar {
     right: 0;
     top: auto;
@@ -928,65 +1036,50 @@ circle {
     /* touch-action: none; */
     /* pointer-events: none; */
   }
-
   .zizi-sidebar.closed {
     left: 0;
     bottom: -27.6rem;
   }
-
   .button-sidebar {
     flex-direction: row;
     /* -webkit-transform: translate3d(0,0,0); */
     /* height: 20%; */
     /* height for safari - no idea why */
   }
-
   .button-sidebar .centered-buttons {
     flex-direction: row;
   }
-
   .button-sidebar .centered-buttons .zizi-icon {
     padding: 1rem 20px 1rem 20px;
   }
-
   .close-sidebar-left {
     width: 100%;
     height: 1rem;
     min-height: 1rem;
     max-height: 1rem;
   }
-
   .close-sidebar-left .close-button {
     width: 2rem;
   }
-
   .secondary-header {
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
-
   .main-sidebar {
     width: 100%;
   }
-
   .main-sidebar .main-bar-content {
     flex-shrink: 0;
   }
-
   .main-sidebar .main-bar-content .player-controls {
     padding-top: 1.5rem;
   }
-
   /* removes hairline in safari but not square */
   /* .button-sidebar .close-button {
     height: auto;
   } */
-
   .main-sidebar .divider.hidden {
     margin: 1rem auto auto auto;
-  } 
-
-
-
+  }
   .secondary-sidebar {
     left: 0;
     top: auto;
@@ -998,38 +1091,26 @@ circle {
     /* background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 1) 70%, rgba(46, 1, 15, 1) 100%); */
     backdrop-filter: blur(2px);
   }
-
   .secondary-sidebar.closed {
     bottom: -35rem;
   }
-
   .secondary-sidebar.zizi-picker-bar {
-    background: linear-gradient(
-      0deg,
-      rgba(7, 0, 2, 1) 2%,
-      rgba(46, 1, 15, 0.5) 70%,
-      rgba(46, 1, 15, 0.9) 100%
-    );
+    background: linear-gradient( 0deg, rgba(7, 0, 2, 1) 2%, rgba(46, 1, 15, 0.5) 70%, rgba(46, 1, 15, 0.9) 100%);
     backdrop-filter: none;
   }
-
   .main-sidebar #main-bar-logo-top {
     display: none;
   }
-
   .main-sidebar #main-bar-logo-bottom {
     display: block;
     height: 8rem;
   }
-
   .main-sidebar .main-bar-content div.copyright {
     padding-bottom: 1rem;
   }
-
   .about-page .about {
     padding: 1.5rem;
   }
-
   .about-page p {
     font-size: 1.1rem;
   }
@@ -1044,9 +1125,7 @@ circle {
     height: 12rem;
     /* flex-shrink: 0; */
   }
-
   body .main-sidebar {
     display: block;
   }
 }
-

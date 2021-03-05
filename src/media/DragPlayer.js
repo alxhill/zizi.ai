@@ -125,13 +125,13 @@ class DragPlayer extends React.Component {
       this.outOfSync(this.shadowVideo.current, newTime) ||
       this.outOfSync(this.poseVideo.current, newTime)
     ) {
-      console.log(
-        "UPDATING TIME",
-        this.performerVideo.current.currentTime,
-        this.shadowVideo.current.currentTime,
-        this.poseVideo.current.currentTime,
-        newTime
-      );
+      // console.log(
+      //   "UPDATING TIME",
+      //   this.performerVideo.current.currentTime,
+      //   this.shadowVideo.current.currentTime,
+      //   this.poseVideo.current.currentTime,
+      //   newTime
+      // );
       this.performerVideo.current.currentTime = newTime;
       this.shadowVideo.current.currentTime = newTime;
       this.poseVideo.current.currentTime = newTime;
@@ -165,7 +165,7 @@ class DragPlayer extends React.Component {
 
   performerSrc(props) {
     return `https://s3-eu-west-1.amazonaws.com/zizi.ai/vid/${props.song.id}-${props.performer.id}/playlist.m3u8`;
-    // local
+    // local - need to make symlink to /public/vids
     // return `vids/web/${props.song.id}-${props.performer.id}/high.m3u8`;
   }
 

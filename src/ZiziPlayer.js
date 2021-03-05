@@ -143,12 +143,14 @@ export default class ZiziPlayer extends React.Component {
     this.setState({ zoom: true });
     // eslint-disable-next-line no-undef
     gtag('event', 'zoomIn')
+    console.log('zoom in', this.state.currentTime)
   };
 
   zoomOut = () => {
     this.setState({ zoom: false });
     // eslint-disable-next-line no-undef
     gtag('event', 'zoomOut')
+    console.log('zoom out', this.state.currentTime)
   };
 
   enablePose = () => {
@@ -176,6 +178,7 @@ export default class ZiziPlayer extends React.Component {
     });
     // eslint-disable-next-line no-undef
     gtag('event', 'perf_' + performerName)
+    console.log(performerName, this.state.currentTime)
   };
 
   newPerformer = () => {
@@ -191,6 +194,7 @@ export default class ZiziPlayer extends React.Component {
     });
     // eslint-disable-next-line no-undef
     gtag('event', 'perf_' + 'shuffle')
+    console.log(random, 'qc', this.state.currentTime)
   };
 
   handleKeyDown = (event) => {
