@@ -3,10 +3,10 @@ import {
   Close,
   Return,
 } from "./Buttons";
+import { withRouter } from "react-router-dom";
 
 
-
-export default class About extends React.Component {
+class About extends React.Component {
   constructor(props) {
     super(props);
     this.aboutPageContent = React.createRef()
@@ -304,3 +304,5 @@ export default class About extends React.Component {
     );
   }
 }
+
+export default withRouter(About);

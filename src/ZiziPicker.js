@@ -1,10 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Hls from "hls.js";
 import Performers from "./sidebar/Performers";
 import Songs from "./sidebar/Songs";
 import { sideCurtain, backCurtain } from "./Curtain";
+import { withRouter } from "react-router-dom";
 
-export default class ZiziPicker extends React.Component {
+class ZiziPicker extends React.Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +32,6 @@ export default class ZiziPicker extends React.Component {
 
     this.startvideo = React.createRef();
     this.loopvideo = React.createRef();
-    this.endvideo = React.createRef();
     this.audioloop = React.createRef();
   }
 
@@ -86,22 +94,12 @@ export default class ZiziPicker extends React.Component {
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
-          onEnded={this.showEnd}
           preload="metadata"
           loop={true}
           ref={this.loopvideo}
           playsInline={true}>
           <source src={this.state.src + "-loop/playlist.m3u8"} />
         </video>
-        {/* <video
-          className={"host-video " + this.state.endVisibility + " fade"}
-          onEnded={this.enterPlayer}
-          preload="metadata"
-          loop={false}
-          ref={this.endvideo}
-          playsInline={true}>
-          <source src={this.state.src + "-end/playlist.m3u8"} />
-        </video> */}
         <audio
           className="sound-loop"
           autoPlay={true}
@@ -173,46 +171,18 @@ export default class ZiziPicker extends React.Component {
   };
 
   setSong = (song) => {
-    this.props.switchToPlayer(this.state.chosenPerformer, song);
-
-    // incase of 404/freeze
-    // setTimeout(
-    //   () => this.props.switchToPlayer(this.state.chosenPerformer, song),
-    //   4000);
-
-    console.log('song_' + song);
-    console.log('perf_' + this.state.chosenPerformer);
+    this.props.history.push(this.props.generateZiziUrl(this.state.chosenPerformer, song));
+    console.log('switching to song + performer:', song, this.state.chosenPerformer);
     // eslint-disable-next-line no-undef
     gtag('event', 'song_' + song)
     // eslint-disable-next-line no-undef
     gtag('event', 'perf_' + this.state.chosenPerformer + '_init')
-
-    // ~~~~ GO to walk off first ~~~~
-    // this.setState({
-    //   chosenSong: song,
-    // });
-    // this.showEnd();
-  };
-
-  enterPlayer = () => {
-    this.props.switchToPlayer(this.state.chosenPerformer, this.state.chosenSong);
   };
 
   showLoop = () => {
     // this.setState({ startVisibility: 'hidden' });
     this.setState({ loopVisibility: 'visible', endVisibility: 'hidden' });
     this.loopvideo.current.play();
-  };
-
-  showEnd = () => {
-    // this.setState({ startVisibility: 'hidden fade' });
-    // this.setState({ loopVisibility: 'hidden fade' });
-    this.setState({ startVisibility: 'hidden fade', loopVisibility: 'hidden fade', endVisibility: 'visible', sidebarVisible: 'closed' });
-
-    // BUG - need error handler in case doesnt play?
-    this.endvideo.current.play();
-    this.loopvideo.current.pause();
-    this.startvideo.current.pause();
   };
 
   handleHls(video) {
@@ -227,3 +197,5 @@ export default class ZiziPicker extends React.Component {
   }
 }
 
+
+export default withRouter(ZiziPicker);

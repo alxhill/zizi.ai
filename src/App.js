@@ -5,7 +5,8 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 import About from "./About";
-
+import { BrowserRouter as Router, Switch, Route, generatePath } from "react-router-dom";
+import SongPlayer from "./media/SongPlayer";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,57 +17,43 @@ export default class App extends React.Component {
       chosenPerformer: "amalgam",
       source: "enter",
       fullscreen: false,
-      };
+    };
   }
 
   render() {
-    switch (this.state.mode) {
-      case "intro":
-        return <IntroScreen onEnter={this.onEnter} />;
-      default:
-      case "zizi":
-        return (
-          <div className="zizi">
-            <ZiziPlayer
-              song={this.state.chosenSong}
-              startingPerformer={this.state.chosenPerformer}
+    return (
+      <Router>
+        <Switch>
+          <Route path="/picker/:source">
+            <ZiziPicker
               showData={ShowData}
-              switchToPicker={this.switchToPicker}
+              generateZiziUrl={this.generateZiziUrl}
               switchToAbout={this.switchToAbout}
+              source={this.state.source}
             />
-          </div>
-        );
-      case "picker":
-        return (
-          <ZiziPicker
-            showData={ShowData}
-            switchToPlayer={this.switchToPlayer}
-            switchToAbout={this.switchToAbout}
-            source={this.state.source}
-          />
-        );
-      case "about":
-        return <About onBack={this.restorePlayer} />;
-    }
+          </Route>
+          <Route path="/zizi">
+            <div className="zizi">
+              <ZiziPlayer
+                generateZiziUrl={this.generateZiziUrl}
+                showData={ShowData}
+                switchToAbout={this.switchToAbout}
+              />
+            </div>
+          </Route>
+          <Route path="/about">
+            <About onBack={this.restorePlayer} />
+          </Route>
+          <Route path="/">
+            <IntroScreen onEnter={this.onEnter}/>
+          </Route>
+        </Switch>
+      </Router>
+    );
   }
 
-  onEnter = () => {
-    this.setState({ mode: "picker", source: "enter" });
-  };
-
-  switchToPlayer = (performer, song) => {
-    this.setState({
-      mode: "zizi",
-      chosenPerformer: performer,
-      chosenSong: song,
-    });
-  };
-
   switchToPicker = () => {
-    this.setState({
-      mode: "picker",
-      source: "song-end",
-    });
+    this.props.history.push("/picker/song-end")
   };
 
   switchToAbout = (returnToPerformer, returnToSong) => {
@@ -85,14 +72,23 @@ export default class App extends React.Component {
     }
   };
 
+  generateZiziUrl(performer, song) {
+    return generatePath("/zizi?performer=:performer&song=:song", {
+      performer: performer,
+      song: song
+    });
+  }
+
   fullscreenEnter = () => {
     var elem = document.documentElement;
     this.setState({ fullscreen: true });
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
+    } else if (elem.webkitRequestFullscreen) {
+      /* Safari × Unhandled Rejection (NotAllowedError) ... user denied permission. */
       elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
+    } else if (elem.msRequestFullscreen) {
+      /* IE11 */
       elem.msRequestFullscreen();
     }
   };
@@ -101,21 +97,26 @@ export default class App extends React.Component {
     this.setState({ fullscreen: false });
     if (document.exitFullscreen) {
       document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
+    } else if (document.webkitExitFullscreen) {
+      /* Safari */
       document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
+    } else if (document.msExitFullscreen) {
+      /* IE11 */
       document.msExitFullscreen();
     }
   };
 }
 
-window.addEventListener('orientationchange', function() {
-  if (window.orientation === 0 || window.orientation === 180) {
+window.addEventListener(
+  "orientationchange",
+  function () {
+    if (window.orientation === 0 || window.orientation === 180) {
       // Reset scroll position if in portrait mode.
       // window.scrollTo({ top: 0 });
       // this.bar.current.scrollTo({ top: 30 });
-      console.log("portrait")
-  }
-}, false);
+      console.log("portrait");
+    }
+  },
+  false
+);
 // https://stackoverflow.com/questions/7759879/page-shifts-to-the-left-when-rotating-ipad-from-landscape-to-portrait
-

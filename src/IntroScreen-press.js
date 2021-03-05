@@ -42,7 +42,7 @@ export default class IntroScreen extends React.Component {
         modestbranding: 1,
       },
     };
-
+    
     let vidId;
     if (this.state.width > this.state.height) {
       // Landscape

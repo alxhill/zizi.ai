@@ -3,6 +3,7 @@ import DragPlayer from "./media/DragPlayer";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
 import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
+import { withRouter } from "react-router-dom";
 
 class YoutubeTimerDelegate {
   shiftTime(shift) {
@@ -16,16 +17,17 @@ class YoutubeTimerDelegate {
   }
 }
 
-export default class ZiziPlayer extends React.Component {
+class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
+    let searchParams = new URLSearchParams(this.props.location.search)
     this.state = {
       isLoaded: false,
       playing: false,
       zoom: false,
       currentTime: 0,
-      song: this.props.showData.songs[this.props.song],
-      performer: this.props.showData.performers[this.props.startingPerformer],
+      song: this.props.showData.songs[searchParams.get("song")],
+      performer: this.props.showData.performers[searchParams.get("performer")],
       ziziVideoLoaded: true,
     };
 
@@ -170,6 +172,7 @@ export default class ZiziPlayer extends React.Component {
       song: this.props.showData.songs[songName],
       // start: this.props.showData.youtube.startTime[0.0]
     });
+    this.props.history.push(this.props.generateZiziUrl(this.state.performer.id, songName))
   };
 
   changePerformer = (performerName) => {
@@ -179,21 +182,20 @@ export default class ZiziPlayer extends React.Component {
     // eslint-disable-next-line no-undef
     gtag('event', 'perf_' + performerName)
     console.log(performerName, this.state.currentTime)
+    this.props.history.push(this.props.generateZiziUrl(performerName, this.state.song.id))
   };
 
   newPerformer = () => {
     var keys = Object.keys(this.props.showData.performers);
     var random = keys[(keys.length * Math.random()) << 0];
     // avoid edge case of randomising to the current performer
-    while (random === this.state.performer) {
+    while (random === this.state.performer.id) {
       random = keys[(keys.length * Math.random()) << 0];
     }
-    this.setState({
-      performer: this.props.showData.performers[random],
-      ziziVideoLoaded: false,
-    });
+    this.setState({ziziVideoLoaded: false, performer: this.props.showData.performers[random]});
+    this.props.history.push(this.props.generateZiziUrl(random, this.state.song.id))
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + 'shuffle')
+    gtag('event', 'perf_shuffle')
     console.log(random, 'qc', this.state.currentTime)
   };
 
@@ -241,3 +243,5 @@ export default class ZiziPlayer extends React.Component {
     this.setState({ currentTime: this.state.currentTime + shift });
   };
 }
+
+export default withRouter(ZiziPlayer);
