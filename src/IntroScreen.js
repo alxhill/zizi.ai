@@ -139,7 +139,6 @@ class IntroScreen extends React.Component {
 
   enter = (event) => {
     this.setState({ animate: true });
-    // this.setState({ entered: true });
     setTimeout(
       () => this.setState({ entered: true }),
       1000);

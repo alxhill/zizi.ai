@@ -170,7 +170,6 @@ class ZiziPlayer extends React.Component {
   changeSong = (songName) => {
     this.setState({
       song: this.props.showData.songs[songName],
-      // start: this.props.showData.youtube.startTime[0.0]
     });
     this.props.history.push(this.props.generateZiziUrl(this.state.performer.id, songName))
   };
@@ -186,17 +185,17 @@ class ZiziPlayer extends React.Component {
   };
 
   newPerformer = () => {
-    var keys = Object.keys(this.props.showData.performers);
-    var random = keys[(keys.length * Math.random()) << 0];
+    let keys = Object.keys(this.props.showData.performers);
+    var randomPerformer = keys[(keys.length * Math.random()) << 0];
     // avoid edge case of randomising to the current performer
-    while (random === this.state.performer.id) {
-      random = keys[(keys.length * Math.random()) << 0];
+    while (randomPerformer === this.state.performer.id) {
+      randomPerformer = keys[(keys.length * Math.random()) << 0];
     }
-    this.setState({ziziVideoLoaded: false, performer: this.props.showData.performers[random]});
-    this.props.history.push(this.props.generateZiziUrl(random, this.state.song.id))
+    this.setState({ziziVideoLoaded: false, performer: this.props.showData.performers[randomPerformer]});
+    this.props.history.push(this.props.generateZiziUrl(randomPerformer, this.state.song.id))
     // eslint-disable-next-line no-undef
     gtag('event', 'perf_shuffle')
-    console.log(random, 'qc', this.state.currentTime)
+    console.log(randomPerformer, 'qc', this.state.currentTime)
   };
 
   switchToPicker = () => {

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Hls from "hls.js";
 import Performers from "./sidebar/Performers";
 import Songs from "./sidebar/Songs";
@@ -7,13 +6,6 @@ import { sideCurtain, backCurtain } from "./Curtain";
 import { withRouter } from "react-router-dom";
 
 class ZiziPicker extends React.Component {
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  };
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -38,13 +30,6 @@ class ZiziPicker extends React.Component {
   componentDidMount() {
     this.handleHls(this.startvideo.current);
     this.handleHls(this.loopvideo.current);
-    // this.handleHls(this.endvideo.current);
-    // setTimeout(
-    //   () => this.handleHls(this.loopvideo.current),
-    //   1500);
-    // setTimeout(
-    //   () => this.handleHls(this.endvideo.current),
-    //   1000);
     document.addEventListener("visibilitychange", this.onVisibilityChange, false);
   }
 
@@ -180,7 +165,6 @@ class ZiziPicker extends React.Component {
   };
 
   showLoop = () => {
-    // this.setState({ startVisibility: 'hidden' });
     this.setState({ loopVisibility: 'visible', endVisibility: 'hidden' });
     this.loopvideo.current.play();
   };

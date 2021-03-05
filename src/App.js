@@ -28,7 +28,6 @@ export default class App extends React.Component {
             <ZiziPicker
               showData={ShowData}
               generateZiziUrl={this.generateZiziUrl}
-              switchToAbout={this.switchToAbout}
             />
           </Route>
           <Route path="/zizi">
@@ -43,32 +42,12 @@ export default class App extends React.Component {
             <About />
           </Route>
           <Route path="/">
-            <IntroScreen onEnter={this.onEnter}/>
+            <IntroScreen />
           </Route>
         </Switch>
       </Router>
     );
   }
-
-  switchToPicker = () => {
-    this.props.history.push("/picker/song-end")
-  };
-
-  switchToAbout = (returnToPerformer, returnToSong) => {
-    this.setState({
-      mode: "about",
-      chosenPerformer: returnToPerformer,
-      chosenSong: returnToSong,
-    });
-  };
-
-  restorePlayer = () => {
-    if (this.state.chosenPerformer == null || this.state.chosenSong == null) {
-      this.setState({ mode: "picker" });
-    } else {
-      this.setState({ mode: "zizi" });
-    }
-  };
 
   generateZiziUrl(performer, song) {
     return generatePath("/zizi?performer=:performer&song=:song", {
