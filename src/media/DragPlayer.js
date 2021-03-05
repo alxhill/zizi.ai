@@ -122,24 +122,25 @@ class DragPlayer extends React.Component {
   sync(newTime) {
     if (
       this.outOfSync(this.performerVideo.current, newTime) ||
-      this.outOfSync(this.shadowVideo.current, newTime) ||
-      this.outOfSync(this.poseVideo.current, newTime)
-    ) {
-      // console.log(
-      //   "UPDATING TIME",
-      //   this.performerVideo.current.currentTime,
-      //   this.shadowVideo.current.currentTime,
-      //   this.poseVideo.current.currentTime,
-      //   newTime
-      // );
+      this.outOfSync(this.shadowVideo.current, newTime)) {
+      console.log(
+        "UPDATING TIME",
+        this.performerVideo.current.currentTime,
+        this.shadowVideo.current.currentTime,
+        newTime
+      );
       this.performerVideo.current.currentTime = newTime;
       this.shadowVideo.current.currentTime = newTime;
+    }
+
+    if (this.outOfSync(this.poseVideo.current, newTime)) {
+      console.log("UPDATING POSE TIME", this.poseVideo.current.currentTime, newTime);
       this.poseVideo.current.currentTime = newTime;
     }
   }
 
   outOfSync(video, newTime) {
-    return Math.abs(newTime - video.currentTime) > 0.2;
+    return Math.abs(newTime - video.currentTime) > 0.4;
   }
 
   reload(video) {
