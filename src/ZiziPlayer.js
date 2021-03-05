@@ -2,7 +2,7 @@ import React from "react";
 import DragPlayer from "./media/DragPlayer";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
-import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
+// import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
 import { withRouter } from "react-router-dom";
 
 class YoutubeTimerDelegate {
@@ -20,7 +20,7 @@ class YoutubeTimerDelegate {
 class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
-    let searchParams = new URLSearchParams(this.props.location.search)
+    let searchParams = new URLSearchParams(this.props.location.search);
     this.state = {
       isLoaded: false,
       playing: false,
@@ -36,20 +36,24 @@ class ZiziPlayer extends React.Component {
 
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown);
-    document.addEventListener("visibilitychange", this.onVisibilityChange, false);
+    document.addEventListener(
+      "visibilitychange",
+      this.onVisibilityChange,
+      false
+    );
   }
 
   componentWillUnmount() {
-    document.removeEventListener("visibilitychange", this.onVisibilityChange)
+    document.removeEventListener("visibilitychange", this.onVisibilityChange);
   }
 
   onVisibilityChange = () => {
-    console.log("visibilitychange", document.hidden, this)
+    console.log("visibilitychange", document.hidden, this);
     if (document.hidden) {
       this.pause();
       console.log("INACTIVE - SONG");
     }
-  }
+  };
 
   render() {
     return (
@@ -116,8 +120,8 @@ class ZiziPlayer extends React.Component {
   }
 
   songReady = () => {
-    this.setState({ isLoaded: true, playing: true })
-  }
+    this.setState({ isLoaded: true, playing: true });
+  };
 
   youtubeReady = () => {
     this.setState({ isLoaded: true, playing: true });
@@ -144,15 +148,15 @@ class ZiziPlayer extends React.Component {
   zoomIn = () => {
     this.setState({ zoom: true });
     // eslint-disable-next-line no-undef
-    gtag('event', 'zoomIn')
-    console.log('zoom in', this.state.currentTime)
+    gtag("event", "zoomIn");
+    console.log("zoom in", this.state.currentTime);
   };
 
   zoomOut = () => {
     this.setState({ zoom: false });
     // eslint-disable-next-line no-undef
-    gtag('event', 'zoomOut')
-    console.log('zoom out', this.state.currentTime)
+    gtag("event", "zoomOut");
+    console.log("zoom out", this.state.currentTime);
   };
 
   enablePose = () => {
@@ -171,7 +175,9 @@ class ZiziPlayer extends React.Component {
     this.setState({
       song: this.props.showData.songs[songName],
     });
-    this.props.history.push(this.props.generateZiziUrl(this.state.performer.id, songName))
+    this.props.history.push(
+      this.props.generateZiziUrl(this.state.performer.id, songName)
+    );
   };
 
   changePerformer = (performerName) => {
@@ -179,9 +185,11 @@ class ZiziPlayer extends React.Component {
       performer: this.props.showData.performers[performerName],
     });
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + performerName)
-    console.log(performerName, this.state.currentTime)
-    this.props.history.push(this.props.generateZiziUrl(performerName, this.state.song.id))
+    gtag("event", "perf_" + performerName);
+    console.log(performerName, this.state.currentTime);
+    this.props.history.push(
+      this.props.generateZiziUrl(performerName, this.state.song.id)
+    );
   };
 
   newPerformer = () => {
@@ -191,20 +199,25 @@ class ZiziPlayer extends React.Component {
     while (randomPerformer === this.state.performer.id) {
       randomPerformer = keys[(keys.length * Math.random()) << 0];
     }
-    this.setState({ziziVideoLoaded: false, performer: this.props.showData.performers[randomPerformer]});
-    this.props.history.push(this.props.generateZiziUrl(randomPerformer, this.state.song.id))
+    this.setState({
+      ziziVideoLoaded: false,
+      performer: this.props.showData.performers[randomPerformer],
+    });
+    this.props.history.push(
+      this.props.generateZiziUrl(randomPerformer, this.state.song.id)
+    );
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_shuffle')
-    console.log(randomPerformer, 'qc', this.state.currentTime)
+    gtag("event", "perf_shuffle");
+    console.log(randomPerformer, "qc", this.state.currentTime);
   };
 
   switchToPicker = () => {
     this.props.history.push("/picker/song-end");
-  }
+  };
 
   switchToAbout = () => {
     this.props.history.push("/about");
-  }
+  };
 
   handleKeyDown = (event) => {
     switch (event.keyCode) {
@@ -218,11 +231,11 @@ class ZiziPlayer extends React.Component {
         break;
       case 37:
         // Arrow left or right - skip
-        this.shiftTime(-10)
+        this.shiftTime(-10);
         break;
       case 39:
         // Arrow left or right - skip
-        this.shiftTime(10)
+        this.shiftTime(10);
         break;
       case 32:
         // space - pause/play
@@ -235,9 +248,9 @@ class ZiziPlayer extends React.Component {
       case 13:
         // enter - zoom in
         if (this.state.zoom) {
-          this.zoomOut()
+          this.zoomOut();
         } else {
-          this.zoomIn()
+          this.zoomIn();
         }
         break;
       default:

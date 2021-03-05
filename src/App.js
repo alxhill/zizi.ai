@@ -5,8 +5,12 @@ import ShowData from "./ShowData";
 import IntroScreen from "./IntroScreen";
 import ZiziPicker from "./ZiziPicker";
 import About from "./About";
-import { BrowserRouter as Router, Switch, Route, generatePath } from "react-router-dom";
-import SongPlayer from "./media/SongPlayer";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  generatePath,
+} from "react-router-dom";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -52,7 +56,7 @@ export default class App extends React.Component {
   generateZiziUrl(performer, song) {
     return generatePath("/zizi?performer=:performer&song=:song", {
       performer: performer,
-      song: song
+      song: song,
     });
   }
 
