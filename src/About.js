@@ -137,7 +137,7 @@ export default class About extends React.Component {
                 <b>Sarah Bennett</b> - Researcher
           </li>
             </ul>
-            <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")} at {this.externalLink("https://www.eif.co.uk/whats-on/2020/the-new-real", "Edinburgh International Festival")}.</p>
+            <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")} at {this.externalLink("https://www.eif.co.uk/", "Edinburgh International Festival")}.</p>
           </small>
           <hr />
           <i ref={this.intro}>

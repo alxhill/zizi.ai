@@ -778,8 +778,8 @@ button.inline-link:hover, button.inline-link:focus {
 .about-page {
   color: #ee9c92;
   font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman", Times, serif;
-  line-height: 32px;
-  font-size: 18px;
+  line-height: 1.5rem;
+  /* font-size: 18px; */
   margin: 0px;
   left: 0;
   top: 0;
@@ -795,6 +795,7 @@ button.inline-link:hover, button.inline-link:focus {
 
 .about-page h2 {
   margin-top: 4rem;
+  line-height: 2rem;
 }
 
 .about-page p {
@@ -1112,7 +1113,7 @@ circle {
     padding: 1.5rem;
   }
   .about-page p {
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
   }
   .about-page .anchors {
     padding: 0.5rem;
