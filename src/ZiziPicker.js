@@ -23,7 +23,7 @@ class ZiziPicker extends React.Component {
       },
       chosenPerformer: null,
       chosenSong: null,
-      src: this.getSrc(this.props.source),
+      src: this.getSrc(this.props.match.params.source),
       startVisibility: 'visible',
       loopVisibility: 'hidden',
       endVisibility: 'hidden',
@@ -148,7 +148,7 @@ class ZiziPicker extends React.Component {
 
 
   showAbout = () => {
-    this.props.switchToAbout(null, null);
+    this.props.history.push("/about")
   };
 
   showAboutView = (performer) => {

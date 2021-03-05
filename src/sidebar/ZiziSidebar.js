@@ -17,7 +17,6 @@ import {
 } from "../Buttons";
 import Performers from "./Performers";
 import Songs from "./Songs";
-import { Link } from "react-router-dom";
 
 export default class ZiziSidebar extends React.Component {
   constructor(props) {
@@ -76,7 +75,7 @@ export default class ZiziSidebar extends React.Component {
           {zoomInOut}
           {loadPerformer}
           <ShowPerformers onClick={this.showPerformers} />
-          <Link to="/picker/song-end"><SkipToNextTrack /></Link>
+          <SkipToNextTrack onClick={this.props.switchToPicker} />
         </div>
         <div className="dummy-spacing-div" />
       </div>

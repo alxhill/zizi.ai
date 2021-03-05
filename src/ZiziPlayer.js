@@ -88,7 +88,7 @@ class ZiziPlayer extends React.Component {
           changeSong={this.changeSong}
           changePerformer={this.changePerformer}
           newPerformer={this.newPerformer}
-          switchToPicker={this.props.switchToPicker}
+          switchToPicker={this.switchToPicker}
           switchToAbout={this.props.switchToAbout}
           ziziVideoLoaded={this.state.ziziVideoLoaded}
         />
@@ -99,7 +99,7 @@ class ZiziPlayer extends React.Component {
           playing={this.state.playing}
           currentTime={this.state.currentTime}
           zoom={this.state.zoom}
-          onEnded={this.props.switchToPicker}
+          onEnded={this.switchToPicker}
           onVideoLoaded={this.onVideoLoaded}
           play={this.play}
         />
@@ -198,6 +198,10 @@ class ZiziPlayer extends React.Component {
     gtag('event', 'perf_shuffle')
     console.log(random, 'qc', this.state.currentTime)
   };
+
+  switchToPicker = () => {
+    this.props.history.push("/picker/song-end");
+  }
 
   handleKeyDown = (event) => {
     switch (event.keyCode) {
