@@ -3,10 +3,10 @@ import {
   Close,
   Return,
 } from "./Buttons";
+import { Link, withRouter } from "react-router-dom";
 
 
-
-export default class About extends React.Component {
+class About extends React.Component {
   constructor(props) {
     super(props);
     this.aboutPageContent = React.createRef()
@@ -59,7 +59,7 @@ export default class About extends React.Component {
   render() {
     return (
       <div className="about-page">
-        <Close className="close" onClick={this.props.onBack} />
+        <Link to="/picker/song-end"><Close className="close" onClick={this.props.onBack} /></Link>
 
         <img
           src="img/curtain-side-full.png"
@@ -304,3 +304,5 @@ export default class About extends React.Component {
     );
   }
 }
+
+export default withRouter(About);

@@ -910,7 +910,7 @@ button.inline-link:hover, button.inline-link:focus {
   flex: 1 0; */
   -webkit-flex-shrink: 0;
   -moz-flex-shrink: 0;
-  -ms-flex: 0;
+  -ms-flex-shrink: 0;
   flex-shrink: 0;
 }
 

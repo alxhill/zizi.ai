@@ -1,9 +1,10 @@
-import { Portrait, SkipNextRounded } from "@material-ui/icons";
+import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
 import { sideCurtain } from "./Curtain";
 import YouTube from "react-youtube";
+import { Link, withRouter } from "react-router-dom";
 
-export default class IntroScreen extends React.Component {
+class IntroScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,13 +57,15 @@ export default class IntroScreen extends React.Component {
       return (
         <div className="enter-screen">
 
-          <YouTube className="zizi-intro-video" videoId={vidId} opts={playerOpts} onReady={this._onReady} onEnd={this.props.onEnter} onError={this.props.onEnter} />
+          <YouTube className="zizi-intro-video" videoId={vidId} opts={playerOpts} onReady={this._onReady} onEnd={this.onVideoEnd} onError={this.onVideoEnd} />
 
           <div className="controls">
-            <button className="skip-intro" onClick={this.props.onEnter}>
-              Skip
-              <SkipNextRounded fontSize="inherit" />
-            </button>
+            <Link to="/picker/enter">
+                <button className="skip-intro">
+                Skip
+                <SkipNextRounded fontSize="inherit" />
+              </button>
+            </Link>
           </div>
         </div >
       );
@@ -88,7 +91,7 @@ export default class IntroScreen extends React.Component {
         <form className="intro-text" onSubmit={this.attemptLogin}>
 
 
-          <p>
+          <span>
             <p className="subtitle"><i>A deepfake drag cabaret</i></p>
 
               <p className="credit">Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
@@ -106,7 +109,7 @@ export default class IntroScreen extends React.Component {
             </p>
 
             </small>
-          </p>
+          </span>
 
 
         </form>
@@ -136,7 +139,6 @@ export default class IntroScreen extends React.Component {
 
   enter = (event) => {
     this.setState({ animate: true });
-    // this.setState({ entered: true });
     setTimeout(
       () => this.setState({ entered: true }),
       1000);
@@ -160,4 +162,10 @@ export default class IntroScreen extends React.Component {
   _onReady(event) {
     event.target.playVideo();
   }
+
+  onVideoEnd = (event) => {
+    this.props.history.push("/picker/enter")
+  }
 }
+
+export default withRouter(IntroScreen);

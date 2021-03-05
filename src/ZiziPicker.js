@@ -3,8 +3,9 @@ import Hls from "hls.js";
 import Performers from "./sidebar/Performers";
 import Songs from "./sidebar/Songs";
 import { sideCurtain, backCurtain } from "./Curtain";
+import { withRouter } from "react-router-dom";
 
-export default class ZiziPicker extends React.Component {
+class ZiziPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,46 +15,42 @@ export default class ZiziPicker extends React.Component {
       },
       chosenPerformer: null,
       chosenSong: null,
-      src: this.getSrc(this.props.source),
-      startVisibility: 'visible',
-      loopVisibility: 'hidden',
-      endVisibility: 'hidden',
-      sidebarVisible: 'open',
+      src: this.getSrc(this.props.match.params.source),
+      startVisibility: "visible",
+      loopVisibility: "hidden",
+      endVisibility: "hidden",
+      sidebarVisible: "open",
     };
 
     this.startvideo = React.createRef();
     this.loopvideo = React.createRef();
-    this.endvideo = React.createRef();
     this.audioloop = React.createRef();
   }
 
   componentDidMount() {
     this.handleHls(this.startvideo.current);
     this.handleHls(this.loopvideo.current);
-    // this.handleHls(this.endvideo.current);
-    // setTimeout(
-    //   () => this.handleHls(this.loopvideo.current),
-    //   1500);
-    // setTimeout(
-    //   () => this.handleHls(this.endvideo.current),
-    //   1000);
-    document.addEventListener("visibilitychange", this.onVisibilityChange, false);
+    document.addEventListener(
+      "visibilitychange",
+      this.onVisibilityChange,
+      false
+    );
   }
 
   componentWillUnmount() {
-    document.removeEventListener("visibilitychange", this.onVisibilityChange)
+    document.removeEventListener("visibilitychange", this.onVisibilityChange);
   }
 
   onVisibilityChange = () => {
-    console.log("visibilitychange", this.audioloop, document.hidden, this)
+    console.log("visibilitychange", this.audioloop, document.hidden, this);
     if (document.hidden) {
       this.audioloop.current.pause();
       console.log("INACTIVE - HOST");
     } else {
-      this.audioloop.current.play()
+      this.audioloop.current.play();
       console.log("RESUME - HOST");
     }
-  }
+  };
 
   getSrc(source) {
     let num = Math.floor(Math.random() * 3) + 1;
@@ -81,27 +78,19 @@ export default class ZiziPicker extends React.Component {
           onEnded={this.showLoop}
           autoPlay={true}
           ref={this.startvideo}
-          playsInline={true}>
+          playsInline={true}
+        >
           <source src={this.state.src + "-start/playlist.m3u8"} />
         </video>
         <video
           className={"host-video " + this.state.loopVisibility}
-          onEnded={this.showEnd}
           preload="metadata"
           loop={true}
           ref={this.loopvideo}
-          playsInline={true}>
+          playsInline={true}
+        >
           <source src={this.state.src + "-loop/playlist.m3u8"} />
         </video>
-        {/* <video
-          className={"host-video " + this.state.endVisibility + " fade"}
-          onEnded={this.enterPlayer}
-          preload="metadata"
-          loop={false}
-          ref={this.endvideo}
-          playsInline={true}>
-          <source src={this.state.src + "-end/playlist.m3u8"} />
-        </video> */}
         <audio
           className="sound-loop"
           autoPlay={true}
@@ -110,7 +99,11 @@ export default class ZiziPicker extends React.Component {
           controls={false}
           src="bgloop.mp3"
         ></audio>
-        <div className={"secondary-sidebar zizi-picker-bar " + this.state.sidebarVisible}>
+        <div
+          className={
+            "secondary-sidebar zizi-picker-bar " + this.state.sidebarVisible
+          }
+        >
           <div className="close-sidebar-left"></div>
           <div className="content-sidebar">
             {this.renderContent(this.state.mode)}
@@ -148,9 +141,8 @@ export default class ZiziPicker extends React.Component {
     }
   }
 
-
   showAbout = () => {
-    this.props.switchToAbout(null, null);
+    this.props.history.push("/about");
   };
 
   showAboutView = (performer) => {
@@ -173,46 +165,23 @@ export default class ZiziPicker extends React.Component {
   };
 
   setSong = (song) => {
-    this.props.switchToPlayer(this.state.chosenPerformer, song);
-
-    // incase of 404/freeze
-    // setTimeout(
-    //   () => this.props.switchToPlayer(this.state.chosenPerformer, song),
-    //   4000);
-
-    console.log('song_' + song);
-    console.log('perf_' + this.state.chosenPerformer);
+    this.props.history.push(
+      this.props.generateZiziUrl(this.state.chosenPerformer, song)
+    );
+    console.log(
+      "switching to song + performer:",
+      song,
+      this.state.chosenPerformer
+    );
     // eslint-disable-next-line no-undef
-    gtag('event', 'song_' + song)
+    gtag("event", "song_" + song);
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + this.state.chosenPerformer + '_init')
-
-    // ~~~~ GO to walk off first ~~~~
-    // this.setState({
-    //   chosenSong: song,
-    // });
-    // this.showEnd();
-  };
-
-  enterPlayer = () => {
-    this.props.switchToPlayer(this.state.chosenPerformer, this.state.chosenSong);
+    gtag("event", "perf_" + this.state.chosenPerformer + "_init");
   };
 
   showLoop = () => {
-    // this.setState({ startVisibility: 'hidden' });
-    this.setState({ loopVisibility: 'visible', endVisibility: 'hidden' });
+    this.setState({ loopVisibility: "visible", endVisibility: "hidden" });
     this.loopvideo.current.play();
-  };
-
-  showEnd = () => {
-    // this.setState({ startVisibility: 'hidden fade' });
-    // this.setState({ loopVisibility: 'hidden fade' });
-    this.setState({ startVisibility: 'hidden fade', loopVisibility: 'hidden fade', endVisibility: 'visible', sidebarVisible: 'closed' });
-
-    // BUG - need error handler in case doesnt play?
-    this.endvideo.current.play();
-    this.loopvideo.current.pause();
-    this.startvideo.current.pause();
   };
 
   handleHls(video) {
@@ -227,3 +196,4 @@ export default class ZiziPicker extends React.Component {
   }
 }
 
+export default withRouter(ZiziPicker);

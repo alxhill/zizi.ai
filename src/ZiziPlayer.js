@@ -2,7 +2,8 @@ import React from "react";
 import DragPlayer from "./media/DragPlayer";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
-import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
+// import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
+import { withRouter } from "react-router-dom";
 
 class YoutubeTimerDelegate {
   shiftTime(shift) {
@@ -16,16 +17,17 @@ class YoutubeTimerDelegate {
   }
 }
 
-export default class ZiziPlayer extends React.Component {
+class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
+    let searchParams = new URLSearchParams(this.props.location.search);
     this.state = {
       isLoaded: false,
       playing: false,
       zoom: false,
       currentTime: 0,
-      song: this.props.showData.songs[this.props.song],
-      performer: this.props.showData.performers[this.props.startingPerformer],
+      song: this.props.showData.songs[searchParams.get("song")],
+      performer: this.props.showData.performers[searchParams.get("performer")],
       ziziVideoLoaded: true,
     };
 
@@ -34,20 +36,24 @@ export default class ZiziPlayer extends React.Component {
 
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown);
-    document.addEventListener("visibilitychange", this.onVisibilityChange, false);
+    document.addEventListener(
+      "visibilitychange",
+      this.onVisibilityChange,
+      false
+    );
   }
 
   componentWillUnmount() {
-    document.removeEventListener("visibilitychange", this.onVisibilityChange)
+    document.removeEventListener("visibilitychange", this.onVisibilityChange);
   }
 
   onVisibilityChange = () => {
-    console.log("visibilitychange", document.hidden, this)
+    console.log("visibilitychange", document.hidden, this);
     if (document.hidden) {
       this.pause();
       console.log("INACTIVE - SONG");
     }
-  }
+  };
 
   render() {
     return (
@@ -86,8 +92,8 @@ export default class ZiziPlayer extends React.Component {
           changeSong={this.changeSong}
           changePerformer={this.changePerformer}
           newPerformer={this.newPerformer}
-          switchToPicker={this.props.switchToPicker}
-          switchToAbout={this.props.switchToAbout}
+          switchToPicker={this.switchToPicker}
+          switchToAbout={this.switchToAbout}
           ziziVideoLoaded={this.state.ziziVideoLoaded}
         />
         <DragPlayer
@@ -97,7 +103,7 @@ export default class ZiziPlayer extends React.Component {
           playing={this.state.playing}
           currentTime={this.state.currentTime}
           zoom={this.state.zoom}
-          onEnded={this.props.switchToPicker}
+          onEnded={this.switchToPicker}
           onVideoLoaded={this.onVideoLoaded}
           play={this.play}
         />
@@ -114,8 +120,8 @@ export default class ZiziPlayer extends React.Component {
   }
 
   songReady = () => {
-    this.setState({ isLoaded: true, playing: true })
-  }
+    this.setState({ isLoaded: true, playing: true });
+  };
 
   youtubeReady = () => {
     this.setState({ isLoaded: true, playing: true });
@@ -142,15 +148,15 @@ export default class ZiziPlayer extends React.Component {
   zoomIn = () => {
     this.setState({ zoom: true });
     // eslint-disable-next-line no-undef
-    gtag('event', 'zoomIn')
-    console.log('zoom in', this.state.currentTime)
+    gtag("event", "zoomIn");
+    console.log("zoom in", this.state.currentTime);
   };
 
   zoomOut = () => {
     this.setState({ zoom: false });
     // eslint-disable-next-line no-undef
-    gtag('event', 'zoomOut')
-    console.log('zoom out', this.state.currentTime)
+    gtag("event", "zoomOut");
+    console.log("zoom out", this.state.currentTime);
   };
 
   enablePose = () => {
@@ -168,8 +174,10 @@ export default class ZiziPlayer extends React.Component {
   changeSong = (songName) => {
     this.setState({
       song: this.props.showData.songs[songName],
-      // start: this.props.showData.youtube.startTime[0.0]
     });
+    this.props.history.push(
+      this.props.generateZiziUrl(this.state.performer.id, songName)
+    );
   };
 
   changePerformer = (performerName) => {
@@ -177,24 +185,38 @@ export default class ZiziPlayer extends React.Component {
       performer: this.props.showData.performers[performerName],
     });
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + performerName)
-    console.log(performerName, this.state.currentTime)
+    gtag("event", "perf_" + performerName);
+    console.log(performerName, this.state.currentTime);
+    this.props.history.push(
+      this.props.generateZiziUrl(performerName, this.state.song.id)
+    );
   };
 
   newPerformer = () => {
-    var keys = Object.keys(this.props.showData.performers);
-    var random = keys[(keys.length * Math.random()) << 0];
+    let keys = Object.keys(this.props.showData.performers);
+    var randomPerformer = keys[(keys.length * Math.random()) << 0];
     // avoid edge case of randomising to the current performer
-    while (random === this.state.performer) {
-      random = keys[(keys.length * Math.random()) << 0];
+    while (randomPerformer === this.state.performer.id) {
+      randomPerformer = keys[(keys.length * Math.random()) << 0];
     }
     this.setState({
-      performer: this.props.showData.performers[random],
       ziziVideoLoaded: false,
+      performer: this.props.showData.performers[randomPerformer],
     });
+    this.props.history.push(
+      this.props.generateZiziUrl(randomPerformer, this.state.song.id)
+    );
     // eslint-disable-next-line no-undef
-    gtag('event', 'perf_' + 'shuffle')
-    console.log(random, 'qc', this.state.currentTime)
+    gtag("event", "perf_shuffle");
+    console.log(randomPerformer, "qc", this.state.currentTime);
+  };
+
+  switchToPicker = () => {
+    this.props.history.push("/picker/song-end");
+  };
+
+  switchToAbout = () => {
+    this.props.history.push("/about");
   };
 
   handleKeyDown = (event) => {
@@ -209,11 +231,11 @@ export default class ZiziPlayer extends React.Component {
         break;
       case 37:
         // Arrow left or right - skip
-        this.shiftTime(-10)
+        this.shiftTime(-10);
         break;
       case 39:
         // Arrow left or right - skip
-        this.shiftTime(10)
+        this.shiftTime(10);
         break;
       case 32:
         // space - pause/play
@@ -226,9 +248,9 @@ export default class ZiziPlayer extends React.Component {
       case 13:
         // enter - zoom in
         if (this.state.zoom) {
-          this.zoomOut()
+          this.zoomOut();
         } else {
-          this.zoomIn()
+          this.zoomIn();
         }
         break;
       default:
@@ -241,3 +263,5 @@ export default class ZiziPlayer extends React.Component {
     this.setState({ currentTime: this.state.currentTime + shift });
   };
 }
+
+export default withRouter(ZiziPlayer);

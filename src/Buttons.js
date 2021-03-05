@@ -14,7 +14,6 @@ import {
   FullscreenRounded,
   FullscreenExitRounded,
   KeyboardReturnRounded,
-  HdrWeakRounded,
 } from "@material-ui/icons";
 
 function Play(props) {

@@ -1,4 +1,4 @@
-import { Portrait, SkipNextRounded } from "@material-ui/icons";
+import { SkipNextRounded } from "@material-ui/icons";
 import React from "react";
 import { sideCurtain } from "./Curtain";
 import YouTube from "react-youtube";
