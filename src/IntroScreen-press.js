@@ -102,7 +102,7 @@ export default class IntroScreen extends React.Component {
             <small><p>Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
                 in Collaboration with 13 of the UK's top drag artists
                 <br />
-                The Zizi Show 2021 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
+                The Zizi Show 2020 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
               </p>
               </small>
           </p>

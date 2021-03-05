@@ -96,7 +96,7 @@ export default class IntroScreen extends React.Component {
                 </p>
                 <small>
               <p>
-              The Zizi Show 2021 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
+              The Zizi Show 2020 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
               </p>
 
               <p>

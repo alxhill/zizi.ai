@@ -367,6 +367,7 @@ button.inline-link:hover, button.inline-link:focus {
 .enter-screen .black-overlay {
   height: 100vh;
   width: 100vw;
+  padding: 20px;
   top: -20px;
   position: fixed;
   background-color: #000;

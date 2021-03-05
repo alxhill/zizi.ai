@@ -109,7 +109,7 @@ export default class About extends React.Component {
               <b>{this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}</b> - Artist, Coder &amp; Producer
           </li>
             <li>
-              <b>{this.externalLink("https://www.instagram.com/methedragqueen", "Me")}</b> - Performance &amp; Casting Director
+              <b>{this.externalLink("https://www.instagram.com/methedragqueen", "Me")}</b> - Director of Drag
           </li>
             <li>
               <b>{this.externalLink("https://alxhill.com/", "Alexander Hill")}</b> - Web &amp; Development
