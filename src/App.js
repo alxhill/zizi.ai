@@ -29,7 +29,6 @@ export default class App extends React.Component {
               showData={ShowData}
               generateZiziUrl={this.generateZiziUrl}
               switchToAbout={this.switchToAbout}
-              source={this.state.source}
             />
           </Route>
           <Route path="/zizi">
@@ -37,12 +36,11 @@ export default class App extends React.Component {
               <ZiziPlayer
                 generateZiziUrl={this.generateZiziUrl}
                 showData={ShowData}
-                switchToAbout={this.switchToAbout}
               />
             </div>
           </Route>
           <Route path="/about">
-            <About onBack={this.restorePlayer} />
+            <About />
           </Route>
           <Route path="/">
             <IntroScreen onEnter={this.onEnter}/>

@@ -89,7 +89,7 @@ class ZiziPlayer extends React.Component {
           changePerformer={this.changePerformer}
           newPerformer={this.newPerformer}
           switchToPicker={this.switchToPicker}
-          switchToAbout={this.props.switchToAbout}
+          switchToAbout={this.switchToAbout}
           ziziVideoLoaded={this.state.ziziVideoLoaded}
         />
         <DragPlayer
@@ -201,6 +201,10 @@ class ZiziPlayer extends React.Component {
 
   switchToPicker = () => {
     this.props.history.push("/picker/song-end");
+  }
+
+  switchToAbout = () => {
+    this.props.history.push("/about");
   }
 
   handleKeyDown = (event) => {

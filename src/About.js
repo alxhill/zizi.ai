@@ -3,7 +3,7 @@ import {
   Close,
   Return,
 } from "./Buttons";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 
 class About extends React.Component {
@@ -59,7 +59,7 @@ class About extends React.Component {
   render() {
     return (
       <div className="about-page">
-        <Close className="close" onClick={this.props.onBack} />
+        <Link to="/picker/song-end"><Close className="close" onClick={this.props.onBack} /></Link>
 
         <img
           src="img/curtain-side-full.png"

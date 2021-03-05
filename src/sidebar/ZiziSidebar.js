@@ -303,7 +303,7 @@ export default class ZiziSidebar extends React.Component {
   };
 
   showAbout = () => {
-    this.props.switchToAbout(this.props.performer.id, this.props.song.id);
+    this.props.switchToAbout();
   };
 
   showAboutView = (performer) => {
