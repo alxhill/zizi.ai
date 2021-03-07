@@ -28,13 +28,13 @@ export default class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path="/picker/:source">
+          <Route path="/private/picker/:source">
             <ZiziPicker
               showData={ShowData}
               generateZiziUrl={this.generateZiziUrl}
             />
           </Route>
-          <Route path="/zizi">
+          <Route path="/private/zizi">
             <div className="zizi">
               <ZiziPlayer
                 generateZiziUrl={this.generateZiziUrl}
@@ -42,7 +42,7 @@ export default class App extends React.Component {
               />
             </div>
           </Route>
-          <Route path="/about">
+          <Route path="/private/about">
             <About />
           </Route>
           <Route path="/">
@@ -54,7 +54,7 @@ export default class App extends React.Component {
   }
 
   generateZiziUrl(performer, song) {
-    return generatePath("/zizi?performer=:performer&song=:song", {
+    return generatePath("/private/zizi?performer=:performer&song=:song", {
       performer: performer,
       song: song,
     });
