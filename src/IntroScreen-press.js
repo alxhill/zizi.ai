@@ -40,7 +40,7 @@ export default class IntroScreen extends React.Component {
         showinfo: 0,
         fs: 1,
         modestbranding: 1,
-      },
+      },m
     };
     
     let vidId;

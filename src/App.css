@@ -1144,4 +1144,7 @@ circle {
   body .main-sidebar {
     display: block;
   }
+  .enter-screen .info {
+    display: none;
+  }
 }

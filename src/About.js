@@ -239,6 +239,11 @@ class About extends React.Component {
           </small>
             <Return onClick={() => this.scrollto(this.rfn5)} />
           </p>
+          <p>
+            <small className="footnote" >
+              Further reading: {this.externalLink("https://www.ajl.org/library/home", "Algorithmic Justice League Resources")}, {this.externalLink("https://aiartists.org/ai-ethics", "AI Artists - Ethical AI Resources")}, {this.externalLink("https://newreal.cc/magazine", "New Real Magazine")},
+          </small>
+          </p>
 
           <hr />
           <h2 ref={this.aboutArtist}>About the Artist</h2>

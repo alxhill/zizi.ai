@@ -104,15 +104,16 @@ class IntroScreen extends React.Component {
         </form>
 
         <small className="info">
-              <p>
-              The Zizi Show 2020 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
-              </p>
-
-              <p>
+                        <p>
                 Requires a fast internet connection <br />
                 Not optimised for android devices <br />
                 Copyright © Jake Elwes 2020
             </p>
+              <p>
+              The Zizi Show 2020 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
+              </p>
+
+
 
         </small>
 
