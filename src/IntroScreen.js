@@ -95,9 +95,15 @@ class IntroScreen extends React.Component {
             <p className="subtitle"><i>A deepfake drag cabaret</i></p>
 
               <p className="credit">Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
-                in Collaboration  <br />with 13 of the UK's top drag artists
+                with 13 of the UK's top drag artists.
                 </p>
-                <small>
+                <p className="credit">
+                  For best performance use Chrome on desktop.
+                </p>
+                </span>
+        </form>
+
+        <small className="info">
               <p>
               The Zizi Show 2020 is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}
               </p>
@@ -108,11 +114,8 @@ class IntroScreen extends React.Component {
                 Copyright © Jake Elwes 2020
             </p>
 
-            </small>
-          </span>
+        </small>
 
-
-        </form>
       </div >
     );
   }

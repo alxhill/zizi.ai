@@ -245,7 +245,7 @@ button.inline-link:hover, button.inline-link:focus {
   text-align: center;
 }
 
-.enter-screen .intro-text p {
+.enter-screen p {
   /* margin: 0px; */
   color: #ee9c92;
   padding: none;
@@ -255,29 +255,39 @@ button.inline-link:hover, button.inline-link:focus {
 
 .enter-screen .subtitle {
   font-size: 1.7rem;
-  margin-bottom: 20px;
-  margin-top: 0px;
-}
-
-.enter-screen .subtitle2 {
-  font-size: 1.1rem;
-  margin-top: -20px;
+  /* margin-bottom: 20px; */
+  margin-top: -1rem;
 }
 
 .enter-screen .credit {
-  margin-bottom: 50px;
+  margin-top: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.enter-screen .info {
+  position: fixed;
+  font-size: 0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rem;
+  text-align: center;
+  color: #ee9c92;
+}
+
+.enter-screen .padd {
+  margin-bottom: 30px;
 }
 
 .enter-screen small {
   font-family: "Roboto Slab", charter, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-.enter-screen .intro-text a {
+.enter-screen a {
   text-decoration: none;
   color: #fdcfc6;
 }
 
-.enter-screen .intro-text a:hover {
+.enter-screen  a:hover {
   text-decoration: none;
   color: #fdf1f1;
 }
@@ -1022,11 +1032,16 @@ circle {
     margin-top: -10px;;
   }
   .enter-screen .credit {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .enter-screen small {
     font-size: 0.7rem;
   }
+
+  .enter-screen .info {
+    font-size: 0.6rem;
+  }
+  
   .zizi-sidebar {
     right: 0;
     top: auto;
