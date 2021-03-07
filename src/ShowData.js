@@ -1,36 +1,36 @@
 import React from "react";
 
 let songs = {
-  // fiveyears: {
-  //   id: "fiveyears",
-  //   name: "Five Years",
-  //   artist: "David Bowie",
-  //   performer: "ruby",
-  //   youtube: {
-  //     id: "IWm03wYBTbM",
-  //     startTime: 0.0,
-  //   },
-  // },
-  // iam: {
-  //   id: "iam",
-  //   name: "I Am What I Am",
-  //   artist: "La Cage aux Folles",
-  //   performer: "me",
-  //   youtube: {
-  //     id: "aB5JLA7A7No",
-  //     startTime: 0.0,
-  //   },
-  // },
-  // glass: {
-  //   id: "glass",
-  //   name: "Raise Your Glass",
-  //   artist: "P!nk",
-  //   performer: "lilly",
-  //   youtube: {
-  //     id: "XjVNlG5cZyQ",
-  //     startTime: 0.0,
-  //   },
-  // },
+  fiveyears: {
+    id: "fiveyears",
+    name: "Five Years",
+    artist: "David Bowie",
+    performer: "ruby",
+    youtube: {
+      id: "IWm03wYBTbM",
+      startTime: 0.0,
+    },
+  },
+  iam: {
+    id: "iam",
+    name: "I Am What I Am",
+    artist: "La Cage aux Folles",
+    performer: "me",
+    youtube: {
+      id: "aB5JLA7A7No",
+      startTime: 0.0,
+    },
+  },
+  glass: {
+    id: "glass",
+    name: "Raise Your Glass",
+    artist: "P!nk",
+    performer: "lilly",
+    youtube: {
+      id: "XjVNlG5cZyQ",
+      startTime: 0.0,
+    },
+  },
   mylife: {
     id: "mylife",
     name: "This Is My Life",
@@ -71,17 +71,16 @@ let songs = {
       startTime: 0.0,
     },
   },
-
-  // sweetdreams: {
-  //   id: "sweetdreams",
-  //   name: "Sweet Dreams (Live)",
-  //   artist: "Beyonce",
-  //   performer: "cara",
-  //   youtube: {
-  //     id: "y0xL3RH3JOo",
-  //     startTime: 0.0,
-  //   },
-  // },
+  sweetdreams: {
+    id: "sweetdreams",
+    name: "Sweet Dreams (Live)",
+    artist: "Beyonce",
+    performer: "cara",
+    youtube: {
+      id: "y0xL3RH3JOo",
+      startTime: 0.0,
+    },
+  },
 };
 
 let performers = {
