@@ -92,13 +92,11 @@ class IntroScreen extends React.Component {
 
 
           <span>
-            <p className="subtitle"><i>A deepfake drag cabaret</i></p>
-
               <p className="credit">Created by {this.externalLink("https://www.jakeelwes.com/", "Jake Elwes")}{' '}
                 with 13 of the UK's top drag artists.
                 </p>
                 <p className="credit">
-                  For best performance use Chrome on desktop.
+                  <i>For best performance use Chrome on desktop.</i>
                 </p>
                 </span>
         </form>
