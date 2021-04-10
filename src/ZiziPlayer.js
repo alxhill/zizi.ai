@@ -21,10 +21,11 @@ class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
     let searchParams = new URLSearchParams(this.props.location.search);
+    let zoomRandom = Math.random() > 0.5 ? true : false;  
     this.state = {
       isLoaded: false,
       playing: false,
-      zoom: false,
+      zoom: zoomRandom,
       currentTime: 0,
       song: this.props.showData.songs[searchParams.get("song")],
       performer: this.props.showData.performers[searchParams.get("performer")],
