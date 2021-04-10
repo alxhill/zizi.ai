@@ -137,7 +137,9 @@ class About extends React.Component {
                 <b>Sarah Bennett</b> - Researcher
           </li>
             </ul>
-            <p>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")} at {this.externalLink("https://www.eif.co.uk/", "Edinburgh International Festival")}.</p>
+            <p style={{ textAlign: "center", marginTop: "3rem" }}>Special thanks to {this.externalLink("https://www.scottishtecharmy.org/", "The Scottish Tech Army")} for their support.</p>
+            <p style={{ textAlign: "center" }}>The Zizi Show is part of {this.externalLink("https://newreal.cc/", "The New Real")} by {this.externalLink("https://efi.ed.ac.uk/activity-and-partners/experiential-ai", "Edinburgh Futures Institute")}<br />
+            and presented by {this.externalLink("https://www.eif.co.uk/", "Edinburgh International Festival")}.</p>
           </small>
           <hr />
           <i ref={this.intro}>
