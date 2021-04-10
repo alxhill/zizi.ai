@@ -110,6 +110,13 @@ html, body, #root, .fullheight {
   /* transition: opacity 1s; */
 }
 
+.resume .spinner {
+  height: 12rem;
+  width: 12rem;
+  margin-left: 2rem;
+  opacity: 20%;
+}
+
 .fade-in {
   animation: fadeIn 6s;
   -webkit-animation: fadeIn 6s;
@@ -1016,11 +1023,12 @@ circle {
     height: calc(100% + 72px);
     overflow-y: scroll;
   }
-  .spinner {
+  .zizi-sidebar .spinner {
     transform: translate(-25%, -25%);
     height: 2rem;
     font-size: 2.1rem;
   }
+
   /* .enter-screen button.skip-intro {
     right: 2rem;
   } */
