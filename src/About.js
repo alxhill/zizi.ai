@@ -100,8 +100,21 @@ class About extends React.Component {
             <li>
               {this.scrollLink(this.other, "The Zizi Project: Other Works")}
             </li>
+            <br/>
+            <li>
+            {this.externalLink("https://www.newreal.cc/feedback-form-the-zizi-show", "Give Feeback")}
+            </li>
           </ul>
 
+          <hr />
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/3c5-ABUkI_M"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
           <hr />
           <h2 ref={this.team}>Team</h2>
           <ul>
