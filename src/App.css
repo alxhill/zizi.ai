@@ -619,7 +619,7 @@ button.inline-link:hover, button.inline-link:focus {
   opacity: 0.6;
   top: 0px;
   right: 0px;
-  height: 100px;
+  height: 50px;
 }
 
 .secondary-sidebar {
