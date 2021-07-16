@@ -1,41 +1,45 @@
 import React from "react";
 
 let songs = {
-  // fiveyears: {
-  //   id: "fiveyears",
-  //   name: "Five Years",
-  //   artist: "David Bowie",
-  //   performer: "ruby",
-  //   youtube: {
-  //     id: "IWm03wYBTbM",
-  //     startTime: 0.0,
-  //   },
-  // },
-  // iam: {
-  //   id: "iam",
-  //   name: "I Am What I Am",
-  //   artist: "La Cage aux Folles",
-  //   performer: "me",
-  //   youtube: {
-  //     id: "aB5JLA7A7No",
-  //     startTime: 0.0,
-  //   },
-  // },
-  // glass: {
-  //   id: "glass",
-  //   name: "Raise Your Glass",
-  //   artist: "P!nk",
-  //   performer: "lilly",
-  //   youtube: {
-  //     id: "XjVNlG5cZyQ",
-  //     startTime: 0.0,
-  //   },
-  // },
+  fiveyears: {
+    id: "fiveyears",
+    name: "Five Years",
+    artist: "David Bowie",
+    performer: "ruby",
+    type: "youtube",
+    youtube: {
+      id: "IWm03wYBTbM",
+      startTime: 0.0,
+    },
+  },
+  iam: {
+    id: "iam",
+    name: "I Am What I Am",
+    artist: "La Cage aux Folles",
+    performer: "me",
+    type: "youtube",
+    youtube: {
+      id: "aB5JLA7A7No",
+      startTime: 0.0,
+    },
+  },
+  glass: {
+    id: "glass",
+    name: "Raise Your Glass",
+    artist: "P!nk",
+    performer: "lilly",
+    type: "youtube",
+    youtube: {
+      id: "XjVNlG5cZyQ",
+      startTime: 0.0,
+    },
+  },
   mylife: {
     id: "mylife",
     name: "This Is My Life",
     artist: "Shirley Bassey",
     performer: "me",
+    type: "mp3",
     youtube: {
       id: "9NyxQYPk1RY",
       startTime: 0.0,
@@ -46,6 +50,7 @@ let songs = {
     name: "Nancy Boy",
     artist: "Placebo",
     performer: "ruby",
+    type: "mp3",
     youtube: {
       id: "PBxuq_eWW94",
       startTime: 0.0,
@@ -56,6 +61,7 @@ let songs = {
     name: "You Make Me Feel",
     artist: "Sylvester",
     performer: "chiyo",
+    type: "mp3",
     youtube: {
       id: "Ifr13Upytb4",
       startTime: 0.0,
@@ -66,22 +72,23 @@ let songs = {
     name: "Freedom! ’90",
     artist: "George Michael",
     performer: "mark",
+    type: "mp3",
     youtube: {
       id: "0-zqlgyUkd0",
       startTime: 0.0,
     },
   },
-
-  // sweetdreams: {
-  //   id: "sweetdreams",
-  //   name: "Sweet Dreams (Live)",
-  //   artist: "Beyonce",
-  //   performer: "cara",
-  //   youtube: {
-  //     id: "y0xL3RH3JOo",
-  //     startTime: 0.0,
-  //   },
-  // },
+  sweetdreams: {
+    id: "sweetdreams",
+    name: "Sweet Dreams (Live)",
+    artist: "Beyonce",
+    performer: "cara",
+    type: "youtube",
+    youtube: {
+      id: "y0xL3RH3JOo",
+      startTime: 0.0,
+    },
+  },
 };
 
 let performers = {

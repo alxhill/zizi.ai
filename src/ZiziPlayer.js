@@ -2,7 +2,7 @@ import React from "react";
 import DragPlayer from "./media/DragPlayer";
 import ZiziSidebar from "./sidebar/ZiziSidebar";
 import SongPlayer from "./media/SongPlayer";
-// import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
+import HiddenYoutubePlayer from "./media/HiddenYoutubePlayer";
 import { withRouter } from "react-router-dom";
 
 class YoutubeTimerDelegate {
@@ -21,7 +21,7 @@ class ZiziPlayer extends React.Component {
   constructor(props) {
     super(props);
     let searchParams = new URLSearchParams(this.props.location.search);
-    let zoomRandom = Math.random() > 0.5 ? true : false;  
+    let zoomRandom = Math.random() > 0.5 ? true : false;
     this.state = {
       isLoaded: false,
       playing: false,
@@ -57,25 +57,29 @@ class ZiziPlayer extends React.Component {
   };
 
   render() {
+    // console.log(this.state.song.type);
+    let songplayer = (this.state.song.type == "youtube") ? (
+      <HiddenYoutubePlayer
+      song={this.state.song}
+      onReady={this.youtubeReady}
+      playing={this.state.playing}
+      hideTimer={true}
+      adjustedTimerEvent={this.onTimerEvent}
+      timerDelegate={this.timerDelegate}
+    /> 
+    ) : (
+      <SongPlayer
+        song={this.state.song}
+        onReady={this.songReady}
+        playing={this.state.playing}
+        adjustedTimerEvent={this.onTimerEvent}
+        timerDelegate={this.timerDelegate}
+        pause={this.pause}
+      />
+    );
     return (
       <div>
-        <SongPlayer
-          song={this.state.song}
-          onReady={this.songReady}
-          playing={this.state.playing}
-          adjustedTimerEvent={this.onTimerEvent}
-          timerDelegate={this.timerDelegate}
-          pause={this.pause}
-        />
-        {/* Can switch between now
-        <HiddenYoutubePlayer
-          song={this.state.song}
-          onReady={this.youtubeReady}
-          playing={this.state.playing}
-          hideTimer={true}
-          adjustedTimerEvent={this.onTimerEvent}
-          timerDelegate={this.timerDelegate}
-        /> */}
+        {songplayer}
         <ZiziSidebar
           showData={this.props.showData}
           song={this.state.song}

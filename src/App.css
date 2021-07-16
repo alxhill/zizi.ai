@@ -613,8 +613,8 @@ button.inline-link:hover, button.inline-link:focus {
   position: fixed;
   touch-action: none;
   user-select: none;
-  opacity: 50%;
-  bottom: 0px;
+  opacity: 60%;
+  top: 0px;
   right: 0px;
 }
 
