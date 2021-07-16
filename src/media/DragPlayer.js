@@ -27,7 +27,12 @@ class DragPlayer extends React.Component {
     let primaryVisibility = this.state.pose ? "hidden" : "visible";
     let resumeVisible = this.props.playing ? "" : "visible";
 
+    // youtube play bug
     let initialiseResume = this.props.currentTime > 0.5 ? <Play onClick={this.props.play} /> : <Loading onClick={this.props.play} />;
+
+    if (this.props.type=="youtube"){
+      initialiseResume = <Play onClick={this.props.play} />;
+    } 
 
     return (
       <div>

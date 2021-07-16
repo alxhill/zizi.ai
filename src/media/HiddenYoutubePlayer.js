@@ -21,12 +21,12 @@ export default class HiddenYoutubePlayer extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // console.log("youtube" + prevProps.playing);
     if (prevProps.playing && !this.props.playing) {
       this.pause();
     } else if (!prevProps.playing && this.props.playing) {
       this.play();
     }
-
     window.yt = this.player
   }
 
@@ -38,6 +38,7 @@ export default class HiddenYoutubePlayer extends React.Component {
       playsinline: "1",
       playerVars: { autoplay: 0, autohide: 0, playsinline: 1, start: 0, controls: 1 },
     };
+
 
     return (
       <div>
@@ -60,6 +61,7 @@ export default class HiddenYoutubePlayer extends React.Component {
     this.player = event.target;
     this.player.seekTo(this.props.song.youtube.startTime)
     this.player.pauseVideo()
+    this.notStarting();
     this.props.onReady();
     this.props.timerDelegate.onTimeChanged((shift) => {
       this.player.seekTo(this.player.getCurrentTime() + shift)
@@ -83,11 +85,24 @@ export default class HiddenYoutubePlayer extends React.Component {
     clearInterval(this.timerIntervalID);
   }
 
+  notStarting() {
+    if (this.player.getPlayerState() == 1) {
+      console.log(this.player.getPlayerState());
+      return true
+    } else {
+      console.log(this.player.getPlayerState());
+      this.player.pauseVideo();
+      this.props.pause();
+      return false
+    }
+  }
+
   updateTimer = () => {
     let { startTime } = this.props.song.youtube;
     let playerTime = this.player.getCurrentTime();
 
     this.setState({ timer: playerTime.toFixed(2) });
     this.props.adjustedTimerEvent(playerTime-startTime);
+    this.notStarting();
   }
 }

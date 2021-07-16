@@ -355,6 +355,7 @@ button.inline-link:hover, button.inline-link:focus {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  margin-bottom: -80vh;
 }
 
 
@@ -368,11 +369,13 @@ button.inline-link:hover, button.inline-link:focus {
     height: 100%;
     top: 50%;
     filter: blur(0px);
+    margin-bottom: -50vh;
   }
   100% {
     height: 500%;
     top: 22%;
     filter: blur(20px);
+    margin-bottom: -50vh;
   }
 }
 
@@ -613,9 +616,10 @@ button.inline-link:hover, button.inline-link:focus {
   position: fixed;
   touch-action: none;
   user-select: none;
-  opacity: 60%;
+  opacity: 0.6;
   top: 0px;
   right: 0px;
+  height: 100px;
 }
 
 .secondary-sidebar {
@@ -1062,7 +1066,7 @@ circle {
   }
   .zizi-sidebar.closed {
     left: 0;
-    bottom: -27.6rem;
+    bottom: -28rem;
   }
   .button-sidebar {
     flex-direction: row;

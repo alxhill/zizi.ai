@@ -66,6 +66,7 @@ class ZiziPlayer extends React.Component {
       hideTimer={true}
       adjustedTimerEvent={this.onTimerEvent}
       timerDelegate={this.timerDelegate}
+      pause={this.pause}
     /> 
     ) : (
       <SongPlayer
@@ -111,6 +112,7 @@ class ZiziPlayer extends React.Component {
           onEnded={this.switchToPicker}
           onVideoLoaded={this.onVideoLoaded}
           play={this.play}
+          type={this.state.song.type}
         />
         <audio
           className="sound-loop"
