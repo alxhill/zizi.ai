@@ -46,10 +46,10 @@ export default class IntroScreen extends React.Component {
     let vidId;
     if (this.state.width > this.state.height) {
       // Landscape
-      vidId = "Tzbm-cedKls"
+      vidId = "Tlhe3BTdG7A"
     } else {
       // Portrait
-      vidId = "sn9w8ECVT1k"
+      vidId = "H9lw_XwP3M8"
     }
 
     if (this.state.entered) {
