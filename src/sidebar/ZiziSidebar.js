@@ -176,11 +176,6 @@ export default class ZiziSidebar extends React.Component {
                 newreal.cc
               </a>
               </div>
-              <div>
-              <a className="inline-link" href="https://www.newreal.cc/feedback-form-the-zizi-show">
-                GIVE FEEDBACK
-              </a>
-            </div>
             <div>
               {/* <a className="inline-link" href="https://instagram.com/zizidrag">
                       Instagram
