@@ -62,7 +62,7 @@ class IntroScreen extends React.Component {
           <div className="controls">
             <Link to="/picker/enter">
                 <button className="skip-intro">
-                Skip
+                Skip Intro 
                 <SkipNextRounded fontSize="inherit" />
               </button>
             </Link>

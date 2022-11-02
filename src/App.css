@@ -846,10 +846,10 @@ button.inline-link:hover, button.inline-link:focus {
 }
 
 .about-page .banner {
-  display: block;
-  margin-left: -120px;
+  display: fixed;
+  margin-left: -20%;
   margin-top: 0;
-  width: calc(100% + 240px);
+  width:140%;
   mix-blend-mode: lighten;
 }
 

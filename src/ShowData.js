@@ -6,7 +6,7 @@ let songs = {
     name: "Five Years",
     artist: "David Bowie",
     performer: "ruby",
-    type: "youtube",
+    type: "mp3",
     youtube: {
       id: "IWm03wYBTbM",
       startTime: 0.0,
@@ -17,7 +17,7 @@ let songs = {
     name: "I Am What I Am",
     artist: "La Cage aux Folles",
     performer: "me",
-    type: "youtube",
+    type: "mp3",
     youtube: {
       id: "aB5JLA7A7No",
       startTime: 0.0,
@@ -28,7 +28,7 @@ let songs = {
     name: "Raise Your Glass",
     artist: "P!nk",
     performer: "lilly",
-    type: "youtube",
+    type: "mp3",
     youtube: {
       id: "XjVNlG5cZyQ",
       startTime: 0.0,
@@ -83,7 +83,7 @@ let songs = {
     name: "Sweet Dreams (Live)",
     artist: "Beyonce",
     performer: "cara",
-    type: "youtube",
+    type: "mp3",
     youtube: {
       id: "y0xL3RH3JOo",
       startTime: 0.0,

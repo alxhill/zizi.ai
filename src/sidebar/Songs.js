@@ -21,7 +21,7 @@ export default class Songs extends React.PureComponent {
 
   renderSong(song) {
     let youtubetag = (song.type=="youtube") ? (
-      <small><small>- powered by YouTube -</small></small>
+      <small><small></small></small>
     ) : (
       <div>{undefined}</div>
     );
