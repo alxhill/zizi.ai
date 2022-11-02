@@ -118,7 +118,7 @@ class About extends React.Component {
             src="https://www.youtube.com/embed/3c5-ABUkI_M?modestbranding=1&autohide=1&showinfo=0"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/3c5-ABUkI_M?autoplay=1><img src=https://img.youtube.com/vi/3c5-ABUkI_M/hqdefault.jpg><span>▶</span></a>"
+            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/3c5-ABUkI_M?autoplay=1><img src='img/About/thumb1.jpg'><span>▶</span></a>"
             allowFullScreen
 
           ></iframe>
@@ -129,7 +129,7 @@ class About extends React.Component {
             src="https://www.youtube.com/embed/xFvUJxhIakw"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/xFvUJxhIakw?autoplay=1><img src=https://img.youtube.com/vi/xFvUJxhIakw/hqdefault.jpg><span>▶</span></a>"
+            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/xFvUJxhIakw?autoplay=1><img src='img/About/thumb2.jpg'><span>▶</span></a>"
             allowFullScreen
           ></iframe>
           <p style={{ textAlign: "center"}}>- Jake Elwes and Me the Drag Queen answer 10 questions about The Zizi Project -</p>
